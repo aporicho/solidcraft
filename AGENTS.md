@@ -2,6 +2,10 @@
 
 SolidCraft is a clean-room, pure-Rust parametric 3D CAD app (sketch solver, feature timeline, B-rep kernel, an egui UI that agents drive). This file is a router: the hard rules, then the skill to read for your task. Humans: CONTRIBUTING.md.
 
+## This fork's incremental workflow
+
+This is aporicho's enhancement fork. For small UI and enhancement changes, run focused tests and relevant lightweight checks instead of the upstream full-CI-before-every-commit rule below. Reserve full CI for releases and substantial core changes. Preserve the user's running desktop session when updating the installed executable. Keep enhancement changes on `enhancements` and maintain the source increment package under `enhancements/`.
+
 ## Start here
 Work: ROADMAP.md, "Where help is wanted most" in CONTRIBUTING.md, issues labelled `help wanted`, `good first issue`, `needs-triage`; architecture in `docs/architecture.md`. Act when the code, docs and rules settle a question; ask only when it changes what users see. Local `plan/` notes are optional.
 

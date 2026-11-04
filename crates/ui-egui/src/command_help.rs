@@ -296,6 +296,7 @@ pub const DOCUMENTED: &[&str] = &[
     "view.list",
     "view.navigate",
     "view.navigation_bar",
+    "view.node_graph",
     "view.rename",
     "view.save",
     "view.spin",

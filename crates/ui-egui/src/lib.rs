@@ -111,6 +111,7 @@ mod look_at_tests;
 mod manage_dialogs_tests;
 mod material_card_review;
 mod material_editor;
+mod node_view;
 
 #[cfg(test)]
 mod measurement_ui_tests;
@@ -553,6 +554,7 @@ pub struct SolveApp {
     pub sketch_report: Option<sketch_report::SketchReport>,
     /// The Bill of Materials window, when open.
     pub bom: Option<bom_panel::BomPanel>,
+    pub(crate) node_view: node_view::State,
     material_card_review: Option<material_card_review::ReviewWindow>,
     /// Context menus, rename box and Properties window.
     pub menu: context_menu::MenuState,
@@ -807,6 +809,7 @@ impl SolveApp {
             design_properties: None,
             sketch_report: None,
             bom: None,
+            node_view: Default::default(),
             material_card_review: None,
             menu: context_menu::MenuState::default(),
             gesture: mouse_gesture::State::default(),
@@ -1351,6 +1354,9 @@ impl SolveApp {
             {
                 self.preferences.render_shots_strip = visible;
             }
+            if id == "view.node_graph" {
+                self.node_view.open = v.get("open").and_then(Value::as_bool).unwrap_or(true);
+            }
             if id == "view.history_layout" {
                 if let Some(width) = v.get("width").and_then(Value::as_f64) {
                     self.preferences.timeline_left_width = ui_kit::history_snap_width(width as f32);
@@ -1558,6 +1564,10 @@ impl SolveApp {
         }
         if id == "ui.palette" {
             shortcut_box::open(self, None);
+            return;
+        }
+        if id == "view.node_graph" {
+            let _ = self.run(id, json!({"open": !self.node_view.open}));
             return;
         }
         timeline::stop_playback(self);
@@ -3129,6 +3139,7 @@ impl SolveApp {
         design_properties::show(self, ui.ctx());
         sketch_report::show(self, ui.ctx());
         bom_panel::show(self, ui.ctx());
+        node_view::show(self, ui.ctx());
         material_card_review::show(self, ui.ctx());
         recovery_ui::show(self, ui.ctx());
         stand_up::show(self, ui.ctx());

@@ -189,3 +189,38 @@ pub struct RenderFrame {
 #[cfg(test)]
 #[path = "view_navigation_tests.rs"]
 mod tests;
+
+/// Display request and a read-only feature dependency graph.
+#[derive(Debug, Deserialize, Serialize, JsonSchema)]
+#[serde(deny_unknown_fields)]
+pub struct NodeGraphRequest {
+    #[serde(default = "node_graph_open")]
+    pub open: bool,
+}
+fn node_graph_open() -> bool {
+    true
+}
+
+#[derive(Clone, Debug, Default, Deserialize, Serialize, JsonSchema)]
+pub struct NodeGraph {
+    pub open: bool,
+    pub nodes: Vec<NodeGraphNode>,
+    pub links: Vec<NodeGraphLink>,
+}
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+pub struct NodeGraphNode {
+    pub id: u64,
+    pub name: String,
+    pub kind: String,
+    pub component: u64,
+    pub suppressed: bool,
+    pub rolled_back: bool,
+    pub error: Option<String>,
+    pub warning: Option<String>,
+    pub parameters: Vec<String>,
+}
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+pub struct NodeGraphLink {
+    pub source: u64,
+    pub target: u64,
+}

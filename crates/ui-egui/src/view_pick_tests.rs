@@ -313,3 +313,22 @@ fn enhanced_selection_buttons_choose_outer_rim_or_hole_loop_and_feed_chamfer() {
             .all(|s| matches!(s,solidcraft_engine::Sel::Edge {point,..} if ((point.x*point.x+point.y*point.y).sqrt()-5.0).abs()<1e-4))
     );
 }
+
+#[test]
+fn node_view_opens_selects_and_edits_the_original_feature() {
+    let mut h = top_view();
+    h.frame();
+    h.app.start("view.node_graph");
+    h.frame();
+    assert!(h.app.node_view.open);
+    let id = h.app.session.doc.features[0].id;
+    let handle = format!("node_graph:node:{id}");
+    assert!(crate::scenario::handle_at(&handle).is_some());
+    h.frames(3);
+    h.step(&json!({"click":{"handle":handle}})).unwrap();
+    assert!(h.app.session.selection.iter().any(|s| matches!(s,solidcraft_engine::Sel::Feature{id: picked} if *picked==id)));
+    h.frames(2);
+    h.step(&json!({"click":{"handle":"node_graph:edit"}})).unwrap();
+    assert!(!h.app.node_view.open);
+    assert!(h.app.dialog.is_some(), "the original box parameter editor opens");
+}

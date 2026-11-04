@@ -1752,3 +1752,40 @@ fn assistant_toggle_is_refused_headlessly_without_changing_the_document() {
     let spec = crate::find_command("ui.assistant").unwrap();
     assert_eq!((spec.shortcut, spec.tab, spec.undoable), (Some("Ctrl+Shift+A"), "", false));
 }
+
+#[test]
+fn node_graph_tracks_real_inputs_and_keeps_independent_solids_separate() {
+    let (mut s, _) = selection_plate();
+    let plate = s.doc.features.last().unwrap().id;
+    let sketch = s.doc.features.first().unwrap().id;
+    run(&mut s, "solid.box", json!({"length":2,"width":3,"height":4,"body_name":"Independent"}));
+    let independent = s.doc.features.last().unwrap().id;
+    run(&mut s, "solid.chamfer", json!({"edges":[{"body":"Plate","index":0}],"distance":0.25}));
+    let chamfer = s.doc.features.last().unwrap().id;
+    let doc = serde_json::to_value(&s.doc).unwrap();
+    let (undo, computed) = (s.undo.len(), s.model.recomputed);
+    let graph = run(&mut s, "view.node_graph", json!({}));
+    let links = graph["links"].as_array().unwrap();
+    let linked = |source, target| links.iter().any(|link| link["source"] == source && link["target"] == target);
+    assert!(linked(sketch, plate), "{graph}");
+    assert!(linked(plate, chamfer), "{graph}");
+    assert!(!links.iter().any(|link| link["source"] == independent || link["target"] == independent), "{graph}");
+    assert_eq!(graph["nodes"].as_array().unwrap().len(), s.doc.features.len());
+    assert_eq!(serde_json::to_value(&s.doc).unwrap(), doc);
+    assert_eq!((s.undo.len(), s.model.recomputed), (undo, computed));
+    assert_eq!(run(&mut s, "view.node_graph", json!({"open":false}))["open"], false);
+    assert!(s.execute("view.node_graph", &json!({"open":"yes"})).is_err());
+    assert!(s.execute("view.node_graph", &json!({"unknown":true})).is_err());
+}
+
+#[test]
+fn node_graph_updates_after_parameter_edit_and_undo() {
+    let mut s = Session::default();
+    run(&mut s, "solid.box", json!({"length":2,"width":3,"height":4}));
+    let id = s.doc.features[0].id;
+    let before = run(&mut s, "view.node_graph", json!({}))["nodes"][0]["parameters"].clone();
+    run(&mut s, "timeline.edit", json!({"feature":id,"set":{"length":"9 mm"}}));
+    assert_ne!(run(&mut s, "view.node_graph", json!({}))["nodes"][0]["parameters"], before);
+    run(&mut s, "edit.undo", json!({}));
+    assert_eq!(run(&mut s, "view.node_graph", json!({}))["nodes"][0]["parameters"], before);
+}

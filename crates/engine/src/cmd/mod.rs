@@ -40,6 +40,7 @@ mod face;
 mod features;
 mod features_more;
 mod join_pieces;
+mod node_graph;
 pub(crate) use construct::{GeoForm, GeoFormError, REF as GEO_REF_FORMS, SKETCH_PART, geo_form, is_model_axis, plane_axis_point_kind};
 pub(crate) use face::{FaceRefForm, face_ref_form};
 pub(crate) use features::profiles as feature_profiles;
@@ -364,6 +365,7 @@ pub fn command_specs() -> Vec<&'static CommandSpec> {
     v.extend(material_properties::COMMANDS.iter());
     v.extend(libraries::COMMANDS.iter());
     v.extend(section::COMMANDS.iter());
+    v.extend(node_graph::COMMANDS.iter());
     v.extend(view_navigation::COMMANDS.iter());
     v.extend(view_dxf::COMMANDS.iter());
     v.extend(settings::COMMANDS.iter());
