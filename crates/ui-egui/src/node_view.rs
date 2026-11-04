@@ -147,7 +147,7 @@ pub(crate) fn show(app: &mut SolveApp, ctx: &egui::Context) {
                     let (canvas, _) = ui.allocate_exact_size(content_size.max(vec2(ui.available_width(), 260.0)), Sense::hover());
                     crate::scenario::publish_rect("node_graph:canvas", canvas);
                     let painter = ui.painter_at(canvas);
-                    painter.rect_filled(canvas, t.control_radius, t.form_fill);
+                    painter.rect_filled(canvas, t.control_radius, t.panel_header);
                     let rects: BTreeMap<_, _> = state
                         .positions
                         .iter()
