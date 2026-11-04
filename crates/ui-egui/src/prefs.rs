@@ -1470,6 +1470,10 @@ preference_settings! {
     /// Modifier that suppresses sketch auto-snap while drawing or dragging a sketch point.
     /// Default: Alt/Option. Set to Ctrl/Cmd for the alternate mapping.
     suppress_sketch_snap: ModifierCombo = ModifierCombo::CTRL_ALT, PAGE_SKETCH;
+    /// Fixed sketch grid spacing in millimetres; zero keeps the original zoom-dependent grid.
+    sketch_grid_step_mm: f64 = 0.0, PAGE_SKETCH, accept(0.0..=10000.0) => number("prefs.sketch_grid_step_mm", 0.0..=10000.0);
+    /// Capture radius for sketch drawing in logical screen pixels.
+    sketch_snap_radius_px: f64 = 7.0, PAGE_SKETCH, accept(2.0..=40.0) => number("prefs.sketch_snap_radius_px", 2.0..=40.0);
     /// Temporary horizontal/vertical guides from hovered centres and edge midpoints.
     sketch_tracking_guides: bool = true, PAGE_SKETCH;
     /// While a drawing tool waits for a point, hovered sketch points (ends, corners, free
@@ -3905,6 +3909,12 @@ fn theme_file(app: &SolveApp, id: &str, system_dark: bool) -> serde_json::Value 
 /// reports rather than spinning the view.
 pub fn migrate(mut p: Prefs) -> Prefs {
     migrate_gruvbox(&mut p);
+    if !accepted::sketch_grid_step_mm(&p) {
+        p.sketch_grid_step_mm = Prefs::default().sketch_grid_step_mm;
+    }
+    if !accepted::sketch_snap_radius_px(&p) {
+        p.sketch_snap_radius_px = Prefs::default().sketch_snap_radius_px;
+    }
     // Every saved file carries the old default limit; it reads as no limit.
     if p.agent_chat_turn_limit == crate::agent_chat::gate::OLD_DEFAULT_TURN_LIMIT {
         p.agent_chat_turn_limit = 0;
@@ -4072,6 +4082,12 @@ fn prepare_preferences(
         return Err("`stand_up_unknown` must be ask, note or off".into());
     }
     let mut new: Prefs = serde_json::from_value(cur).map_err(|e| e.to_string())?;
+    if !accepted::sketch_grid_step_mm(&new) {
+        return Err("`sketch_grid_step_mm` must be 0 (automatic) or a positive value up to 10000 mm".into());
+    }
+    if !accepted::sketch_snap_radius_px(&new) {
+        return Err("`sketch_snap_radius_px` must be 2…40".into());
+    }
     migrate_gruvbox(&mut new);
     if let Some(update) = p.get("theme_options") {
         merge_theme_options(&mut new, followed, update)?;
@@ -5814,6 +5830,8 @@ mod tests {
             ("sketch_tracking_points", json!(false), PAGE_SKETCH),
             ("sketch_align_points", json!(true), PAGE_SKETCH),
             ("sketch_recent_snap", json!(true), PAGE_SKETCH),
+            ("sketch_grid_step_mm", json!(2.0), PAGE_SKETCH),
+            ("sketch_snap_radius_px", json!(18.0), PAGE_SKETCH),
             ("line_hover_tangent_arc", json!(true), PAGE_SKETCH),
             ("ribbon_click_ends_tool", json!(false), PAGE_SKETCH),
             ("msaa", json!(8), PAGE_GRAPHICS),

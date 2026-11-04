@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<title>select_outer_edges</title>
+<path d="M14 10L50 10Q56 10 56 16L56 48Q56 54 50 54L14 54Q8 54 8 48L8 16Q8 10 14 10Z" fill="none" stroke="currentColor" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18 28Q18 24 22 24M26 24Q30 24 30 28M30 36Q30 40 26 40M22 40Q18 40 18 36M36 28Q36 24 40 24M44 24Q48 24 48 28M48 36Q48 40 44 40M40 40Q36 40 36 36" fill="none" stroke="currentColor" stroke-width="2.55" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -274,3 +274,42 @@ fn a_section_pick_skips_edges_and_vertices_in_the_removed_half() {
     let r = pick(&mut h, json!({"pixels": [px([40.0, 5.0, 20.0])]}));
     assert!(r["hits"][0]["edge"].get("index").is_some(), "the kept half's edge must still pick: {}", r["hits"][0]);
 }
+#[test]
+fn enhanced_selection_buttons_choose_outer_rim_or_hole_loop_and_feed_chamfer() {
+    let mut h = crate::scenario::Harness::new();
+    h.app.home.open = false;
+    h.app.preferences.look_at_anim = false;
+    h.call("ui.resize", serde_json::json!({"width":1800,"height":1000}));
+    for (command, params) in [
+        ("sketch.create", serde_json::json!({"plane":"XY"})),
+        ("sketch.rectangle.two_point", serde_json::json!({"p0":[-20,-15],"p1":[20,15]})),
+        ("sketch.circle.center", serde_json::json!({"center":[0,0],"radius":5})),
+        ("sketch.finish", serde_json::json!({})),
+        ("solid.extrude", serde_json::json!({"distance":5,"operation":"new","body_name":"Plate"})),
+        ("select.set", serde_json::json!({"items":[{"type":"face","body":"Plate","point":[15,10,5]}]})),
+    ] {
+        h.app.run(command, params).unwrap();
+    }
+    h.frames(4);
+    h.app.ui.tab = "MODEL".into();
+    h.frames(3);
+    for icon in ["select_loop", "select_outer_edges"] {
+        assert!(!crate::icon_svg::resolve(icon).placeholder, "{icon}");
+    }
+    h.step(&serde_json::json!({"click":{"handle":"toolbar:select.outer_edges"}})).unwrap();
+    assert_eq!(h.app.session.selection.len(), 4);
+    h.app.start("solid.chamfer");
+    assert_eq!(h.app.dialog.as_ref().unwrap().inputs[0].items.len(), 4);
+    h.step(&serde_json::json!({"key":"Escape"})).unwrap();
+    h.app.run("select.set", serde_json::json!({"items":[{"type":"edge","body":"Plate","point":[5,0,5]}]})).unwrap();
+    h.frames(3);
+    h.step(&serde_json::json!({"click":{"handle":"toolbar:select.loop"}})).unwrap();
+    assert!(!h.app.session.selection.is_empty());
+    assert!(
+        h.app
+            .session
+            .selection
+            .iter()
+            .all(|s| matches!(s,solidcraft_engine::Sel::Edge {point,..} if ((point.x*point.x+point.y*point.y).sqrt()-5.0).abs()<1e-4))
+    );
+}

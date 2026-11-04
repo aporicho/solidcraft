@@ -1,0 +1,42 @@
+{
+  "en": {
+    "prefs.sketch_grid_step_mm": "Grid step",
+    "prefs.sketch_grid_step_mm_note": "Fixed spacing in millimetres, independent of zoom. 0 restores automatic spacing. Points and curves take priority.",
+    "prefs.sketch_snap_radius_px": "Snap range (px)",
+    "prefs.sketch_snap_radius_px_note": "Capture range while drawing or dragging sketches. Increase to catch points, midpoints, curves and alignments more easily. Original value: 7.",
+    "sketch.snap_grid_at": "Grid: {x}, {y} mm",
+    "sketch.snap_on_grid_at": "On + Grid: {x}, {y} mm"
+  },
+  "zh": {
+    "prefs.sketch_grid_step_mm": "网格步长",
+    "prefs.sketch_grid_step_mm_note": "固定毫米步长，不随缩放改变。设为 0 恢复原版自动步长。几何点和曲线优先。",
+    "prefs.sketch_snap_radius_px": "捕捉范围 (px)",
+    "prefs.sketch_snap_radius_px_note": "绘制或拖动草图时的捕捉范围。调大后更容易吸附点、中点、曲线和对齐线。原版值为 7。",
+    "sketch.snap_grid_at": "网格：{x}, {y} mm",
+    "sketch.snap_on_grid_at": "线上网格：{x}, {y} mm"
+  },
+  "ja": {
+    "prefs.sketch_grid_step_mm": "グリッド間隔",
+    "prefs.sketch_grid_step_mm_note": "ズームに依存しない固定間隔です。0 で自動間隔に戻ります。点と曲線が優先されます。",
+    "prefs.sketch_snap_radius_px": "吸着範囲 (px)",
+    "prefs.sketch_snap_radius_px_note": "スケッチの描画・ドラッグ時の吸着範囲です。大きくすると点、中点、曲線、整列を捉えやすくなります。元の値は 7 です。",
+    "sketch.snap_grid_at": "グリッド：{x}, {y} mm",
+    "sketch.snap_on_grid_at": "曲線上のグリッド：{x}, {y} mm"
+  },
+  "de": {
+    "prefs.sketch_grid_step_mm": "Rasterabstand",
+    "prefs.sketch_grid_step_mm_note": "Fester Abstand in Millimetern, unabhängig vom Zoom. 0 stellt den automatischen Abstand wieder her. Punkte und Kurven haben Vorrang.",
+    "prefs.sketch_snap_radius_px": "Fangbereich (px)",
+    "prefs.sketch_snap_radius_px_note": "Fangbereich beim Zeichnen und Ziehen von Skizzen. Ein größerer Wert erleichtert das Fangen von Punkten, Mittelpunkten, Kurven und Ausrichtungen. Ursprünglicher Wert: 7.",
+    "sketch.snap_grid_at": "Raster: {x}, {y} mm",
+    "sketch.snap_on_grid_at": "Kurve + Raster: {x}, {y} mm"
+  },
+  "ko": {
+    "prefs.sketch_grid_step_mm": "그리드 간격",
+    "prefs.sketch_grid_step_mm_note": "확대율과 무관한 고정 간격입니다. 0은 자동 간격으로 되돌립니다. 점과 곡선이 우선됩니다.",
+    "prefs.sketch_snap_radius_px": "스냅 범위 (px)",
+    "prefs.sketch_snap_radius_px_note": "스케치를 그리거나 드래그할 때의 스냅 범위입니다. 값을 높이면 점, 중점, 곡선과 정렬을 더 쉽게 잡습니다. 원래 값: 7.",
+    "sketch.snap_grid_at": "그리드: {x}, {y} mm",
+    "sketch.snap_on_grid_at": "곡선 위 그리드: {x}, {y} mm"
+  }
+}

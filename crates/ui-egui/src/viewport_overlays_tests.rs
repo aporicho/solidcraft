@@ -2,6 +2,30 @@ use super::*;
 use crate::{scenario::Harness, shell::LayoutMode};
 
 #[test]
+fn enhanced_snap_visible_grid_stays_on_the_fixed_lattice_after_pan_and_zoom() {
+    for (step, at, reach) in [(1.0, 13.25, 40.0), (0.5, -21.3, 90.0), (0.001, 1200.3, 10000.0)] {
+        let lines = fixed_sketch_grid_lines(step, at, reach);
+        assert!(!lines.is_empty() && lines.len() <= 301);
+        for line in lines {
+            let n = (at + line.offset) / step;
+            assert!((n - n.round()).abs() < 1e-5, "{n}: step {step}");
+            assert!(line.offset.abs() <= reach);
+        }
+    }
+    assert!(fixed_sketch_grid_lines(f64::NAN, 0.0, 100.0).is_empty());
+    assert!(fixed_sketch_grid_lines(0.0, 0.0, 100.0).is_empty());
+    let mut h = Harness::new();
+    h.app.run("sketch.create", json!({"plane":"XY"})).unwrap();
+    h.frames(3);
+    let proj = projection(&h.app, h.app.viewport.rect.unwrap());
+    let original = display_scene_keys(&h.app, &proj);
+    h.app.preferences.sketch_grid_step_mm = 1.0;
+    let changed = display_scene_keys(&h.app, &proj);
+    assert_eq!(original.0, changed.0, "a grid preference must not rebuild body geometry");
+    assert_ne!(original.1, changed.1, "grid spacing changes must invalidate the cached sketch scene");
+}
+
+#[test]
 fn details_descriptions_are_pure_and_live_edits_preserve_custom_companions() {
     use crate::ui_kit::DetailValue as V;
     let mut h = Harness::new();

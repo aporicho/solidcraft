@@ -230,6 +230,8 @@ scale	false
 screw	false
 section	false
 select	false
+select_loop	false
+select_outer_edges	false
 send	false
 settings	false
 settings_keyboard	false

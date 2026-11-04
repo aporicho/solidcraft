@@ -590,6 +590,24 @@ the Design camera. See [the integrated Render workspace](render-workspace.md).
 
 ### Sketch alignment guides
 
+This local snapping extension adds `ui.prefs {"sketch_grid_step_mm": 1.0,
+"sketch_snap_radius_px": 12.0}`. Grid spacing is fixed in millimetres, independent of zoom;
+`0` restores the original automatic fine grid. Range is in logical screen pixels (2–40)
+while drawing or dragging sketches; `7` restores the original range. The Sketch Palette and Sketch
+preferences expose both controls. Geometry snaps take priority over grid rounding.
+Fixed-grid drawing shows a marker and local sketch coordinates. The displayed sketch grid
+uses the same lattice, thinning to a subset when zoomed far out. The Snap option disables
+grid rounding while drawing and dragging, and the suppress-snap modifier also releases point and geometry snaps.
+Dragging a circle centre uses the fixed grid without changing the radius; grid snapping
+adds no constraint and remains part of the gesture's single undo step.
+On-curve snaps combine with a fixed grid by choosing the nearest intersection of the
+analytic line/circle/arc with a grid line. This preserves the curve's coincidence: an offset
+vertical line keeps its X coordinate and quantizes Y; a horizontal line does the reverse.
+Diagonal and round curves keep the point on the curve with at least one grid-aligned
+coordinate where a nearby bounded intersection exists. The hint reads On + Grid. Existing
+points, midpoints and intersections retain priority. With Snap off or automatic spacing,
+on-curve dragging retains its original unquantized behaviour.
+
 `ui.prefs {sketch_tracking_guides: true}` enables temporary horizontal and vertical dotted
 alignment guides from hovered circle/arc centres and straight-edge midpoints (default true).
 The guide spans the reference and cursor projection, including positions inside a circle.

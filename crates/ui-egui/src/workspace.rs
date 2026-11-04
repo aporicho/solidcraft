@@ -125,6 +125,7 @@ pub const SECTIONS: &[Section] = &[
         promoted: 3,
         ids: &["solid.move", "solid.mirror", "solid.pattern.rectangular", "solid.align", "solid.pattern.circular", "solid.pattern.path"],
     },
+    Section { tab: "MODEL", panel: "SELECTION TOOLS", promoted: 2, ids: &["select.loop", "select.outer_edges"] },
     Section { tab: "MODEL", panel: "CONFIGURE", promoted: 2, ids: CONFIGURE },
     Section { tab: "MODEL", panel: "CONSTRUCT", promoted: 1, ids: &["construct.plane.offset"] },
     // Only while a linked design is edited in place, pinned at the right as FINISH SKETCH is.

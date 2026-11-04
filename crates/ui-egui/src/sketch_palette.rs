@@ -469,6 +469,20 @@ pub fn show(app: &mut SolveApp, ctx: &egui::Context) {
                         set = Some((key.to_string(), !shown(key)));
                     }
                 }
+                let spacing_label = app.tr("prefs.sketch_grid_step_mm");
+                crate::ui_kit::row(ui, spacing_label, |ui| {
+                    let response = crate::ui_kit::number_field(ui, &mut app.preferences.sketch_grid_step_mm, 0.0..=10000.0, 0.1, " mm");
+                    crate::scenario::publish_target("sketch_palette:grid_step", response.rect);
+                    response
+                })
+                .on_hover_text(app.tr("prefs.sketch_grid_step_mm_note"));
+                let radius_label = app.tr("prefs.sketch_snap_radius_px");
+                crate::ui_kit::row(ui, radius_label, |ui| {
+                    let response = crate::ui_kit::number_field(ui, &mut app.preferences.sketch_snap_radius_px, 2.0..=40.0, 1.0, " px");
+                    crate::scenario::publish_target("sketch_palette:snap_radius", response.rect);
+                    response
+                })
+                .on_hover_text(app.tr("prefs.sketch_snap_radius_px_note"));
                 construction = crate::ui_kit::checkbox_row(
                     ui,
                     "construction_mode",

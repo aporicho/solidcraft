@@ -9,6 +9,83 @@ use crate::scenario::Harness;
 use crate::test_support::play;
 
 #[test]
+fn enhanced_on_grid_drag_quantizes_circle_centre_along_a_line_and_keeps_coincidence() {
+    let mut h = Harness::new();
+    h.app.preferences.look_at_anim = false;
+    run(&mut h, "sketch.create", json!({"plane":"XY"}));
+    run(&mut h, "sketch.line", json!({"points":[[3,-30],[3,70]],"id":"l1","connect":false}));
+    run(&mut h, "sketch.circle.center", json!({"center":[12,8],"radius":2,"id":"c1"}));
+    h.call("ui.prefs", json!({"sketch_grid_step_mm":10,"sketch_snap_radius_px":12}));
+    h.call("ui.view", json!({"view":"top"}));
+    h.app.cam.distance = 150.0;
+    h.frames(3);
+    for (y, expected) in [(26.3, 30.0), (36.3, 40.0)] {
+        let centre = point(&h, "c1.center");
+        let a = screen(&mut h, centre.x, centre.y);
+        let b = screen(&mut h, 3.2, y);
+        let undo = h.app.session.undo.len();
+        let mut path = vec![a];
+        path.extend(steps(a, b, 8));
+        press_and_move(&mut h, &path);
+        let target = Vec2::new(3.0, expected);
+        assert!(point(&h, "c1.center").dist(target) < 1e-4, "live centre: {:?}", point(&h, "c1.center"));
+        assert!(matches!(crate::drag_snap::current().map(|s| s.target), Some(crate::drag_snap::Target::OnGrid(_))));
+        release(&mut h, b);
+        assert!(point(&h, "c1.center").dist(target) < 1e-4, "released centre: {:?}", point(&h, "c1.center"));
+        let sk = h.app.session.doc.sketch(1).unwrap();
+        assert!((sk.radius(sk.curve_index("c1").unwrap()).unwrap() - 2.0).abs() < 1e-10);
+        assert_eq!(h.app.session.undo.len(), undo + 1);
+        assert!(point(&h, "l1.start").dist(Vec2::new(3.0, -30.0)) < 1e-8);
+        assert!(point(&h, "l1.end").dist(Vec2::new(3.0, 70.0)) < 1e-8);
+    }
+}
+
+#[test]
+fn enhanced_drag_circle_centre_uses_fixed_grid_without_resizing_and_undo_is_one_step() {
+    for distance in [90.0, 160.0] {
+        for (step, snap, expected) in [
+            (1.0, true, Vec2::new(21.0, 17.0)),
+            (0.5, true, Vec2::new(21.5, 17.0)),
+            (0.0, true, Vec2::new(21.27, 16.81)),
+            (1.0, false, Vec2::new(21.27, 16.81)),
+        ] {
+            let mut h = Harness::new();
+            h.app.preferences.look_at_anim = false;
+            run(&mut h, "sketch.create", json!({"plane":"XY"}));
+            run(&mut h, "sketch.circle.center", json!({"center":[10,10],"radius":3,"id":"c1"}));
+            run(&mut h, "sketch.options", json!({"snap":snap}));
+            h.call("ui.prefs", json!({"sketch_grid_step_mm":step,"sketch_snap_radius_px":12}));
+            h.call("ui.view", json!({"view":"top"}));
+            h.app.cam.distance = distance;
+            h.frames(3);
+            let undo = h.app.session.undo.len();
+            let before = h.app.session.doc.to_json();
+            let start = screen(&mut h, 10.0, 10.0);
+            let end = screen(&mut h, 21.27, 16.81);
+            let mut path = vec![start];
+            path.extend(steps(start, end, 8));
+            press_and_move(&mut h, &path);
+            assert!(h.app.viewport.point_drag.is_some());
+            assert!(
+                point(&h, "c1.center").dist(expected) < 1e-4,
+                "live: step={step}, snap={snap}, distance={distance}: {:?}",
+                point(&h, "c1.center")
+            );
+            release(&mut h, end);
+            assert!(point(&h, "c1.center").dist(expected) < 1e-4, "released: {:?}", point(&h, "c1.center"));
+            let sk = h.app.session.doc.sketch(1).unwrap();
+            assert!((sk.radius(sk.curve_index("c1").unwrap()).unwrap() - 3.0).abs() < 1e-10);
+            assert!(sk.constraints.is_empty(), "grid snapping adds no geometric constraint");
+            assert_eq!(h.app.session.undo.len(), undo + 1);
+            run(&mut h, "edit.undo", json!({}));
+            assert_eq!(h.app.session.doc.to_json(), before);
+            run(&mut h, "edit.redo", json!({}));
+            assert!(point(&h, "c1.center").dist(expected) < 1e-4);
+        }
+    }
+}
+
+#[test]
 fn text_move_drag_is_one_editable_unit_and_escape_restores_the_gesture() {
     for cancel in [false, true] {
         let mut h = Harness::new();

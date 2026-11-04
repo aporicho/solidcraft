@@ -55,7 +55,30 @@ pub(super) fn family_edges(mesh: &Mesh, selected: &std::collections::BTreeSet<us
 /// `faces`: the faces the edges bound. Where boundaries touch at a vertex (a pinch: an even number of
 /// boundary edges meet there), the walk stays on the face it came along, or else takes the first
 /// edge in geometric order; either way every loop closes. An odd number is a real branch.
-fn boundary_edges(mesh: &Mesh, mut edges: Vec<usize>, faces: &BTreeSet<usize>, plane: &Plane) -> Result<Vec<usize>> {
+fn boundary_edges(mesh: &Mesh, edges: Vec<usize>, faces: &BTreeSet<usize>, plane: &Plane) -> Result<Vec<usize>> {
+    Ok(boundary_loops(mesh, edges, faces, plane)?.into_iter().flatten().collect())
+}
+
+/// Closed face boundaries, largest projected area first; the first loop is the outside.
+pub(super) fn face_loops(mesh: &Mesh, face: u32, plane: &Plane) -> Result<Vec<Vec<usize>>> {
+    let faces: BTreeSet<usize> = mesh.surface_patch(face as usize).into_iter().collect();
+    let mut edges = Vec::new();
+    for (index, adjacent) in mesh.edge_faces.iter().enumerate() {
+        let count = adjacent.iter().filter(|f| faces.contains(&(**f as usize))).count();
+        if count == 0 {
+            continue;
+        }
+        if adjacent.len() > 2 || (adjacent.len() == 2 && adjacent.first() == adjacent.get(1)) {
+            return Err(DocError::Invalid("face has ambiguous boundary adjacency".into()));
+        }
+        if count == 1 && mesh.edge_pickable(index) {
+            edges.push(index);
+        }
+    }
+    boundary_loops(mesh, edges, &faces, plane)
+}
+
+fn boundary_loops(mesh: &Mesh, mut edges: Vec<usize>, faces: &BTreeSet<usize>, plane: &Plane) -> Result<Vec<Vec<usize>>> {
     let bounds = mesh.bounds();
     let origin = bounds.min;
     let local_origin = plane.to_local(origin);
@@ -170,7 +193,7 @@ fn boundary_edges(mesh: &Mesh, mut edges: Vec<usize>, faces: &BTreeSet<usize>, p
         boundaries.push((area, first, boundary));
     }
     boundaries.sort_by(|a, b| b.0.cmp(&a.0).then(a.1.cmp(&b.1)));
-    Ok(boundaries.into_iter().flat_map(|(_, _, edges)| edges).collect())
+    Ok(boundaries.into_iter().map(|(_, _, edges)| edges).collect())
 }
 
 #[cfg(test)]

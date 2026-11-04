@@ -27,6 +27,12 @@ const MAX_CHAIN: usize = 4000;
 #[path = "project_order.rs"]
 mod order;
 
+/// Closed drawn boundaries of a planar face, outer loop first, then its holes.
+/// This is a read-only topology query; edge indices stay those used by modelling commands.
+pub fn face_boundary_loops(mesh: &Mesh, face: u32, plane: &Plane) -> Result<Vec<Vec<usize>>> {
+    order::face_loops(mesh, face, plane)
+}
+
 /// A resolved link: its geometry in sketch coordinates and the (possibly moved) reference.
 #[derive(Clone, Debug)]
 pub struct Resolved {
@@ -365,7 +371,7 @@ fn circular(samples: &[Vec2]) -> Option<(LinkGeom, f64)> {
         sweep += d;
     }
     let turn = sweep.abs();
-    if turn > std::f64::consts::TAU + 1e-6 || turn < CIRCLE_MIN_TURN {
+    if !(CIRCLE_MIN_TURN..=std::f64::consts::TAU + 1e-6).contains(&turn) {
         return None;
     }
     if first.dist(last) <= tol {

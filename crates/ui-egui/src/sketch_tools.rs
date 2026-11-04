@@ -463,9 +463,61 @@ fn nearest_on_polyline(poly: &[Vec2], p: Vec2) -> Option<Vec2> {
         .min_by(|x, y| x.dist(p).total_cmp(&y.dist(p)))
 }
 
-/// Snap a cursor point on the sketch plane to what is inferred while drawing: a crossing of
-/// two curves, a line's midpoint, or alignment (horizontal/vertical) with the previous point
-/// of the tool. None: nothing near, use the grid.
+/// Fixed millimetre spacing, or the original fine grid when automatic spacing is selected.
+pub(crate) fn snap_grid_step(app: &SolveApp) -> f64 {
+    let fixed = app.preferences.sketch_grid_step_mm;
+    if fixed.is_finite() && fixed > 0.0 && fixed <= 10000.0 { fixed } else { solidcraft_engine::view::grid_step(app.cam.half_height()).0 / 10.0 }
+}
+
+pub(crate) fn snap_grid_value(value: f64, step: f64) -> f64 {
+    let rounded = (value / step).round() * step;
+    if rounded.is_finite() { rounded } else { value }
+}
+
+/// Keep an analytic curve's coincidence while quantizing its free motion. Grid-line
+/// intersections work for offset/diagonal lines too, where rounding both coordinates would
+/// leave the curve. The finite candidate set cannot extend a bounded segment or arc.
+pub(crate) fn snap_on_shape_grid(shape: &solidcraft_engine::sketch::Shape, near: Vec2, step: f64, infinite: bool) -> Option<Vec2> {
+    use solidcraft_engine::sketch::{Shape, intersections};
+    if !(step.is_finite() && step > 0.0 && step <= 10000.0 && near.x.is_finite() && near.y.is_finite()) {
+        return None;
+    }
+    let tolerance = 1e-8;
+    let mut best: Option<Vec2> = None;
+    for vertical in [true, false] {
+        let nearest = snap_grid_value(if vertical { near.x } else { near.y }, step);
+        for offset in [0.0, -1.0, 1.0] {
+            let value = nearest + offset * step;
+            let a = if vertical { Vec2::new(value, near.y) } else { Vec2::new(near.x, value) };
+            let b = a + if vertical { Vec2::Y } else { Vec2::X };
+            for point in intersections(shape, &Shape::Line { a, b }) {
+                if !point.x.is_finite() || !point.y.is_finite() || point.dist(near) > step + tolerance {
+                    continue;
+                }
+                if !infinite && shape.dist(point) > tolerance {
+                    continue;
+                }
+                if best.is_none_or(|b| point.dist(near) < b.dist(near)) {
+                    best = Some(point);
+                }
+            }
+        }
+    }
+    best
+}
+
+pub(crate) fn clear_snap_hint() {
+    SNAP.with(|s| *s.borrow_mut() = None);
+    LINED.with(|s| *s.borrow_mut() = None);
+    crate::inference::clear();
+}
+
+pub(crate) fn set_snap_hint(label: &'static str, at: Vec2) {
+    SNAP.with(|s| *s.borrow_mut() = Some((label, at)));
+}
+
+/// Snap a cursor point to an intersection, midpoint, curve or alignment while drawing.
+/// None: nothing near, use the grid.
 pub fn refine_snap(
     app: &SolveApp,
     proj: &Proj,
@@ -478,7 +530,7 @@ pub fn refine_snap(
     // Millimetres per pixel here.
     let (a, b) = (proj.to_screen(plane.to_world(lp))?, proj.to_screen(plane.to_world(lp + Vec2::X))?);
     let px = 1.0 / (a.distance(b) as f64).max(1e-9);
-    let tol = 7.0 * px;
+    let tol = app.preferences.sketch_snap_radius_px.clamp(2.0, 40.0) * px;
     // A model vertex under the cursor: drawing on it projects it into the sketch.
     for h in pick(app, proj, a) {
         if let Hit::Vertex { point, .. } = h {
@@ -569,14 +621,18 @@ pub fn refine_snap(
                 None => continue,
             };
             if d < tol * 0.8 && best.is_none_or(|x| d < x.0) {
-                best = Some((d, "On", q));
+                let grid = (!sk.view.no_snap && app.preferences.sketch_grid_step_mm > 0.0)
+                    .then(|| sk.shape(i).and_then(|shape| snap_on_shape_grid(&shape, q, app.preferences.sketch_grid_step_mm, c.infinite)))
+                    .flatten();
+                let (q, label) = grid.map_or((q, "On"), |q| (q, "On+Grid"));
+                best = Some((d, label, q));
                 mid_of = Some(format!("{}:{},{}", c.id, q.x, q.y));
             }
         }
     }
     // The free coordinate still follows the grid.
-    let step = solidcraft_engine::view::grid_step(app.cam.half_height()).0 / 10.0;
-    let g = |v: f64| (v / step).round() * step;
+    let step = snap_grid_step(app);
+    let g = |v: f64| snap_grid_value(v, step);
     // Points to line up with as well (#7828): with `sketch_align_points` off, none, so only the
     // previous point, one axis at a time, as before.
     let targets = if app.preferences.sketch_align_points { align_targets(proj, sk, plane, &own) } else { Vec::new() };
@@ -630,7 +686,7 @@ pub fn refine_snap(
         let arg = match l {
             "X" => mid_of.map(|m| format!("x:{m}")),
             "Mid" => mid_of.map(|m| format!("mid:{m}")),
-            "On" => mid_of.map(|m| format!("on:{m}")),
+            "On" | "On+Grid" => mid_of.map(|m| format!("on:{m}")),
             // Already a point argument (`<id>.center` or `on:<id>:x,y`), or none for a free point.
             "Ctr" => mid_of,
             _ => None,
@@ -1786,9 +1842,19 @@ fn snap_hint(app: &SolveApp, painter: &egui::Painter, proj: &Proj) {
         painter.add(egui::Shape::dashed_line(&[from, sp], Stroke::new(1.0, tk.rubber_band), 5.0, 4.0));
     }
     crate::scenario::publish_count("sketch_align_guides", guides.len() as f64);
-    let r = egui::Rect::from_min_size(sp + egui::vec2(12.0, -24.0), egui::vec2(24.0, 14.0));
+    let label = if matches!(label, "Grid" | "On+Grid") {
+        let key = if label == "On+Grid" { "sketch.snap_on_grid_at" } else { "sketch.snap_grid_at" };
+        crate::i18n::format(key, &[("x", &format!("{:.3}", p.x)), ("y", &format!("{:.3}", p.y))])
+    } else {
+        label.to_owned()
+    };
+    let galley = painter.layout_no_wrap(label, egui::FontId::proportional(tk.font_micro), tk.text);
+    let r = egui::Rect::from_min_size(sp + egui::vec2(tk.space_12, -tk.space_24), galley.size() + egui::vec2(tk.space_8, tk.space_4));
+    painter.circle_stroke(sp, tk.space_4, Stroke::new(1.5, tk.rubber_band));
+    painter.line_segment([sp - egui::vec2(tk.space_8, 0.0), sp + egui::vec2(tk.space_8, 0.0)], Stroke::new(1.0, tk.rubber_band));
+    painter.line_segment([sp - egui::vec2(0.0, tk.space_8), sp + egui::vec2(0.0, tk.space_8)], Stroke::new(1.0, tk.rubber_band));
     painter.rect_filled(r, tk.radius_sm.saturating_sub(1), tk.accent_soft);
-    painter.text(r.center(), egui::Align2::CENTER_CENTER, label, egui::FontId::proportional(crate::theme::Tokens::get().font_micro), tk.text);
+    painter.galley(r.min + egui::vec2(tk.space_4, tk.space_4 * 0.5), galley, tk.text);
 }
 
 /// Per frame, after the viewport is drawn: constraint glyphs, snap hints and analysis marks.

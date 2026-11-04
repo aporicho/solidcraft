@@ -6,7 +6,7 @@
 
 use std::cell::{Cell, RefCell};
 
-use egui::{Align2, FontId, Stroke};
+use egui::{FontId, Stroke};
 use serde_json::{Value, json};
 use solidcraft_engine::geom::Vec2;
 use solidcraft_engine::sketch::{ConstraintKind, CurveKind, Sketch};
@@ -24,8 +24,12 @@ pub enum Target {
     Mid(String),
     /// On a curve (its id): point on curve on release.
     On(String),
+    /// On a curve at its intersection with a fixed grid line.
+    OnGrid(String),
     /// Lined up with other points: no constraint.
     Align,
+    /// Fixed grid position: no geometric constraint is added on release.
+    Grid,
 }
 
 /// A snap: the moving point (its id) and where it goes, the move added to the cursor's, the
@@ -45,7 +49,9 @@ impl Snap {
             Target::Point(_) => "Pt",
             Target::Mid(_) => "Mid",
             Target::On(_) => "On",
+            Target::OnGrid(_) => "On+Grid",
             Target::Align => "",
+            Target::Grid => "Grid",
         }
     }
 }
@@ -86,9 +92,18 @@ fn keep(s: Option<Snap>) -> Option<Snap> {
 /// `mm_px` millimetres per pixel. Points in `exclude` (the ones moving with the drag) are not
 /// targets, nor are curves using them.
 pub fn find(sk: &Sketch, moving: &[(usize, Vec2)], exclude: &[usize], mm_px: f64) -> Option<Snap> {
+    find_with_grid(sk, moving, exclude, mm_px, 7.0, None)
+}
+
+/// The drawing preferences also apply while dragging: geometric targets first, then the
+/// fixed grid on any free axes. `None` keeps the original unquantized drag in empty space.
+pub fn find_with_grid(sk: &Sketch, moving: &[(usize, Vec2)], exclude: &[usize], mm_px: f64, radius_px: f64, grid_step: Option<f64>) -> Option<Snap> {
     if suppressed() || moving.is_empty() || !(mm_px > 0.0 && mm_px.is_finite()) {
         return keep(None);
     }
+    let radius_px = if radius_px.is_finite() { radius_px.clamp(2.0, 40.0) } else { 7.0 };
+    let (point_px, curve_px, align_px) = if radius_px == 7.0 { (POINT_PX, CURVE_PX, ALIGN_PX) } else { (radius_px, radius_px * 0.8, radius_px) };
+    let grid_step = grid_step.filter(|step| step.is_finite() && *step > 0.0 && *step <= 10000.0);
     let id = |i: usize| sk.points.get(i).map(|p| p.id.clone()).unwrap_or_default();
     let visible = solidcraft_engine::view::SketchPointVisibility::new(sk);
     let targets: Vec<(usize, Vec2)> =
@@ -105,7 +120,7 @@ pub fn find(sk: &Sketch, moving: &[(usize, Vec2)], exclude: &[usize], mm_px: f64
     for &(mi, p) in moving {
         for &(ti, t) in &targets {
             let d = p.dist(t);
-            if d < POINT_PX * mm_px {
+            if d < point_px * mm_px {
                 offer(&mut best, d, Snap { point: id(mi), at: t, offset: t - p, target: Target::Point(id(ti)), guides: Vec::new() });
             }
         }
@@ -118,7 +133,7 @@ pub fn find(sk: &Sketch, moving: &[(usize, Vec2)], exclude: &[usize], mm_px: f64
                 let (Some(a), Some(b)) = (sk.point(a), sk.point(b)) else { continue };
                 let m = (a + b) * 0.5;
                 let d = p.dist(m);
-                if d < POINT_PX * mm_px {
+                if d < point_px * mm_px {
                     offer(&mut best, d, Snap { point: id(mi), at: m, offset: m - p, target: Target::Mid(cu.id.clone()), guides: Vec::new() });
                 }
             }
@@ -129,9 +144,11 @@ pub fn find(sk: &Sketch, moving: &[(usize, Vec2)], exclude: &[usize], mm_px: f64
             for &c in &free_curves {
                 let (Some(cu), Some(sh)) = (sk.curves.get(c), sk.shape(c)) else { continue };
                 let d = sh.dist(p);
-                if d < CURVE_PX * mm_px {
+                if d < curve_px * mm_px {
                     let q = sh.project(p);
-                    offer(&mut best, d, Snap { point: id(mi), at: q, offset: q - p, target: Target::On(cu.id.clone()), guides: Vec::new() });
+                    let grid = grid_step.and_then(|step| crate::sketch_tools::snap_on_shape_grid(&sh, q, step, cu.infinite));
+                    let (q, target) = grid.map_or_else(|| (q, Target::On(cu.id.clone())), |q| (q, Target::OnGrid(cu.id.clone())));
+                    offer(&mut best, d, Snap { point: id(mi), at: q, offset: q - p, target, guides: Vec::new() });
                 }
             }
         }
@@ -140,7 +157,7 @@ pub fn find(sk: &Sketch, moving: &[(usize, Vec2)], exclude: &[usize], mm_px: f64
         return keep(Some(s));
     }
     // Lining up: the nearest horizontal and the nearest vertical alignment, each on its own axis.
-    let tol = ALIGN_PX * mm_px;
+    let tol = align_px * mm_px;
     let (mut hx, mut vy): (Option<(f64, usize, Vec2, Vec2)>, Option<(f64, usize, Vec2, Vec2)>) = (None, None);
     for &(mi, p) in moving {
         for &(_, t) in &targets {
@@ -167,12 +184,22 @@ pub fn find(sk: &Sketch, moving: &[(usize, Vec2)], exclude: &[usize], mm_px: f64
         guides.push((t, Vec2::new(t.x, p.y)));
     }
     // The guides end at the snapped point (both alignments may move it).
-    let Some(mi) = point else { return keep(None) };
-    let at = moving.iter().find(|m| m.0 == mi).map_or(Vec2::ZERO, |m| m.1) + offset;
+    let anchor = point.and_then(|mi| moving.iter().find(|m| m.0 == mi)).or_else(|| grid_step.and_then(|_| moving.first()));
+    let Some(&(mi, p)) = anchor else { return keep(None) };
+    if let Some(step) = grid_step {
+        if vy.is_none() {
+            offset.x = crate::sketch_tools::snap_grid_value(p.x, step) - p.x;
+        }
+        if hx.is_none() {
+            offset.y = crate::sketch_tools::snap_grid_value(p.y, step) - p.y;
+        }
+    }
+    let at = p + offset;
     for g in &mut guides {
         g.1 = if (g.0.y - g.1.y).abs() < 1e-12 { Vec2::new(at.x, g.0.y) } else { Vec2::new(g.0.x, at.y) };
     }
-    keep(Some(Snap { point: id(mi), at, offset, target: Target::Align, guides }))
+    let target = if point.is_some() { Target::Align } else { Target::Grid };
+    keep(Some(Snap { point: id(mi), at, offset, target, guides }))
 }
 
 /// Points the drag of `entities` (point or curve ids: the one grabbed and those dragged with it)
@@ -236,8 +263,8 @@ pub fn release() -> Option<Value> {
     let (cmd, params) = match &s.target {
         Target::Point(t) => ("sketch.constraint.coincident", json!({"a": s.point, "b": t})),
         Target::Mid(l) => ("sketch.constraint.midpoint", json!({"point": s.point, "line": l})),
-        Target::On(c) => ("sketch.constraint.coincident", json!({"a": s.point, "b": c})),
-        Target::Align => return None,
+        Target::On(c) | Target::OnGrid(c) => ("sketch.constraint.coincident", json!({"a": s.point, "b": c})),
+        Target::Align | Target::Grid => return None,
     };
     Some(json!({"command": cmd, "params": params}))
 }
@@ -259,11 +286,17 @@ pub fn show(app: &SolveApp, painter: &egui::Painter, proj: &Proj) {
     }
     let Some(sp) = to(s.at) else { return };
     painter.circle_stroke(sp, 6.0, Stroke::new(1.5, tk.accent));
-    let label = s.label();
+    let label = if matches!(s.target, Target::Grid | Target::OnGrid(_)) {
+        let key = if matches!(s.target, Target::OnGrid(_)) { "sketch.snap_on_grid_at" } else { "sketch.snap_grid_at" };
+        crate::i18n::format(key, &[("x", &format!("{:.3}", s.at.x)), ("y", &format!("{:.3}", s.at.y))])
+    } else {
+        s.label().to_owned()
+    };
     if !label.is_empty() {
-        let r = egui::Rect::from_min_size(sp + egui::vec2(12.0, -24.0), egui::vec2(24.0, 14.0));
+        let galley = painter.layout_no_wrap(label, FontId::proportional(tk.font_micro), tk.text);
+        let r = egui::Rect::from_min_size(sp + egui::vec2(tk.space_12, -tk.space_24), galley.size() + egui::vec2(tk.space_8, tk.space_4));
         painter.rect_filled(r, tk.radius_sm.saturating_sub(1), tk.accent_soft);
-        painter.text(r.center(), Align2::CENTER_CENTER, label, FontId::proportional(crate::theme::Tokens::get().font_micro), tk.text);
+        painter.galley(r.min + egui::vec2(tk.space_4, tk.space_4 * 0.5), galley, tk.text);
     }
     crate::scenario::publish_count("drag_guides", s.guides.len() as f64);
 }
@@ -271,6 +304,66 @@ pub fn show(app: &SolveApp, painter: &egui::Painter, proj: &Proj) {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn enhanced_drag_grid_fills_free_axes_and_keeps_geometry_priority() {
+        let s = sk();
+        let (own, exclude) = moving_points(&s, ["l2.start"]);
+        let at = Vec2::new(37.27, 22.81);
+        let moving = [(own[0], at)];
+        assert!(find(&s, &moving, &exclude, 0.1).is_none(), "the original drag stays free in empty space");
+        let grid = find_with_grid(&s, &moving, &exclude, 0.1, 12.0, Some(1.0)).unwrap();
+        assert_eq!(grid.target, Target::Grid);
+        assert!(grid.at.dist(Vec2::new(37.0, 23.0)) < 1e-10);
+        assert!(release().is_none(), "a grid snap must not create a constraint");
+        for (cursor, expected, target) in [
+            (Vec2::new(10.3, 0.4), Vec2::new(10.0, 0.0), "Pt"),
+            (Vec2::new(5.2, 0.3), Vec2::new(5.0, 0.0), "Mid"),
+            (Vec2::new(7.5, 0.3), Vec2::new(9.0, 0.0), "On+Grid"),
+            (Vec2::new(40.2, 0.35), Vec2::new(39.0, 0.0), ""),
+        ] {
+            let snap = find_with_grid(&s, &[(own[0], cursor)], &exclude, 0.1, 7.0, Some(3.0)).unwrap();
+            assert!(snap.at.dist(expected) < 1e-10, "{snap:?}");
+            assert_eq!(snap.label(), target);
+        }
+        clear();
+    }
+
+    #[test]
+    fn enhanced_drag_range_and_suppression_apply_to_grid_and_geometry() {
+        let s = sk();
+        let (own, exclude) = moving_points(&s, ["l2.start"]);
+        let moving = [(own[0], Vec2::new(10.8, 0.8))];
+        assert!(find_with_grid(&s, &moving, &exclude, 0.1, 4.0, None).is_none());
+        let snap = find_with_grid(&s, &moving, &exclude, 0.1, 18.0, Some(3.0)).unwrap();
+        assert!(matches!(snap.target, Target::Point(_)));
+        set_suppressed(true);
+        let suppressed = find_with_grid(&s, &moving, &exclude, 0.1, 18.0, Some(3.0));
+        set_suppressed(false);
+        assert!(suppressed.is_none());
+        assert!(current().is_none());
+    }
+
+    #[test]
+    fn enhanced_on_grid_stays_on_offset_lines_diagonals_and_bounded_arcs() {
+        use crate::sketch_tools::snap_on_shape_grid;
+        use solidcraft_engine::sketch::Shape;
+        let vertical = Shape::Line { a: Vec2::new(3.0, -20.0), b: Vec2::new(3.0, 70.0) };
+        assert_eq!(snap_on_shape_grid(&vertical, Vec2::new(3.0, 26.3), 10.0, false), Some(Vec2::new(3.0, 30.0)));
+        let horizontal = Shape::Line { a: Vec2::new(-20.0, 3.0), b: Vec2::new(70.0, 3.0) };
+        assert_eq!(snap_on_shape_grid(&horizontal, Vec2::new(26.3, 3.0), 10.0, false), Some(Vec2::new(30.0, 3.0)));
+        let diagonal = Shape::Line { a: Vec2::new(0.0, 1.0), b: Vec2::new(40.0, 21.0) };
+        let snapped = snap_on_shape_grid(&diagonal, Vec2::new(11.3, 6.65), 5.0, false).unwrap();
+        assert!(diagonal.dist(snapped) < 1e-10, "rounding both coordinates would leave the line: {snapped:?}");
+        assert!((snapped.x / 5.0 - (snapped.x / 5.0).round()).abs() < 1e-10 || (snapped.y / 5.0 - (snapped.y / 5.0).round()).abs() < 1e-10);
+        let arc = Shape::Round { c: Vec2::ZERO, r: 10.0, start: 0.0, sweep: std::f64::consts::FRAC_PI_2 };
+        let snapped = snap_on_shape_grid(&arc, Vec2::new(6.0, 8.0), 5.0, false).unwrap();
+        assert!(arc.dist(snapped) < 1e-10 && snapped.x >= 0.0 && snapped.y >= 0.0);
+        let short = Shape::Line { a: Vec2::new(3.0, 21.0), b: Vec2::new(3.0, 24.0) };
+        assert!(snap_on_shape_grid(&short, Vec2::new(3.0, 23.0), 10.0, false).is_none(), "no extending a finite line to catch the grid");
+        assert!(snap_on_shape_grid(&short, Vec2::new(3.0, 23.0), 10.0, true).is_some());
+        assert!(snap_on_shape_grid(&vertical, Vec2::new(3.0, 23.0), f64::NAN, false).is_none());
+    }
 
     fn sk() -> Sketch {
         let mut s = Sketch::new();

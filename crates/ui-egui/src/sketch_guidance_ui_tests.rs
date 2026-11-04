@@ -6,6 +6,115 @@ use serde_json::{Value, json};
 use solidcraft_engine::Sel;
 use solidcraft_engine::geom::Vec3;
 
+#[test]
+fn enhanced_on_grid_drawing_stays_on_line_and_uses_grid_until_snap_is_off() {
+    use solidcraft_engine::geom::Vec2;
+    let mut h = snap_fixture();
+    h.app.run("sketch.line", json!({"points":[[3,-30],[3,70]],"id":"l1","connect":false})).unwrap();
+    h.call("ui.prefs", json!({"sketch_grid_step_mm":10,"sketch_snap_radius_px":12}));
+    h.frames(3);
+    let proj = crate::viewport::projection(&h.app, h.app.viewport.rect.unwrap());
+    let cursor = proj.to_screen(Vec3::new(3.2, 26.3, 0.0)).unwrap();
+    let (at, id) = crate::viewport::sketch_point_at(&h.app, &proj, cursor).unwrap();
+    assert!(at.dist(Vec2::new(3.0, 30.0)) < 1e-8, "{at:?}");
+    assert!(id.as_deref().is_some_and(|id| id.starts_with("on:l1:")), "grid snapping must retain the on-curve argument: {id:?}");
+    h.app.run("sketch.options", json!({"snap":false})).unwrap();
+    let (at, _) = crate::viewport::sketch_point_at(&h.app, &proj, cursor).unwrap();
+    assert!(at.dist(Vec2::new(3.0, 26.3)) < 1e-4, "Snap off restores the unquantized point on the curve: {at:?}");
+}
+
+fn snap_fixture() -> Harness {
+    let mut h = Harness::new();
+    h.app.preferences.look_at_anim = false;
+    h.app.run("sketch.create", json!({"plane":"XY"})).unwrap();
+    h.call("ui.view", json!({"view":"top"}));
+    h.call("ui.camera", json!({"target":[0,0,0],"distance":150}));
+    h.frames(3);
+    h
+}
+
+#[test]
+fn enhanced_snap_fixed_spacing_survives_zoom_and_automatic_mode_restores_original() {
+    use solidcraft_engine::geom::Vec2;
+    let mut h = snap_fixture();
+    for distance in [80.0, 180.0, 320.0] {
+        h.app.cam.distance = distance;
+        let proj = crate::viewport::projection(&h.app, h.app.viewport.rect.unwrap());
+        let cursor = proj.to_screen(Vec3::new(31.27, -22.81, 0.0)).unwrap();
+        for (step, expected) in [(0.5, Vec2::new(31.5, -23.0)), (1.0, Vec2::new(31.0, -23.0)), (5.0, Vec2::new(30.0, -25.0))] {
+            h.call("ui.prefs", json!({"sketch_grid_step_mm":step}));
+            let (at, id) = crate::viewport::sketch_point_at(&h.app, &proj, cursor).unwrap();
+            assert!(id.is_none());
+            assert!(at.dist(expected) < 1e-8, "distance={distance} step={step}: {at:?}");
+        }
+        h.call("ui.prefs", json!({"sketch_grid_step_mm":0}));
+        let old_step = solidcraft_engine::view::grid_step(h.app.cam.half_height()).0 / 10.0;
+        assert_eq!(crate::sketch_tools::snap_grid_step(&h.app), old_step);
+    }
+}
+
+#[test]
+fn enhanced_snap_range_catches_point_before_grid_and_suppression_frees_cursor() {
+    use solidcraft_engine::geom::Vec2;
+    let mut h = snap_fixture();
+    h.app.run("sketch.point", json!({"point":[12.3,13.7]})).unwrap();
+    h.frames(3);
+    h.call("ui.prefs", json!({"sketch_grid_step_mm":5,"sketch_snap_radius_px":4}));
+    let proj = crate::viewport::projection(&h.app, h.app.viewport.rect.unwrap());
+    let cursor = proj.to_screen(Vec3::new(12.3, 13.7, 0.0)).unwrap() + egui::vec2(10.0, 0.0);
+    let (_, narrow) = crate::viewport::sketch_point_at(&h.app, &proj, cursor).unwrap();
+    assert!(narrow.is_none(), "four pixels must not catch a point ten pixels away");
+    h.call("ui.prefs", json!({"sketch_snap_radius_px":18}));
+    let (at, wide) = crate::viewport::sketch_point_at(&h.app, &proj, cursor).unwrap();
+    assert!(wide.is_some());
+    assert!(at.dist(Vec2::new(12.3, 13.7)) < 1e-8, "geometry must beat the 5 mm grid");
+    crate::drag_snap::set_suppressed(true);
+    let free = crate::viewport::sketch_point_at(&h.app, &proj, cursor);
+    crate::drag_snap::set_suppressed(false);
+    let (at, id) = free.unwrap();
+    assert!(id.is_none());
+    assert!(at.dist(Vec2::new(12.3, 13.7)) > 0.1, "suppression must also release point snaps");
+}
+
+#[test]
+fn enhanced_snap_click_commits_exact_grid_points_and_snap_off_stays_free() {
+    use solidcraft_engine::geom::Vec2;
+    let mut h = snap_fixture();
+    h.call("ui.prefs", json!({"sketch_grid_step_mm":1}));
+    h.app.start("sketch.line");
+    step(&mut h, json!({"click":{"sketch":[12.27,11.81]}}));
+    step(&mut h, json!({"click":{"sketch":[24.36,-7.68]}}));
+    step(&mut h, json!({"key":"Escape"}));
+    let state = h.app.session.world_state();
+    let sk = &state.sketch(h.app.session.active_sketch.unwrap()).unwrap().sketch;
+    for expected in [Vec2::new(12.0, 12.0), Vec2::new(24.0, -8.0)] {
+        assert!(sk.points.iter().any(|p| p.pos.dist(expected) < 1e-8), "missing {expected:?}");
+    }
+    h.app.run("sketch.options", json!({"snap":false})).unwrap();
+    let proj = crate::viewport::projection(&h.app, h.app.viewport.rect.unwrap());
+    let cursor = proj.to_screen(Vec3::new(-21.27, -24.81, 0.0)).unwrap();
+    let (at, id) = crate::viewport::sketch_point_at(&h.app, &proj, cursor).unwrap();
+    assert!(id.is_none());
+    assert!(at.dist(Vec2::new(-21.27, -24.81)) < 1e-4, "{at:?}");
+}
+
+#[test]
+fn enhanced_snap_rejects_invalid_preferences_without_changing_them() {
+    let mut h = snap_fixture();
+    for value in [
+        json!({"sketch_grid_step_mm":-1}),
+        json!({"sketch_grid_step_mm":10001}),
+        json!({"sketch_snap_radius_px":0}),
+        json!({"sketch_snap_radius_px":41}),
+    ] {
+        let before = h.app.preferences.clone();
+        let reply = h.call("ui.prefs", value);
+        assert!(reply.get("error").is_some(), "{reply}");
+        assert_eq!(h.app.preferences, before);
+    }
+    assert_eq!(crate::sketch_tools::snap_grid_value(f64::MAX, f64::MIN_POSITIVE), f64::MAX);
+}
+
 fn step(h: &mut Harness, value: Value) {
     h.step(&value).unwrap();
 }

@@ -10,6 +10,8 @@ pub(super) fn show(app: &mut SolveApp, ui: &mut egui::Ui) {
         Some(crate::settings_profiles::tag),
     );
     ui_kit::settings_section(ui, "sketch", app.tr("prefs.sketching"), |ui| {
+        setting::sketch_grid_step_mm(app, ui).on_hover_text(app.tr("prefs.sketch_grid_step_mm_note"));
+        setting::sketch_snap_radius_px(app, ui).on_hover_text(app.tr("prefs.sketch_snap_radius_px_note"));
         ui_kit::checkbox(ui, app.tr("prefs.sketch_tracking_guides"), &mut app.preferences.sketch_tracking_guides)
             .on_hover_text(app.tr("prefs.sketch_tracking_guides_note"));
         ui.add_enabled_ui(app.preferences.sketch_tracking_guides, |ui| {

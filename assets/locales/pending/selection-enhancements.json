@@ -1,0 +1,37 @@
+{
+  "en": {
+    "help.select.loop": "Expand an edge to its closed loop on a planar face. Select a face too to choose between adjacent faces. Use the result for fillets or chamfers.",
+    "help.select.outer_edges": "Select only the outside boundary of selected planar faces. Hole and slot loops inside the face are excluded. Use this to chamfer a whole rim.",
+    "enhancements.selection_tools": "SELECTION TOOLS",
+    "cmd.select.loop": "Select Loop",
+    "cmd.select.outer_edges": "Select Outer Edges"
+  },
+  "zh": {
+    "help.select.loop": "从一条边补选其所在平面上的整圈边。可同时选中面来指定相邻面。选好后可直接倒圆角或倒角。",
+    "help.select.outer_edges": "选择所选平面的最外圈边缘，排除面内孔、槽的内圈。用于整圈倒角。",
+    "enhancements.selection_tools": "选择增强",
+    "cmd.select.loop": "环选",
+    "cmd.select.outer_edges": "外边缘"
+  },
+  "ja": {
+    "help.select.loop": "平面のエッジから閉じたループ全体を選択します。面も選択すると隣接面を指定できます。フィレットや面取りに使用します。",
+    "help.select.outer_edges": "選択した平面の最外周だけを選択し、内部の穴や溝のループを除外します。外周全体の面取りに使用します。",
+    "enhancements.selection_tools": "選択ツール",
+    "cmd.select.loop": "ループ選択",
+    "cmd.select.outer_edges": "外周エッジ選択"
+  },
+  "de": {
+    "help.select.loop": "Eine Kante zur geschlossenen Schleife einer ebenen Fläche erweitern. Die Fläche zusätzlich wählen, um die Nachbarfläche festzulegen. Für Verrundungen oder Fasen verwenden.",
+    "help.select.outer_edges": "Nur den äußeren Rand gewählter ebener Flächen wählen. Innere Loch- und Nutkonturen werden ausgeschlossen. Für umlaufende Fasen verwenden.",
+    "enhancements.selection_tools": "AUSWAHLWERKZEUGE",
+    "cmd.select.loop": "Schleife wählen",
+    "cmd.select.outer_edges": "Außenkanten wählen"
+  },
+  "ko": {
+    "help.select.loop": "평면의 모서리에서 닫힌 루프 전체를 선택합니다. 면도 선택하면 인접 면을 지정할 수 있습니다. 필렛이나 모따기에 사용합니다.",
+    "help.select.outer_edges": "선택한 평면의 가장 바깥쪽 경계만 선택하고 내부 구멍과 슬롯의 루프는 제외합니다. 전체 테두리 모따기에 사용합니다.",
+    "enhancements.selection_tools": "선택 도구",
+    "cmd.select.loop": "루프 선택",
+    "cmd.select.outer_edges": "외곽 모서리 선택"
+  }
+}

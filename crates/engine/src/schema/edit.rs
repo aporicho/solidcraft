@@ -3,6 +3,23 @@
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
+/// Expand current face/edge picks, or provide one explicit topology reference.
+#[derive(Debug, Default, Deserialize, JsonSchema)]
+#[schemars(deny_unknown_fields)]
+pub struct EdgeSelectionParams {
+    pub body: Option<String>,
+    pub face: Option<usize>,
+    pub edge: Option<usize>,
+    #[serde(default)]
+    pub add: bool,
+}
+
+#[derive(Debug, Serialize, JsonSchema)]
+pub struct EdgeSelectionResult {
+    pub selected: usize,
+    pub edges: usize,
+}
+
 /// Assistant visibility is UI-owned and takes no parameters.
 #[derive(Debug, Deserialize, JsonSchema)]
 #[schemars(deny_unknown_fields)]

@@ -615,6 +615,7 @@ fn sketch_scene_key(app: &SolveApp, proj: &Proj) -> u64 {
     // on or off redraws even while the camera holds still.
     app.ui.show_grid.hash(&mut h);
     app.preferences.grid_follows_view.hash(&mut h);
+    app.preferences.sketch_grid_step_mm.to_bits().hash(&mut h);
     // Finished sketches are drawn over the bodies when the preference says so.
     app.preferences.reference_geometry_through_bodies.hash(&mut h);
     app.preferences.sketch_halo.hash(&mut h);
@@ -1544,7 +1545,7 @@ pub(crate) fn build_scene(app: &SolveApp) -> GpuScene {
             face_classes.push(class);
         }
         let class = plan_class(app, &face_classes);
-        let planned = class.and_then(|class| drawn_plan(app, b, true).map(|plan| (plan, class)));
+        let planned = class.and_then(|class| Some((drawn_plan(app, b, true)?, class)));
         let on_gpu = planned.is_some();
         if let Some((plan, class)) = planned {
             sc.planned.push(crate::gpu::PlannedBody { plan, face_colors: face_colors.clone(), class });
@@ -1688,6 +1689,31 @@ fn continuity_color(t: &Tokens, verdict: solidcraft_engine::kernel::SeamVerdict)
     }
 }
 
+/// A bounded fixed grid, anchored to the sketch origin. At distant zooms show a subset of
+/// the same lattice instead of shifting the grid or producing millions of lines.
+fn fixed_sketch_grid_lines(step: f64, at: f64, reach: f64) -> Vec<solidcraft_engine::view::GridLineAt> {
+    if !(step.is_finite() && step > 0.0 && at.is_finite() && reach.is_finite() && reach > 0.0) {
+        return Vec::new();
+    }
+    let levels = (reach / step / 140.0).max(1.0).log(5.0).ceil();
+    let displayed = step * 5.0_f64.powf(levels);
+    if !(displayed.is_finite() && displayed > 0.0) {
+        return Vec::new();
+    }
+    let centre = (at / displayed).round();
+    (-150..=150)
+        .filter_map(|index| {
+            let index = centre + f64::from(index);
+            let offset = index * displayed - at;
+            (offset.is_finite() && offset.abs() <= reach).then_some(solidcraft_engine::view::GridLineAt {
+                offset,
+                weight: 1.0,
+                major: if index.rem_euclid(5.0).abs() < 1e-6 { 1.0 } else { 0.0 },
+            })
+        })
+        .collect()
+}
+
 /// The sketch scene: the grid, the shown sketches' profile fills and curves, and the attachment guide lines.
 pub(crate) fn build_sketch_scene(app: &SolveApp, proj: &Proj) -> GpuScene {
     let tk = Tokens::get();
@@ -1699,7 +1725,11 @@ pub(crate) fn build_sketch_scene(app: &SolveApp, proj: &Proj) -> GpuScene {
     // An open sketch has its grid whatever the Grid switch says, unless the sketch's own Sketch
     // Grid option (Sketch panel) is off (#9147); outside a sketch that option is never off.
     if (sketch_plane.is_some() || app.ui.show_grid) && !active_view(app).hide_grid {
-        let major = grid_step(app.cam.half_height()).1;
+        let fixed_step = sketch_plane.as_ref().and_then(|_| {
+            let step = app.preferences.sketch_grid_step_mm;
+            (step.is_finite() && step > 0.0 && step <= 10000.0).then_some(step)
+        });
+        let major = fixed_step.map_or_else(|| grid_step(app.cam.half_height()).1, |step| step * 5.0);
         // An open sketch has its grid on its own plane, and so does the plane Create Sketch
         // would take; otherwise the ground plane: XY with Z up, XZ with Y up (laid out in the
         // camera's Z-up frame), or the upright origin plane facing the view when the ground is
@@ -1756,7 +1786,9 @@ pub(crate) fn build_sketch_scene(app: &SolveApp, proj: &Proj) -> GpuScene {
         let (at_u, at_v) = ((c - origin).dot(u), (c - origin).dot(v));
         // Two lines through the point `c + u * t`: one along v, one along u.
         for (along, across, at) in [(v, u, at_u), (u, v, at_v)] {
-            for line in grid_lines(app.cam.half_height(), at, fade.end, 300) {
+            let lines =
+                fixed_step.map_or_else(|| grid_lines(app.cam.half_height(), at, fade.end, 300), |step| fixed_sketch_grid_lines(step, at, fade.end));
+            for line in lines {
                 let t = line.offset;
                 // A line two levels share with different kinds blends between the minor and
                 // the major look.
@@ -4268,24 +4300,51 @@ pub(crate) fn seg_dist(p: Pos2, a: Pos2, b: Pos2) -> f32 {
 /// points within a few pixels and otherwise to a fine grid. Returns the snapped point and the
 /// id of the sketch point it snapped to.
 pub fn sketch_point_at(app: &SolveApp, proj: &Proj, pos: Pos2) -> Option<(Vec2, Option<String>)> {
+    crate::sketch_tools::clear_snap_hint();
     let sid = app.session.active_sketch?;
     let st = crate::open_meshing::shown_world(app);
     let ss = st.sketch(sid)?;
-    for h in pick_for_tool(app, proj, pos) {
-        if let Hit::SketchPoint { sketch, id, at } = h
-            && sketch == sid
-        {
-            return Some((at, Some(id)));
-        }
-    }
     let (o, d) = proj.ray(pos);
     let w = ss.plane.intersect_ray(o, d)?;
     let lp = ss.plane.to_local(w);
     if crate::drag_snap::suppressed() {
         return Some((lp, None));
     }
-    let (minor, _) = grid_step(app.cam.half_height());
-    let step = minor / 10.0;
+    let visibility = solidcraft_engine::view::SketchPointVisibility::new(&ss.sketch);
+    let radius = app.preferences.sketch_snap_radius_px.clamp(2.0, 40.0) as f32;
+    // Keep the original point reach for the original preference; custom ranges use the
+    // requested screen-space radius. Visibility excludes hidden letter/control points.
+    let radius = if radius == 7.0 { 10.0 } else { radius };
+    let nearest = ss
+        .sketch
+        .points
+        .iter()
+        .filter(|p| visibility.takes(p))
+        .filter_map(|p| {
+            let distance = proj.to_screen(ss.plane.to_world(p.pos))?.distance(pos);
+            (distance < radius).then_some((distance, p))
+        })
+        .min_by(|a, b| a.0.total_cmp(&b.0));
+    if let Some((_, p)) = nearest {
+        crate::sketch_tools::set_snap_hint("Pt", p.pos);
+        return Some((p.pos, Some(p.id.clone())));
+    }
+    // A centre explicitly woken by hovering its circle/arc keeps the native extra reach.
+    // Use the ordinary picker here: its enlarged centre yields to curves under the cursor.
+    if let Some((sketch, centre)) = &app.viewport.woken_centre
+        && *sketch == sid
+    {
+        for hit in pick_for_tool(app, proj, pos) {
+            if let Hit::SketchPoint { sketch, id, at } = hit
+                && sketch == sid
+                && &id == centre
+            {
+                crate::sketch_tools::set_snap_hint("Pt", at);
+                return Some((at, Some(id)));
+            }
+        }
+    }
+    let step = crate::sketch_tools::snap_grid_step(app);
     if let Some(p) = crate::sketch_tools::refine_snap(app, proj, &ss.sketch, &ss.plane, lp) {
         return Some(p);
     }
@@ -4293,7 +4352,11 @@ pub fn sketch_point_at(app: &SolveApp, proj: &Proj, pos: Pos2) -> Option<(Vec2, 
     if ss.sketch.view.no_snap {
         return Some((lp, None));
     }
-    Some((Vec2::new((lp.x / step).round() * step, (lp.y / step).round() * step), None))
+    let at = Vec2::new(crate::sketch_tools::snap_grid_value(lp.x, step), crate::sketch_tools::snap_grid_value(lp.y, step));
+    if app.preferences.sketch_grid_step_mm > 0.0 {
+        crate::sketch_tools::set_snap_hint("Grid", at);
+    }
+    Some((at, None))
 }
 
 pub fn delete_selection(app: &mut SolveApp) {
@@ -4902,7 +4965,9 @@ pub fn show(app: &mut SolveApp, ui: &mut egui::Ui) {
                     let d = q - from;
                     let moving: Vec<(usize, Vec2)> =
                         own.iter().filter_map(|&p| if grab.is_some() { sk.point(p).map(|x| (p, x + d)) } else { Some((p, q)) }).collect();
-                    crate::drag_snap::find(sk, &moving, &exclude, mm_px)
+                    let fixed = app.preferences.sketch_grid_step_mm;
+                    let grid = (!sk.view.no_snap && fixed > 0.0).then_some(fixed);
+                    crate::drag_snap::find_with_grid(sk, &moving, &exclude, mm_px, app.preferences.sketch_snap_radius_px, grid)
                 })
             };
             if let Some(s) = snap {

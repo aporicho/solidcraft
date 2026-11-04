@@ -8,6 +8,72 @@ fn run(s: &mut Session, id: &str, params: Value) -> Value {
     s.execute(id, &params).unwrap_or_else(|e| panic!("{id} {params}: {e}"))
 }
 
+fn selection_plate() -> (Session, usize) {
+    let mut s = Session::default();
+    run(&mut s, "sketch.create", json!({"plane":"XY"}));
+    run(&mut s, "sketch.rectangle.two_point", json!({"p0":[-20,-15],"p1":[20,15]}));
+    run(&mut s, "sketch.circle.center", json!({"center":[0,0],"radius":5}));
+    run(&mut s, "sketch.finish", json!({}));
+    run(&mut s, "solid.extrude", json!({"distance":5,"operation":"new","body_name":"Plate"}));
+    run(&mut s, "select.set", json!({"items":[{"type":"face","body":"Plate","point":[15,10,5]}]}));
+    let Sel::Face { index, .. } = s.selection[0] else {
+        panic!("face");
+    };
+    (s, index)
+}
+
+#[test]
+fn select_edges_outer_excludes_holes_and_preserves_document_and_history() {
+    let (mut s, face) = selection_plate();
+    let before = (s.doc.to_json(), s.undo.len());
+    let reply = run(&mut s, "select.outer_edges", json!({}));
+    assert_eq!(reply["edges"], 4);
+    for sel in &s.selection {
+        let Sel::Edge { point, .. } = sel else { panic!("expected edge") };
+        assert!((point.z - 5.0).abs() < 1e-8);
+        assert!((point.x.abs() - 20.0).abs() < 1e-8 || (point.y.abs() - 15.0).abs() < 1e-8, "hole leaked: {point:?}");
+    }
+    assert_eq!((s.doc.to_json(), s.undo.len()), before);
+    run(&mut s, "select.outer_edges", json!({"body":"Plate","face":face,"add":true}));
+    assert_eq!(s.selection.len(), 4, "repeating must not duplicate edges");
+    let edges: Vec<_> = s
+        .selection
+        .iter()
+        .filter_map(|item| if let Sel::Edge { body, index, .. } = item { Some(json!({"body":body,"index":index})) } else { None })
+        .collect();
+    run(&mut s, "solid.chamfer", json!({"distance":0.5,"edges":edges}));
+    assert!(s.world_state().body("Plate").is_some(), "selected edges can be consumed directly by chamfer");
+}
+
+#[test]
+fn select_edges_loop_can_follow_hole_or_outer_boundary_without_selecting_every_edge() {
+    let (mut s, face) = selection_plate();
+    let state = s.world_state();
+    let mesh = state.body("Plate").unwrap().mesh();
+    let hole = mesh
+        .face_edges(face as u32)
+        .into_iter()
+        .find(|&i| mesh.edges[i].iter().all(|p| ((p.x * p.x + p.y * p.y).sqrt() - 5.0).abs() < 1e-4))
+        .unwrap();
+    let reply = run(&mut s, "select.loop", json!({"body":"Plate","face":face,"edge":hole}));
+    assert!(reply["edges"].as_u64().unwrap() > 0);
+    assert!(s.selection.iter().all(|sel| matches!(sel,Sel::Edge {point,..} if ((point.x*point.x+point.y*point.y).sqrt()-5.0).abs()<1e-4)));
+    let outer = mesh.face_edges(face as u32).into_iter().find(|&i| mesh.edges[i].iter().all(|p| (p.x - 20.0).abs() < 1e-8)).unwrap();
+    assert_eq!(run(&mut s, "select.loop", json!({"body":"Plate","edge":outer}))["edges"], 4, "largest adjacent planar face is the plate top");
+}
+
+#[test]
+fn select_edges_invalid_references_leave_selection_unchanged() {
+    let (mut s, _) = selection_plate();
+    let before = s.selection.clone();
+    for params in
+        [json!({"body":"missing","face":0}), json!({"body":"Plate","face":usize::MAX}), json!({"body":"Plate","edge":usize::MAX}), json!({"face":0})]
+    {
+        assert!(s.execute("select.outer_edges", &params).is_err());
+        assert_eq!(s.selection, before);
+    }
+}
+
 #[test]
 fn select_geometry_resolves_points_and_indices_without_changing_history() {
     use solidcraft_geom::Vec3;
