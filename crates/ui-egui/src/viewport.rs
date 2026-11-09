@@ -50,6 +50,7 @@ pub enum NavMode {
 #[derive(Default)]
 pub struct ViewportState {
     pub(crate) aluminium_station: Option<(String, f64)>,
+    pub(crate) aluminium_interface: Option<crate::aluminium_handles::Interface>,
     pub(crate) aluminium_part_selection: bool,
     pub(crate) aluminium_drag: Option<(f64, f64)>,
     /// A drag on the handles of the drawing being placed (Insert SVG / DXF).
@@ -4143,6 +4144,10 @@ pub(crate) fn build_highlight(app: &SolveApp) -> GpuScene {
                 mesh_tris(&mut feedback, &lit, hover_col, true, keeps);
             }
         }
+        if whole && crate::aluminium_handles::part_selection_mode(app) {
+            // Assembly hover tints the solid; a second pass of every edge looked like a wireframe.
+            continue;
+        }
         for (ei, e) in m.edges.iter().enumerate() {
             if m.edge_pickable(ei) && (whole || m.edge_faces.get(ei).is_some_and(|fs| fs.iter().any(|f| faces.contains(&(*f as usize))))) {
                 edge_lines(&mut feedback, e, hover_edge, 1.5, &[]);
@@ -4762,10 +4767,13 @@ pub fn show(app: &mut SolveApp, ui: &mut egui::Ui) {
             dialog.restore_value_focus = true;
         }
         if resp.clicked() && !held && !reference_pick && !joint_handle_pointer && !aluminium_handle_pointer && !app.viewport.draw_drag_handled {
-            if let Some((hit, _)) = &cand {
+            let interface_picked = !mods.shift && !mods.ctrl && !mods.command && !mods.alt && crate::aluminium_handles::pick_interface(app, &proj, p);
+            if !interface_picked && let Some((hit, _)) = &cand {
                 crate::aluminium_handles::remember_hit(app, hit);
             }
-            if crate::browser_canvas::click(app, &proj, p) {
+            if interface_picked {
+                // Keep part selection while picking its semantic installation surface, slot or bore.
+            } else if crate::browser_canvas::click(app, &proj, p) {
                 // Calibrate Canvas: the click sets Point A or B on the image (#9108).
             } else if app.tool.is_some() {
                 crate::tools::on_click(app, &proj, p, mods.shift);

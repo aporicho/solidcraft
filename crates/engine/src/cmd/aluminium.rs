@@ -16,7 +16,7 @@ pub static COMMANDS: &[CommandSpec] = &[
     CommandSpec::new("aluminium.connector", "Insert Connector", crate::checked!("aluminium.connector", connector))
         .at("ALUMINIUM", "CONNECT").icon("joint").enabled(super::not_in_sketch)
         .contract(&CONNECTOR_CONTRACT).output(crate::schema::output_schema_for::<Value>)
-        .params("mount?: {body: stock member, end: start|end, side?: 0–3, gap?: length} (preposition at an end side slot; inserted part is independent); model?: motedis-s6bbr20|motedis-s8bbr30|motedis-s8ibr40; origin?: [x,y,z]; rotation?: [x,y,z] angle expressions (bare numbers in degrees); name? → imported component, occurrence, feature and part metadata. Uses the fixed manufacturer STEP model at original scale from the installed connector data cache; no network requests"),
+        .params("mount?: {body: stock member, end?: start|end, port?: semantic interface, interface?: surface|slot|end|bore, position?: 0–1, side?: 0–3, gap?: length} (preposition at an end side slot; inserted part is independent); model?: installed catalogue ID; origin?: [x,y,z]; rotation?: [x,y,z] angle expressions (bare numbers in degrees); name? → imported component, occurrence, feature and part metadata. Uses the fixed manufacturer STEP model at original scale from the installed connector data cache; no network requests"),
     CommandSpec::new("aluminium.frame", "Rectangular Skeleton", crate::checked!("aluminium.frame", skeleton))
         .at("ALUMINIUM", "CREATE").icon("rect").enabled(super::not_in_sketch)
         .contract(&FRAME_CONTRACT).output(crate::schema::output_schema_for::<Value>)

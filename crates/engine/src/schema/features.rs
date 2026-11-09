@@ -462,21 +462,11 @@ pub enum AluminiumModel {
 #[schemars(deny_unknown_fields)]
 pub struct AluminiumConnectorParams {
     pub mount: Option<AluminiumConnectorMountParams>,
-    pub model: Option<ConnectorModel>,
+    pub model: Option<String>,
     pub origin: Option<PointExpr3>,
     pub rotation: Option<[AngleExpr; 3]>,
     pub name: Option<String>,
 }
-#[derive(Debug, Deserialize, JsonSchema)]
-pub enum ConnectorModel {
-    #[serde(rename = "motedis-s6bbr20")]
-    S6bbr20,
-    #[serde(rename = "motedis-s8bbr30")]
-    S8bbr30,
-    #[serde(rename = "motedis-s8ibr40")]
-    S8ibr40,
-}
-
 /// Fixed catalogue members associated with straight lines of a 2D or 3D sketch.
 #[derive(Debug, Deserialize, JsonSchema)]
 #[schemars(deny_unknown_fields)]
@@ -523,7 +513,10 @@ pub struct AluminiumAttachmentParams {
 #[schemars(deny_unknown_fields)]
 pub struct AluminiumConnectorMountParams {
     pub body: String,
-    pub end: String,
+    pub end: Option<String>,
+    pub port: Option<String>,
+    pub interface: Option<String>,
+    pub position: Option<f64>,
     pub side: Option<u32>,
     pub gap: Option<LengthExpr>,
 }

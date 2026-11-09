@@ -10,6 +10,7 @@ pub struct StockConnector {
     mount: Option<EndMount>,
     models: Vec<Connector>,
     selected: usize,
+    category: usize,
     origin: [String; 3],
     rotation: [String; 3],
 }
@@ -23,6 +24,7 @@ pub fn start(_: &SolveApp, id: &str) -> Option<(Kind, Vec<SelInput>)> {
             mount: None,
             models: stock_connectors::catalogue().ok()?,
             selected: 0,
+            category: 0,
             origin: ["0".into(), "0".into(), "0".into()],
             rotation: ["0 deg".into(), "0 deg".into(), "0 deg".into()],
         }),
@@ -32,20 +34,44 @@ pub fn start(_: &SolveApp, id: &str) -> Option<(Kind, Vec<SelInput>)> {
 
 pub fn rows(ui: &mut egui::Ui, state: &mut StockConnector) -> bool {
     let mut enter = false;
-    let names: Vec<_> = state.models.iter().map(|model| format!("{} · {} · {}", model.series, model.part_number, model.supplier)).collect();
+    let mut categories = vec!["all"];
+    for model in &state.models {
+        if !categories.contains(&model.category.as_str()) {
+            categories.push(&model.category);
+        }
+    }
+    if state.category >= categories.len() {
+        state.category = 0;
+    }
+    let keys: Vec<_> = categories.iter().map(|c| format!("connector.category.{c}")).collect();
+    let labels: Vec<_> = keys.iter().map(|key| i18n::tr(key)).collect();
+    choice_row(ui, i18n::tr("connector.category"), "connector_category", &mut state.category, &labels);
+    let filtered: Vec<_> =
+        state.models.iter().enumerate().filter(|(_, m)| state.category == 0 || m.category == categories[state.category]).map(|(i, _)| i).collect();
+    let mut selected = filtered.iter().position(|i| *i == state.selected).unwrap_or(0);
+    let names: Vec<_> = filtered
+        .iter()
+        .filter_map(|i| state.models.get(*i))
+        .map(|m| format!("{} · {}", m.compatible_series.iter().map(u32::to_string).collect::<Vec<_>>().join("/"), m.part_number))
+        .collect();
     let names: Vec<_> = names.iter().map(String::as_str).collect();
-    choice_row(ui, i18n::tr("connector.model"), "aluminium_connector_model", &mut state.selected, &names);
+    choice_row(ui, i18n::tr("connector.model"), "aluminium_connector_model", &mut selected, &names);
+    if let Some(index) = filtered.get(selected) {
+        state.selected = *index;
+    }
     if let Some(model) = state.models.get(state.selected) {
+        ui.label(&model.label);
         preview(ui, model);
         ui.label(i18n::format("connector.slot", &[("slot", &model.slot.to_string())]));
         ui.hyperlink_to(i18n::tr("connector.source"), &model.product_url);
     }
     if let Some(mount) = &mut state.mount {
         ui.label(i18n::format("aluminium.attached_to", &[("body", &mount.body)]));
-        choice_row(ui, i18n::tr("aluminium.connector_side"), "aluminium_connector_side", &mut mount.side, &["1", "2", "3", "4"]);
+        if mount.end.is_end() {
+            choice_row(ui, i18n::tr("aluminium.connector_side"), "aluminium_connector_side", &mut mount.side, &["1", "2", "3", "4"]);
+        }
         enter |= expr_row(ui, i18n::tr("aluminium.connector_offset"), &mut mount.gap);
-        ui.add(egui::Label::new(i18n::tr("aluminium.connector_mount_note")).wrap());
-        return enter;
+        ui.add(egui::Label::new(i18n::tr("interface.placement_note")).wrap());
     }
     ui.label(i18n::tr("connector.position"));
     for (label, value) in ["X", "Y", "Z"].into_iter().zip(&mut state.origin) {
@@ -63,7 +89,8 @@ pub fn commands(app: &SolveApp, state: &StockConnector, extra: &Map<String, Valu
     let model = state.models.get(state.selected).ok_or("choose a connector model")?;
     let mut params = json!({"model":model.id,"origin":state.origin,"rotation":state.rotation});
     if let Some(mount) = &state.mount {
-        params["mount"] = json!({"body":mount.body,"end":mount.end,"side":mount.side,"gap":mount.gap});
+        params["mount"] =
+            json!({"body":mount.body,"port":mount.end,"side":mount.side,"gap":mount.gap,"interface":mount.interface,"position":mount.position});
     }
     if let Some(name) = extra.get("name") {
         params["name"] = name.clone();
@@ -78,15 +105,36 @@ struct EndMount {
     end: solidcraft_engine::doc::aluminium::Port,
     side: usize,
     gap: String,
+    interface: String,
+    position: f64,
 }
 
-pub(crate) fn at_port(app: &mut SolveApp, body: &str, end: solidcraft_engine::doc::aluminium::Port) {
-    let Ok(info) = solidcraft_engine::aluminium_ports::member(&app.session, body) else { return };
+pub(crate) fn at_interface(app: &mut SolveApp, interface: &crate::aluminium_handles::Interface) {
+    let Ok(info) = solidcraft_engine::aluminium_ports::member(&app.session, &interface.body) else { return };
     app.start("aluminium.connector");
     if let Some(Kind::AluminiumConnector(state)) = app.dialog.as_mut().map(|d| &mut d.kind) {
-        state.models.retain(|m| f64::from(m.series) == info.frame.size);
+        state.models.retain(|m| m.compatible(info.frame.size, interface.kind));
+        state.models.sort_by_key(|m| {
+            if interface.kind == "slot" {
+                match m.category.as_str() {
+                    "nut" => 0,
+                    "internal" => 1,
+                    _ => 2,
+                }
+            } else {
+                0
+            }
+        });
         state.selected = 0;
-        state.mount = Some(EndMount { body: body.to_owned(), end, side: 0, gap: "0 mm".into() });
+        state.category = 0;
+        state.mount = Some(EndMount {
+            body: interface.body.clone(),
+            end: interface.port,
+            side: 0,
+            gap: "0 mm".into(),
+            interface: interface.kind.into(),
+            position: interface.position,
+        });
     }
 }
 
@@ -94,29 +142,9 @@ pub(crate) fn mount_guide(app: &SolveApp, ui: &egui::Ui, proj: &crate::viewport:
     let Some(Kind::AluminiumConnector(state)) = app.dialog.as_ref().map(|d| &d.kind) else { return };
     let Some(mount) = &state.mount else { return };
     let Ok(info) = solidcraft_engine::aluminium_ports::member(&app.session, &mount.body) else { return };
-    let frame = info.frame;
-    let gap = app
-        .session
-        .doc
-        .eval(&app.session.doc.with_design_unit(&mount.gap, solidcraft_engine::doc::expr::Kind::Length), solidcraft_engine::doc::expr::Kind::Length)
-        .unwrap_or(0.0);
-    let (at, n, _) = frame.port(mount.end, 0.5, gap);
-    let r = match mount.side {
-        0 => frame.x,
-        1 => frame.y,
-        2 => -frame.x,
-        _ => -frame.y,
-    };
-    let corner = at + r * (frame.size / 2.0);
-    let length = frame.size * 0.9;
-    let stroke = egui::Stroke::new(3.0, crate::theme::Tokens::get().joint_manipulator);
-    if let Some(c) = proj.to_screen(corner) {
-        ui.painter().circle_stroke(c, 7.0, stroke);
-        for p in [corner - n * length, corner + r * length] {
-            if let Some(p) = proj.to_screen(p) {
-                ui.painter().line_segment([c, p], stroke);
-            }
-        }
+    let (at, _, _) = info.frame.port(mount.end, mount.position, 0.0);
+    if let Some(c) = proj.to_screen(at) {
+        ui.painter().circle_stroke(c, 7.0, egui::Stroke::new(2.0, crate::theme::Tokens::get().joint_manipulator));
         crate::scenario::publish_handle("aluminium:connector_mount", c);
     }
 }

@@ -8,8 +8,17 @@ use crate::{Result, Session, params::bad};
 
 #[derive(Clone, Debug, Deserialize, Serialize, schemars::JsonSchema)]
 pub struct Connector {
+    pub category: String,
+    pub interface: String,
+    pub placement: String,
+    /// Supplier-CAD datum at the nominal member surface; normal points out of the member.
+    pub anchor: [f64; 3],
+    pub normal: [f64; 3],
+    /// Unit tangent aligned with the parent length on sides, or the chosen section axis at ends.
+    pub along: [f64; 3],
     pub id: String,
     pub series: u32,
+    pub compatible_series: Vec<u32>,
     pub slot: u32,
     pub supplier: String,
     pub part_number: String,
@@ -20,6 +29,19 @@ pub struct Connector {
     pub step_member: String,
     pub filename: String,
     pub step_sha256: String,
+}
+
+impl Connector {
+    pub fn compatible(&self, series: f64, interface: &str) -> bool {
+        self.compatible_series.iter().any(|s| f64::from(*s) == series)
+            && match interface {
+                "surface" => self.interface == "surface",
+                "slot" => self.interface == "slot" || self.interface == "surface",
+                "end" => self.interface == "end" || self.placement == "angle",
+                "bore" => matches!(self.category.as_str(), "joint" | "cube"),
+                _ => false,
+            }
+    }
 }
 
 pub fn catalogue() -> Result<Vec<Connector>> {
@@ -96,33 +118,67 @@ pub fn import_params(session: &Session, params: &Value) -> Result<Value> {
     if let Some(mount) = params.get("mount") {
         let body = mount.get("body").and_then(Value::as_str).ok_or_else(|| bad(cmd, "select a stock member for the connector"))?;
         let port: solidcraft_doc::aluminium::Port =
-            serde_json::from_value(mount.get("end").cloned().unwrap_or(Value::Null)).map_err(|_| bad(cmd, "choose a member end"))?;
-        if !port.is_end() {
-            return Err(bad(cmd, "connectors are placed from a member end"));
-        }
+            serde_json::from_value(mount.get("port").or_else(|| mount.get("end")).cloned().unwrap_or(Value::Null))
+                .map_err(|_| bad(cmd, "choose a member end"))?;
         let side = mount.get("side").map_or(Some(0), Value::as_u64).filter(|i| *i < 4).ok_or_else(|| bad(cmd, "connector side must be 0–3"))?;
         let frame = crate::aluminium_ports::member(session, body)?.frame;
-        if f64::from(model.series) != frame.size {
-            return Err(bad(cmd, "connector series does not match the selected member"));
-        }
         let gap = crate::params::expr(mount, "gap").unwrap_or_else(|| "0 mm".into());
         let gap = session.doc.eval(&session.doc.with_design_unit(&gap, solidcraft_doc::expr::Kind::Length), solidcraft_doc::expr::Kind::Length)?;
         if !gap.is_finite() || gap.abs() > 100_000.0 {
             return Err(bad(cmd, "invalid connector offset"));
         }
-        let (end, n, _) = frame.port(port, 0.5, gap);
+        let kind = mount.get("interface").and_then(Value::as_str).unwrap_or("end");
+        if !model.compatible(frame.size, kind) || (port.is_end() != matches!(kind, "end" | "bore")) {
+            return Err(bad(cmd, "connector is incompatible with this installation interface"));
+        }
+        let position = mount
+            .get("position")
+            .map_or(Some(0.5), Value::as_f64)
+            .filter(|v| v.is_finite() && (0.0..=1.0).contains(v))
+            .ok_or_else(|| bad(cmd, "interface position must be between 0 and 1"))?;
+        let (at, normal, _) = frame.port(port, position, gap);
         let radial = match side {
             0 => frame.x,
             1 => frame.y,
             2 => -frame.x,
             _ => -frame.y,
         };
-        let origin = end + radial * (frame.size / 2.0);
-        // These fixed Motedis models use the two outer mounting planes X=0 and Y=0;
-        // their alignment tabs project into +X / -Y and their width is centred on Z=0.
-        // -X extends back along the parent, +Y extends out from the selected outer side.
-        let z = n.cross(radial);
-        output["matrix"] = json!([[n.x, radial.x, z.x, origin.x], [n.y, radial.y, z.y, origin.y], [n.z, radial.z, z.z, origin.z], [0, 0, 0, 1]]);
+        if model.placement == "angle" {
+            let n = if port.is_end() {
+                normal
+            } else if position < 0.5 {
+                -frame.axis
+            } else {
+                frame.axis
+            };
+            let radial = if port.is_end() { radial } else { normal };
+            let origin = if port.is_end() { at + radial * (frame.size / 2.0) } else { at };
+            let z = n.cross(radial);
+            output["matrix"] = json!([[n.x, radial.x, z.x, origin.x], [n.y, radial.y, z.y, origin.y], [n.z, radial.z, z.z, origin.z], [0, 0, 0, 1]]);
+        } else {
+            use solidcraft_geom::Vec3;
+            let vector = |v: [f64; 3]| Vec3::new(v[0], v[1], v[2]);
+            let local_n = vector(model.normal);
+            let local_u = vector(model.along);
+            let local_v = local_n.cross(local_u);
+            let u = if port.is_end() { radial } else { frame.axis };
+            let v = normal.cross(u);
+            let transform = |p: Vec3| u * p.dot(local_u) + v * p.dot(local_v) + normal * p.dot(local_n);
+            let x = transform(Vec3::new(1.0, 0.0, 0.0));
+            let y = transform(Vec3::new(0.0, 1.0, 0.0));
+            let z = transform(Vec3::new(0.0, 0.0, 1.0));
+            let origin = at - transform(vector(model.anchor));
+            output["matrix"] = json!([[x.x, y.x, z.x, origin.x], [x.y, y.y, z.y, origin.y], [x.z, y.z, z.z, origin.z], [0, 0, 0, 1]]);
+        }
+        // Local adjustment after prepositioning; never changes the fixed manufacturer's geometry.
+        let mut placed = solidcraft_doc::IDENTITY;
+        for (col, values) in placed.iter_mut().enumerate() {
+            for (row, value) in values.iter_mut().enumerate() {
+                *value = output["matrix"][row][col].as_f64().ok_or_else(|| bad(cmd, "invalid connector placement"))?;
+            }
+        }
+        let adjusted = solidcraft_doc::mat_mul(&placed, &matrix);
+        output["matrix"] = json!((0..4).map(|row| (0..4).map(|col| adjusted[col][row]).collect::<Vec<_>>()).collect::<Vec<_>>());
     }
     Ok(output)
 }
@@ -136,7 +192,7 @@ pub fn annotate(session: &mut Session, output: &mut Value, id: &str) -> Result<(
         component.properties.insert("supplier".into(), model.supplier.clone());
         component.properties.insert("stock_connector".into(), model.id.clone());
         component.properties.insert("source_url".into(), model.product_url.clone());
-        component.properties.insert("profile_series".into(), model.series.to_string());
+        component.properties.insert("profile_series".into(), model.compatible_series.iter().map(u32::to_string).collect::<Vec<_>>().join("/"));
         component.properties.insert("slot".into(), model.slot.to_string());
     }
     output["part_number"] = json!(model.part_number);

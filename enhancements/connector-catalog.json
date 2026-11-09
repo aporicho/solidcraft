@@ -11,7 +11,28 @@
     "archive_sha256": "acac3a14be6c1b13d47796ac22b5c6eedca0778e892f83b76de3ddf2e8831340",
     "step_member": "Motedis_S6BBR20.stp",
     "filename": "motedis-s6bbr20.step",
-    "step_sha256": "bda437fcc1b361d971d3e0ed4acb06a8fcf46e76f0105038422d3599f6b2f791"
+    "step_sha256": "bda437fcc1b361d971d3e0ed4acb06a8fcf46e76f0105038422d3599f6b2f791",
+    "category": "angle",
+    "interface": "surface",
+    "placement": "angle",
+    "anchor": [
+      0,
+      0,
+      0
+    ],
+    "normal": [
+      0,
+      1,
+      0
+    ],
+    "along": [
+      -1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      20
+    ]
   },
   {
     "id": "motedis-s8bbr30",
@@ -25,7 +46,28 @@
     "archive_sha256": "034d48b7a51ea4c03df099ff3277fad41752b5757a6be746ca211c1b326195ee",
     "step_member": "Motedis_S8BBR30.stp",
     "filename": "motedis-s8bbr30.step",
-    "step_sha256": "adf089776c54c1c2c3fcbb540e0b1aa5c459c7f7c924d76c8643562f4647801e"
+    "step_sha256": "adf089776c54c1c2c3fcbb540e0b1aa5c459c7f7c924d76c8643562f4647801e",
+    "category": "angle",
+    "interface": "surface",
+    "placement": "angle",
+    "anchor": [
+      0,
+      0,
+      0
+    ],
+    "normal": [
+      0,
+      1,
+      0
+    ],
+    "along": [
+      -1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      30
+    ]
   },
   {
     "id": "motedis-s8ibr40",
@@ -39,6 +81,763 @@
     "archive_sha256": "fbe8b54654f64d4020278cdb360d844ffb885831b9612d31a9a4fbcccb6a8e50",
     "step_member": "Motedis_S8IBR40.stp",
     "filename": "motedis-s8ibr40.step",
-    "step_sha256": "0f0fc7de00406d5717710e927388784ed5a8af5e0cd73f5fd0c38d13f69b6285"
+    "step_sha256": "0f0fc7de00406d5717710e927388784ed5a8af5e0cd73f5fd0c38d13f69b6285",
+    "category": "angle",
+    "interface": "surface",
+    "placement": "angle",
+    "anchor": [
+      0,
+      0,
+      0
+    ],
+    "normal": [
+      0,
+      1,
+      0
+    ],
+    "along": [
+      -1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      40
+    ]
+  },
+  {
+    "id": "motedis-s6bhasnm4",
+    "series": 20,
+    "slot": 6,
+    "supplier": "Motedis",
+    "part_number": "S6BHASNM4",
+    "label": "T-nut B-type slot 6 [M4]",
+    "product_url": "https://www.motedis.com/en/T-nut-B-type-slot-6-M4",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S6BHASNM4.zip",
+    "archive_sha256": "fed45c1b54826ef5ce734f7d95a7fcc8cb2735a1561e48453acf85a5540038f7",
+    "step_member": "Motedis_S6BHASNM4.stp",
+    "filename": "motedis-s6bhasnm4.step",
+    "step_sha256": "3422879dfb744b2b8fb108e8d5a548d5137b90280d0d02d268d56fc4015c1cb8",
+    "category": "nut",
+    "interface": "slot",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      6.000000000000003
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      20
+    ]
+  },
+  {
+    "id": "motedis-s6bhasnm5",
+    "series": 20,
+    "slot": 6,
+    "supplier": "Motedis",
+    "part_number": "S6BHASNM5",
+    "label": "T-nut B-type slot 6 [M5]",
+    "product_url": "https://www.motedis.com/en/T-nut-B-type-slot-6-M5",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S6BHASNM5.zip",
+    "archive_sha256": "1bae104431b0ee5c69018e2292ded1f511350bbf32b0ce3f0fc3054fd843b007",
+    "step_member": "Motedis_S6BHASNM5.stp",
+    "filename": "motedis-s6bhasnm5.step",
+    "step_sha256": "a6d5fa3320ca0c9059be073d6ba2b289424976ef914bdfc4023e68a22f8be42d",
+    "category": "nut",
+    "interface": "slot",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      6.000000000000003
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      20
+    ]
+  },
+  {
+    "id": "motedis-s8bhasnm5",
+    "series": 30,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "S8BHASNM5",
+    "label": "T-nut B-type slot 8 [M5]",
+    "product_url": "https://www.motedis.com/en/T-nut-B-type-slot-8-M5",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S8BHASNM5_1.zip",
+    "archive_sha256": "e2831476043e642406790c3e31108f9f38acf21aba72844b841f6a6b1f266fd4",
+    "step_member": "Motedis_S8BHASNM5.stp",
+    "filename": "motedis-s8bhasnm5.step",
+    "step_sha256": "a4e36878f71bcf477a2d51628afa53a9581f795ab40007c8be17e17aefb5a52d",
+    "category": "nut",
+    "interface": "slot",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      8.0
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      30
+    ]
+  },
+  {
+    "id": "motedis-s8bhasnm6",
+    "series": 30,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "S8BHASNM6",
+    "label": "T-nut B-type slot 8 [M6]",
+    "product_url": "https://www.motedis.com/en/T-nut-B-type-slot-8-M6",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S8BHASNM6_1.zip",
+    "archive_sha256": "254f1b358d4807793640ac7276673b4cb610ce0b3b3e7bced889a500412a1dc6",
+    "step_member": "Motedis_S8BHASNM6.stp",
+    "filename": "motedis-s8bhasnm6.step",
+    "step_sha256": "20f0667a83003e18f7754e4f2112b6d4332ebe53fe019cc4fcac771fe7f88ae4",
+    "category": "nut",
+    "interface": "slot",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      8.0
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      30
+    ]
+  },
+  {
+    "id": "motedis-s8ihasnm5",
+    "series": 40,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "S8IHASNM5",
+    "label": "T-nut I-type slot 8 [M5]",
+    "product_url": "https://www.motedis.com/en/T-nut-I-type-slot-8-M5",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S8IHASNM5.zip",
+    "archive_sha256": "2304ff7485bf12824c0c7b92885fdc9b87eb7f2d9a0beec1a503c996380bdd4e",
+    "step_member": "Motedis_S8IHASNM5.stp",
+    "filename": "motedis-s8ihasnm5.step",
+    "step_sha256": "c5fb040f59b6670e5df10b351755f16eff62536ed1acb65215d6812029037f7e",
+    "category": "nut",
+    "interface": "slot",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      9.5
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      40
+    ]
+  },
+  {
+    "id": "motedis-s8ihasnm6",
+    "series": 40,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "S8IHASNM6",
+    "label": "T-nut I-type slot 8 [M6]",
+    "product_url": "https://www.motedis.com/en/T-nut-I-type-slot-8-M6",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S8IHASNM6.zip",
+    "archive_sha256": "0523b621b72cf26e51373447bd9a6244fd989db6a129b8c6e5c610b04fd86e9e",
+    "step_member": "Motedis_S8IHASNM6.stp",
+    "filename": "motedis-s8ihasnm6.step",
+    "step_sha256": "0581da53bca072c25def1b590f6d84fc1ca5458ad8325aff797ec38b3f0cff62",
+    "category": "nut",
+    "interface": "slot",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      9.5
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      40
+    ]
+  },
+  {
+    "id": "motedis-lp20105",
+    "series": 20,
+    "slot": 6,
+    "supplier": "Motedis",
+    "part_number": "LP20105",
+    "label": "Connector plate 20x80x3, Lasercut",
+    "product_url": "https://www.motedis.com/en/Connector-plate-20x80x3-Lasercut",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis-LP20105.zip",
+    "archive_sha256": "8944d44f0b3c55c9c0e69caa97c06966bef2d61d3b13285990c1c08e43b9d426",
+    "step_member": "20-V-20x80 [Alu 3 mm].stp",
+    "filename": "motedis-lp20105.step",
+    "step_sha256": "e70cb9dcd0c31fe9b978521b5802d8eef0e1e066cc05c54c0b98c7db9601dd84",
+    "category": "plate",
+    "interface": "surface",
+    "placement": "interface",
+    "anchor": [
+      40.0,
+      10.5,
+      0.0
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      20
+    ]
+  },
+  {
+    "id": "motedis-lp30103",
+    "series": 30,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "LP30103",
+    "label": "Connector plate 30x90x3, Laser cut",
+    "product_url": "https://www.motedis.com/en/Connector-plate-30x90x3-Laser-cut",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis-LP30103.zip",
+    "archive_sha256": "e585d9d2c60518442d922f200ffb43bd6d20b590ca8c0357884f148b40f18c9a",
+    "step_member": "Motedis-LP30103.stp",
+    "filename": "motedis-lp30103.step",
+    "step_sha256": "fd50fbc3667c3b0c4dceecd37b23d002a53b0a8d94b5e3ef594dd288240f8c73",
+    "category": "plate",
+    "interface": "surface",
+    "placement": "interface",
+    "anchor": [
+      -5.551115123125783e-16,
+      45.000000000000014,
+      15.003731294032232
+    ],
+    "normal": [
+      1,
+      0,
+      0
+    ],
+    "along": [
+      0,
+      1,
+      0
+    ],
+    "compatible_series": [
+      30
+    ]
+  },
+  {
+    "id": "motedis-lp40103",
+    "series": 40,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "LP40103",
+    "label": "Connector plate 40x120x5, Laser cut",
+    "product_url": "https://www.motedis.com/en/Connector-plate-40x120x5-Laser-cut",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_LP40103.zip",
+    "archive_sha256": "e2e742d7186999dd362bce63c9c14c48e64a59f59cb0bb2a524086ed050b1b83",
+    "step_member": "Motedis_LP40103.stp",
+    "filename": "motedis-lp40103.step",
+    "step_sha256": "920b703b8d90497913f38722fc2dfd57d45127775622ef9dea693d8a355f03ec",
+    "category": "plate",
+    "interface": "surface",
+    "placement": "interface",
+    "anchor": [
+      0.0,
+      60.00000000000001,
+      20.000000000000004
+    ],
+    "normal": [
+      1,
+      0,
+      0
+    ],
+    "along": [
+      0,
+      1,
+      0
+    ],
+    "compatible_series": [
+      40
+    ]
+  },
+  {
+    "id": "motedis-pj562020p",
+    "series": 20,
+    "slot": 6,
+    "supplier": "Motedis",
+    "part_number": "PJ562020P",
+    "label": "Joint 20 slot 5 & slot 6",
+    "product_url": "https://www.motedis.com/en/Joint-20-slot-5-slot-6",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_PJ562020P.zip",
+    "archive_sha256": "630ffb95b01bea2592143d1b97b1ca610d392ad50ccc85b286def747c02fe167",
+    "step_member": "Motedis_PJ562020P.stp",
+    "filename": "motedis-pj562020p.step",
+    "step_sha256": "b432d5311b86c2d16125dcd0ae78a601ac1517a75b789498de008c8af8d2ae9a",
+    "category": "joint",
+    "interface": "end",
+    "placement": "interface",
+    "anchor": [
+      -7.112431641983605,
+      7.726596995570874,
+      -1.7031089414544967e-16
+    ],
+    "normal": [
+      0,
+      1,
+      0
+    ],
+    "along": [
+      0,
+      0,
+      1
+    ],
+    "compatible_series": [
+      20
+    ]
+  },
+  {
+    "id": "motedis-pj83030p",
+    "series": 30,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "PJ83030P",
+    "label": "Joint for Profile 30 B-Type Slot 8",
+    "product_url": "https://www.motedis.com/en/Joint-for-Profile-30-B-Type-Slot-8",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_PJ83030P.zip",
+    "archive_sha256": "1d27fd59b049c4a8994c788b14cc4c7dfb098a6b6dd61a83ed00f97eb84365a9",
+    "step_member": "Motedis_PJ83030P.stp",
+    "filename": "motedis-pj83030p.step",
+    "step_sha256": "e72b531299c6661840368ea9573b285049c623e75529153eeb195392d801c5f2",
+    "category": "joint",
+    "interface": "end",
+    "placement": "interface",
+    "anchor": [
+      -2.362431641983602,
+      7.7265969955708815,
+      -1.8200297108855117e-17
+    ],
+    "normal": [
+      0,
+      1,
+      0
+    ],
+    "along": [
+      0,
+      0,
+      1
+    ],
+    "compatible_series": [
+      30
+    ]
+  },
+  {
+    "id": "motedis-sp-pj4040",
+    "series": 40,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "SP.PJ4040",
+    "label": "Joint 40 I-type slot 8 - adjustable friction",
+    "product_url": "https://www.motedis.com/en/Joint-40-I-type-slot-8-movable",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_SP.PJ4040.zip",
+    "archive_sha256": "e80aef85b662248496a557a371469b3b9faebd564a791f1ec5d960482108bebc",
+    "step_member": "Motedis_SP.PJ4040.stp",
+    "filename": "motedis-sp-pj4040.step",
+    "step_sha256": "a7c531eb49abb2bdfd59038eba9afceadd955c800fd6bad90ff79010cd4f59be",
+    "category": "joint",
+    "interface": "end",
+    "placement": "interface",
+    "anchor": [
+      2.887568358016401,
+      7.726596995570888,
+      -3.33489914458137e-16
+    ],
+    "normal": [
+      0,
+      1,
+      0
+    ],
+    "along": [
+      0,
+      0,
+      1
+    ],
+    "compatible_series": [
+      40
+    ]
+  },
+  {
+    "id": "motedis-s8bcc2d30",
+    "series": 30,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "S8BCC2D30",
+    "label": "Cube connector 30 B-type slot 8",
+    "product_url": "https://www.motedis.com/en/Cube-connector-30-B-type-slot-8",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S8BCC2D30.zip",
+    "archive_sha256": "ed20a4685ade0b44543581a86f8fefff6e80894f85f12175e0d604605b0ea13f",
+    "step_member": "Motedis_S8BCC2D30.stp",
+    "filename": "motedis-s8bcc2d30.step",
+    "step_sha256": "bfc06cb7a0b9577542e4abcf898f717870746c3bb06766a55840521f70b5923d",
+    "category": "cube",
+    "interface": "end",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      -15.0
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      30
+    ]
+  },
+  {
+    "id": "motedis-s8bcc3d30",
+    "series": 30,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "S8BCC3D30",
+    "label": "Cube connector 30 B-type slot 8",
+    "product_url": "https://www.motedis.com/en/Cube-connector-30-B-type-slot-8",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S8BCC3D30.zip",
+    "archive_sha256": "ee4460f598bf200e38a186c8bafdc5039b93b934c8b52647e200d25a94cb8cfe",
+    "step_member": "Motedis_S8BCC3D30.stp",
+    "filename": "motedis-s8bcc3d30.step",
+    "step_sha256": "b4b42a8d53f6dd11062d7430094e215849640f62b51bbf43d82b61b9e0a893fd",
+    "category": "cube",
+    "interface": "end",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      -15.0
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      30
+    ]
+  },
+  {
+    "id": "motedis-cube-connector-40-2d-i-type-slot-8",
+    "series": 40,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "Cube_connector_40-2D_I-type_slot_8",
+    "label": "Cube connector 40-2D I-type slot 8",
+    "product_url": "https://www.motedis.com/en/Cube-connector-40-2D-I-type-slot-8",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_Cube_connector_40-2D_I-type_slot_8.zip",
+    "archive_sha256": "a1faadd9719c571222e16c80b36fd1d6c503e8114cadd9ebda04ee470338fc62",
+    "step_member": "Motedis_Cube_connector_40-2D_I-type_slot_8.STEP",
+    "filename": "motedis-cube-connector-40-2d-i-type-slot-8.step",
+    "step_sha256": "301b8c18780783a339d8d8667197368ae4a362a495a2edf64a32001b582be300",
+    "category": "cube",
+    "interface": "end",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      -20.0
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      40
+    ]
+  },
+  {
+    "id": "motedis-s8icu403d",
+    "series": 40,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "S8ICU403D",
+    "label": "Cube connector 40-3D  I-type slot 8",
+    "product_url": "https://www.motedis.com/en/Cube-connector-40-3D-I-type-slot-8",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S8ICU403D.zip",
+    "archive_sha256": "59e5b48f697695711876d6e527c12e59d3363268e22a7f6fb1f6b72652664907",
+    "step_member": "Motedis_S8ICU403D.stp",
+    "filename": "motedis-s8icu403d.step",
+    "step_sha256": "7b7ddf4f020c774076b64794a0930c651a2eb99972c05ed511c0dd6c5ba453f6",
+    "category": "cube",
+    "interface": "end",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      -20.0
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      40
+    ]
+  },
+  {
+    "id": "motedis-pts8i40x40",
+    "series": 40,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "PTS8I40x40",
+    "label": "Cover Caps 40x40 I-Type Slot 8",
+    "product_url": "https://www.motedis.com/en/Cover-Caps-40x40-I-Type-Slot-8",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I40x40.zip",
+    "archive_sha256": "413d6ea67ce47aa21e1f36135b66fa0d7e36f549d6cfd404652df530bf73c385",
+    "step_member": "Motedis_PTS8I40x40.stp",
+    "filename": "motedis-pts8i40x40.step",
+    "step_sha256": "d52c4553ffba7bd8665bc7aa2e3a6767fb49dd1d31d6b25b8b65b9ed5b6e110e",
+    "category": "cap",
+    "interface": "end",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      3
+    ],
+    "normal": [
+      0,
+      0,
+      -1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      40
+    ]
+  },
+  {
+    "id": "motedis-s6bibm5",
+    "series": 20,
+    "slot": 6,
+    "supplier": "Motedis",
+    "part_number": "S6BIBM5",
+    "label": "Inner Bracket Zamak Die Cast 20  B-Type slot 6 M5 Alternative",
+    "product_url": "https://www.motedis.com/en/Inner-bracket-20-B-Type-slot-6-M5-Alternative",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S6BIBM5_1.zip",
+    "archive_sha256": "94979d6136b9ba18368aa77e8332830653ea961652fc9a6fb00db144eaa4412d",
+    "step_member": "Motedis_S6BIBM5.stp",
+    "filename": "motedis-s6bibm5.step",
+    "step_sha256": "3891ae4b7d73d6ae5464b710fa3a9ab1c05feed4ecb235e34f65c8dca3b9e730",
+    "category": "internal",
+    "interface": "slot",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      6
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      0,
+      1,
+      0
+    ],
+    "compatible_series": [
+      20
+    ]
+  },
+  {
+    "id": "motedis-s8ibibm6",
+    "series": 30,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "S8IBIBM6",
+    "label": "Inner Bracket Zamak Die Cast (30 B-Type / 40 I-Type) Slot 8 M6",
+    "product_url": "https://www.motedis.com/en/Inner-bracket-zamak-30-B-Type-40-I-Type-Slot-8-M6",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S8IBIBM6_1.zip",
+    "archive_sha256": "58a8ee9def1a399507dc905c0047916ff848c68692b268dee964df05e4843087",
+    "step_member": "Motedis_S8IBIBM6.stp",
+    "filename": "motedis-s8ibibm6.step",
+    "step_sha256": "78d6ae35b58c2984d6cd1d616d38b3617ac53ecbdc74de45874f6e265d893560",
+    "category": "internal",
+    "interface": "slot",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      8
+    ],
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "along": [
+      0,
+      1,
+      0
+    ],
+    "compatible_series": [
+      30,
+      40
+    ]
+  },
+  {
+    "id": "motedis-pts6b20x20",
+    "series": 20,
+    "slot": 6,
+    "supplier": "Motedis",
+    "part_number": "PTS6B20x20",
+    "label": "Cover Cap 20 B-Type slot 6",
+    "product_url": "https://www.motedis.com/en/Cover-Cap-20-B-Type-slot-6",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_PTS6B20x20.zip",
+    "archive_sha256": "3f39923a675e7fe38f2d325b61fc48ea3a702085ef9dfe3607bc084ec77c0fb8",
+    "step_member": "Motedis_PTS6B20x20.stp",
+    "filename": "motedis-pts6b20x20.step",
+    "step_sha256": "bdf340a7031b21e5921ea2ac6abedd965e8f42532b4dd041573316db6da5f634",
+    "category": "cap",
+    "interface": "end",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      1.5
+    ],
+    "normal": [
+      0,
+      0,
+      -1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      20
+    ]
+  },
+  {
+    "id": "motedis-pts8b30x30",
+    "series": 30,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "PTS8B30x30",
+    "label": "Cover Cap 30 B-type slot 8",
+    "product_url": "https://www.motedis.com/en/Cover-Cap-30-B-Typ-slot-8",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_PTS8B30x30.zip",
+    "archive_sha256": "013b17c48616e53955f379b6434acfc77ce716f653dfdd7489e73ede71e6d9ad",
+    "step_member": "Motedis_PTS8B30x30.stp",
+    "filename": "motedis-pts8b30x30.step",
+    "step_sha256": "2fe439af639396b7cea0fbbfa8f8613aa443ec26c8c9343587ea8b1fce4e6d04",
+    "category": "cap",
+    "interface": "end",
+    "placement": "interface",
+    "anchor": [
+      0,
+      0,
+      3
+    ],
+    "normal": [
+      0,
+      0,
+      -1
+    ],
+    "along": [
+      1,
+      0,
+      0
+    ],
+    "compatible_series": [
+      30
+    ]
   }
 ]
