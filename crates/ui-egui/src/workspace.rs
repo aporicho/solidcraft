@@ -324,6 +324,8 @@ pub const SECTIONS: &[Section] = &[
     Section { tab: "SHEET METAL", panel: "CONFIGURE", promoted: 2, ids: CONFIGURE },
     // A frame starts from a sketch of its lines; its profile sizes are often parameters.
     Section { tab: "ALUMINIUM", panel: "CREATE", promoted: 1, ids: &["aluminium.profile"] },
+    Section { tab: "ALUMINIUM", panel: "ALUMINIUM CONNECTIONS", promoted: 1, ids: &["aluminium.connector"] },
+    Section { tab: "ALUMINIUM", panel: "ALUMINIUM PLACEMENT", promoted: 1, ids: &["solid.move"] },
     Section { tab: "ALUMINIUM", panel: "CONFIGURE", promoted: 2, ids: CONFIGURE },
     Section { tab: "WELDMENTS", panel: "SKETCH", promoted: 1, ids: &["sketch.create"] },
     Section { tab: "WELDMENTS", panel: "CREATE", promoted: 1, ids: &["frame.member"] },
@@ -387,6 +389,7 @@ const LEGACY_RENDER_SECTIONS: &[Section] = &[
 /// Compact source labels for painted big buttons only. Menus, search and tooltips
 /// retain the engine label. Route these through `tr_label`, like other UI labels.
 pub const RIBBON_LABELS: &[(&str, &str)] = &[
+    ("aluminium.profile", "Create Profile"),
     ("render.batch", "All Shots"),
     ("render.cancel", "Cancel"),
     ("render.export", "Export Image"),
@@ -619,7 +622,9 @@ pub fn aluminium_body(app: &crate::SolveApp) -> Option<String> {
     let name = active_body(app, &state)?;
     let body = state.bodies.iter().find(|b| b.name == name)?;
     let made_by = app.session.doc.feature(body.feature)?;
-    matches!(made_by.kind, FeatureKind::AluminiumProfile { .. }).then(|| body.name.clone())
+    let connector =
+        app.session.doc.components.iter().any(|component| component.id == body.component && component.properties.contains_key("stock_connector"));
+    (connector || matches!(made_by.kind, FeatureKind::AluminiumProfile { .. })).then(|| body.name.clone())
 }
 
 pub fn frame_body(app: &crate::SolveApp) -> Option<String> {

@@ -1,0 +1,72 @@
+{
+  "en": {
+    "cmd.aluminium.connector": "Insert Connector",
+    "Insert Aluminium Connector": "Insert Aluminium Connector",
+    "help.aluminium.connector": "Insert a fixed manufacturer STEP connector at its original size. Choose the model and rigid placement. Use Move / Copy to position additional instances.",
+    "ALUMINIUM CONNECTIONS": "Connectors",
+    "ALUMINIUM PLACEMENT": "Position",
+    "connector.model": "Connector model",
+    "connector.slot": "Nominal slot: {slot} mm",
+    "connector.source": "Manufacturer product details",
+    "connector.position": "Model origin position",
+    "connector.rotation": "Rotation about X / Y / Z",
+    "connector.fixed_note": "Fixed manufacturer geometry, at original size. Use Move / Copy after insertion to position the part.",
+    "Create Profile": "Create Profile"
+  },
+  "zh": {
+    "cmd.aluminium.connector": "插入连接件",
+    "Insert Aluminium Connector": "插入铝型材连接件",
+    "help.aluminium.connector": "按原始尺寸插入固定厂商 STEP 连接件。选择型号、位置和旋转，插入后可使用移动／复制定位。",
+    "ALUMINIUM CONNECTIONS": "连接件",
+    "ALUMINIUM PLACEMENT": "定位",
+    "connector.model": "连接件型号",
+    "connector.slot": "公称槽宽：{slot} mm",
+    "connector.source": "查看厂商型号资料",
+    "connector.position": "模型原点位置",
+    "connector.rotation": "绕 X / Y / Z 旋转",
+    "connector.fixed_note": "使用厂商固定模型，保持原始尺寸。插入后可使用“移动／复制”定位。",
+    "Create Profile": "创建型材"
+  },
+  "ja": {
+    "cmd.aluminium.connector": "接続部品を挿入",
+    "Insert Aluminium Connector": "アルミ形材の接続部品を挿入",
+    "help.aluminium.connector": "メーカーの固定 STEP 接続部品を元の寸法で挿入します。型番、位置、回転を選択してください。",
+    "ALUMINIUM CONNECTIONS": "接続部品",
+    "ALUMINIUM PLACEMENT": "配置",
+    "connector.model": "接続部品の型番",
+    "connector.slot": "呼び溝幅：{slot} mm",
+    "connector.source": "メーカー製品情報",
+    "connector.position": "モデル原点の位置",
+    "connector.rotation": "X / Y / Z 軸まわりの回転",
+    "connector.fixed_note": "メーカーの固定モデルを元の寸法で使用します。挿入後は移動／コピーで配置できます。",
+    "Create Profile": "形材を作成"
+  },
+  "de": {
+    "cmd.aluminium.connector": "Verbinder einfügen",
+    "Insert Aluminium Connector": "Aluminiumverbinder einfügen",
+    "help.aluminium.connector": "Ein festes Hersteller-STEP-Modell in Originalgröße einfügen. Modell, Position und Drehung wählen.",
+    "ALUMINIUM CONNECTIONS": "Verbinder",
+    "ALUMINIUM PLACEMENT": "Position",
+    "connector.model": "Verbindermodell",
+    "connector.slot": "Nut-Nennweite: {slot} mm",
+    "connector.source": "Herstellerinformationen",
+    "connector.position": "Position des Modellursprungs",
+    "connector.rotation": "Drehung um X / Y / Z",
+    "connector.fixed_note": "Festes Herstellermodell in Originalgröße. Nach dem Einfügen mit Verschieben/Kopieren platzieren.",
+    "Create Profile": "Profil erstellen"
+  },
+  "ko": {
+    "cmd.aluminium.connector": "연결 부품 삽입",
+    "Insert Aluminium Connector": "알루미늄 연결 부품 삽입",
+    "help.aluminium.connector": "고정된 제조업체 STEP 모델을 원래 크기로 삽입합니다. 모델, 위치, 회전을 선택하세요.",
+    "ALUMINIUM CONNECTIONS": "연결 부품",
+    "ALUMINIUM PLACEMENT": "배치",
+    "connector.model": "연결 부품 모델",
+    "connector.slot": "공칭 슬롯 폭: {slot} mm",
+    "connector.source": "제조업체 제품 정보",
+    "connector.position": "모델 원점 위치",
+    "connector.rotation": "X / Y / Z 축 회전",
+    "connector.fixed_note": "제조업체 고정 모델을 원래 크기로 사용합니다. 삽입 후 이동/복사로 배치할 수 있습니다.",
+    "Create Profile": "프로파일 생성"
+  }
+}

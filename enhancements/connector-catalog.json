@@ -1,0 +1,44 @@
+[
+  {
+    "id": "motedis-s6bbr20",
+    "series": 20,
+    "slot": 6,
+    "supplier": "Motedis",
+    "part_number": "S6BBR20",
+    "label": "Motedis S6BBR20",
+    "product_url": "https://www.motedis.com/en/Bracket-20x20-B-type-slot-6",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S6BBR20_2.zip",
+    "archive_sha256": "acac3a14be6c1b13d47796ac22b5c6eedca0778e892f83b76de3ddf2e8831340",
+    "step_member": "Motedis_S6BBR20.stp",
+    "filename": "motedis-s6bbr20.step",
+    "step_sha256": "bda437fcc1b361d971d3e0ed4acb06a8fcf46e76f0105038422d3599f6b2f791"
+  },
+  {
+    "id": "motedis-s8bbr30",
+    "series": 30,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "S8BBR30",
+    "label": "Motedis S8BBR30",
+    "product_url": "https://www.motedis.com/en/Bracket-30-B-Type-slot-8",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S8BBR30.zip",
+    "archive_sha256": "034d48b7a51ea4c03df099ff3277fad41752b5757a6be746ca211c1b326195ee",
+    "step_member": "Motedis_S8BBR30.stp",
+    "filename": "motedis-s8bbr30.step",
+    "step_sha256": "adf089776c54c1c2c3fcbb540e0b1aa5c459c7f7c924d76c8643562f4647801e"
+  },
+  {
+    "id": "motedis-s8ibr40",
+    "series": 40,
+    "slot": 8,
+    "supplier": "Motedis",
+    "part_number": "S8IBR40",
+    "label": "Motedis S8IBR40",
+    "product_url": "https://www.motedis.com/en/Bracket-40-I-Type-slot-8",
+    "archive_url": "https://www.motedis.com/shop/products_files/Motedis_S8IBR40_1.zip",
+    "archive_sha256": "fbe8b54654f64d4020278cdb360d844ffb885831b9612d31a9a4fbcccb6a8e50",
+    "step_member": "Motedis_S8IBR40.stp",
+    "filename": "motedis-s8ibr40.step",
+    "step_sha256": "0f0fc7de00406d5717710e927388784ed5a8af5e0cd73f5fd0c38d13f69b6285"
+  }
+]

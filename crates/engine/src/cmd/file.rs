@@ -292,7 +292,7 @@ fn insert_mesh(s: &mut Session, p: &Value) -> Result<Value> {
     add_mesh(s, path, str_(p, "name"), up)
 }
 
-fn insert_step(s: &mut Session, p: &Value) -> Result<Value> {
+pub(super) fn insert_step(s: &mut Session, p: &Value) -> Result<Value> {
     let cmd = "file.insert_step";
     let path = path_arg(p, cmd)?;
     if !solidcraft_io::is_step_path(path) {
@@ -304,6 +304,9 @@ fn insert_step(s: &mut Session, p: &Value) -> Result<Value> {
         Some(m) => Some(super::component::matrix::rigid(m, super::component::matrix::tolerance(p, cmd)?, cmd)?),
     };
     let mut out = add_step(s, path, str_(p, "name"), &options)?;
+    if let Some(model) = p.get("stock_connector").and_then(Value::as_str) {
+        crate::stock_connectors::annotate(s, &mut out, model)?;
+    }
     if let Some(m) = placement {
         let occ = out["occurrence"].as_u64().ok_or_else(|| EngineError::Other("the import has no placement to move".into()))?;
         if let Some(o) = s.doc_mut().occurrences.iter_mut().find(|o| o.id == occ) {

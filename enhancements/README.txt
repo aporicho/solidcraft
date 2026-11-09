@@ -46,3 +46,15 @@ https://www.misumi.com.cn/pdf/vona/P1_202005_04.pdf
 https://www.misumi.com.cn/pdf/vona/P2_202005_04.pdf
 https://cn.c.misumi.com.cn/book/MSM1_M_C_19_02/pdf/0006.pdf
 新增了保存用的原生特征类型；此版本保存的设计需要支持新格式的增强版打开。
+
+连接件：铝型材 → 连接件 → 插入连接件。
+首批固定厂商模型：Motedis S6BBR20（20系列槽6）、S8BBR30（30系列槽8）、S8IBR40（40系列槽8）。
+保持原始几何尺寸，不缩放、不生成替代几何。只设置模型原点位置和 XYZ 旋转角度。
+插入后是独立组件，可用同页“移动／复制”定位；本版为手动定位，还没有自动配对两根型材的槽位。
+组件保留厂商料号、来源链接和槽系信息，BOM 可按零件统计。
+CAD 模型来自厂商公开下载，独立安装在本机数据缓存中；源码和增量包不捆绑厂商 CAD 文件。
+安装或验证数据：sh enhancements/fetch-connectors.sh [缓存目录]
+默认缓存：SOLIDCRAFT_CONNECTOR_LIBRARY，或 XDG_DATA_HOME/solidcraft/connectors。
+本机增强版启动器指定 ~/.local/share/solidcraft-snap/library/connectors。
+下载脚本核对目录中的归档和 STEP 校验和，应用运行时离线读取已安装模型。
+型号来源与校验和：enhancements/connector-catalog.json。

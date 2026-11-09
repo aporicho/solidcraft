@@ -38,7 +38,7 @@ mod delete;
 mod diagnostics;
 mod edit;
 mod face;
-mod features;
+pub(crate) mod features;
 mod features_more;
 mod join_pieces;
 mod node_graph;

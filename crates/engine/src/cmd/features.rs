@@ -1339,7 +1339,7 @@ pub(super) fn length_operands<const N: usize>(s: &Session, operands: [(&str, &st
 
 /// A placement point: `[x, y, z]` (or `{x, y, z}`) of numbers (mm) or length expressions;
 /// the origin when it is not given. Anything else is refused (never read as the origin).
-pub(super) fn point_param(s: &Session, p: &Value, key: &str, cmd: &str) -> Result<Option<PointExpr>> {
+pub(crate) fn point_param(s: &Session, p: &Value, key: &str, cmd: &str) -> Result<Option<PointExpr>> {
     let Some(v) = p.get(key) else { return Ok(None) };
     let want = || bad(cmd, format!("`{key}` must be a point [x, y, z] of numbers or length expressions"));
     let coords: Vec<&Value> = match v {

@@ -372,9 +372,21 @@ fn reuse_open(app: &mut SolveApp, request: &Request) -> bool {
 
 /// A control-channel (MCP) `doc.open` or STEP/mesh import runs like File > Open: off the window
 /// thread, answered when the file is in. Other requests come back to be handled now.
-pub fn control(app: &mut SolveApp, req: crate::control::ControlRequest) -> Option<crate::control::ControlRequest> {
+pub fn control(app: &mut SolveApp, mut req: crate::control::ControlRequest) -> Option<crate::control::ControlRequest> {
     if cfg!(target_arch = "wasm32") || !matches!(req.method.as_str(), "engine.execute" | "command") {
         return Some(req);
+    }
+    if req.params.get("command").or(req.params.get("id")).and_then(Value::as_str) == Some("aluminium.connector") {
+        match solidcraft_engine::stock_connectors::import_params(&app.session, &req.params.get("params").cloned().unwrap_or_else(|| json!({}))) {
+            Ok(params) => {
+                req.params["command"] = json!("file.insert_step");
+                req.params["params"] = params;
+            }
+            Err(error) => {
+                let _ = req.reply.send(json!({"ok":false,"error":error.to_string()}));
+                return None;
+            }
+        }
     }
     let command = req.params.get("command").or(req.params.get("id")).and_then(Value::as_str);
     let kind = match command {

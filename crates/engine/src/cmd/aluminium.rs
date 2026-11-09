@@ -9,7 +9,12 @@ use crate::schema::features::{AluminiumProfileParams, FeatureResult};
 use crate::{Result, Session};
 
 const CONTRACT: crate::schema::TypedContract<AluminiumProfileParams> = crate::schema::TypedContract::new();
+const CONNECTOR_CONTRACT: crate::schema::TypedContract<crate::schema::features::AluminiumConnectorParams> = crate::schema::TypedContract::new();
 pub static COMMANDS: &[CommandSpec] = &[
+    CommandSpec::new("aluminium.connector", "Insert Connector", crate::checked!("aluminium.connector", connector))
+        .at("ALUMINIUM", "CONNECT").icon("joint").enabled(super::not_in_sketch)
+        .contract(&CONNECTOR_CONTRACT).output(crate::schema::output_schema_for::<Value>)
+        .params("model?: motedis-s6bbr20|motedis-s8bbr30|motedis-s8ibr40; origin?: [x,y,z]; rotation?: [x,y,z] angle expressions (bare numbers in degrees); name? → imported component, occurrence, feature and part metadata. Uses the fixed manufacturer STEP model at original scale from the installed connector data cache; no network requests"),
     CommandSpec::new("aluminium.profile", "Create Aluminium Profile", crate::checked!("aluminium.profile", create))
         .at("ALUMINIUM", "CREATE").icon("frame_member").enabled(super::not_in_sketch)
         .contract(&CONTRACT).output(crate::schema::output_schema_for::<FeatureResult>)
@@ -59,4 +64,9 @@ fn create(s: &mut Session, p: &Value) -> Result<Value> {
         &params,
         FeatureKind::AluminiumProfile { model, length, origin, axis: Dir(axis), reference: Dir(reference), angle },
     )
+}
+
+fn connector(s: &mut Session, p: &Value) -> Result<Value> {
+    let params = crate::stock_connectors::import_params(s, p)?;
+    super::file::insert_step(s, &params)
 }

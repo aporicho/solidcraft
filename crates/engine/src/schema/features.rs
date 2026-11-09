@@ -455,3 +455,22 @@ pub enum AluminiumModel {
     #[serde(rename = "4040")]
     P4040,
 }
+
+/// Insert one fixed manufacturer connector at its original scale.
+#[derive(Debug, Deserialize, JsonSchema)]
+#[schemars(deny_unknown_fields)]
+pub struct AluminiumConnectorParams {
+    pub model: Option<ConnectorModel>,
+    pub origin: Option<PointExpr3>,
+    pub rotation: Option<[AngleExpr; 3]>,
+    pub name: Option<String>,
+}
+#[derive(Debug, Deserialize, JsonSchema)]
+pub enum ConnectorModel {
+    #[serde(rename = "motedis-s6bbr20")]
+    S6bbr20,
+    #[serde(rename = "motedis-s8bbr30")]
+    S8bbr30,
+    #[serde(rename = "motedis-s8ibr40")]
+    S8ibr40,
+}
