@@ -17,7 +17,8 @@
     "Frame Sketch": "Frame Sketch",
     "Along Lines": "Along Lines",
     "Outer Edges": "Outer Edges",
-    "Connector": "Connector"
+    "Connector": "Connector",
+    "New Profile": "New Profile"
   },
   "zh": {
     "cmd.aluminium.frame": "矩形骨架",
@@ -37,7 +38,8 @@
     "Frame Sketch": "矩形骨架",
     "Along Lines": "沿线布置型材",
     "Outer Edges": "外边缘",
-    "Connector": "插入连接件"
+    "Connector": "插入连接件",
+    "New Profile": "创建型材"
   },
   "ja": {
     "cmd.aluminium.frame": "長方形の骨格",
@@ -57,7 +59,8 @@
     "Frame Sketch": "骨格スケッチ",
     "Along Lines": "線に沿って配置",
     "Outer Edges": "外周エッジ",
-    "Connector": "接続部品"
+    "Connector": "接続部品",
+    "New Profile": "形材を作成"
   },
   "de": {
     "cmd.aluminium.frame": "Rechteckiges Gerüst",
@@ -77,7 +80,8 @@
     "Frame Sketch": "Gerüstskizze",
     "Along Lines": "An Linien",
     "Outer Edges": "Außenkanten",
-    "Connector": "Verbinder"
+    "Connector": "Verbinder",
+    "New Profile": "Neues Profil"
   },
   "fr": {
     "cmd.aluminium.frame": "Ossature rectangulaire",
@@ -97,7 +101,8 @@
     "Frame Sketch": "Ossature",
     "Along Lines": "Sur lignes",
     "Outer Edges": "Bords externes",
-    "Connector": "Connecteur"
+    "Connector": "Connecteur",
+    "New Profile": "Nouveau profilé"
   },
   "ko": {
     "cmd.aluminium.frame": "직사각형 골격",
@@ -117,6 +122,7 @@
     "Frame Sketch": "골격 스케치",
     "Along Lines": "선을 따라 배치",
     "Outer Edges": "외곽 모서리",
-    "Connector": "연결 부품"
+    "Connector": "연결 부품",
+    "New Profile": "프로파일 생성"
   }
 }
