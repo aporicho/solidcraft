@@ -12,7 +12,8 @@
     "aluminium.connector_mount_note": "The bracket is positioned at this end and the selected side slot. The guide shows its mounting corner; check the joint before confirming. The inserted connector is an independent component.",
     "aluminium.drag_position": "Drag the connection along the parent member",
     "aluminium.precise_position": "Precise position",
-    "aluminium.detach": "Detach from parent"
+    "aluminium.detach": "Detach from parent",
+    "aluminium.selection_help": "Select whole members and parts. Use end and side-slot interfaces to extend members and place connectors."
   },
   "zh": {
     "aluminium.attached_to": "母型材：{body}",
@@ -27,7 +28,8 @@
     "aluminium.connector_mount_note": "角码预定位到此端及所选侧槽。模型中的导线表示安装拐角，请检查接头后确认。插入后为独立组件。",
     "aluminium.drag_position": "沿母型材拖动接续位置",
     "aluminium.precise_position": "精确位置",
-    "aluminium.detach": "解除接续关联"
+    "aluminium.detach": "解除接续关联",
+    "aluminium.selection_help": "选择整根型材或整个零件；使用端点、侧槽交互点接续型材和安装连接件。"
   },
   "ja": {
     "aluminium.attached_to": "親形材：{body}",
@@ -42,7 +44,8 @@
     "aluminium.connector_mount_note": "選択した端と側面の溝に仮配置します。ガイドは取付角を示します。挿入後は独立部品です。",
     "aluminium.drag_position": "親形材に沿って接続位置をドラッグ",
     "aluminium.precise_position": "正確な位置",
-    "aluminium.detach": "親から切り離す"
+    "aluminium.detach": "親から切り離す",
+    "aluminium.selection_help": "形材と部品を全体で選択します。端と側面溝の接続点で形材や接続部品を配置します。"
   },
   "de": {
     "aluminium.attached_to": "Ausgehend von: {body}",
@@ -57,7 +60,8 @@
     "aluminium.connector_mount_note": "Winkel am gewählten Ende und an der Seitennut vorpositionieren. Die Führung zeigt die Montageecke. Nach dem Einfügen ist der Verbinder unabhängig.",
     "aluminium.drag_position": "Verbindung am Mutterprofil verschieben",
     "aluminium.precise_position": "Genaue Position",
-    "aluminium.detach": "Verknüpfung lösen"
+    "aluminium.detach": "Verknüpfung lösen",
+    "aluminium.selection_help": "Ganze Profile und Teile auswählen. Enden und Seitennuten dienen als Schnittstellen für weitere Profile und Verbinder."
   },
   "ko": {
     "aluminium.attached_to": "기준 프로파일: {body}",
@@ -72,6 +76,7 @@
     "aluminium.connector_mount_note": "선택한 끝과 측면 슬롯에 미리 배치합니다. 안내선은 장착 모서리를 나타냅니다. 삽입 후에는 독립 부품입니다.",
     "aluminium.drag_position": "기준 프로파일을 따라 연결 위치 이동",
     "aluminium.precise_position": "정확한 위치",
-    "aluminium.detach": "기준 연결 해제"
+    "aluminium.detach": "기준 연결 해제",
+    "aluminium.selection_help": "프로파일과 부품 전체를 선택합니다. 끝과 측면 슬롯의 연결점으로 프로파일과 연결 부품을 배치하세요."
   }
 }

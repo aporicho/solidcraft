@@ -49,6 +49,8 @@ pub enum NavMode {
 
 #[derive(Default)]
 pub struct ViewportState {
+    pub(crate) aluminium_station: Option<(String, f64)>,
+    pub(crate) aluminium_part_selection: bool,
     pub(crate) aluminium_drag: Option<(f64, f64)>,
     /// A drag on the handles of the drawing being placed (Insert SVG / DXF).
     pub(crate) insert_drag: Option<crate::insert_handles::Drag>,
@@ -3192,9 +3194,14 @@ pub(crate) fn sketch_constraint_at(app: &SolveApp, pos: Pos2, hit: Option<&Hit>)
 pub fn candidate(app: &SolveApp, hits: &[Hit]) -> Option<(Hit, Sel)> {
     if let Some(d) = app.dialog.as_ref().filter(|d| d.wants_picks()) {
         let snap = d.face_snap(&app.session, hits);
-        return hits
-            .iter()
-            .find_map(|h| d.candidate_on(&app.session, h, snap.as_ref()).map(|s| (h.clone(), crate::dialogs_move::component_pick(app, h, s))));
+        return hits.iter().find_map(|h| {
+            d.candidate_on(&app.session, h, snap.as_ref()).and_then(|s| {
+                if crate::aluminium_handles::whole_hit(app, h).is_some() && matches!(s, Sel::Face { .. } | Sel::Edge { .. } | Sel::Vertex { .. }) {
+                    return None;
+                }
+                Some((h.clone(), crate::dialogs_move::component_pick(app, h, s)))
+            })
+        });
     }
     hits.iter().filter(|h| pick_allowed(app, h)).find_map(|h| hit_candidate(app, h))
 }
@@ -3207,7 +3214,15 @@ pub fn candidates(app: &SolveApp, hits: &[Hit]) -> Vec<(Hit, Sel)> {
         let snap = d.face_snap(&app.session, hits);
         return hits
             .iter()
-            .filter_map(|h| d.candidate_on(&app.session, h, snap.as_ref()).map(|s| (h.clone(), crate::dialogs_move::component_pick(app, h, s))))
+            .filter_map(|h| {
+                d.candidate_on(&app.session, h, snap.as_ref()).and_then(|s| {
+                    if crate::aluminium_handles::whole_hit(app, h).is_some() && matches!(s, Sel::Face { .. } | Sel::Edge { .. } | Sel::Vertex { .. })
+                    {
+                        return None;
+                    }
+                    Some((h.clone(), crate::dialogs_move::component_pick(app, h, s)))
+                })
+            })
             .collect();
     }
     hits.iter().filter(|h| pick_allowed(app, h)).filter_map(|h| hit_candidate(app, h)).collect()
@@ -3215,6 +3230,9 @@ pub fn candidates(app: &SolveApp, hits: &[Hit]) -> Vec<(Hit, Sel)> {
 
 /// What the selection filter lets a click pick with no dialog.
 fn pick_allowed(app: &SolveApp, h: &Hit) -> bool {
+    if crate::aluminium_handles::whole_hit(app, h).is_some() {
+        return true;
+    }
     let off = |k: &str| app.ui.pick_off.iter().any(|x| x == k);
     match h {
         Hit::SketchCurve { .. } => !off("sketch") && !off("sketch_curves"),
@@ -3229,6 +3247,9 @@ fn pick_allowed(app: &SolveApp, h: &Hit) -> bool {
 
 /// The selection a click on `h` makes with no dialog (sketch entities only belong to the active sketch).
 fn hit_candidate(app: &SolveApp, h: &Hit) -> Option<(Hit, Sel)> {
+    if let Some(item) = crate::aluminium_handles::whole_hit(app, h) {
+        return Some((h.clone(), item));
+    }
     match h {
         Hit::SketchCurve { sketch, id, .. } if app.session.active_sketch != Some(*sketch) => {
             Some((h.clone(), Sel::ExternalSketchCurve { sketch: *sketch, id: id.clone() }))
@@ -3538,6 +3559,7 @@ fn highlight_geometry_key(app: &SolveApp) -> u64 {
     crate::render_workspace::assign::preview_key(app).hash(&mut h);
     app.ui.pick_bodies.hash(&mut h);
     app.ui.pick_components.hash(&mut h);
+    crate::aluminium_handles::part_selection_mode(app).hash(&mut h);
     crate::render_workspace::active(app).hash(&mut h);
     app.session.active_sketch.hash(&mut h);
     (app.dialog.is_some(), app.tool.is_some()).hash(&mut h);
@@ -3828,7 +3850,7 @@ pub(crate) fn build_highlight(app: &SolveApp) -> GpuScene {
         app.viewport
             .hover
             .as_ref()
-            .filter(|h| app.ui.pick_components && matches!(h, Hit::Face { .. }))
+            .filter(|h| (app.ui.pick_components && matches!(h, Hit::Face { .. })) || crate::aluminium_handles::whole_hit(app, h).is_some())
             .and_then(|h| hit_candidate(app, h))
             .map(|(_, s)| displayed_selection(app, &s))
     });
@@ -4373,6 +4395,7 @@ pub(crate) fn preview_should_roll_back(app: &SolveApp, held: crate::tool_modifie
 }
 
 pub fn show(app: &mut SolveApp, ui: &mut egui::Ui) {
+    crate::aluminium_handles::sync_selection(app);
     crate::joint_handles::sync(app);
     let t = Tokens::get();
     let rect = ui.max_rect();
@@ -4739,6 +4762,9 @@ pub fn show(app: &mut SolveApp, ui: &mut egui::Ui) {
             dialog.restore_value_focus = true;
         }
         if resp.clicked() && !held && !reference_pick && !joint_handle_pointer && !aluminium_handle_pointer && !app.viewport.draw_drag_handled {
+            if let Some((hit, _)) = &cand {
+                crate::aluminium_handles::remember_hit(app, hit);
+            }
             if crate::browser_canvas::click(app, &proj, p) {
                 // Calibrate Canvas: the click sets Point A or B on the image (#9108).
             } else if app.tool.is_some() {
@@ -4828,7 +4854,8 @@ pub fn show(app: &mut SolveApp, ui: &mut egui::Ui) {
             let _ = crate::sketch_modify_ui::double_click_entities(app);
         }
         // Double-click an edge: select the edges that continue it smoothly (the loop).
-        if resp.double_clicked()
+        if !crate::aluminium_handles::part_selection_mode(app)
+            && resp.double_clicked()
             && !held
             && !dim_edit
             && app.tool.is_none()
@@ -4845,7 +4872,8 @@ pub fn show(app: &mut SolveApp, ui: &mut egui::Ui) {
             let _ = app.run("select.set", json!({ "items": items, "add": add }));
         }
         // Double-click a component's face: edit a linked one in place, activate any other.
-        if resp.double_clicked()
+        if !crate::aluminium_handles::part_selection_mode(app)
+            && resp.double_clicked()
             && !held
             && !dim_edit
             && mods.is_none()
@@ -5047,7 +5075,9 @@ pub fn show(app: &mut SolveApp, ui: &mut egui::Ui) {
             && !crate::occurrence_drag::start(app, &proj, a)
             && !crate::joint_drag::start(app, &proj, a)
         {
-            crate::drag_extrude::press(app, &proj, a);
+            if !crate::aluminium_handles::part_selection_mode(app) {
+                crate::drag_extrude::press(app, &proj, a);
+            }
         }
         if resp.dragged_by(egui::PointerButton::Primary)
             && let Some(p) = hover
@@ -5906,6 +5936,10 @@ fn paint_toast_ext(
 /// When `add` is true but `toggle` is false (Shift add-only preference), picked items
 /// are only added.
 pub(crate) fn select(app: &mut SolveApp, sel: Option<Sel>, add: bool, toggle: bool) {
+    if let Some(item) = &sel {
+        crate::aluminium_handles::remember_selection(app, item);
+    }
+    let sel = sel.map(|s| crate::aluminium_handles::normalize_pick(app, s));
     if !add {
         // A joint picked in the browser (highlighted even when hidden) lets go.
         app.tree.picked_joints.clear();
@@ -6155,6 +6189,9 @@ fn box_select(app: &mut SolveApp, proj: &Proj, bx: BoxSel, add: bool) {
             if !app.body_visible(&b.name) || (scoped_bodies && body_faded(app, b, &active_bodies)) {
                 continue;
             }
+            if crate::aluminium_handles::part_selection_mode(app) && accept & BODIES == 0 {
+                continue;
+            }
             let m = b.mesh();
             if accept & EDGES != 0 {
                 for (ei, e) in m.edges.iter().enumerate() {
@@ -6223,6 +6260,7 @@ fn box_select(app: &mut SolveApp, proj: &Proj, bx: BoxSel, add: bool) {
     }
     let mut grouped = Vec::new();
     for item in out {
+        let item = crate::aluminium_handles::normalize_pick(app, item);
         for piece in grouped_selection(&app.session, &item) {
             if !grouped.iter().any(|x| crate::selection::same_item(x, &piece)) {
                 grouped.push(piece);
@@ -6353,6 +6391,9 @@ fn grid_centre(tf: Vec3, back: Vec3, n: Vec3, ext: f64) -> Vec3 {
 
 /// Hover feedback for the active sketch's points and curves (drawn on top of everything).
 fn hover_highlight(app: &SolveApp, painter: &egui::Painter, proj: &Proj) {
+    if app.viewport.hover.as_ref().is_some_and(|h| crate::aluminium_handles::whole_hit(app, h).is_some()) {
+        return;
+    }
     let col = Tokens::get().hover_profile_edge;
     let st = crate::open_meshing::shown_world(app);
     match &app.viewport.hover {

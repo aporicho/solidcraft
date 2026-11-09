@@ -3044,6 +3044,10 @@ fn drag_ghost(app: &SolveApp, ctx: &egui::Context, id: &str, at: egui::Pos2, rem
 
 /// The SELECT panel: what a click in the view picks.
 pub(crate) fn selection_filter(app: &mut SolveApp, ui: &mut egui::Ui) {
+    if crate::aluminium_handles::part_selection_mode(app) {
+        ui.add(egui::Label::new(app.tr("aluminium.selection_help")).wrap());
+        return;
+    }
     let t = Tokens::get();
     ui.label(egui::RichText::new(crate::i18n::tr_label("Selection filter")).color(t.text_dim).size(t.font_small));
     for (mode, label) in [("body", app.tr_label("Select bodies (a face picks its body)")), ("component", app.tr("ui.select_components_by_face"))] {

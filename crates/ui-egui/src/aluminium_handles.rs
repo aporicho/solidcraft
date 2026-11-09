@@ -27,7 +27,8 @@ fn selected(app: &SolveApp) -> Option<(String, aluminium_ports::MemberInfo, f64)
         return None;
     }
     let info = aluminium_ports::member(&app.session, &name).ok()?;
-    let position = picked.map_or(0.5, |p| ((p - info.frame.origin).dot(info.frame.axis) / info.frame.length).clamp(0.0, 1.0));
+    let remembered = app.viewport.aluminium_station.as_ref().filter(|(body, _)| body == &name).map_or(0.5, |(_, position)| *position);
+    let position = picked.map_or(remembered, |p| ((p - info.frame.origin).dot(info.frame.axis) / info.frame.length).clamp(0.0, 1.0));
     Some((name, info, position))
 }
 
@@ -211,4 +212,110 @@ fn position_handle(app: &mut SolveApp, ui: &mut egui::Ui, proj: &Proj) {
         }
     }
     response.on_hover_text(crate::i18n::tr("aluminium.drag_position"));
+}
+
+/// The aluminium workspace works with members/parts and named interfaces, not B-rep topology.
+pub(crate) fn part_selection_mode(app: &SolveApp) -> bool {
+    app.ui.tab == "ALUMINIUM" && app.session.active_sketch.is_none() && app.tool.is_none()
+}
+
+pub(crate) fn whole_selection(app: &SolveApp, body: &str) -> Option<Sel> {
+    if !part_selection_mode(app) {
+        return None;
+    }
+    if body.is_empty() {
+        return None;
+    }
+    let world = app.session.world_state();
+    let Some(model) = world.body(body) else {
+        return Some(Sel::Body { name: body.into() });
+    };
+    let member = matches!(
+        app.session.doc.feature(model.feature).map(|f| &f.kind),
+        Some(
+            solidcraft_engine::doc::FeatureKind::AluminiumProfile { .. }
+                | solidcraft_engine::doc::FeatureKind::FrameMember { profile: solidcraft_engine::doc::frame::MemberProfile::Stock { .. }, .. }
+        )
+    );
+    Some(if member { Sel::Body { name: body.into() } } else { crate::viewport::component_selection(app, body) })
+}
+
+pub(crate) fn whole_hit(app: &SolveApp, hit: &crate::viewport::Hit) -> Option<Sel> {
+    use crate::viewport::Hit;
+    match hit {
+        Hit::Face { body, .. } | Hit::Edge { body, .. } | Hit::Vertex { body, .. } => whole_selection(app, body),
+        _ => None,
+    }
+}
+
+pub(crate) fn normalize_pick(app: &SolveApp, item: Sel) -> Sel {
+    let body = match &item {
+        Sel::Body { name } => Some(name),
+        Sel::Face { body, .. } | Sel::Edge { body, .. } | Sel::Vertex { body, .. } => Some(body),
+        _ => None,
+    };
+    body.and_then(|name| whole_selection(app, name)).unwrap_or(item)
+}
+
+pub(crate) fn remember_hit(app: &mut SolveApp, hit: &crate::viewport::Hit) {
+    use crate::viewport::Hit;
+    if !part_selection_mode(app) {
+        return;
+    }
+    let (body, point) = match hit {
+        Hit::Face { body, point, .. } | Hit::Edge { body, point, .. } | Hit::Vertex { body, point } => (body, *point),
+        _ => return,
+    };
+    remember_position(app, body, point);
+}
+
+fn remember_position(app: &mut SolveApp, name: &str, point: solidcraft_engine::geom::Vec3) {
+    if let Ok(info) = aluminium_ports::member(&app.session, name) {
+        let position = ((point - info.frame.origin).dot(info.frame.axis) / info.frame.length).clamp(0.0, 1.0);
+        app.viewport.aluminium_station = Some((name.into(), position));
+    }
+}
+
+pub(crate) fn sync_selection(app: &mut SolveApp) {
+    let active = part_selection_mode(app);
+    let entered = active && !app.viewport.aluminium_part_selection;
+    app.viewport.aluminium_part_selection = active;
+    if !active || app.applying.is_some() {
+        return;
+    }
+    let raw = app.session.selection.iter().any(|s| matches!(s, Sel::Face { .. } | Sel::Edge { .. } | Sel::Vertex { .. }));
+    if !entered && !raw {
+        return;
+    }
+    let before = app.session.selection.clone();
+    let mut items = Vec::new();
+    for item in &before {
+        if let Sel::Face { body, point, .. } | Sel::Edge { body, point, .. } | Sel::Vertex { body, point } = item {
+            remember_position(app, body, *point);
+        }
+        let item = normalize_pick(app, item.clone());
+        if !items.contains(&item) {
+            items.push(item);
+        }
+    }
+    if items != before {
+        let _ = app.run("select.set", serde_json::json!({"items":items}));
+    }
+}
+
+pub(crate) fn hover_value(app: &SolveApp) -> Option<serde_json::Value> {
+    let hit = app.viewport.hover.as_ref()?;
+    match whole_hit(app, hit) {
+        Some(item) => serde_json::to_value(item).ok(),
+        None => serde_json::to_value(hit).ok(),
+    }
+}
+
+pub(crate) fn remember_selection(app: &mut SolveApp, item: &Sel) {
+    if !part_selection_mode(app) {
+        return;
+    }
+    if let Sel::Face { body, point, .. } | Sel::Edge { body, point, .. } | Sel::Vertex { body, point } = item {
+        remember_position(app, body, *point);
+    }
 }

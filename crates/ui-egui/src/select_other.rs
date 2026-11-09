@@ -107,7 +107,7 @@ fn rows_capped(app: &SolveApp, proj: &Proj, pos: Pos2, through: bool) -> (Vec<Ro
     let mut found = crate::viewport::candidates(app, &hits);
     let dialog = app.dialog.as_ref().is_some_and(|d| d.wants_picks());
     // A body behind each face (body picking already turns faces into bodies).
-    if !dialog && !app.ui.pick_bodies {
+    if !dialog && !app.ui.pick_bodies && !crate::aluminium_handles::part_selection_mode(app) {
         for h in &hits {
             if let Hit::Face { body, .. } = h {
                 found.push((h.clone(), Sel::Body { name: body.clone() }));
@@ -441,6 +441,7 @@ pub fn choose(app: &mut SolveApp, i: usize, add: bool, toggle: bool) -> Result<R
 
 /// Select a row's entity: into the dialog's active input, or as a click does.
 fn apply(app: &mut SolveApp, row: &Row, add: bool, toggle: bool) {
+    crate::aluminium_handles::remember_hit(app, &row.hit);
     if app.dialog.as_ref().is_some_and(|d| d.wants_picks()) {
         crate::viewport::dialog_pick(app, &row.hit, row.sel.clone());
     } else {
@@ -576,6 +577,7 @@ fn cycle_key(app: &SolveApp) -> u64 {
     app.session.active_sketch.hash(&mut h);
     app.ui.pick_off.hash(&mut h);
     app.ui.pick_bodies.hash(&mut h);
+    crate::aluminium_handles::part_selection_mode(app).hash(&mut h);
     app.dialog.is_some().hash(&mut h);
     h.finish()
 }

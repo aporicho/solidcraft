@@ -2721,3 +2721,33 @@ fn a_section_card_shows_every_row_and_reads_like_its_pill() {
         }
     }
 }
+
+#[test]
+fn aluminium_selection_uses_parts_and_retains_interface_station() {
+    let mut h = Harness::new();
+    h.app.run("aluminium.profile", json!({"model":"2020","length":"200 mm","body_name":"Member"})).unwrap();
+    h.app.ui.tab = "ALUMINIUM".into();
+    let point = Vec3::new(10.0, 8.0, 150.0);
+    let face = Hit::Face { body: "Member".into(), index: 0, point };
+    let edge = Hit::Edge { body: "Member".into(), index: 0, mid: Vec3::ZERO, point };
+    for hit in [&face, &edge] {
+        assert!(matches!(candidate(&h.app,std::slice::from_ref(hit)),Some((_,Sel::Body { name })) if name=="Member"));
+    }
+    h.app.session.selection = vec![Sel::Face { body: "Member".into(), index: 0, point }];
+    crate::aluminium_handles::sync_selection(&mut h.app);
+    assert!(matches!(h.app.session.selection.as_slice(),[Sel::Body { name }] if name=="Member"));
+    assert!((h.app.viewport.aluminium_station.as_ref().unwrap().1 - 0.75).abs() < 1e-9);
+    h.app.ui.tab = "MODEL".into();
+    assert!(matches!(candidate(&h.app, &[edge]), Some((_, Sel::Edge { .. }))), "normal CAD picking is restored on the model page");
+
+    let part = h.app.run("component.create", json!({"name":"Part"})).unwrap();
+    let component = part["component"].as_u64().unwrap();
+    let occurrence = part["occurrence"].as_u64().unwrap();
+    h.app.run("component.activate", json!({"component":component,"occurrence":occurrence,"path":[occurrence]})).unwrap();
+    let feature = h.app.run("solid.box", json!({"length":20,"width":30,"height":15})).unwrap()["feature"].as_u64().unwrap();
+    h.app.run("component.activate", json!({"component":0})).unwrap();
+    let name = h.app.session.world_state().bodies.iter().find(|b| b.feature == feature).unwrap().name.clone();
+    h.app.ui.tab = "ALUMINIUM".into();
+    let hit = Hit::Face { body: name, index: 0, point: Vec3::ZERO };
+    assert!(matches!(candidate(&h.app,&[hit]),Some((_,Sel::Occurrence {path})) if path==vec![occurrence]));
+}
