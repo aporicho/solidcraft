@@ -58,3 +58,9 @@ CAD 模型来自厂商公开下载，独立安装在本机数据缓存中；源�
 本机增强版启动器指定 ~/.local/share/solidcraft-snap/library/connectors。
 下载脚本核对目录中的归档和 STEP 校验和，应用运行时离线读取已安装模型。
 型号来源与校验和：enhancements/connector-catalog.json。
+
+连接件预览：选择型号后，在插入面板内显示对应厂商 STEP 的等轴测图片。
+鼠标停在预览图上可查看放大图。预览在后台生成并缓存，不向当前设计插入任何零件。
+切换型号时只显示该型号的图片；尚未生成时显示加载状态，不复用上一型号的图。
+
+通用铝型材工具与交互设计：enhancements/design/aluminium-workbench.txt。该文件为后续工具的设计稿，不代表其中规划功能已经实现。

@@ -1,0 +1,37 @@
+{
+  "en": {
+    "connector.preview": "Model preview",
+    "connector.preview_loading": "Generating preview…",
+    "connector.preview_failed": "Preview is unavailable. Check that the model is installed.",
+    "connector.preview_retry": "Retry preview",
+    "connector.preview_alt": "{part} model preview"
+  },
+  "zh": {
+    "connector.preview": "模型预览",
+    "connector.preview_loading": "正在生成预览…",
+    "connector.preview_failed": "暂时无法显示预览，请确认模型已安装。",
+    "connector.preview_retry": "重新生成预览",
+    "connector.preview_alt": "{part} 模型预览"
+  },
+  "ja": {
+    "connector.preview": "モデルプレビュー",
+    "connector.preview_loading": "プレビューを生成中…",
+    "connector.preview_failed": "プレビューを表示できません。モデルのインストールを確認してください。",
+    "connector.preview_retry": "再試行",
+    "connector.preview_alt": "{part} のプレビュー"
+  },
+  "de": {
+    "connector.preview": "Modellvorschau",
+    "connector.preview_loading": "Vorschau wird erstellt…",
+    "connector.preview_failed": "Keine Vorschau verfügbar. Bitte die Modellinstallation prüfen.",
+    "connector.preview_retry": "Erneut versuchen",
+    "connector.preview_alt": "Modellvorschau: {part}"
+  },
+  "ko": {
+    "connector.preview": "모델 미리보기",
+    "connector.preview_loading": "미리보기 생성 중…",
+    "connector.preview_failed": "미리보기를 표시할 수 없습니다. 모델 설치를 확인하세요.",
+    "connector.preview_retry": "다시 생성",
+    "connector.preview_alt": "{part} 모델 미리보기"
+  }
+}
