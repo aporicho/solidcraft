@@ -638,3 +638,52 @@ fn editing_the_feature_keeps_member_names_until_it_names_them() {
     run(&mut s, "edit.undo", json!({}));
     assert_eq!(boxes(&mut s).into_keys().collect::<Vec<_>>(), names);
 }
+
+/// Fixed-stock sections reuse the path dependency, including spatial diagonals and undo.
+#[test]
+fn aluminium_stock_members_follow_skeleton_and_spatial_lines() {
+    let mut s = Session::default();
+    run(&mut s, "parameters.add", json!({"name":"W","expression":"600 mm"}));
+    let frame = run(&mut s, "aluminium.frame", json!({"width":"W","height":"400 mm","plane":"XZ","name":"Stock skeleton"}));
+    assert_eq!(s.selection.len(), 4);
+    assert!(s.active_sketch.is_none());
+    run(&mut s, "edit.undo", json!({}));
+    assert!(s.doc.features.is_empty(), "the entire skeleton is one undo step");
+    run(&mut s, "edit.redo", json!({}));
+    run(&mut s, "aluminium.members", json!({"sketch":frame["sketch"],"model":"2020"}));
+    assert_eq!(s.world_state().bodies.len(), 4);
+    let original = total_volume(&mut s);
+    assert!(original > 0.0);
+    run(&mut s, "parameters.change", json!({"name":"W","expression":"800 mm"}));
+    assert!(rel(total_volume(&mut s) / original, 1.2) < MEASURED, "only the two width members grow");
+    let names: Vec<_> = s.world_state().bodies.iter().map(|b| b.name.clone()).collect();
+    let feature = s.doc.features.last().unwrap().id;
+    run(&mut s, "timeline.redefine", json!({"feature":feature,"command":"aluminium.members","params":{"sketch":frame["sketch"],"model":"3030"}}));
+    assert_eq!(s.world_state().bodies.iter().map(|b| b.name.clone()).collect::<Vec<_>>(), names);
+    run(&mut s, "edit.undo", json!({}));
+    run(&mut s, "edit.undo", json!({}));
+    run(&mut s, "edit.undo", json!({}));
+    assert!(s.world_state().bodies.is_empty());
+    assert_eq!(s.doc.features.len(), 1, "the skeleton remains after undoing member creation");
+
+    let mut spatial = Session::default();
+    run(&mut spatial, "sketch.create", json!({"plane":"XY","name":"Diagonal"}));
+    run(&mut spatial, "sketch.options", json!({"sketch_3d":true}));
+    run(&mut spatial, "sketch.line3d", json!({"points":[[0,0,0],[300,400,1200]]}));
+    run(&mut spatial, "sketch.finish", json!({}));
+    run(&mut spatial, "aluminium.members", json!({"sketch":"Diagonal","model":"2020","angle":"90 deg"}));
+    // The diagonal is 1300 mm; compare with an independent 100 mm catalogue member.
+    let diagonal = total_volume(&mut spatial);
+    let mut straight = Session::default();
+    run(&mut straight, "aluminium.profile", json!({"length":"100 mm","model":"2020"}));
+    assert!(rel(diagonal / total_volume(&mut straight), 13.0) < MEASURED);
+    let before = spatial.doc.to_json();
+    for params in [json!({"sketch":"Diagonal","model":"9999"}), json!({"sketch":"Diagonal","model":"2020","width":50})] {
+        assert!(spatial.execute("aluminium.members", &params).is_err());
+        assert_eq!(spatial.doc.to_json(), before);
+    }
+    let reopened = solidcraft_doc::Document::from_json(&spatial.doc.to_json()).unwrap();
+    assert!(
+        matches!(&reopened.features.last().unwrap().kind, solidcraft_doc::FeatureKind::FrameMember { profile:solidcraft_doc::frame::MemberProfile::Stock { model },.. } if model == "2020")
+    );
+}

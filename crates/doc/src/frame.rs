@@ -265,6 +265,8 @@ pub use crate::eval::frame_member::{member_line_ids, member_names};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize, solidcraft_derive::Walk)]
 #[serde(tag = "source", rename_all = "snake_case")]
 pub enum MemberProfile {
+    /// A fixed catalogue aluminium section; geometry follows the model, never user dimensions.
+    Stock { model: String },
     /// A built-in profile, from its dimensions.
     Library { profile: ProfileSpec },
     /// The profiles of a sketch, in the sketch's own x and y, its origin the profile's origin.

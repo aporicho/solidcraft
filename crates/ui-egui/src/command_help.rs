@@ -9,6 +9,8 @@ use crate::i18n;
 /// The commands that have help text. Each one needs a `help.<id>` message in the catalogs.
 pub const DOCUMENTED: &[&str] = &[
     "aluminium.connector",
+    "aluminium.frame",
+    "aluminium.members",
     "aluminium.profile",
     "appearance.assign",
     "assembly.bom",

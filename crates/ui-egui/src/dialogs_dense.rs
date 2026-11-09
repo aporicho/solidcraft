@@ -78,7 +78,8 @@ pub(super) fn command(kind: &Kind) -> Option<&'static str> {
             crate::dialogs_sheet::Sm::FlatPattern { .. } => Some("sheet.flat_pattern"),
             _ => k.simple_metadata().map(|(command, _)| command),
         },
-        Kind::Frame(_) => Some("frame.member"),
+        Kind::Frame(m) => Some(if m.stock.is_some() { "aluminium.members" } else { "frame.member" }),
+        Kind::AluminiumFrame(_) => Some("aluminium.frame"),
         Kind::Aluminium(_) => Some("aluminium.profile"),
         Kind::AluminiumConnector(_) => Some("aluminium.connector"),
         Kind::Plastic(k) => match k {
@@ -926,6 +927,7 @@ fn additional_rows(app: &mut SolveApp, d: &mut Dialog, ui: &mut egui::Ui) -> boo
         Kind::Sheet(k) => enter |= crate::dialogs_sheet::rows(app, ui, k, &mut d.inputs),
         Kind::Plastic(k) => enter |= crate::dialogs_plastic::rows(app, ui, k, &d.inputs),
         Kind::Frame(k) => enter |= crate::dialogs_frame::rows(app, ui, k, &d.inputs),
+        Kind::AluminiumFrame(k) => enter |= crate::dialogs_aluminium::skeleton_rows(ui, k),
         Kind::Aluminium(k) => enter |= crate::dialogs_aluminium::rows(ui, k),
         Kind::AluminiumConnector(k) => enter |= crate::dialogs_connectors::rows(ui, k),
         Kind::Assembly(k) => enter |= crate::dialogs_assembly::rows(app, ui, k, &mut d.inputs, &mut d.active),

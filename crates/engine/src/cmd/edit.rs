@@ -1693,6 +1693,7 @@ fn redefine(s: &mut Session, p: &Value) -> Result<Value> {
                 | "plastic.rest"
                 | "frame.member"
                 | "aluminium.profile"
+                | "aluminium.members"
         );
     if !constructor {
         return Err(bad(cmd, format!("`{cid}` does not make a feature")));
@@ -1719,7 +1720,7 @@ fn redefine(s: &mut Session, p: &Value) -> Result<Value> {
     }
     // Members keep their names through an edit, unless it gives them another name.
     if let FeatureKind::FrameMember { names, body_name, .. } = &old.kind
-        && cid == "frame.member"
+        && matches!(cid, "frame.member" | "aluminium.members")
         && let Some(parameters) = params.as_object_mut()
         && parameters.get("body_name").and_then(Value::as_str) == body_name.as_deref()
     {

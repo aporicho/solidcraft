@@ -194,6 +194,7 @@ fn straight(pts: &[Vec3]) -> Option<(Vec3, Vec3)> {
 /// holes and all; and what its members are named after when they have no name of their own.
 fn profile_regions(vals: &BTreeMap<String, Value>, st: &ModelState, profile: &MemberProfile) -> Result<(Vec<Region2>, String)> {
     let (regions, description) = match profile {
+        MemberProfile::Stock { model } => (vec![crate::aluminium::stock_section(model)?], format!("EU{model}")),
         MemberProfile::Library { profile } => {
             let p = profile.resolve(|name, e| val(vals, e, Kind::Length).map_err(|err| DocError::Invalid(format!("profile `{name}`: {err}"))))?;
             (vec![p.region()?], p.description())

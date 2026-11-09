@@ -31,6 +31,8 @@ const ANCHORS: &[(&str, &str)] = &[
 /// The Frame Member dialog's values (the picks are its selection inputs).
 #[derive(Clone, Debug)]
 pub struct Member {
+    pub stock: Option<usize>,
+    pub path: Option<u64>,
     /// Every line of the frame sketch, now and as lines are added, not only the lines picked.
     pub all: bool,
     /// The built-in profile (an index into `frame::profile_kinds`), used when no section is picked.
@@ -59,14 +61,28 @@ impl Member {
             .collect();
         // A rectangular tube is the most common member.
         let kind = frame::profile_kinds().iter().position(|k| k.kind == "rect_tube").unwrap_or(0);
-        Member { all: false, kind, dims, whole: None, anchor: 0, angle: String::new(), mirror: false, name: String::new() }
+        Member { stock: None, path: None, all: false, kind, dims, whole: None, anchor: 0, angle: String::new(), mirror: false, name: String::new() }
     }
 }
 
 /// The dialog for Frame Member.
-pub fn start(_app: &SolveApp, id: &str) -> Option<(Kind, Vec<SelInput>)> {
-    (id == "frame.member")
-        .then(|| (Kind::Frame(Member::new()), vec![SelInput::new("Lines", SKETCH_LINES, true), SelInput::new("Section (optional)", PROFILES, true)]))
+pub fn start(app: &SolveApp, id: &str) -> Option<(Kind, Vec<SelInput>)> {
+    match id {
+        "frame.member" => {
+            Some((Kind::Frame(Member::new()), vec![SelInput::new("Lines", SKETCH_LINES, true), SelInput::new("Section (optional)", PROFILES, true)]))
+        }
+        "aluminium.members" => {
+            let mut member = Member::new();
+            member.stock = Some(0);
+            member.path = app.session.selection.iter().find_map(|sel| match sel {
+                Sel::Feature { id } if app.session.doc.sketch(*id).is_ok() => Some(*id),
+                _ => None,
+            });
+            member.all = member.path.is_some();
+            Some((Kind::Frame(member), vec![SelInput::new("Lines", SKETCH_LINES, true)]))
+        }
+        _ => None,
+    }
 }
 
 fn tr(text: &str) -> &str {
@@ -76,9 +92,32 @@ fn tr(text: &str) -> &str {
 /// The dialog's own rows (after the selection inputs); true when Enter was pressed in a value.
 pub fn rows(app: &SolveApp, ui: &mut egui::Ui, m: &mut Member, inputs: &[SelInput]) -> bool {
     let mut enter = false;
-    form_row(ui, "All Lines", |ui| check(ui, &mut m.all));
+    if m.stock.is_some() {
+        let sketches: Vec<_> = app.session.doc.features.iter().filter(|f| app.session.doc.sketch(f.id).is_ok()).collect();
+        let mut index = m.path.and_then(|id| sketches.iter().position(|f| f.id == id)).map_or(0, |i| i + 1);
+        let previous = index;
+        let mut labels = vec![crate::i18n::tr("aluminium.use_picks")];
+        labels.extend(sketches.iter().map(|f| f.name.as_str()));
+        choice_row(ui, crate::i18n::tr("aluminium.path_sketch"), "aluminium_path", &mut index, &labels);
+        if index != previous {
+            m.path = index.checked_sub(1).and_then(|i| sketches.get(i)).map(|f| f.id);
+            m.all = m.path.is_some();
+        }
+    }
+    if m.path.is_none() {
+        form_row(ui, "All Lines", |ui| check(ui, &mut m.all));
+    }
     let picked = !crate::selection::items(inputs, 1).is_empty();
-    if let Some(sketch) = m.whole.filter(|_| !picked) {
+    if let Some(model) = &mut m.stock {
+        choice_row(
+            ui,
+            crate::i18n::tr("aluminium.model"),
+            "aluminium_model",
+            model,
+            &[crate::i18n::tr("aluminium.model2020"), crate::i18n::tr("aluminium.model3030"), crate::i18n::tr("aluminium.model4040")],
+        );
+        ui.label(egui::RichText::new(crate::i18n::tr("aluminium.path_note")).small().color(crate::theme::Tokens::get().form_dim));
+    } else if let Some(sketch) = m.whole.filter(|_| !picked) {
         let name = app.session.doc.feature(sketch).map(|f| f.name.clone()).unwrap_or_default();
         let mut on = true;
         form_row(ui, "Section", |ui| crate::ui_kit::checkbox(ui, &name, &mut on));
@@ -99,7 +138,9 @@ pub fn rows(app: &SolveApp, ui: &mut egui::Ui, m: &mut Member, inputs: &[SelInpu
     let anchors: Vec<&str> = ANCHORS.iter().map(|a| a.1).collect();
     choice_row(ui, "Anchor", "frame_anchor", &mut m.anchor, &anchors);
     enter |= hint_row(ui, "Angle", &mut m.angle, "0 deg");
-    form_row(ui, "Mirror", |ui| check(ui, &mut m.mirror));
+    if m.stock.is_none() {
+        form_row(ui, "Mirror", |ui| check(ui, &mut m.mirror));
+    }
     enter |= text_row(ui, "Name", &mut m.name, tr("from the profile")).0;
     enter
 }
@@ -114,7 +155,7 @@ pub fn commands(app: &SolveApp, m: &Member, inputs: &[SelInput], extra: &Map<Str
     // A line picked in the view comes with its sketch (line ids are a sketch's own); a line
     // selected before the dialog opened is looked for in the newest sketch with it, not the
     // section's.
-    let picks = crate::selection::items(inputs, 0);
+    let picks = if m.path.is_some() { &[] } else { crate::selection::items(inputs, 0) };
     let mut lines = Vec::new();
     let mut known = None;
     for pick in picks {
@@ -130,15 +171,19 @@ pub fn commands(app: &SolveApp, m: &Member, inputs: &[SelInput], extra: &Map<Str
             _ => {}
         }
     }
-    if lines.is_empty() {
+    if lines.is_empty() && m.path.is_none() {
         return Err("select the frame sketch's lines first".into());
     }
-    let sketch = known.or_else(|| curves_sketch(app, &lines, section_sketch)).ok_or("the lines must be in one sketch, not the section's")?;
+    let sketch =
+        m.path.or(known).or_else(|| curves_sketch(app, &lines, section_sketch)).ok_or("the lines must be in one sketch, not the section's")?;
     let mut p = json!({"sketch": sketch});
-    if !m.all {
+    if !m.all && m.path.is_none() {
         p["lines"] = json!(lines);
     }
-    if let Some(ps) = section_sketch {
+    if let Some(index) = m.stock {
+        let model = solidcraft_engine::doc::aluminium::MODELS.get(index).ok_or("choose a profile model")?.0;
+        p["model"] = json!(model);
+    } else if let Some(ps) = section_sketch {
         p["profile_sketch"] = json!(ps);
         if !section.is_empty() {
             p["profiles"] = json!(section.iter().map(|x| x.1).collect::<Vec<_>>());
@@ -160,7 +205,7 @@ pub fn commands(app: &SolveApp, m: &Member, inputs: &[SelInput], extra: &Map<Str
         p["anchor"] = json!(anchor);
     }
     put(&mut p, &[("angle", &m.angle), ("body_name", m.name.trim())]);
-    if m.mirror {
+    if m.mirror && m.stock.is_none() {
         p["mirror"] = json!(true);
     }
     if let Value::Object(o) = &mut p {
@@ -168,21 +213,25 @@ pub fn commands(app: &SolveApp, m: &Member, inputs: &[SelInput], extra: &Map<Str
             o.entry(key.clone()).or_insert_with(|| v.clone());
         }
     }
-    Ok(vec![("frame.member".to_string(), p)])
+    Ok(vec![(if m.stock.is_some() { "aluminium.members" } else { "frame.member" }.to_string(), p)])
 }
 
 /// The dialog editing a frame member feature, filled from it.
 pub fn for_feature(app: &SolveApp, kind: &FeatureKind) -> Option<(Kind, Vec<SelInput>, Map<String, Value>)> {
     let FeatureKind::FrameMember { path_sketch, lines, profile, anchor, angle, mirror, body_name, .. } = kind else { return None };
-    let (_, mut inputs) = start(app, "frame.member")?;
+    let (_, mut inputs) = start(app, if matches!(profile, MemberProfile::Stock { .. }) { "aluminium.members" } else { "frame.member" })?;
     let st = app.session.model.state();
     let mut m = Member::new();
     m.all = lines.is_empty();
+    if matches!(profile, MemberProfile::Stock { .. }) && m.all {
+        m.path = Some(path_sketch.0);
+    }
     let ids = if m.all { frame::member_line_ids(&st, kind).unwrap_or_default() } else { lines.clone() };
     if let Some(i) = inputs.get_mut(0) {
         i.items = ids.into_iter().map(|id| Sel::ExternalSketchCurve { sketch: path_sketch.0, id }).collect();
     }
     match profile {
+        MemberProfile::Stock { model } => m.stock = Some(solidcraft_engine::doc::aluminium::MODELS.iter().position(|entry| entry.0 == model)?),
         MemberProfile::Library { profile } => {
             let kinds = frame::profile_kinds();
             if let Some((index, k)) = kinds.iter().enumerate().find(|(_, k)| k.kind == profile.kind)

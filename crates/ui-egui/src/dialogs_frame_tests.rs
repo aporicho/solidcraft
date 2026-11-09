@@ -195,3 +195,45 @@ fn picked_lines_stay_in_the_sketch_they_were_picked_in() {
     d.inputs[0].items.push(Sel::ExternalSketchCurve { sketch: rails, id: ids[0].clone() });
     assert!(apply_commands(&app, &d).unwrap_err().contains("one sketch"));
 }
+
+#[test]
+fn fixed_aluminium_sections_start_and_edit_with_one_line_input() {
+    let mut app = frame_app();
+    let lines = frame_lines(&app);
+    app.session.selection = lines[..2].iter().map(|id| Sel::ExternalSketchCurve { sketch: sketch_id(&app, "Frame"), id: id.clone() }).collect();
+    app.start("aluminium.members");
+    let mut d = app.dialog.clone().unwrap();
+    assert_eq!(d.inputs.len(), 1);
+    member(&mut d).stock = Some(2);
+    let commands = apply_commands(&app, &d).unwrap();
+    assert_eq!(commands[0].0, "aluminium.members");
+    assert_eq!(commands[0].1["model"], "4040");
+    run_all(&mut app, commands);
+    assert_eq!(body_names(&app).len(), 2);
+    let feature = app.session.doc.features.last().unwrap().id;
+    let mut edit = edit_dialog(&app, feature, None).unwrap();
+    assert_eq!(member(&mut edit).stock, Some(2));
+    assert_eq!(edit.inputs.len(), 1);
+    member(&mut edit).stock = Some(1);
+    let commands = apply_commands(&app, &edit).unwrap();
+    assert_eq!(commands[0].0, "timeline.redefine");
+    assert_eq!(commands[0].1["command"], "aluminium.members");
+    run_all(&mut app, commands);
+    assert!(
+        matches!(&app.session.doc.feature(feature).unwrap().kind, FeatureKind::FrameMember { profile:MemberProfile::Stock { model },.. } if model == "3030")
+    );
+}
+
+#[test]
+fn aluminium_members_accept_a_whole_sketch_from_the_browser() {
+    let mut app = frame_app();
+    let sketch = sketch_id(&app, "Frame");
+    app.session.selection = vec![Sel::Feature { id: sketch }];
+    app.start("aluminium.members");
+    let d = app.dialog.clone().unwrap();
+    let commands = apply_commands(&app, &d).unwrap();
+    assert_eq!(commands[0].1["sketch"], sketch);
+    assert!(commands[0].1.get("lines").is_none());
+    run_all(&mut app, commands);
+    assert_eq!(body_names(&app).len(), 4);
+}

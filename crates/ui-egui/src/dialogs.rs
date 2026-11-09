@@ -390,6 +390,7 @@ crate::dialog_descriptor::dialog_descriptors! {
             /// Frame members (`dialogs_frame`).
             Frame(crate::dialogs_frame::Member),
             Aluminium(crate::dialogs_aluminium::Profile),
+            AluminiumFrame(crate::dialogs_aluminium::Skeleton),
             AluminiumConnector(crate::dialogs_connectors::StockConnector),
             /// Appearance (`dialogs_appearance`).
             Appearance(crate::dialogs_appearance::Ap),
@@ -2369,7 +2370,14 @@ fn title(k: &Kind) -> &'static str {
         Kind::ViewDxf { .. } => "Export Current View as DXF",
         Kind::InsertDrawing(p) => crate::dialogs_insert_drawing::title(p),
         Kind::Plastic(k) => k.title(),
-        Kind::Frame(_) => "FRAME MEMBER",
+        Kind::Frame(m) => {
+            if m.stock.is_some() {
+                "Profiles Along Lines"
+            } else {
+                "FRAME MEMBER"
+            }
+        }
+        Kind::AluminiumFrame(_) => "Rectangular Skeleton",
         Kind::Aluminium(_) => "Create Aluminium Profile",
         Kind::AluminiumConnector(_) => "Insert Aluminium Connector",
         Kind::Appearance(_) => "APPEARANCE",
@@ -5209,6 +5217,7 @@ fn dialog_commands(app: &SolveApp, d: &Dialog) -> Result<Vec<(String, Value)>, S
         Kind::InsertDrawing(p) => return crate::dialogs_insert_drawing::commands(p),
         Kind::Plastic(k) => return crate::dialogs_plastic::commands(app, k, &d.inputs, &d.extra),
         Kind::Frame(k) => return crate::dialogs_frame::commands(app, k, &d.inputs, &d.extra),
+        Kind::AluminiumFrame(k) => return crate::dialogs_aluminium::skeleton_commands(k),
         Kind::Aluminium(k) => return crate::dialogs_aluminium::commands(k, &d.extra),
         Kind::AluminiumConnector(k) => return crate::dialogs_connectors::commands(app, k, &d.extra),
         Kind::Appearance(k) => return Ok(crate::dialogs_appearance::commands(k, &d.inputs)),

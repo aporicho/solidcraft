@@ -474,3 +474,34 @@ pub enum ConnectorModel {
     #[serde(rename = "motedis-s8ibr40")]
     S8ibr40,
 }
+
+/// Fixed catalogue members associated with straight lines of a 2D or 3D sketch.
+#[derive(Debug, Deserialize, JsonSchema)]
+#[schemars(deny_unknown_fields)]
+pub struct AluminiumMembersParams {
+    pub sketch: SketchRef,
+    pub lines: Option<StringList>,
+    pub model: Option<AluminiumModel>,
+    pub anchor: Option<String>,
+    pub angle: Option<AngleExpr>,
+    pub name: Option<String>,
+    pub body_name: Option<String>,
+    pub names: Option<std::collections::BTreeMap<String, String>>,
+}
+
+/// A dimensioned rectangular skeleton, expanded into an ordinary editable sketch.
+#[derive(Debug, Deserialize, JsonSchema)]
+#[schemars(deny_unknown_fields)]
+pub struct AluminiumFrameParams {
+    pub width: LengthExpr,
+    pub height: LengthExpr,
+    pub plane: Option<AluminiumFramePlane>,
+    pub name: Option<String>,
+}
+
+#[derive(Debug, Deserialize, JsonSchema)]
+pub enum AluminiumFramePlane {
+    XY,
+    XZ,
+    YZ,
+}

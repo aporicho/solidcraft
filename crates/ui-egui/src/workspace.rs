@@ -323,7 +323,7 @@ pub const SECTIONS: &[Section] = &[
     Section { tab: "SHEET METAL", panel: "RULES", promoted: 1, ids: &["sheet.manage_rules"] },
     Section { tab: "SHEET METAL", panel: "CONFIGURE", promoted: 2, ids: CONFIGURE },
     // A frame starts from a sketch of its lines; its profile sizes are often parameters.
-    Section { tab: "ALUMINIUM", panel: "CREATE", promoted: 1, ids: &["aluminium.profile"] },
+    Section { tab: "ALUMINIUM", panel: "CREATE", promoted: 3, ids: &["aluminium.profile", "aluminium.frame", "aluminium.members"] },
     Section { tab: "ALUMINIUM", panel: "ALUMINIUM CONNECTIONS", promoted: 1, ids: &["aluminium.connector"] },
     Section { tab: "ALUMINIUM", panel: "ALUMINIUM PLACEMENT", promoted: 1, ids: &["solid.move"] },
     Section { tab: "ALUMINIUM", panel: "CONFIGURE", promoted: 2, ids: CONFIGURE },
@@ -389,6 +389,8 @@ const LEGACY_RENDER_SECTIONS: &[Section] = &[
 /// Compact source labels for painted big buttons only. Menus, search and tooltips
 /// retain the engine label. Route these through `tr_label`, like other UI labels.
 pub const RIBBON_LABELS: &[(&str, &str)] = &[
+    ("aluminium.frame", "Frame Sketch"),
+    ("aluminium.members", "Along Lines"),
     ("aluminium.profile", "Create Profile"),
     ("render.batch", "All Shots"),
     ("render.cancel", "Cancel"),
@@ -624,7 +626,13 @@ pub fn aluminium_body(app: &crate::SolveApp) -> Option<String> {
     let made_by = app.session.doc.feature(body.feature)?;
     let connector =
         app.session.doc.components.iter().any(|component| component.id == body.component && component.properties.contains_key("stock_connector"));
-    (connector || matches!(made_by.kind, FeatureKind::AluminiumProfile { .. })).then(|| body.name.clone())
+    (connector
+        || matches!(
+            made_by.kind,
+            FeatureKind::AluminiumProfile { .. }
+                | FeatureKind::FrameMember { profile: solidcraft_engine::doc::frame::MemberProfile::Stock { .. }, .. }
+        ))
+    .then(|| body.name.clone())
 }
 
 pub fn frame_body(app: &crate::SolveApp) -> Option<String> {
@@ -731,8 +739,8 @@ pub fn sync_context(app: &mut crate::SolveApp) {
         .active_sketch
         .map(|id| format!("sketch:{id}"))
         .or_else(|| sheet_body(app).map(|body| format!("sheet:{body}")))
-        .or_else(|| frame_body(app).map(|body| format!("frame:{body}")))
-        .or_else(|| aluminium_body(app).map(|body| format!("aluminium:{body}")));
+        .or_else(|| aluminium_body(app).map(|body| format!("aluminium:{body}")))
+        .or_else(|| frame_body(app).map(|body| format!("frame:{body}")));
     if app.ui.ribbon_context != context {
         let was_sketch = app.ui.ribbon_context.as_deref().is_some_and(|c| c.starts_with("sketch:"));
         let back = if app.session.active_sketch.is_some() {

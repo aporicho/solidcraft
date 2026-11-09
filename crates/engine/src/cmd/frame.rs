@@ -33,7 +33,7 @@ pub static COMMANDS: &[CommandSpec] = &[
     CommandSpec::new("frame.member", "Frame Member", member).at("WELDMENTS", "CREATE").icon("frame_member").enabled(not_in_sketch).params(concat!(
         "sketch: the frame sketch (id or name; 2D or 3D); lines?: [curve ids] (one member each; default: every straight line drawn in the sketch: not construction, not projected or otherwise linked, not of no length); ",
         profile_doc!(),
-        " | profile_sketch: a sketch whose profile is the section, in its own x and y around its origin, with profiles?: picks as solid.extrude takes them (default: its material, nested loops alternating, so two circles make a tube); anchor?: origin|center|centroid|top_left|top|top_right|left|right|bottom_left|bottom|bottom_right (the profile point that sits on each line, default origin); angle?: angle expr (the profile turned about the line; default 0: its y as near world up as the line allows, a vertical member's x along world X); mirror?: bool (the profile mirrored across its y axis); name?; body_name? (what the members are named after, then numbered: `Rail`, `Rail (2)`…; default the profile's description, `Rect Tube 40x40x3`, or the profile sketch's name); names?: {line id: name} (names to keep, as Edit Feature keeps them). One body per line, from its start to its end; each member keeps its name when other lines are added or deleted. Returns the feature and the bodies it made"
+        " | stock_profile: 2020|3030|4040 (a fixed aluminium catalogue section) | profile_sketch: a sketch whose profile is the section, in its own x and y around its origin, with profiles?: picks as solid.extrude takes them (default: its material, nested loops alternating, so two circles make a tube); anchor?: origin|center|centroid|top_left|top|top_right|left|right|bottom_left|bottom|bottom_right (the profile point that sits on each line, default origin); angle?: angle expr (the profile turned about the line; default 0: its y as near world up as the line allows, a vertical member's x along world X); mirror?: bool (the profile mirrored across its y axis); name?; body_name? (what the members are named after, then numbered: `Rail`, `Rail (2)`…; default the profile's description, `Rect Tube 40x40x3`, or the profile sketch's name); names?: {line id: name} (names to keep, as Edit Feature keeps them). One body per line, from its start to its end; each member keeps its name when other lines are added or deleted. Returns the feature and the bodies it made"
     )),
     CommandSpec::new("frame.profile.list", "Profile Library", list).icon("library")
         .noundo()
@@ -182,7 +182,7 @@ fn add_loop(sk: &mut Sketch, l: &Loop2, fixed: bool, cmd: &str) -> Result<()> {
     Ok(())
 }
 
-fn member(s: &mut Session, p: &Value) -> Result<Value> {
+pub(super) fn member(s: &mut Session, p: &Value) -> Result<Value> {
     let cmd = "frame.member";
     let path_sketch = sketch_id(s, p.get("sketch"), cmd, "sketch")?;
     let lines = match p.get("lines") {
@@ -207,14 +207,19 @@ fn member(s: &mut Session, p: &Value) -> Result<Value> {
                 .to_string(),
         ),
     };
-    let (profile, default_name) = match (p.get("profile"), p.get("profile_sketch")) {
-        (Some(_), None) => {
+    let (profile, default_name) = match (p.get("profile"), p.get("profile_sketch"), p.get("stock_profile")) {
+        (None, None, Some(v)) => {
+            let model = v.as_str().ok_or_else(|| bad(cmd, "stock_profile must be a catalogue model"))?;
+            solidcraft_doc::aluminium::stock_section(model).map_err(|e| bad(cmd, e.to_string()))?;
+            (MemberProfile::Stock { model: model.into() }, format!("EU{model}"))
+        }
+        (Some(_), None, None) => {
             let spec = profile_spec(cmd, p)?;
             let pr = resolve(s, cmd, &spec)?;
             pr.region().map_err(|e| bad(cmd, e.to_string()))?;
             (MemberProfile::Library { profile: spec }, pr.description())
         }
-        (None, Some(v)) => {
+        (None, Some(v), None) => {
             let id = sketch_id(s, Some(v), cmd, "profile_sketch")?;
             if id == path_sketch {
                 return Err(bad(cmd, "the profile sketch must not be the frame sketch"));
@@ -222,7 +227,7 @@ fn member(s: &mut Session, p: &Value) -> Result<Value> {
             let name = s.doc.feature(id).map(|f| f.name.clone()).unwrap_or_else(|| "Member".into());
             (MemberProfile::Sketch { sketch: SketchId(id), profiles: super::feature_profiles(p, cmd)? }, name)
         }
-        _ => return Err(bad(cmd, "give `profile` (a built-in profile) or `profile_sketch` (a sketch), one of them")),
+        _ => return Err(bad(cmd, "give `profile`, `profile_sketch` or `stock_profile`, exactly one of them")),
     };
     let anchor: Anchor = match p.get("anchor") {
         None | Some(Value::Null) => Anchor::default(),
