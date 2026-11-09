@@ -15,7 +15,8 @@
     "aluminium.path_sketch": "Skeleton sketch",
     "aluminium.use_picks": "Use selected lines",
     "Frame Sketch": "Frame Sketch",
-    "Along Lines": "Along Lines"
+    "Along Lines": "Along Lines",
+    "Outer Edges": "Outer Edges"
   },
   "zh": {
     "cmd.aluminium.frame": "矩形骨架",
@@ -33,7 +34,8 @@
     "aluminium.path_sketch": "骨架草图",
     "aluminium.use_picks": "使用所选直线",
     "Frame Sketch": "矩形骨架",
-    "Along Lines": "沿线布置型材"
+    "Along Lines": "沿线布置型材",
+    "Outer Edges": "外边缘"
   },
   "ja": {
     "cmd.aluminium.frame": "長方形の骨格",
@@ -51,7 +53,8 @@
     "aluminium.path_sketch": "骨格スケッチ",
     "aluminium.use_picks": "選択した直線を使用",
     "Frame Sketch": "骨格スケッチ",
-    "Along Lines": "線に沿って配置"
+    "Along Lines": "線に沿って配置",
+    "Outer Edges": "外周エッジ"
   },
   "de": {
     "cmd.aluminium.frame": "Rechteckiges Gerüst",
@@ -69,7 +72,8 @@
     "aluminium.path_sketch": "Gerüstskizze",
     "aluminium.use_picks": "Ausgewählte Linien verwenden",
     "Frame Sketch": "Gerüstskizze",
-    "Along Lines": "An Linien"
+    "Along Lines": "An Linien",
+    "Outer Edges": "Außenkanten"
   },
   "fr": {
     "cmd.aluminium.frame": "Ossature rectangulaire",
@@ -87,6 +91,26 @@
     "aluminium.path_sketch": "Esquisse de l’ossature",
     "aluminium.use_picks": "Utiliser les lignes sélectionnées",
     "Frame Sketch": "Ossature",
-    "Along Lines": "Sur lignes"
+    "Along Lines": "Sur lignes",
+    "Outer Edges": "Bords externes"
+  },
+  "ko": {
+    "cmd.aluminium.frame": "직사각형 골격",
+    "Rectangular Skeleton": "직사각형 골격",
+    "help.aluminium.frame": "폭과 높이를 편집할 수 있는 직사각형 스케치를 만듭니다. 치수는 중심선 간격이며 다음에 선을 따라 프로파일을 배치합니다.",
+    "cmd.aluminium.members": "선을 따라 프로파일 배치",
+    "Profiles Along Lines": "선을 따라 프로파일 배치",
+    "help.aluminium.members": "2D 또는 3D 스케치의 직선에 고정 규격 프로파일을 배치합니다. 스케치 변경에 따라 프로파일이 갱신됩니다.",
+    "aluminium.frame_width": "중심선 폭",
+    "aluminium.frame_height": "중심선 높이",
+    "aluminium.frame_plane": "골격 평면",
+    "aluminium.skeleton_note": "생성 후 골격 선이 선택됩니다. 다음에 선을 따라 프로파일을 배치하세요. 접합부 끝은 자동으로 다듬지 않습니다.",
+    "aluminium.path_note": "2D/3D 직선을 따라 길이와 방향이 갱신됩니다. 모든 선에는 추가한 선도 포함됩니다. 끝은 자동으로 다듬지 않습니다.",
+    "aluminium.skeleton_name": "프레임 골격",
+    "aluminium.path_sketch": "골격 스케치",
+    "aluminium.use_picks": "선택한 직선 사용",
+    "Frame Sketch": "골격 스케치",
+    "Along Lines": "선을 따라 배치",
+    "Outer Edges": "외곽 모서리"
   }
 }

@@ -392,6 +392,7 @@ pub const RIBBON_LABELS: &[(&str, &str)] = &[
     ("aluminium.frame", "Frame Sketch"),
     ("aluminium.members", "Along Lines"),
     ("aluminium.profile", "Create Profile"),
+    ("select.outer_edges", "Outer Edges"),
     ("render.batch", "All Shots"),
     ("render.cancel", "Cancel"),
     ("render.export", "Export Image"),
