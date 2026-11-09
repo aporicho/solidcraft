@@ -1892,6 +1892,13 @@ fn placement_digest(doc: &Document, f: &Feature, st: Option<&ModelState>) -> u64
         }
     }
     match &f.kind {
+        FeatureKind::AluminiumProfile { attachment: Some(mount), .. } => {
+            // The local parent solid can stay identical while its occurrence moves. Read both
+            // exact instance paths so cached child geometry follows the mounted interface.
+            frame = path_frame(doc, &mount.author_path);
+            reads.paths.push(mount.path.clone());
+            reads.paths.push(mount.author_path.clone());
+        }
         // To / From Object finds its target where that target's component is placed (#928),
         // over every body.
         FeatureKind::Extrude { extent, .. } if extent.to.is_some() || extent.from.is_some() => reads.all = true,
@@ -8142,21 +8149,32 @@ fn eval_feature(doc: &Document, vals: &BTreeMap<String, Value>, f: &Feature, st:
             }
             Ok(())
         }
-        FeatureKind::AluminiumProfile { model, length, origin, axis, reference, angle } => {
+        FeatureKind::AluminiumProfile { model, length, origin, axis, reference, angle, attachment } => {
             let section = crate::aluminium::stock_section(model)?;
             let length = val(vals, length, Kind::Length)?;
             if !(0.1..=100_000.0).contains(&length) {
                 return Err(DocError::Invalid("aluminium length must be 0.1–100000 mm".into()));
             }
-            let d = axis.0.normalized().ok_or_else(|| DocError::Invalid("invalid aluminium axis".into()))?;
-            let x = (reference.0 - d * reference.0.dot(d))
+            let (base, direction, section_x) = if let Some(mount) = attachment {
+                let frame = crate::aluminium::attachment_frame(doc, st, f.component, mount)?;
+                let position = val(vals, &mount.position, Kind::Unitless)?;
+                let gap = val(vals, &mount.gap, Kind::Length)?;
+                if !(0.0..=1.0).contains(&position) || !gap.is_finite() || gap.abs() > 100_000.0 {
+                    return Err(DocError::Invalid("invalid member attachment position or gap".into()));
+                }
+                frame.port(mount.port, position, gap)
+            } else {
+                (point(vals, origin)?, axis.0, reference.0)
+            };
+            let d = direction.normalized().ok_or_else(|| DocError::Invalid("invalid aluminium axis".into()))?;
+            let x = (section_x - d * section_x.dot(d))
                 .normalized()
                 .ok_or_else(|| DocError::Invalid("aluminium section reference must be perpendicular to its axis".into()))?;
             let y = d.cross(x);
             let turn = val(vals, angle, Kind::Angle)?;
             let (sin, cos) = turn.sin_cos();
             let (x, y) = (x * cos + y * sin, y * cos - x * sin);
-            let plane = Plane::new(point(vals, origin)?, x, y).ok_or_else(|| DocError::Invalid("invalid aluminium section plane".into()))?;
+            let plane = Plane::new(base, x, y).ok_or_else(|| DocError::Invalid("invalid aluminium section plane".into()))?;
             let bodies = kernel::extrude(&plane, &[section], 0.0, length)?;
             apply_op(doc, st, f, bodies, Operation::NewBody, &[])
         }

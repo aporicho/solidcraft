@@ -687,3 +687,70 @@ fn aluminium_stock_members_follow_skeleton_and_spatial_lines() {
         matches!(&reopened.features.last().unwrap().kind, solidcraft_doc::FeatureKind::FrameMember { profile:solidcraft_doc::frame::MemberProfile::Stock { model },.. } if model == "2020")
     );
 }
+
+#[test]
+fn aluminium_model_interfaces_follow_parent_and_space_frame_members() {
+    let mut s = Session::default();
+    let parent = run(&mut s, "aluminium.profile", json!({"model":"2020","length":"100 mm","body_name":"Parent"}))["feature"].clone();
+    run(&mut s, "aluminium.profile", json!({"model":"2020","length":"50 mm","body_name":"End child","attachment":{"body":"Parent","port":"end"}}));
+    run(
+        &mut s,
+        "aluminium.profile",
+        json!({"model":"2020","length":"80 mm","body_name":"Side child","attachment":{"body":"Parent","port":"x_positive","position":"0.5"}}),
+    );
+    let measured = bodies(&mut s);
+    let end = measured.iter().find(|b| b.0 == "End child").unwrap();
+    assert!(near3(end.2, [-10.0, -10.0, 100.0]) && near3(end.3, [10.0, 10.0, 150.0]), "{end:?}");
+    let side = measured.iter().find(|b| b.0 == "Side child").unwrap();
+    assert!(near3(side.2, [10.0, -10.0, 40.0]) && near3(side.3, [90.0, 10.0, 60.0]), "{side:?}");
+    run(
+        &mut s,
+        "timeline.redefine",
+        json!({"feature":parent,"command":"aluminium.profile","params":{"model":"2020","length":"200 mm","body_name":"Parent"}}),
+    );
+    let measured = bodies(&mut s);
+    let end = measured.iter().find(|b| b.0 == "End child").unwrap();
+    assert!(near3(end.2, [-10.0, -10.0, 200.0]) && near3(end.3, [10.0, 10.0, 250.0]), "{end:?}");
+    let side = measured.iter().find(|b| b.0 == "Side child").unwrap();
+    assert!(near3(side.2, [10.0, -10.0, 90.0]) && near3(side.3, [90.0, 10.0, 110.0]), "{side:?}");
+    let restored = solidcraft_doc::Document::from_json(&s.doc.to_json()).unwrap();
+    let mut reopened = Session::new(restored);
+    assert_eq!(bodies(&mut reopened).len(), 3);
+    let saved = s.doc.to_json();
+    assert!(s.execute("aluminium.profile", &json!({"length":"10 mm","attachment":{"body":"Parent","port":"end","position":2}})).is_err());
+    assert_eq!(s.doc.to_json(), saved);
+
+    let mut space = Session::default();
+    run(&mut space, "sketch.create", json!({"plane":"XY","name":"Space"}));
+    run(&mut space, "sketch.options", json!({"sketch_3d":true}));
+    run(&mut space, "sketch.line3d", json!({"points":[[0,0,0],[0,0,150]]}));
+    run(&mut space, "sketch.finish", json!({}));
+    run(&mut space, "aluminium.members", json!({"sketch":"Space","model":"3030","body_name":"Frame parent"}));
+    run(
+        &mut space,
+        "aluminium.profile",
+        json!({"model":"2020","length":"70 mm","body_name":"Frame child","attachment":{"body":"Frame parent","port":"y_negative","position":"0.2"}}),
+    );
+    let measured = bodies(&mut space);
+    let child = measured.iter().find(|b| b.0 == "Frame child").unwrap();
+    assert!(near3(child.2, [-10.0, -85.0, 20.0]) && near3(child.3, [10.0, -15.0, 40.0]), "{child:?}");
+}
+
+#[test]
+fn aluminium_attachment_reads_the_parent_occurrence_placement() {
+    let mut s = Session::default();
+    let component = run(&mut s, "component.create", json!({"name":"Mounted parent"}));
+    let id = component["component"].as_u64().unwrap();
+    let occurrence = component["occurrence"].as_u64().unwrap();
+    run(&mut s, "occurrence.ground", json!({"occurrence":occurrence,"grounded":false}));
+    run(&mut s, "occurrence.move", json!({"occurrence":occurrence,"translate":[100,200,300]}));
+    run(&mut s, "component.activate", json!({"component":id,"occurrence":occurrence,"path":[occurrence]}));
+    run(&mut s, "aluminium.profile", json!({"model":"2020","length":"100 mm","origin":[100,200,300],"body_name":"Placed parent"}));
+    run(&mut s, "component.activate", json!({"component":0}));
+    let parent = s.world_state().bodies.iter().find(|b| b.component == id).unwrap().name.clone();
+    run(&mut s, "aluminium.profile", json!({"length":"50 mm","body_name":"Root child","attachment":{"body":parent,"port":"end"}}));
+    run(&mut s, "occurrence.move", json!({"occurrence":occurrence,"translate":[50,0,0]}));
+    let measured = bodies(&mut s);
+    let child = measured.iter().find(|b| b.0 == "Root child").unwrap();
+    assert!(near3(child.2, [140.0, 190.0, 400.0]) && near3(child.3, [160.0, 210.0, 450.0]), "{child:?}");
+}

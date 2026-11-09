@@ -681,6 +681,8 @@ pub enum FeatureKind {
     },
     /// A standalone parametric European-series T-slot extrusion.
     AluminiumProfile {
+        #[serde(default, skip_serializing_if = "Option::is_none")]
+        attachment: Option<crate::aluminium::Attachment>,
         model: String,
         #[walk(length = "Length")]
         length: Expr,

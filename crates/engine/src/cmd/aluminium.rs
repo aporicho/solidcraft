@@ -16,7 +16,7 @@ pub static COMMANDS: &[CommandSpec] = &[
     CommandSpec::new("aluminium.connector", "Insert Connector", crate::checked!("aluminium.connector", connector))
         .at("ALUMINIUM", "CONNECT").icon("joint").enabled(super::not_in_sketch)
         .contract(&CONNECTOR_CONTRACT).output(crate::schema::output_schema_for::<Value>)
-        .params("model?: motedis-s6bbr20|motedis-s8bbr30|motedis-s8ibr40; origin?: [x,y,z]; rotation?: [x,y,z] angle expressions (bare numbers in degrees); name? → imported component, occurrence, feature and part metadata. Uses the fixed manufacturer STEP model at original scale from the installed connector data cache; no network requests"),
+        .params("mount?: {body: stock member, end: start|end, side?: 0–3, gap?: length} (preposition at an end side slot; inserted part is independent); model?: motedis-s6bbr20|motedis-s8bbr30|motedis-s8ibr40; origin?: [x,y,z]; rotation?: [x,y,z] angle expressions (bare numbers in degrees); name? → imported component, occurrence, feature and part metadata. Uses the fixed manufacturer STEP model at original scale from the installed connector data cache; no network requests"),
     CommandSpec::new("aluminium.frame", "Rectangular Skeleton", crate::checked!("aluminium.frame", skeleton))
         .at("ALUMINIUM", "CREATE").icon("rect").enabled(super::not_in_sketch)
         .contract(&FRAME_CONTRACT).output(crate::schema::output_schema_for::<Value>)
@@ -28,7 +28,7 @@ pub static COMMANDS: &[CommandSpec] = &[
     CommandSpec::new("aluminium.profile", "Create Aluminium Profile", crate::checked!("aluminium.profile", create))
         .at("ALUMINIUM", "CREATE").icon("frame_member").enabled(super::not_in_sketch)
         .contract(&CONTRACT).output(crate::schema::output_schema_for::<FeatureResult>)
-        .params("model?: 2020|3030|4040 (default 2020); length: length expression; origin?: [x,y,z]; axis?: X|Y|Z (default Z); angle?: angle expression; name?, body_name?. Creates one editable true solid with four open T-slots, diagonal webs and a through bore. Section dimensions are fixed by model and cannot be edited"),
+        .params("attachment?: {body: stock member, port: start|end|x_positive|x_negative|y_positive|y_negative, position?: 0–1 expression (default 0.5), gap?: length}; model?: 2020|3030|4040 (default 2020); length: length expression; origin?: [x,y,z]; axis?: X|Y|Z (default Z); angle?: angle expression; name?, body_name?. Creates one editable true solid with four open T-slots, diagonal webs and a through bore. Section dimensions are fixed by model and cannot be edited"),
 ];
 
 fn create(s: &mut Session, p: &Value) -> Result<Value> {
@@ -69,11 +69,18 @@ fn create(s: &mut Session, p: &Value) -> Result<Value> {
     if params.get("body_name").is_none() {
         params["body_name"] = json!(format!("EU{model}"));
     }
-    super::features::add_feature(
+    let attachment = crate::aluminium_ports::attachment(s, p.get("attachment"))?;
+    let result = super::features::add_feature(
         s,
         &params,
-        FeatureKind::AluminiumProfile { model, length, origin, axis: Dir(axis), reference: Dir(reference), angle },
-    )
+        FeatureKind::AluminiumProfile { model, length, origin, axis: Dir(axis), reference: Dir(reference), angle, attachment },
+    )?;
+    if let Some(id) = result.get("feature").and_then(Value::as_u64)
+        && let Some(name) = s.world_state().bodies.iter().find(|b| b.feature == id).map(|b| b.name.clone())
+    {
+        s.selection = vec![crate::Sel::Body { name }];
+    }
+    Ok(result)
 }
 
 fn connector(s: &mut Session, p: &Value) -> Result<Value> {

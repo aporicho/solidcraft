@@ -91,8 +91,40 @@ pub fn import_params(session: &Session, params: &Value) -> Result<Value> {
         matrix[3][index] = session.doc.eval(expression, solidcraft_doc::expr::Kind::Length).map_err(|error| bad(cmd, error.to_string()))?;
     }
     let rows: Vec<Vec<f64>> = (0..4).map(|row| (0..4).map(|col| matrix[col][row]).collect()).collect();
-    Ok(json!({"path":path,"name":params.get("name").and_then(Value::as_str).unwrap_or(&model.label),
-        "matrix":rows,"stock_connector":model.id}))
+    let mut output = json!({"path":path,"name":params.get("name").and_then(Value::as_str).unwrap_or(&model.label),
+        "matrix":rows,"stock_connector":model.id});
+    if let Some(mount) = params.get("mount") {
+        let body = mount.get("body").and_then(Value::as_str).ok_or_else(|| bad(cmd, "select a stock member for the connector"))?;
+        let port: solidcraft_doc::aluminium::Port =
+            serde_json::from_value(mount.get("end").cloned().unwrap_or(Value::Null)).map_err(|_| bad(cmd, "choose a member end"))?;
+        if !port.is_end() {
+            return Err(bad(cmd, "connectors are placed from a member end"));
+        }
+        let side = mount.get("side").map_or(Some(0), Value::as_u64).filter(|i| *i < 4).ok_or_else(|| bad(cmd, "connector side must be 0–3"))?;
+        let frame = crate::aluminium_ports::member(session, body)?.frame;
+        if f64::from(model.series) != frame.size {
+            return Err(bad(cmd, "connector series does not match the selected member"));
+        }
+        let gap = crate::params::expr(mount, "gap").unwrap_or_else(|| "0 mm".into());
+        let gap = session.doc.eval(&session.doc.with_design_unit(&gap, solidcraft_doc::expr::Kind::Length), solidcraft_doc::expr::Kind::Length)?;
+        if !gap.is_finite() || gap.abs() > 100_000.0 {
+            return Err(bad(cmd, "invalid connector offset"));
+        }
+        let (end, n, _) = frame.port(port, 0.5, gap);
+        let radial = match side {
+            0 => frame.x,
+            1 => frame.y,
+            2 => -frame.x,
+            _ => -frame.y,
+        };
+        let origin = end + radial * (frame.size / 2.0);
+        // These fixed Motedis models use the two outer mounting planes X=0 and Y=0;
+        // their alignment tabs project into +X / -Y and their width is centred on Z=0.
+        // -X extends back along the parent, +Y extends out from the selected outer side.
+        let z = n.cross(radial);
+        output["matrix"] = json!([[n.x, radial.x, z.x, origin.x], [n.y, radial.y, z.y, origin.y], [n.z, radial.z, z.z, origin.z], [0, 0, 0, 1]]);
+    }
+    Ok(output)
 }
 
 /// Preserve catalogue identity in the part list without embedding vendor CAD in this repo.

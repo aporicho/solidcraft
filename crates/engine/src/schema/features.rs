@@ -435,6 +435,7 @@ mod tests;
 #[derive(Debug, Deserialize, JsonSchema)]
 #[schemars(deny_unknown_fields)]
 pub struct AluminiumProfileParams {
+    pub attachment: Option<AluminiumAttachmentParams>,
     pub model: Option<AluminiumModel>,
     pub length: LengthExpr,
     pub origin: Option<PointExpr3>,
@@ -460,6 +461,7 @@ pub enum AluminiumModel {
 #[derive(Debug, Deserialize, JsonSchema)]
 #[schemars(deny_unknown_fields)]
 pub struct AluminiumConnectorParams {
+    pub mount: Option<AluminiumConnectorMountParams>,
     pub model: Option<ConnectorModel>,
     pub origin: Option<PointExpr3>,
     pub rotation: Option<[AngleExpr; 3]>,
@@ -504,4 +506,24 @@ pub enum AluminiumFramePlane {
     XY,
     XZ,
     YZ,
+}
+
+#[derive(Debug, Deserialize, JsonSchema)]
+#[schemars(deny_unknown_fields)]
+pub struct AluminiumAttachmentParams {
+    pub body: String,
+    pub port: String,
+    pub position: Option<NumberExpr>,
+    pub gap: Option<LengthExpr>,
+    pub path: Option<Vec<u64>>,
+    pub author_path: Option<Vec<u64>>,
+}
+
+#[derive(Debug, Deserialize, JsonSchema)]
+#[schemars(deny_unknown_fields)]
+pub struct AluminiumConnectorMountParams {
+    pub body: String,
+    pub end: String,
+    pub side: Option<u32>,
+    pub gap: Option<LengthExpr>,
 }
