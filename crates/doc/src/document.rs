@@ -679,6 +679,19 @@ pub enum FeatureKind {
         #[serde(default, skip_serializing_if = "Option::is_none")]
         body: Option<BodyName>,
     },
+    /// A standalone parametric European-series T-slot extrusion.
+    AluminiumProfile {
+        model: String,
+        #[walk(length = "Length")]
+        length: Expr,
+        #[serde(with = "point_expr")]
+        #[walk(placement)]
+        origin: PointExpr,
+        axis: Dir,
+        reference: Dir,
+        #[walk(angle = "Rotation")]
+        angle: Expr,
+    },
     Box {
         #[serde(with = "point_expr")]
         #[walk(placement)]
@@ -2380,6 +2393,7 @@ impl FeatureKind {
             FeatureKind::Revolve { .. } => "RevolveFeature",
             FeatureKind::Fillet { .. } => "FilletFeature",
             FeatureKind::Chamfer { .. } => "ChamferFeature",
+            FeatureKind::AluminiumProfile { .. } => "AluminiumProfileFeature",
             FeatureKind::Box { .. } => "BoxFeature",
             FeatureKind::Cylinder { .. } => "CylinderFeature",
             FeatureKind::Sphere { .. } => "SphereFeature",
@@ -2464,6 +2478,7 @@ impl FeatureKind {
             FeatureKind::Revolve { .. } => "revolve",
             FeatureKind::Fillet { .. } => "fillet",
             FeatureKind::Chamfer { .. } => "chamfer",
+            FeatureKind::AluminiumProfile { .. } => "aluminium_profile",
             FeatureKind::Box { .. } => "box",
             FeatureKind::Cylinder { .. } => "cylinder",
             FeatureKind::Sphere { .. } => "sphere",
@@ -2545,6 +2560,7 @@ impl FeatureKind {
             "RevolveFeature" => "revolve",
             "FilletFeature" => "fillet",
             "ChamferFeature" => "chamfer",
+            "AluminiumProfileFeature" => "aluminium_profile",
             "BoxFeature" => "box",
             "CylinderFeature" => "cylinder",
             "SphereFeature" => "sphere",
@@ -2624,6 +2640,7 @@ impl FeatureKind {
             FeatureKind::Revolve { .. } => "Revolve",
             FeatureKind::Fillet { .. } => "Fillet",
             FeatureKind::Chamfer { .. } => "Chamfer",
+            FeatureKind::AluminiumProfile { .. } => "AluminiumProfile",
             FeatureKind::Box { .. } => "Box",
             FeatureKind::Cylinder { .. } => "Cylinder",
             FeatureKind::Sphere { .. } => "Sphere",

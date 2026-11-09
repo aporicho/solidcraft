@@ -20,6 +20,7 @@ macro_rules! planned {
     };
 }
 
+mod aluminium;
 mod bom;
 mod browser;
 pub(crate) mod clearance;
@@ -365,6 +366,7 @@ pub fn command_specs() -> Vec<&'static CommandSpec> {
     v.extend(material_properties::COMMANDS.iter());
     v.extend(libraries::COMMANDS.iter());
     v.extend(section::COMMANDS.iter());
+    v.extend(aluminium::COMMANDS.iter());
     v.extend(node_graph::COMMANDS.iter());
     v.extend(view_navigation::COMMANDS.iter());
     v.extend(view_dxf::COMMANDS.iter());

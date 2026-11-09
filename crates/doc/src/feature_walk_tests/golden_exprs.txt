@@ -1,3 +1,8 @@
+aluminium_profile
+  inputs:
+    Length = aluminium.length (Length)
+    Rotation = aluminium.angle (Angle)
+  expressions: aluminium.length, aluminium.angle, aluminium.x, aluminium.y, aluminium.z
 body_transfer
 sketch
   inputs:

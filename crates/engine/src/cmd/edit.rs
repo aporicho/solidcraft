@@ -1692,6 +1692,7 @@ fn redefine(s: &mut Session, p: &Value) -> Result<Value> {
                 | "plastic.snap_fit"
                 | "plastic.rest"
                 | "frame.member"
+                | "aluminium.profile"
         );
     if !constructor {
         return Err(bad(cmd, format!("`{cid}` does not make a feature")));

@@ -430,3 +430,28 @@ pub struct FeatureResult {
 #[cfg(test)]
 #[path = "features_tests.rs"]
 mod tests;
+
+/// A fixed-stock European-series T-slot extrusion; length accepts expressions.
+#[derive(Debug, Deserialize, JsonSchema)]
+#[schemars(deny_unknown_fields)]
+pub struct AluminiumProfileParams {
+    pub model: Option<AluminiumModel>,
+    pub length: LengthExpr,
+    pub origin: Option<PointExpr3>,
+    pub axis: Option<AxisDir>,
+    pub reference: Option<Point3>,
+    pub angle: Option<AngleExpr>,
+    pub name: Option<String>,
+    pub body_name: Option<String>,
+    pub body_names: Option<StringList>,
+}
+
+#[derive(Debug, Deserialize, JsonSchema)]
+pub enum AluminiumModel {
+    #[serde(rename = "2020")]
+    P2020,
+    #[serde(rename = "3030")]
+    P3030,
+    #[serde(rename = "4040")]
+    P4040,
+}

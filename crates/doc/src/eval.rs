@@ -8142,6 +8142,24 @@ fn eval_feature(doc: &Document, vals: &BTreeMap<String, Value>, f: &Feature, st:
             }
             Ok(())
         }
+        FeatureKind::AluminiumProfile { model, length, origin, axis, reference, angle } => {
+            let section = crate::aluminium::stock_section(model)?;
+            let length = val(vals, length, Kind::Length)?;
+            if !(0.1..=100_000.0).contains(&length) {
+                return Err(DocError::Invalid("aluminium length must be 0.1–100000 mm".into()));
+            }
+            let d = axis.0.normalized().ok_or_else(|| DocError::Invalid("invalid aluminium axis".into()))?;
+            let x = (reference.0 - d * reference.0.dot(d))
+                .normalized()
+                .ok_or_else(|| DocError::Invalid("aluminium section reference must be perpendicular to its axis".into()))?;
+            let y = d.cross(x);
+            let turn = val(vals, angle, Kind::Angle)?;
+            let (sin, cos) = turn.sin_cos();
+            let (x, y) = (x * cos + y * sin, y * cos - x * sin);
+            let plane = Plane::new(point(vals, origin)?, x, y).ok_or_else(|| DocError::Invalid("invalid aluminium section plane".into()))?;
+            let bodies = kernel::extrude(&plane, &[section], 0.0, length)?;
+            apply_op(doc, st, f, bodies, Operation::NewBody, &[])
+        }
         FeatureKind::Box { corner, length, width, height, operation } => {
             let s = Vec3::new(val(vals, length, Kind::Length)?, val(vals, width, Kind::Length)?, val(vals, height, Kind::Length)?);
             let corner = point(vals, corner)?;

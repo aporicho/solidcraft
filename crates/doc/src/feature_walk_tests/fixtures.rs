@@ -30,6 +30,11 @@ pub(super) fn fixtures() -> Vec<(&'static str, Value)> {
         |h: Value| json!({"type": "hole", "position": o, "direction": [0, 0, 1], "diameter": "hole.diameter", "depth": "hole.depth", "hole": h});
     vec![
         (
+            "aluminium_profile",
+            json!({"type":"aluminium_profile","model":"2020","length":"aluminium.length",
+            "origin":["aluminium.x","aluminium.y","aluminium.z"],"axis":[0,0,1],"reference":[1,0,0],"angle":"aluminium.angle"}),
+        ),
+        (
             "body_transfer",
             json!({"type": "body_transfer", "bodies": ["B"], "from": 0, "to": 1, "transform": [[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]]}),
         ),

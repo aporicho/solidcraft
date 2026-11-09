@@ -51,6 +51,7 @@ pub(crate) const TAB_NAMES: &[&str] = &[
     "FORM",
     "SHEET METAL",
     "WELDMENTS",
+    "ALUMINIUM",
     "ASSEMBLE",
     "INSERT",
     "INSPECT",

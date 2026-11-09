@@ -36,6 +36,7 @@ pub mod design_properties;
 pub mod dialog_column;
 mod dialog_descriptor;
 pub mod dialogs;
+pub mod dialogs_aluminium;
 pub mod dialogs_appearance;
 pub mod dialogs_assembly;
 pub mod dialogs_coupling;

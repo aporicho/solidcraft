@@ -323,6 +323,8 @@ pub const SECTIONS: &[Section] = &[
     Section { tab: "SHEET METAL", panel: "RULES", promoted: 1, ids: &["sheet.manage_rules"] },
     Section { tab: "SHEET METAL", panel: "CONFIGURE", promoted: 2, ids: CONFIGURE },
     // A frame starts from a sketch of its lines; its profile sizes are often parameters.
+    Section { tab: "ALUMINIUM", panel: "CREATE", promoted: 1, ids: &["aluminium.profile"] },
+    Section { tab: "ALUMINIUM", panel: "CONFIGURE", promoted: 2, ids: CONFIGURE },
     Section { tab: "WELDMENTS", panel: "SKETCH", promoted: 1, ids: &["sketch.create"] },
     Section { tab: "WELDMENTS", panel: "CREATE", promoted: 1, ids: &["frame.member"] },
     Section { tab: "WELDMENTS", panel: "CONFIGURE", promoted: 2, ids: CONFIGURE },
@@ -612,6 +614,14 @@ pub fn sheet_body(app: &crate::SolveApp) -> Option<String> {
 }
 
 /// The active body when a Frame Member feature made it.
+pub fn aluminium_body(app: &crate::SolveApp) -> Option<String> {
+    let state = app.session.model.state();
+    let name = active_body(app, &state)?;
+    let body = state.bodies.iter().find(|b| b.name == name)?;
+    let made_by = app.session.doc.feature(body.feature)?;
+    matches!(made_by.kind, FeatureKind::AluminiumProfile { .. }).then(|| body.name.clone())
+}
+
 pub fn frame_body(app: &crate::SolveApp) -> Option<String> {
     let state = app.session.model.state();
     let name = active_body(app, &state)?;
@@ -626,8 +636,11 @@ pub struct SpecialtyTab {
     pub icon: &'static str,
 }
 
-pub const SPECIALTY_TABS: &[SpecialtyTab] =
-    &[SpecialtyTab { tab: "SHEET METAL", icon: "sheet" }, SpecialtyTab { tab: "WELDMENTS", icon: "frame_member" }];
+pub const SPECIALTY_TABS: &[SpecialtyTab] = &[
+    SpecialtyTab { tab: "SHEET METAL", icon: "sheet" },
+    SpecialtyTab { tab: "WELDMENTS", icon: "frame_member" },
+    SpecialtyTab { tab: "ALUMINIUM", icon: "frame_member" },
+];
 
 /// A tab's row in the toolbar menu: the icon of the command that leads the tab (Model › Create ›
 /// Extrude, Inspect › Measure, View › Views and so on).
@@ -713,7 +726,8 @@ pub fn sync_context(app: &mut crate::SolveApp) {
         .active_sketch
         .map(|id| format!("sketch:{id}"))
         .or_else(|| sheet_body(app).map(|body| format!("sheet:{body}")))
-        .or_else(|| frame_body(app).map(|body| format!("frame:{body}")));
+        .or_else(|| frame_body(app).map(|body| format!("frame:{body}")))
+        .or_else(|| aluminium_body(app).map(|body| format!("aluminium:{body}")));
     if app.ui.ribbon_context != context {
         let was_sketch = app.ui.ribbon_context.as_deref().is_some_and(|c| c.starts_with("sketch:"));
         let back = if app.session.active_sketch.is_some() {
@@ -732,6 +746,8 @@ pub fn sync_context(app: &mut crate::SolveApp) {
         } else if let Some(back) = back.as_deref().filter(|t| *t != "SKETCH" && visible_tabs(app).contains(t)) {
             // Finishing a sketch goes back to the tab it came from (#3250).
             visible_tabs(app).into_iter().find(|t| t == &back).unwrap_or_else(|| home_tab(app))
+        } else if context.as_deref().is_some_and(|c| c.starts_with("aluminium:")) {
+            "ALUMINIUM"
         } else if context.as_deref().is_some_and(|c| c.starts_with("frame:")) {
             "WELDMENTS"
         } else if context.is_some() {
@@ -963,7 +979,7 @@ mod tests {
     fn contextual_tabs_follow_the_active_body_and_allow_other_tabs() {
         let mut h = crate::scenario::Harness::new();
         let mut fresh = TABS.to_vec();
-        fresh.extend(["SHEET METAL", "WELDMENTS"]);
+        fresh.extend(["SHEET METAL", "WELDMENTS", "ALUMINIUM"]);
         assert_eq!(visible_tabs(&h.app), fresh, "SHEET METAL and WELDMENTS are reachable before any sheet body or member exists");
         h.app.run("sketch.create", json!({"plane":"XY"})).unwrap();
         assert_eq!(h.app.ui.tab, "SKETCH");
