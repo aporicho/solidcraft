@@ -389,6 +389,7 @@ const LEGACY_RENDER_SECTIONS: &[Section] = &[
 /// Compact source labels for painted big buttons only. Menus, search and tooltips
 /// retain the engine label. Route these through `tr_label`, like other UI labels.
 pub const RIBBON_LABELS: &[(&str, &str)] = &[
+    ("aluminium.connector", "Connector"),
     ("aluminium.frame", "Frame Sketch"),
     ("aluminium.members", "Along Lines"),
     ("aluminium.profile", "Create Profile"),

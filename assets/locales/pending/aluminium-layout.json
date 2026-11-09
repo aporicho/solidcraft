@@ -16,7 +16,8 @@
     "aluminium.use_picks": "Use selected lines",
     "Frame Sketch": "Frame Sketch",
     "Along Lines": "Along Lines",
-    "Outer Edges": "Outer Edges"
+    "Outer Edges": "Outer Edges",
+    "Connector": "Connector"
   },
   "zh": {
     "cmd.aluminium.frame": "矩形骨架",
@@ -35,7 +36,8 @@
     "aluminium.use_picks": "使用所选直线",
     "Frame Sketch": "矩形骨架",
     "Along Lines": "沿线布置型材",
-    "Outer Edges": "外边缘"
+    "Outer Edges": "外边缘",
+    "Connector": "插入连接件"
   },
   "ja": {
     "cmd.aluminium.frame": "長方形の骨格",
@@ -54,7 +56,8 @@
     "aluminium.use_picks": "選択した直線を使用",
     "Frame Sketch": "骨格スケッチ",
     "Along Lines": "線に沿って配置",
-    "Outer Edges": "外周エッジ"
+    "Outer Edges": "外周エッジ",
+    "Connector": "接続部品"
   },
   "de": {
     "cmd.aluminium.frame": "Rechteckiges Gerüst",
@@ -73,7 +76,8 @@
     "aluminium.use_picks": "Ausgewählte Linien verwenden",
     "Frame Sketch": "Gerüstskizze",
     "Along Lines": "An Linien",
-    "Outer Edges": "Außenkanten"
+    "Outer Edges": "Außenkanten",
+    "Connector": "Verbinder"
   },
   "fr": {
     "cmd.aluminium.frame": "Ossature rectangulaire",
@@ -92,7 +96,8 @@
     "aluminium.use_picks": "Utiliser les lignes sélectionnées",
     "Frame Sketch": "Ossature",
     "Along Lines": "Sur lignes",
-    "Outer Edges": "Bords externes"
+    "Outer Edges": "Bords externes",
+    "Connector": "Connecteur"
   },
   "ko": {
     "cmd.aluminium.frame": "직사각형 골격",
@@ -111,6 +116,7 @@
     "aluminium.use_picks": "선택한 직선 사용",
     "Frame Sketch": "골격 스케치",
     "Along Lines": "선을 따라 배치",
-    "Outer Edges": "외곽 모서리"
+    "Outer Edges": "외곽 모서리",
+    "Connector": "연결 부품"
   }
 }

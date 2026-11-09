@@ -116,7 +116,9 @@ pub fn rows(app: &SolveApp, ui: &mut egui::Ui, m: &mut Member, inputs: &[SelInpu
             model,
             &[crate::i18n::tr("aluminium.model2020"), crate::i18n::tr("aluminium.model3030"), crate::i18n::tr("aluminium.model4040")],
         );
-        ui.label(egui::RichText::new(crate::i18n::tr("aluminium.path_note")).small().color(crate::theme::Tokens::get().form_dim));
+        ui.add(
+            egui::Label::new(egui::RichText::new(crate::i18n::tr("aluminium.path_note")).small().color(crate::theme::Tokens::get().form_dim)).wrap(),
+        );
     } else if let Some(sketch) = m.whole.filter(|_| !picked) {
         let name = app.session.doc.feature(sketch).map(|f| f.name.clone()).unwrap_or_default();
         let mut on = true;

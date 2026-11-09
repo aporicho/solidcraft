@@ -117,11 +117,14 @@ pub fn skeleton_rows(ui: &mut egui::Ui, m: &mut Skeleton) -> bool {
     let mut enter = expr_row(ui, i18n::tr("aluminium.frame_width"), &mut m.width);
     enter |= expr_row(ui, i18n::tr("aluminium.frame_height"), &mut m.height);
     choice_row(ui, i18n::tr("aluminium.frame_plane"), "aluminium_frame_plane", &mut m.plane, &["XY", "XZ", "YZ"]);
-    ui.label(egui::RichText::new(i18n::tr("aluminium.skeleton_note")).small().color(crate::theme::Tokens::get().form_dim));
+    ui.add(egui::Label::new(egui::RichText::new(i18n::tr("aluminium.skeleton_note")).small().color(crate::theme::Tokens::get().form_dim)).wrap());
     enter
 }
 
 pub fn skeleton_commands(m: &Skeleton) -> Result<Vec<(String, Value)>, String> {
     let plane = ["XY", "XZ", "YZ"].get(m.plane).ok_or("choose a skeleton plane")?;
-    Ok(vec![("aluminium.frame".into(), json!({"width":m.width,"height":m.height,"plane":plane,"name":i18n::tr("aluminium.skeleton_name")}))])
+    Ok(vec![
+        ("aluminium.frame".into(), json!({"width":m.width,"height":m.height,"plane":plane,"name":i18n::tr("aluminium.skeleton_name")})),
+        ("view.fit".into(), json!({})),
+    ])
 }
