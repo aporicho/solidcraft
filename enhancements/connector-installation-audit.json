@@ -4,9 +4,10 @@
     "source_products_examined": 260,
     "cad_models_examined": 252,
     "states": {
-      "datum_checked": 88,
+      "datum_checked": 86,
       "manual_only": 164,
-      "reference_only": 12
+      "reference_only": 12,
+      "source_conflict": 2
     },
     "roles": {
       "rigid_bridge": 29,
@@ -11114,18 +11115,14 @@
       "source_sha256": "7ba8cf1962f2ce78e41d3eb9343de8a5b4f07bab67c834fbe921241cd0c88380",
       "cad_sha256": "c265ccf434b7327210471a0f3e9e8fdfa2afb2da6f5bf4f01c6770ec05fdc459",
       "geometry_examined": true,
-      "state": "datum_checked",
+      "state": "source_conflict",
       "role": "face_plate",
       "target": "profile",
-      "reason": "plane_hole",
+      "reason": "source_dimensions",
       "requirements": [
         "fasteners"
       ],
       "changes": {
-        "placement": {
-          "before": "manual",
-          "after": "interface"
-        },
         "anchor": {
           "before": [
             29.000000000000004,
@@ -11158,14 +11155,14 @@
       },
       "installation": {
         "revision": 1,
-        "state": "datum_checked",
+        "state": "source_conflict",
         "role": "face_plate",
         "target": "profile",
         "interfaces": [
           "surface",
           "slot"
         ],
-        "reason": "plane_hole",
+        "reason": "source_dimensions",
         "requirements": [
           "fasteners"
         ],
@@ -11187,6 +11184,10 @@
             "pairs": [],
             "unchecked": []
           }
+        ],
+        "thickness_mismatch": [
+          3.0,
+          5.0
         ]
       }
     },
@@ -11282,18 +11283,14 @@
       "source_sha256": "ac09925c19a6f5169c8ed17dafc829ea4c63336e6aec25cf882266df7200eb2b",
       "cad_sha256": "2fc0946d98ab7af998e0f78f162d31f8c7e16f9e454baea28a00f33f8919f7aa",
       "geometry_examined": true,
-      "state": "datum_checked",
+      "state": "source_conflict",
       "role": "face_plate",
       "target": "profile",
-      "reason": "plane_hole",
+      "reason": "source_dimensions",
       "requirements": [
         "fasteners"
       ],
       "changes": {
-        "placement": {
-          "before": "manual",
-          "after": "interface"
-        },
         "anchor": {
           "before": [
             28.999999999999996,
@@ -11326,14 +11323,14 @@
       },
       "installation": {
         "revision": 1,
-        "state": "datum_checked",
+        "state": "source_conflict",
         "role": "face_plate",
         "target": "profile",
         "interfaces": [
           "surface",
           "slot"
         ],
-        "reason": "plane_hole",
+        "reason": "source_dimensions",
         "requirements": [
           "fasteners"
         ],
@@ -11355,6 +11352,10 @@
             "pairs": [],
             "unchecked": []
           }
+        ],
+        "thickness_mismatch": [
+          3.0,
+          5.0
         ]
       }
     },

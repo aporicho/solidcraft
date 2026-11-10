@@ -22,9 +22,10 @@
       "source_products_examined": 260,
       "cad_models_examined": 252,
       "states": {
-        "datum_checked": 88,
+        "datum_checked": 86,
         "manual_only": 164,
-        "reference_only": 12
+        "reference_only": 12,
+        "source_conflict": 2
       },
       "roles": {
         "rigid_bridge": 29,

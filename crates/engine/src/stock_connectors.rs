@@ -29,6 +29,8 @@ pub struct Installation {
     pub excluded_stock: Vec<String>,
     #[serde(default)]
     pub requirements: Vec<String>,
+    #[serde(default)]
+    pub thickness_mismatch: Option<[f64; 2]>,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize, schemars::JsonSchema)]

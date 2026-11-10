@@ -800,7 +800,7 @@ fn every_connector_requires_an_audited_matching_installation_interface() {
     let catalogue = crate::stock_connectors::catalogue().unwrap();
     assert_eq!(catalogue.len(), 264);
     for m in &catalogue {
-        assert!(["datum_checked", "manual_only", "reference_only"].contains(&m.installation.state.as_str()), "{}", m.id);
+        assert!(["datum_checked", "manual_only", "reference_only", "source_conflict"].contains(&m.installation.state.as_str()), "{}", m.id);
         if m.installation.state != "datum_checked" {
             for size in [20.0, 30.0, 40.0] {
                 for kind in ["surface", "slot", "end", "bore"] {
@@ -837,6 +837,9 @@ fn connector_review_distinguishes_fastener_axes_end_sections_and_actual_mating_o
     rectangular.installation.state = "datum_checked".into();
     rectangular.installation.interfaces = vec!["end".into()];
     assert!(!rectangular.compatible(20.0, "end"), "20x40 end caps do not fit a 20x20 end");
+    let source_conflict = model("motedis-lp30105-2d222809");
+    assert_eq!(source_conflict.installation.thickness_mismatch, Some([3.0, 5.0]));
+    assert!(!source_conflict.compatible(30.0, "surface"), "a different CAD thickness must not be passed off as the named product");
     let mut cube = model("motedis-s8bcc3d30");
     assert!(!cube.compatible(30.0, "surface"));
     cube.installation.excluded_stock.push("3030".into());

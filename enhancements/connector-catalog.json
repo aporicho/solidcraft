@@ -16523,7 +16523,7 @@
     "step_sha256": "c265ccf434b7327210471a0f3e9e8fdfa2afb2da6f5bf4f01c6770ec05fdc459",
     "category": "plate",
     "interface": "surface",
-    "placement": "interface",
+    "placement": "manual",
     "anchor": [
       14.0,
       14.0,
@@ -16562,14 +16562,14 @@
     "geometry": "solid",
     "installation": {
       "revision": 1,
-      "state": "datum_checked",
+      "state": "source_conflict",
       "role": "face_plate",
       "target": "profile",
       "interfaces": [
         "surface",
         "slot"
       ],
-      "reason": "plane_hole",
+      "reason": "source_dimensions",
       "requirements": [
         "fasteners"
       ],
@@ -16591,6 +16591,10 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "thickness_mismatch": [
+        3.0,
+        5.0
       ]
     }
   },
@@ -16695,7 +16699,7 @@
     "step_sha256": "2fc0946d98ab7af998e0f78f162d31f8c7e16f9e454baea28a00f33f8919f7aa",
     "category": "plate",
     "interface": "surface",
-    "placement": "interface",
+    "placement": "manual",
     "anchor": [
       14.0,
       14.0,
@@ -16734,14 +16738,14 @@
     "geometry": "solid",
     "installation": {
       "revision": 1,
-      "state": "datum_checked",
+      "state": "source_conflict",
       "role": "face_plate",
       "target": "profile",
       "interfaces": [
         "surface",
         "slot"
       ],
-      "reason": "plane_hole",
+      "reason": "source_dimensions",
       "requirements": [
         "fasteners"
       ],
@@ -16763,6 +16767,10 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "thickness_mismatch": [
+        3.0,
+        5.0
       ]
     }
   },

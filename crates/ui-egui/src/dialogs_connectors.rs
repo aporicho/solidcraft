@@ -450,6 +450,11 @@ fn installation_info(ui: &mut egui::Ui, model: &Connector) {
     }
     let a = &model.installation;
     ui.add(egui::Label::new(i18n::tr(if a.state == "datum_checked" { "audit.datum_checked" } else { "audit.manual_only" })).wrap());
+    if let Some([declared, actual]) = a.thickness_mismatch {
+        ui.add(
+            egui::Label::new(i18n::format("audit.source_thickness", &[("declared", &declared.to_string()), ("actual", &actual.to_string())])).wrap(),
+        );
+    }
     let target = match (a.role.as_str(), a.target.as_str()) {
         ("bracket_cap", _) => Some("audit.bracket_cap"),
         ("fitting_link", _) => Some("audit.fitting_link"),

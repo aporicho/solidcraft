@@ -148,6 +148,12 @@ for index,m in enumerate(models):
  fit_rows=[r for r in fits if r['id']==m['id']]
  a['fit_results']=[{k:r[k] for k in ['profile','state','pairs','unchecked'] if k in r} for r in fit_rows]
  a['excluded_stock']=sorted({r['profile'] for r in fit_rows if r['state']!='clear'})
+ # A supplier file with a different named thickness cannot stand in for that product.
+ if role=='face_plate' and a['state']=='datum_checked':
+  dims=re.search(r'(\d+)\s*[x×]\s*(\d+)\s*[x×]\s*(\d+)',m['label'],re.I)
+  if dims:
+   declared=min(map(float,dims.groups()));box=data['bodies'][0]['measure']['bbox'];actual=min(b-a for a,b in zip(box['min'],box['max']))
+   if abs(actual-declared)>.1:a.update(state='source_conflict',reason='source_dimensions',thickness_mismatch=[declared,round(actual,6)])
  # Never leave an uncalibrated frame looking usable to the runtime or a later generator.
  if a['state']!='datum_checked':m['placement']='manual'
  # Output is a per-model review, with proof source hashes and the precise change.
@@ -159,10 +165,11 @@ report=root/'enhancements/connector-installation-audit.json';report.write_text(j
 with (root/'enhancements/connector-installation-audit.csv').open('w',newline='') as f:
  w=csv.writer(f,lineterminator="\n");w.writerow(['型号ID','料号','名称','安装基准审查','安装类型','配合对象','检查结果','受限截面','厂商资料'])
  for r in rows:
-  states={'datum_checked':'已核对安装基准','manual_only':'需手动定位或配套组件','reference_only':'仅参考资料'}
+  states={'datum_checked':'已核对安装基准','manual_only':'需手动定位或配套组件','reference_only':'仅参考资料','source_conflict':'厂商CAD厚度与名称不符'}
   roles={'rigid_bridge':'外角码/刚性连接','slot_insert':'槽内螺母','face_plate':'面贴连接板','moving_joint':'活动接头','multiport_node':'实心方块','end_cap':'型材端盖','internal_bridge':'内置连接','motor':'电机','shaft':'六角轴','fitting_link':'配件连接块','cable_mount':'扎带座','cable_slot_mount':'槽装扎带座','reference':'参考资料','belt':'皮带','joint_adapter':'接头转接件','hidden_connector':'隐藏式连接','bracket_cap':'角码盖','slot_cover':'槽盖条','corner_node':'三维角件','axial_fastener':'孔轴紧固件','hammer_bolt':'锤头螺栓','bolt_fitting':'螺栓配套件','accessory':'其他附件','joint_kit':'接头配套组件','shaft_bearing':'六角轴支承','pivot_plate':'转角连接板','slot_splice':'槽内拼接条'}
   targets={'profile':'型材','reference':'参考资料','motor_bracket':'电机座','bearing':'轴承/轴支承','connector':'配套连接件','pulley':'带轮','machined_profile':'需匹配孔/螺纹的型材','bolt':'螺栓','hex_profile':'六角芯孔型材'}
   results={'clear':'未检出干涉','overlap':'检测到重叠','unchecked':'未完成干涉检查','error':'未完成检查'}
   fit='；'.join(x['profile']+'：'+results[x['state']] for x in r['installation'].get('fit_results',[])) or ('未提供自动安装' if r['state']!='datum_checked' else '待匹配实际型材截面')
+  if r['state']=='source_conflict':fit='商品名厚度 '+str(r['installation']['thickness_mismatch'][0])+' mm；CAD厚度 '+str(r['installation']['thickness_mismatch'][1])+' mm'
   w.writerow([r['id'],r['part_number'],r['name'],states[r['state']],roles[r['role']],targets.get(r['target'],r['target']),fit,' / '.join(r['installation']['excluded_stock']),r['source_url']])
 print(json.dumps(summary,ensure_ascii=False,indent=2))
