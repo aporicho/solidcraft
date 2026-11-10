@@ -1,8 +1,10 @@
-//! Original procedural T-slot sections using common European-series nominal dimensions.
-//! The catalogue identifies fixed section templates; length and placement are editable.
+//! Fixed European-series T-slot sections; the 20 B6 and 30 B8 outlines follow Motedis STEP data.
+//! Length and placement remain editable while each catalogue section stays fixed.
 use solidcraft_geom::{Loop2, Region2, Vec2};
 
 use crate::{DocError, Result};
+
+mod motedis_sections;
 
 /// Fixed stock catalogue. A model selects an immutable section; only length and
 /// placement are feature parameters. Different supplier dies need distinct catalogue IDs.
@@ -10,8 +12,21 @@ pub const MODELS: &[(&str, f64, f64, f64, f64, f64)] =
     &[("2020", 20.0, 6.2, 5.0, 1.8, 0.8), ("3030", 30.0, 8.2, 6.8, 2.0, 1.0), ("4040", 40.0, 8.2, 6.8, 2.0, 1.0)];
 
 pub fn stock_section(model: &str) -> Result<Region2> {
+    if let Some(section) = motedis_sections::stock_section(model) {
+        return Ok(section);
+    }
     let entry = MODELS.iter().find(|entry| entry.0 == model).ok_or_else(|| DocError::Invalid(format!("unknown aluminium section model {model}")))?;
     section(entry.1, entry.2, entry.3, entry.4, entry.5)
+}
+
+/// Depth from a stock section's outer face to the underside of its slot lip.
+/// Slot-mounted hardware seats against this wall, not against the corner fillet.
+pub fn slot_lip_depth(model: &str) -> Result<f64> {
+    MODELS
+        .iter()
+        .find(|entry| entry.0 == model)
+        .map(|entry| entry.4)
+        .ok_or_else(|| DocError::Invalid(format!("unknown aluminium section model {model}")))
 }
 
 /// Four open T-slots, diagonal webs, and one through bore. The outline is a single

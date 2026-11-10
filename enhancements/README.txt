@@ -174,3 +174,11 @@ python3 enhancements/tools/collect-installation-sources.py
 在空白、独立的SolidCraft控制实例中：
 python3 enhancements/tools/inspect-installation-geometry.py --port <独立端口> --token-file <独立实例token文件>
 审查器输入为这些原生测量与来源快照；不提交厂商网页、图纸或STEP字节。审查生成时用 --baseline 指定审查前的固定目录副本。
+
+常用桌架配合第一批（0.11.0）：
+2020 B6 与 3030 B8 的型材截面改为按 Motedis 官方 STEP 端面轮廓生成，内部空腔与外轮廓共用同一中心基准。
+槽内连接件的安装深度使用型材槽唇壁厚，不再误读中心孔直径。
+首批核验并启用 19 款 2020 B6 与 11 款 3030 B8 桌架连接件，包括槽内螺母、角码、连接板和螺纹板；逐款以厂商 STEP 实体和对应型材截面完成原生干涉检查。S6BIBM5 内置连接条仍检测到干涉，自动安装保持关闭。
+自动吸附要求目录中存在对应截面且实体检查结果为“未检出干涉”。未核验的零件仍可浏览、预览及自由放置，不会被当作已自动配合。
+截至本版共有 45 个配件/截面组合通过实体干涉检查，其中本批新增 30 个 2020 B6 / 3030 B8 组合；其余型号分批继续校准。
+安装基准和组合检查记录：connector-installation-audit.csv / .json；官方 CAD 与商品页面索引保留在独立本地审查资料中。

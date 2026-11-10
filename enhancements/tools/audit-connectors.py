@@ -147,6 +147,7 @@ for index,m in enumerate(models):
  # section-specific; the checked CAD datum remains usable with a future matching stock.
  fit_rows=[r for r in fits if r['id']==m['id']]
  a['fit_results']=[{k:r[k] for k in ['profile','state','pairs','unchecked'] if k in r} for r in fit_rows]
+ a['cleared_stock']=sorted({r['profile'] for r in fit_rows if r['state']=='clear'})
  a['excluded_stock']=sorted({r['profile'] for r in fit_rows if r['state']!='clear'})
  # A supplier file with a different named thickness cannot stand in for that product.
  if role=='face_plate' and a['state']=='datum_checked':

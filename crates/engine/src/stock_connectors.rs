@@ -27,6 +27,9 @@ pub struct Installation {
     pub seat: String,
     #[serde(default)]
     pub excluded_stock: Vec<String>,
+    /// Profiles with a completed native interference check for this installation frame.
+    #[serde(default)]
+    pub cleared_stock: Vec<String>,
     #[serde(default)]
     pub requirements: Vec<String>,
     #[serde(default)]
@@ -100,6 +103,9 @@ impl Connector {
             return false;
         }
         let stock = format!("{0:.0}{0:.0}", series);
+        if !self.installation.cleared_stock.contains(&stock) {
+            return false;
+        }
         if self.installation.excluded_stock.contains(&stock)
             || self.installation.section.is_some_and(|s| s.iter().any(|size| (size - series).abs() > 1e-6))
         {
@@ -239,11 +245,8 @@ pub fn import_params(session: &Session, params: &Value) -> Result<Value> {
             .ok_or_else(|| bad(cmd, "interface position must be between 0 and 1"))?;
         let (mut at, normal, _) = frame.port(port, position, gap);
         if model.installation.seat == "under_slot_lip" {
-            let lip = solidcraft_doc::aluminium::MODELS
-                .iter()
-                .find(|m| m.0 == frame.model)
-                .map(|m| m.4)
-                .ok_or_else(|| bad(cmd, "the profile's slot lip dimensions are unavailable"))?;
+            let lip = solidcraft_doc::aluminium::slot_lip_depth(&frame.model)
+                .map_err(|_| bad(cmd, "the profile's slot lip dimensions are unavailable"))?;
             at = at - normal * lip;
         }
         let radial = match side {

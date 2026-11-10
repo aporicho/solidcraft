@@ -67,41 +67,18 @@
       ],
       "source_sha256": "1928a2bc6f325b6b8025b06649d60b55ab5e866bd2e9593ffe3273436873d441",
       "cad_sha256": "bda437fcc1b361d971d3e0ed4acb06a8fcf46e76f0105038422d3599f6b2f791",
-      "excluded_stock": [
-        "2020"
-      ],
+      "excluded_stock": [],
       "method": "cad_bracket_corner",
       "fit_results": [
         {
           "profile": "2020",
-          "state": "overlap",
-          "pairs": [
-            {
-              "a": "Parent",
-              "area_mm2": 5.511012596841806,
-              "b": "Motedis_S6BBR20",
-              "bbox": {
-                "max": [
-                  10.000000000000007,
-                  3.1610259403397416,
-                  98.1194305204061
-                ],
-                "min": [
-                  9.216168504882313,
-                  -3.161307685519792,
-                  82.67642580391099
-                ]
-              },
-              "center": [
-                9.804500172801266,
-                -0.021727186258553598,
-                90.20018797206016
-              ],
-              "volume_mm3": 0.05262747773883314
-            }
-          ],
+          "state": "clear",
+          "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -182,6 +159,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "3030"
       ]
     }
   },
@@ -262,6 +242,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -331,24 +314,19 @@
       ],
       "source_sha256": "590865dc1d5af8ef60eed22448bf2408b3181291635301950c5f077a46b6a3b0",
       "cad_sha256": "3422879dfb744b2b8fb108e8d5a548d5137b90280d0d02d268d56fc4015c1cb8",
-      "excluded_stock": [
-        "2020"
-      ],
+      "excluded_stock": [],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "2020",
-          "state": "unchecked",
+          "state": "clear",
           "pairs": [],
-          "unchecked": [
-            {
-              "a": "Parent",
-              "b": "Motedis_S6BHASNMX",
-              "reason": "not checked: the time budget of 12 s ran out (budget_s)"
-            }
-          ]
+          "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -418,24 +396,19 @@
       ],
       "source_sha256": "fed87c5c5d0f01eb0f48692b2b40ea53ac5442e76d4c8940a8c79f78c80e9041",
       "cad_sha256": "a6d5fa3320ca0c9059be073d6ba2b289424976ef914bdfc4023e68a22f8be42d",
-      "excluded_stock": [
-        "2020"
-      ],
+      "excluded_stock": [],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "2020",
-          "state": "unchecked",
+          "state": "clear",
           "pairs": [],
-          "unchecked": [
-            {
-              "a": "Parent",
-              "b": "Motedis_S6BHASNMX",
-              "reason": "not checked: the time budget of 12 s ran out (budget_s)"
-            }
-          ]
+          "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -505,17 +478,26 @@
       ],
       "source_sha256": "e11ab6935e21f098291f56d509b5aa29baf3e1a289622a1d0cc6b00326225abf",
       "cad_sha256": "a4e36878f71bcf477a2d51628afa53a9581f795ab40007c8be17e17aefb5a52d",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-s8bhasnm5",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -584,17 +566,26 @@
       ],
       "source_sha256": "7e979d3e4689d1b0f040e6237e47c5639d0b7f4ce1cb178d4952c0c8366b8194",
       "cad_sha256": "20f0667a83003e18f7754e4f2112b6d4332ebe53fe019cc4fcac771fe7f88ae4",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-s8bhasnm6",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -673,6 +664,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -752,6 +746,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -838,6 +835,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -924,6 +924,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "3030"
       ]
     }
   },
@@ -1006,6 +1009,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -1076,16 +1082,25 @@
       ],
       "source_sha256": "34a6aabfd24fadd9e5c1ed53c27b0041f8357fd73129c8b2ae6a0d4eb19ac2d9",
       "cad_sha256": "b432d5311b86c2d16125dcd0ae78a601ac1517a75b789498de008c8af8d2ae9a",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "2020"
+      ],
       "method": "cad_joint_base_plane",
       "fit_results": [
         {
           "profile": "2020",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-pj562020p",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -1154,16 +1169,25 @@
       ],
       "source_sha256": "f95922394c6f7edd2061c668dddfd2b2f6a0f338ef9c46dc04b9517a492441ac",
       "cad_sha256": "e72b531299c6661840368ea9573b285049c623e75529153eeb195392d801c5f2",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "cad_joint_base_plane",
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-pj83030p",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -1241,6 +1265,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -1320,7 +1347,9 @@
       ],
       "source_sha256": "858749908d15732c7d6d62301a33f0422701872379e1462ad8498727fa28dec7",
       "cad_sha256": "bfc06cb7a0b9577542e4abcf898f717870746c3bb06766a55840521f70b5923d",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "named_cube_ports",
       "section": [
         30,
@@ -1329,11 +1358,18 @@
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-s8bcc2d30",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -1412,7 +1448,9 @@
       ],
       "source_sha256": "858749908d15732c7d6d62301a33f0422701872379e1462ad8498727fa28dec7",
       "cad_sha256": "b4b42a8d53f6dd11062d7430094e215849640f62b51bbf43d82b61b9e0a893fd",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "named_cube_ports",
       "section": [
         30,
@@ -1421,11 +1459,18 @@
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-s8bcc3d30",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -1505,6 +1550,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -1589,6 +1637,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -1696,7 +1747,8 @@
           ],
           "unchecked": []
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -1777,54 +1829,55 @@
           "pairs": [
             {
               "a": "Parent",
-              "area_mm2": 500.33677859000363,
+              "area_mm2": 491.0339213787857,
               "b": "Motedis_S6BIBM5",
               "bbox": {
                 "max": [
-                  5.980000000000007,
+                  5.810660294866265,
                   4.750000000000011,
-                  124.85000000000002
+                  124.85
                 ],
                 "min": [
-                  3.9999999999999964,
-                  -4.750000000000006,
+                  3.9999999999999925,
+                  -4.750000000000005,
                   99.99999999999999
                 ]
               },
               "center": [
-                4.600003302942478,
-                -4.463271176357427e-06,
-                112.41656320771932
+                4.295128972381958,
+                -1.2213206474957285e-07,
+                112.01276077988977
               ],
-              "volume_mm3": 109.6755269580445
+              "volume_mm3": 77.62589217535277
             },
             {
               "a": "Parent",
-              "area_mm2": 35.93379253717757,
+              "area_mm2": 41.12549835898251,
               "b": "DIN 913 - M5 x 6",
               "bbox": {
                 "max": [
-                  4.72,
-                  2.5000000000000044,
-                  120.01959399066807
+                  4.499999790000002,
+                  2.500000000000001,
+                  120.35000000000002
                 ],
                 "min": [
                   4.000000000000004,
                   -2.500000000000001,
-                  115.6804060093319
+                  115.35
                 ]
               },
               "center": [
-                4.194954179198394,
-                1.3100113322662587e-05,
-                117.85000022868847
+                4.2841185633969845,
+                -2.7183158484482587e-08,
+                117.8500006096769
               ],
-              "volume_mm3": 3.8872368779595075
+              "volume_mm3": 6.912158380522636
             }
           ],
           "unchecked": []
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -1895,14 +1948,22 @@
       ],
       "source_sha256": "081c8e4c34ebd1baaa55e28c7fd829dbd7a420d4ad0c11e38de19a5be3021fc4",
       "cad_sha256": "78d6ae35b58c2984d6cd1d616d38b3617ac53ecbdc74de45874f6e265d893560",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "cad_inner_bracket_leg",
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-s8ibibm6",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         },
         {
           "profile": "4040",
@@ -1910,6 +1971,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -1994,12 +2058,13 @@
           "unchecked": [
             {
               "a": "Parent",
-              "b": "Volumenkörper2",
-              "reason": "not checked: the time budget of 12 s ran out (budget_s)"
+              "b": "motedis-pts6b20x20",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
             }
           ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -2078,35 +2143,18 @@
       "fit_results": [
         {
           "profile": "3030",
-          "state": "overlap",
-          "pairs": [
+          "state": "unchecked",
+          "pairs": [],
+          "unchecked": [
             {
               "a": "Parent",
-              "area_mm2": 685.9898045150853,
-              "b": "Volumenkörper1",
-              "bbox": {
-                "max": [
-                  15.0,
-                  14.99985828330481,
-                  200.00000066443792
-                ],
-                "min": [
-                  -14.999759719740467,
-                  -15.000000000000002,
-                  191.6555580209932
-                ]
-              },
-              "center": [
-                0.000666969937393126,
-                -0.0003932922525367111,
-                199.17527557361626
-              ],
-              "volume_mm3": 194.46089776192255
+              "b": "motedis-pts8b30x30",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
             }
-          ],
-          "unchecked": []
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -2165,7 +2213,8 @@
       "source_sha256": "bc17613dcfaea3eda81b3f8cdfa474eb712ad7518c9739309e519d50cafbaf36",
       "cad_sha256": "af3e04958813359f17134f7c82e5ae12bc2ca265d48bada25828ab73037e8e2f",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2224,7 +2273,8 @@
       "source_sha256": "5f15800258d235fc61fc8577af52bdf94320d0f1df16c347a9d77e1c49c4ca6c",
       "cad_sha256": "cd36d502d98f8a1a5675ecd3d35932b5208b2a5df35341fe72e135627d764863",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2287,7 +2337,8 @@
       "source_sha256": "63d4d63e6be38142e53d64133647d5dec3fa43ceb2fce434c48d37f3817676f0",
       "cad_sha256": "20cbaba5762139c35977c7324d716fda98c9d3bab69466226b1441f11212d738",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2350,7 +2401,8 @@
       "source_sha256": "dacab59a5e4e053840ceb787b3b3c96b5d2b19bc5c326e2bdc2dafb30888bd8f",
       "cad_sha256": "3bfcae87f18cd2a6ac647fc41f394dae202aef21ae6c19c1ae34a2feff012865",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2413,7 +2465,8 @@
       "source_sha256": "b4527d5fe73004f17fc4910cdbe24d481865e558e1342d606d72bc0cc84c20f4",
       "cad_sha256": "e09eb321afa6628c81440c52918d0d82d04183fe0cf5669b744c7df537640756",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2476,7 +2529,8 @@
       "source_sha256": "d322968d47a89a41b364787a5a4f55b95a30f9eb44255265037fba652102ef44",
       "cad_sha256": "3bc0032fd0a42cd0d051f4f0db579a47baa413467d3df39ec6cc80b7d6176353",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2539,7 +2593,8 @@
       "source_sha256": "f6cdcef46c55177dc831a1f0b591bbcba74c50928e981494b292c5811523fc52",
       "cad_sha256": "b80448d7e982d217009e2faf901b569e42c79520e53dd827a00c12f78914ca90",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2602,7 +2657,8 @@
       "source_sha256": "34f009a2ed77d0e8c3a287cc5c06533dc80f60fa81d902625e8f19a754d53aa7",
       "cad_sha256": "f5e2f2dae8eca76aecd4383265023da494482452a50edb1f46e6365a822c5cbc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2665,7 +2721,8 @@
       "source_sha256": "4728088a7fc33d0c4959b7a1eae5a8ee87c69ef38ff7a578b1ff2e98b1c22907",
       "cad_sha256": "8217e9de6c8037e111ae0b1c946ba329e476474ece9245309803dca40c2ceca9",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2728,7 +2785,8 @@
       "source_sha256": "cf4e56612a82ad32a068a5a1ac2b2a83837bd489ac6005c4170379de1d3bfd9c",
       "cad_sha256": "1372fa610efe63ca7b8773bf490f0594e45dfa3bd1a9993e5a111f7a8ad86202",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2791,7 +2849,8 @@
       "source_sha256": "9daed6ec9680390bf73c1391218d557aafdb3e4969ec1075fe8523bbdce5f108",
       "cad_sha256": "1ef4ff1c1a369e1586f5aceb7b5d756701e7800b5841c069ee494af42051c628",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2858,7 +2917,8 @@
       "source_sha256": "881dd7dd98baa3470c47e45e97af6637c01073af2fe09e6b09b7d1fdec614237",
       "cad_sha256": "c3bd85992463a19a90f5579fa4782e1cc8a3c73385ef6e74e71f941ba09026d5",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2924,7 +2984,8 @@
       "source_sha256": "25df216ba6d75cb50bf6e1c7b71d30408147da06d7a1fd65693349c61d7f16fa",
       "cad_sha256": "998f1f753803c243a45b6d7ccc324faf087d08272e6475eece13d291ee7152ed",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -2990,7 +3051,8 @@
       "source_sha256": "0017bac11761514bdccac95958ddbb26a016e81e4de9c63d20bac96c36a3b463",
       "cad_sha256": "020cc2e76e3b83a53792f1a85fe26208227829952b1dba1abbf69163a81e6252",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3055,7 +3117,8 @@
       "source_sha256": "4ddee19e8e7b334a584a1e67dfc10f60fb041cb78c5bf77cff95215a00bf7848",
       "cad_sha256": "3ae20a61f9f4bb58b7fcca33dcf11e06cb4e4ad201dda2ba6fa63fe7491fcf2e",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3122,7 +3185,8 @@
       "source_sha256": "47a5a717bafc71f0161d0ec328d351f7c2898ae1c1c548cf8094c6d35df659de",
       "cad_sha256": "e57f3bb9a3d83faa5b43f7c5b78be2fbea837b056c9f58af3b28a23bab722a61",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3189,7 +3253,8 @@
       "source_sha256": "4394253860c6a5851cbba63f531c818978e5c4f0de36765c2ad766a5d7f40aac",
       "cad_sha256": "267c8a9da012827b460845eab184059bcbeb4fd6930f1fef6922d6fcdf2c7d13",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3256,7 +3321,8 @@
       "source_sha256": "19edc620c65f9d77cc9003fa4fc76004e0f5a3ab0b7b97c0f16d941046a1feec",
       "cad_sha256": "8152c87e6e50e27a703b4b784a058d02f0194cecf8063307a400fb60493d8ce2",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3323,7 +3389,8 @@
       "source_sha256": "27f8cc1ac96784c0b770463312d4f2090f959532d2a172171618021d31610f95",
       "cad_sha256": "7ed723126f0ba533c72e1cc5ce105f37f908c7dd95dc28bd0f75e940b6226cd3",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3379,7 +3446,8 @@
       "source_sha256": "82404435d24c773c9cd0f3408888b78b86d7ea086e7d732d9e6e42ee64d83712",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3442,7 +3510,8 @@
       "source_sha256": "2df1f22ceef5d201cf8e9ef9e4614ed8c6929980c40624386babedb23ddf3d99",
       "cad_sha256": "fe3f62a1aef6775a652a81d06eac4efb1c0970b56231e203f7d90e54012bd002",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3500,7 +3569,8 @@
       "source_sha256": "89b18971a4b0b386e7f0205d33de9a22e89a478334d6b502ed2b60c431f6e6dc",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3567,7 +3637,8 @@
       "source_sha256": "69d1c91deba6b2a877cdcc2a6088c10f61589209d6e170461f5fc64c7b9cd9b1",
       "cad_sha256": "88e1a5734ab2d3448b8d1fc80226d5529c21d4335e99f9b4498fa7fe2e40936d",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3634,7 +3705,8 @@
       "source_sha256": "36f81e6023752481a081e18b4f4629044b73ee6379556277f86425a558c74b03",
       "cad_sha256": "201de7b6446c0e890f0fbd11e037d936fa73fdbc7782567b624c3b4840472b79",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3702,7 +3774,8 @@
       "source_sha256": "23a37a54b0155c59b7558389e21828c8cb3dfa6f53869c687c8dc67ec3390f9c",
       "cad_sha256": "0429555629ab1c601ebe73df0f7857c9a80ffa3e4f7424ce27fe6b23c88542aa",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3770,7 +3843,8 @@
       "source_sha256": "67162747268af1e1ba3f5cd897982f44c7f491f472f6e24bfe1de4efafad056a",
       "cad_sha256": "2168343decd36ccf8c57ffb0838322b1c7bfa64f9eed2f33be3fda8ec230bc70",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3838,7 +3912,8 @@
       "source_sha256": "c5b8111c2f588e58ea218add6dd24fa988a8bad5930f54663e26aca239429a13",
       "cad_sha256": "ea0b033415368716a989f79445ba89b424556c1a6b0d5cdbedf3cf217f7681df",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3904,7 +3979,8 @@
       "source_sha256": "0dab3df4bd9484700603434bc93f08062eed05b820e638f7cb2aea3580501854",
       "cad_sha256": "8acd5ce373737fbfde305a5532f1827c6ce02fb4b5f80e621feb3f68b914091e",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -3972,7 +4048,8 @@
       "source_sha256": "8f38ffa787cd31ad599b0a6b98a21995c17e8f409fb8236723361d121cd8a1b8",
       "cad_sha256": "b29055ea8cae24c818a4362df19b7641719012c76003ebd1a4ca21789f5dd0bf",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4049,7 +4126,8 @@
       "source_sha256": "dd9697ade1dc26a0e29cb28e64319779ac3c45545969c03136059700f38d7f10",
       "cad_sha256": "63712f458bb386545814c0d479ce0154fe090ad61514f29e70ead40a94e46a9d",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4117,7 +4195,8 @@
       "source_sha256": "ebd062619847445c840427bbbbc90b90892a2947aaf4fa8876830c467b094942",
       "cad_sha256": "3d3615d93a3a83e6f434bf096299fdc19b0c0dc92718718b4c3a87f2cb697a0c",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4194,7 +4273,8 @@
       "source_sha256": "65073c805d50ec59dbb5d941d5ac9330fa97cd05704e1923f0db3a3a8ab53cd4",
       "cad_sha256": "f12d0ec06bd58b66ae8709b1b6625316406114e795b997bd3fdc6cd064cc9dc4",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4271,7 +4351,8 @@
       "source_sha256": "96545c0fecda75c9a56d2585da7c2aec2fbd421594905514504d58e97867ad59",
       "cad_sha256": "0a417a9082e6a7912eae9ac992a315a008a1027c4a0742e84867e0bd13d63ccc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4344,7 +4425,8 @@
       "source_sha256": "8faabf4c81b2b92d693c20c74578d48f219ea6dd9a1b2728be0cc92ba04692ac",
       "cad_sha256": "0d78e0bcb2cdd4b4b4ba07bf9f1b99aadce3ea0f6827b03c2e6da537f2fb4a1b",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4409,7 +4491,8 @@
       "source_sha256": "cf27bbc5ca5a5e710e0f8c66edd736b2228f4db76175e41b1e9f2ce59b082f7d",
       "cad_sha256": "7b9e92c4aada431b76c3da079944e7cfbd26f73de4fcfde5370e41185209efd1",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4474,7 +4557,8 @@
       "source_sha256": "735e8a9d58645460b91c849cec6b9d5c79d7b9e7dd758e1ce9cfac93e0bfbf69",
       "cad_sha256": "88013c3b3de83b1945d9aecd2c4afeedac0efea349837894054109dce8c889f5",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4546,7 +4630,8 @@
       "cad_sha256": "c3020c4395d235707ed16d4b2d232a699621daaeb112f10cb4839ba4859a26be",
       "excluded_stock": [],
       "method": "cad_bracket_corner",
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4625,6 +4710,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -4697,7 +4785,8 @@
       "cad_sha256": "ad435ec7954daf1cee909cc814da9a4c01e01e02be649b27fec3b2cd0efc29e5",
       "excluded_stock": [],
       "method": "cad_bracket_corner",
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4769,7 +4858,8 @@
       "cad_sha256": "ca976dd5a2eb92c3388547fa344f2e55be2df909108afa2238294f85e72bb18d",
       "excluded_stock": [],
       "method": "cad_bracket_corner",
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4839,16 +4929,25 @@
       ],
       "source_sha256": "7813b3e6e6375fe0c7a84387ceb671fc169c01f7ca12f3d411c4a7431aafaafd",
       "cad_sha256": "097cb8eacb6d1c9b82fdfa15619dac9b8613571ab14d2b91145d7d9a6de1fd20",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "cad_bracket_corner",
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-s8bbr3060-9a29a1a8",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -4920,7 +5019,8 @@
       "cad_sha256": "30784f487c6a3036871f2f6623efc749a5a717c2fc29ce4b9536f0382fa36d88",
       "excluded_stock": [],
       "method": "cad_bracket_corner",
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -4992,7 +5092,8 @@
       "cad_sha256": "dd7d05c793b049b3dcfcea397f568850cab23aac205fd1ed0ef3460dc850717c",
       "excluded_stock": [],
       "method": "cad_bracket_corner",
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5060,7 +5161,8 @@
       "source_sha256": "ea0b4b66dccb6c004881947ce5b811a8baafc0e24b3cc676ae183b5425216916",
       "cad_sha256": "2f00fae4da8d50c25976b197c88a398edf06189b08294c84165c481a5bd61218",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5128,7 +5230,8 @@
       "source_sha256": "7e5f35bfb4386d33b79fa1e5f925d771c767888498a21a021a4512fbcd2a2f4a",
       "cad_sha256": "9feb540fdd0c315b179e8a92c500791c5662a1fedbc662a66b0a6d78ad5e9dd5",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5196,7 +5299,8 @@
       "source_sha256": "693264ea7d6c34c440660afb6c23376d66c70a5ffa97498e15e8fc785d42f5c9",
       "cad_sha256": "9e2c6b1946c2bfffa035ac2cef15b0da228b69ab4d3280ee9953eb532fba3439",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5268,7 +5372,8 @@
       "cad_sha256": "0132ba4a8347690644ee1b58d0feb346155eb7f24a063fe3cbf76970a76e2dfa",
       "excluded_stock": [],
       "method": "cad_bracket_corner",
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5340,7 +5445,8 @@
       "cad_sha256": "6c6835e76e863121ef608ec39f54c477bb9f4ea715a74197cf4ff181d389e083",
       "excluded_stock": [],
       "method": "cad_bracket_corner",
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5413,7 +5519,8 @@
       "cad_sha256": "15c9ace67e7719a50689e8dad6af52faa0cf953977880f73c0f33a1a4db29f14",
       "excluded_stock": [],
       "method": "cad_bracket_corner",
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5485,7 +5592,8 @@
       "cad_sha256": "1c9cff3ac03da854f807ebcbdecadc10a2b2160cfb9e2e1acd484a3807b5c86b",
       "excluded_stock": [],
       "method": "cad_bracket_corner",
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5553,7 +5661,8 @@
       "source_sha256": "eb5415abf5cd4767eaeb8b5033cd348b022833192a9e72db480e8e7e289f62bb",
       "cad_sha256": "68bcdb47b44060118d562c120f7d3bfb7e67eface2c64766c747b3fb859e6fc6",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5617,7 +5726,8 @@
       "source_sha256": "cb39bc3e180b7cb3c8826459105f6534ec4c87c8cb121bdcd0f0e8764e82342e",
       "cad_sha256": "c31707776213bc8ac85210f3eccd417fb8789ddd4abe84a82e39e9da7ba92608",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5685,7 +5795,8 @@
       "source_sha256": "a2082fffeb5ffa3a2d940b0fdf5f5f2a33f0c7b762096ff8586d73946a5ac0c5",
       "cad_sha256": "1ac4b0c319aa808ed27129ce6f0ccc4f288e1518539729a72a0c17e9bd7083e0",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5744,7 +5855,8 @@
       "source_sha256": "2714038f886a3679c6f69ba626cd29a5e131ee1c7ff69ee42e852aac4bcc014e",
       "cad_sha256": "8dcbd2ea7213ba0f7749177ccd30a5e1d1d3514213ae0f4f8bcf403a61852982",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5809,7 +5921,8 @@
       "source_sha256": "89981b76eb88b845b41859fd21675e970abff84d5bf645be7de32788a494856f",
       "cad_sha256": "ac5de87a7bbdfbc175a2740bc1ab476faa9f7e6294f0fad96a21ae4171e6b6f6",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5876,7 +5989,8 @@
       "source_sha256": "83379c5897b13c5043246c8c53e68115044232b78f0ba5f51819a8fb3e5f601a",
       "cad_sha256": "a7fe2a3c9f69a6828c6f7c8fef871b4595a148400428396c5421f73650f807d6",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -5943,7 +6057,8 @@
       "source_sha256": "aa2c7ba94136fa082c8573c9bfd2b09ad2c553e1374692d3b7d4266af05710e6",
       "cad_sha256": "526b97a59fadd2355e742e6a936f190da1301e825e16558f91c5f2dc3a718cd1",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6010,7 +6125,8 @@
       "source_sha256": "41b189c4e36813b959ed2ee68d6112ede7828c6374ba597310ed9ab851d86285",
       "cad_sha256": "151f4a5da4b8fa7ae7d8858847777d01dce0ad76f7d9e0ced1495138ec08f25e",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6073,7 +6189,8 @@
       "source_sha256": "105f058cbacdb93da7d2326288a4284a9601ad2445435db8ab2f2847822c3e0e",
       "cad_sha256": "d8d636c58aa170f4057a798cf7669043c5c40ab21de97500ef73dc736366386c",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6136,7 +6253,8 @@
       "source_sha256": "d4447dde557426f6fc7997fb06d499f23557d1ca8b7e640eaf461ab936f0e1d2",
       "cad_sha256": "c75f10b74a917a88a11e2bda67abd8a0f501de5e76b118e00ef45cfd2130b040",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6207,7 +6325,8 @@
         20,
         10
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6278,7 +6397,8 @@
         20,
         40
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6345,7 +6465,8 @@
         20,
         40
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6412,7 +6533,8 @@
         20,
         60
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6479,7 +6601,8 @@
       "source_sha256": "afd99eadbe6e7f6d04861f7a76358aba576b0ff0ffc7aaa9bd659d3d66b5dd24",
       "cad_sha256": "3cbb7de18927d2edca7338059c14e94fafaa240f5abfe77d6e0c6dca17274cde",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6546,7 +6669,8 @@
         30,
         60
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6617,7 +6741,8 @@
         30,
         60
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6680,7 +6805,8 @@
       "source_sha256": "bae1271d5eb2df9579f749ff8c562d568b1f83a2b103aef2c0537669063a1283",
       "cad_sha256": "770aad4df45f70378609706b24560c0e975a9e222063706d163715155c44fd0e",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6743,7 +6869,8 @@
       "source_sha256": "1c770c3f7a111b2aa376a7e59c5d344f756abfccaa2edb193148ebdff0c024c4",
       "cad_sha256": "f6efdad66c9467ec4b9eb4602d283871bae221ad552358e9d58fff6767884e70",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6810,7 +6937,8 @@
       "source_sha256": "f3ec17ba98294d22c0120003d5cb82c8399803dcdd5152dbc41860508aba8a3e",
       "cad_sha256": "1b4090d66de6cb4a5908f6ae0e6f8f81b60f9e39d516101250e6d7332ea032e6",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6881,7 +7009,8 @@
         40,
         120
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -6952,7 +7081,8 @@
         40,
         16
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7023,7 +7153,8 @@
         40,
         160
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7094,7 +7225,8 @@
         40,
         80
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7165,7 +7297,8 @@
         45,
         45
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7232,7 +7365,8 @@
         45,
         90
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7303,7 +7437,8 @@
         80,
         16
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7370,7 +7505,8 @@
         80,
         80
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7437,7 +7573,8 @@
         90,
         90
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7508,7 +7645,8 @@
         45,
         45
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7579,7 +7717,8 @@
         45,
         45
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7650,7 +7789,8 @@
         45,
         90
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7721,7 +7861,8 @@
         45,
         90
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7792,7 +7933,8 @@
         20,
         80
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7854,7 +7996,8 @@
       "source_sha256": "3f37de496532b3403d475bd51d3172f4679bafe2e4950d3e9678f5f553f10825",
       "cad_sha256": "7ca6cf96d098e605b656f58da79a6c61a66c2670283fe4633a789d96991dd7de",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7920,7 +8063,8 @@
       "source_sha256": "fb657da0ca77188a360c9094a1be9b3485fca270636b0895b659f6cbb483e1cc",
       "cad_sha256": "59f326e393f8ac430425f0073b5b8e38a3be0d81e1581436ad03317299a032a0",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -7986,7 +8130,8 @@
       "source_sha256": "e1287017b290c553fb29716a99ad96bea1623460ad9abb16b301763c8b55f5e9",
       "cad_sha256": "2a191657d1c9ff279e9cf95a0614a97f9cee2b35217967bb6061f3dace6dd34f",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8052,7 +8197,8 @@
       "source_sha256": "858bbb3828f9cf920fde6e19fce5ddc5929a77a9404cad88fc5bdd2b4a8146d6",
       "cad_sha256": "03c864d8eb55f9ed663a5630785564df7b1baee51bf8f48010bddd045c5260e2",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8118,7 +8264,8 @@
       "source_sha256": "ec7641d8e392048e8805e519dc9ab1d6986dea0c444a0b5ce0e30673b58f1e8b",
       "cad_sha256": "a02f801845ccc099afbe03c5f6a930a224515578a642d8744a590d7e366b2b00",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8188,7 +8335,8 @@
       "source_sha256": "cdefe5ac69d62f64b1cd96d86603d2825796aa18fe3965eedb7e5ea84dc52775",
       "cad_sha256": "b683705ccb001e94aabbf48193eb363a52db2a384579568fd922d94a5cdd4dc0",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8258,7 +8406,8 @@
       "source_sha256": "0c70cd8ab89cc6f97d318f2a8729eddbca448c2f9832584dec7b88797823b24b",
       "cad_sha256": "2e4d186cf350f6d8dccebed7e8fea262f27e8235379141664af374d5292f0c28",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8328,7 +8477,8 @@
       "source_sha256": "0f311c1c1e405c9118981edad31e412a1631670897fa5cd48a5d1160d474a16c",
       "cad_sha256": "b77f1432da491445b2862d43196ac7b49ca81d0a4d7d4e048812c36a71856104",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8401,7 +8551,8 @@
         20,
         20
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8474,7 +8625,8 @@
         20,
         20
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8547,7 +8699,8 @@
         45,
         45
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8620,7 +8773,8 @@
         45,
         45
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8686,7 +8840,8 @@
       "source_sha256": "820ec49dcc6957c00d5c3010be499471d10de42f6f5e354f3e841dc38c822dbd",
       "cad_sha256": "1af090e13ad5e93f47e64a5da53833cc66b995a7b03a4b050193e4cd5b5e21a2",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8752,7 +8907,8 @@
       "source_sha256": "bfda5964b2e1f749beebfe04b313d1518df9da846dec24e85ac85ad96c7cd905",
       "cad_sha256": "b0f61b275c7be3d7a4dc34ab603c345660381e59be18ed0675368ebe257ccc29",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8818,7 +8974,8 @@
       "source_sha256": "12b7ee4633661f6de1c0c813b90ecdf2008bd7c5594c9b8901eacc6ac23ff5b4",
       "cad_sha256": "6f70aa38d3e59f7a0dca1a790ea815168ff9b896cec8fdfe09805cb47518d934",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8885,7 +9042,8 @@
       "source_sha256": "94f02c3b55e4f9d10589ee8f8398cc3ea970e9d55a77c08248b095a581f931d5",
       "cad_sha256": "13fed91e03f3e743f6c9048eacf979f224f535d7afacd1f962278d54dc432804",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -8952,7 +9110,8 @@
       "source_sha256": "53e01fb7846cf10d5a49128091ce197c5a86d0e0ab2710feb87cf47e372142bd",
       "cad_sha256": "0419aff8adeb14dcb193822a7ec18db437a069ada51f28e9c2f3988facea57d7",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9019,7 +9178,8 @@
       "source_sha256": "992283543e3839023675dce75eb32daa86dda40f1711a9ede3578dd16603a057",
       "cad_sha256": "7d0fe193afbd4c5fc4eaddfa2f15a4e1fa61862dbc72ce108f9bdb01e0bd6f04",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9086,7 +9246,8 @@
       "source_sha256": "ca09c64190d1fdae849a63e426684ac08b577321ccd37519dd8ddf7c76ebb1a7",
       "cad_sha256": "0a224ef6d68d4a4266e38ad0d595e5ebf71d8252722b351f28daaf65895bae54",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9149,7 +9310,8 @@
       "source_sha256": "b7a392c83d969f4763e8cc218168628748dcc876bff712e30ce61a0cfc5e58f1",
       "cad_sha256": "a0303934d89249a20d968ad1b55584297a22ce8fd08c7c469aee38c3d7e3735b",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9215,7 +9377,8 @@
       "source_sha256": "05dab0130a16a2cf223eff6e1c8f300ecf1bbbc0ebc2b21e6e0a1e277e59fbb0",
       "cad_sha256": "e082f34e69a58cd610c2481ca46897bd77e7c1385816b3b9be33e961dbd7d97c",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9281,7 +9444,8 @@
       "source_sha256": "ea1224ba971d2e5cf59ab0206cf742850720332a48d4c462992832dba3db6295",
       "cad_sha256": "99ebb931889798ae698ed029800b79a337b654b2a7941fcbf0d8df172ebbfdde",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9347,7 +9511,8 @@
       "source_sha256": "d6fe2dcf623b6bab2ae109dab5af485d16643e2374c146b3bf5b84c4b59965e7",
       "cad_sha256": "b0b93c98003d97d774f4042fc95cfaf6574ed40ace512e42935ad24a7d68bedc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9413,7 +9578,8 @@
       "source_sha256": "e77ea75039d31ede3c1fac22864d3b66f75071ea1cbb219f177a3d036d46e566",
       "cad_sha256": "bd387ec2290f56c8da372c618be2216c168bc8e9b0a38354da5590e23935e7b3",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9478,7 +9644,8 @@
       "source_sha256": "7b0209f019622b35076f5ee8ebbda0a272c327bdc013691eab5be26bd83918d6",
       "cad_sha256": "159686ef934dc59ad9b0b928785c483b45890313a19927e0bcce477c1f1b829b",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9543,7 +9710,8 @@
       "source_sha256": "1f4383e92f9701d8ae7c01f7384fa937e4a5e4c06ff81ab4ea333afe6d1d1c31",
       "cad_sha256": "206bc3cb169a05d0d6d8d22632cb3d96e7b94441c2bbae3fe9b396d819dbf5ac",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9602,7 +9770,8 @@
       "source_sha256": "9774092235a3291b1ae2bbf24879e9ff389fc141c0b161bf4236b31fc32c39ca",
       "cad_sha256": "46c42dac9544f4c2cad4dcdad158e561c4b45610e95dcc93b9e648a5936f62fc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9661,7 +9830,8 @@
       "source_sha256": "7586b3eccba9eda653236e3e2c6d141a111eae13b0fb5f05172e87bd4ce46b12",
       "cad_sha256": "46c42dac9544f4c2cad4dcdad158e561c4b45610e95dcc93b9e648a5936f62fc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9717,7 +9887,8 @@
       "source_sha256": "3de7db7e90da5cc87be8533af43caab3a16645118338cb87741ba12d17b07e5e",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9773,7 +9944,8 @@
       "source_sha256": "ab3e32a1736e5e0f1f0e4cc8a04ab8009ece43ce63e6c64820b515af4a33d96d",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9832,7 +10004,8 @@
       "source_sha256": "927002ae3c77b6cf5cbde56341d09cb667e82bd79cd62d9121d995cee03d0f14",
       "cad_sha256": "46c42dac9544f4c2cad4dcdad158e561c4b45610e95dcc93b9e648a5936f62fc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9891,7 +10064,8 @@
       "source_sha256": "1c177cd3c9526107198c573acefab73451b7f55d21bf2eef210ff1afb746f5cb",
       "cad_sha256": "46c42dac9544f4c2cad4dcdad158e561c4b45610e95dcc93b9e648a5936f62fc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -9947,7 +10121,8 @@
       "source_sha256": "e8d79d9992a24412cbc9c0d9263c88e590f69db8bb9f432a843310e867fbae87",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10010,7 +10185,8 @@
       "source_sha256": "1e4eebca9d590b9fc47f87312c9c9753e524c6fb0da5c215e6b8b2a5aed62235",
       "cad_sha256": "24c722c6125b3615264303d204048b66c762417fbc2d8d0e27bca0121037f6c2",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10066,7 +10242,8 @@
       "source_sha256": "d3a6140b6f4e3ad6e2d3b90fc7cda70b6d9949a335ee2e3cae9306863070f9c6",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10122,7 +10299,8 @@
       "source_sha256": "b4304f03adddc314402bb27547b3fb3024fc73ae9e52bf54b09b264efc6dfcb4",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10178,7 +10356,8 @@
       "source_sha256": "afb74fd5fb18e9062a97398aabfe9f888369a81974ddc86ee24338e3added8d2",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10244,7 +10423,8 @@
       "source_sha256": "93e5c2b901cda01df5b03d99e18ffef5e9f46f2aaee194b86fb70b920f452a67",
       "cad_sha256": "bd62e2c6900a28ecf96b7004cf85a272f034b59b251088628cc7e3ec19ecd943",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10310,7 +10490,8 @@
       "source_sha256": "4c718ed147ee040a29578285f9ffe4620b2970a5dcc00c99a90314c1c3b961a1",
       "cad_sha256": "168cbdacfad92cefb5e427e4dfa200d514bea1542d85dd766cb2e13b4e3c11ab",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10376,7 +10557,8 @@
       "source_sha256": "523e3b5cfce410a98ed709a597f317c56b85d298420b5620455ecf8441ace7fa",
       "cad_sha256": "deceecc261abd7b68b12c523a80280a95ca1a9cb65a1fb72a959fc19e62f387f",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10443,7 +10625,8 @@
       "source_sha256": "83dca2cbae9f6728238926ffb051b2b0e7076d3c37196577e36e32e8f3e2fe3c",
       "cad_sha256": "dd268edd8aa4070918d16ad48d6dd1c5a895ff4f3ad4b6dc60ea3a3d77773c8a",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10502,7 +10685,8 @@
       "source_sha256": "6345cf1d188bb1d1f74fbf75fd33bf6d8b0484ad78114fcacd95366310c05c52",
       "cad_sha256": "46c42dac9544f4c2cad4dcdad158e561c4b45610e95dcc93b9e648a5936f62fc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10561,7 +10745,8 @@
       "source_sha256": "76d2ae6e5dfa089eeb98bec6fcdadd2aa2cb0d38152ea4f2d8cdbc17bfae0e69",
       "cad_sha256": "46c42dac9544f4c2cad4dcdad158e561c4b45610e95dcc93b9e648a5936f62fc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10624,7 +10809,8 @@
       "source_sha256": "0a53324df4dbe7c8dd6e340a1b29df754cd3631e3fbe09616240053dbc893e60",
       "cad_sha256": "72315d1ee2542b552dbc5ad71f13feaa12261352213e9567aeda897043e00bef",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10680,7 +10866,8 @@
       "source_sha256": "b0ade7346e591746320bd853b116d19a6d7879f6075553ed678d7e92ab5ea6bc",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10736,7 +10923,8 @@
       "source_sha256": "3495dc4a5d2e9befe86c8a6297eb29ae2209d3adc5f806b3ff04e23d5a85629c",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10792,7 +10980,8 @@
       "source_sha256": "7952195652acd24510c443f95fe588737ed953697ec9dacff3a236883c1d03c8",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10848,7 +11037,8 @@
       "source_sha256": "0f07e761667eae6c12d90648b6d22115d3a522117ce16c0feb0d0d322bb2ce93",
       "cad_sha256": "",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10907,7 +11097,8 @@
       "source_sha256": "32d066b9614a5e20d96a0471bc688f3d7d6a313d1e685c1a8701cffe498ce6b2",
       "cad_sha256": "46c42dac9544f4c2cad4dcdad158e561c4b45610e95dcc93b9e648a5936f62fc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -10966,7 +11157,8 @@
       "source_sha256": "d37e267aff2f5699364fed25239f80b5ae6ee8ce3781e33073ad72f491f9cc5f",
       "cad_sha256": "46c42dac9544f4c2cad4dcdad158e561c4b45610e95dcc93b9e648a5936f62fc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11025,7 +11217,8 @@
       "source_sha256": "f1aef46a98e9db2ef22953a577082537b89c94ade6b8eb4f3ba609f81b2fc284",
       "cad_sha256": "46c42dac9544f4c2cad4dcdad158e561c4b45610e95dcc93b9e648a5936f62fc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11093,7 +11286,8 @@
       "source_sha256": "552d503a964704cb1ddcdc8c3bc61032818603bf874266417fec9c0166f8d4a7",
       "cad_sha256": "e6bfc01d2c17911a65ed368204aba7a1f0614412832253a613e98ce2529097e5",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11162,7 +11356,8 @@
       "source_sha256": "e854cd1632fb4024c348af9dcde0381a69fd8758f7538becf991b91f83acbbd4",
       "cad_sha256": "0ec222d8d2f9e4fbdc3d834a542347375438f3009526aaf4b54c7be2ae2a7f4f",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11230,7 +11425,8 @@
       "source_sha256": "0ad13c842d77e52648fcb633aa08783f56bbc4c59623e76beefa60b54c20e8c5",
       "cad_sha256": "b33594c3a93b4e644b667da11caad4ac0a8291481109848c955a6b760ccea4c6",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11294,7 +11490,8 @@
       "source_sha256": "3095fca7417f9c65b051affdb663a0dffef48792008f0d69e51ffc47363a4471",
       "cad_sha256": "a1950f90abc87f0c4eb18db7876fbb3da41111f4fa88a6577fbcce0605d788d8",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11358,7 +11555,8 @@
       "source_sha256": "03e832c7eaba49fbc2b2e1f9b61b88fe164cfe5cfc4ef981aa3a3e1f4abd3afe",
       "cad_sha256": "e582a3a47dd00b3ef7e944c7ffea705fcb10637e414a1f355e657568e2367ec9",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11417,7 +11615,8 @@
       "source_sha256": "025dfdea2f8a212165f1198896d4f88e2d5a13d96af31424a342a575aaea7fcb",
       "cad_sha256": "003fd5b8894307c4942483d0b374e771270e06f9114f67bf72e9640ec87c6109",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11480,7 +11679,8 @@
       "source_sha256": "5b3541ac385a85029dbe15215c91b4fe927542ccb36c87f84cc64f49aeb42ffb",
       "cad_sha256": "e8614d3c4c84dc7b3e7d7178e7bd12ed740782d31a79b1b49251ed07db531e0a",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11545,7 +11745,8 @@
       "source_sha256": "a1925eec98055b8a3ae4ba0c36f1439247b4371e6d7f493a90ae76a2fbb7fd97",
       "cad_sha256": "bd0f19c30d59663949685288547324c5c0525e07bb32213486cc845e2a37e948",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11610,7 +11811,8 @@
       "source_sha256": "1b4363246bbb93a40f7607093c3d550f2b036caf522d828ee6f97ea02d759b79",
       "cad_sha256": "f5fb58aadc28b32eaf60edc8799b3641e8c7cb0b005da5dff75bcfbf75d16b64",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11675,7 +11877,8 @@
       "source_sha256": "57c226c8d77549d90339d1d523b54ce5fc5f424ed7c49631fed717ed2ec571af",
       "cad_sha256": "0a693e44409d59f1fa2a6b43849f5388234a267c6855b4acdb391ac9873780a4",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11740,7 +11943,8 @@
       "source_sha256": "97fe1dc1307adf05282e6d4f33b68d7f5793e588937bae1563564cb80d672503",
       "cad_sha256": "0a873eea350bd19df940c2ebde5a46b88cec26fb617e14e4eb6df7014375bf0e",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11805,7 +12009,8 @@
       "source_sha256": "3d859bb4ddd43bec821b321726d559d35f617901c9dce00475e7935446baa4c7",
       "cad_sha256": "8cbc99dbd6f6ba0d3dd8c166eb0af44294e543529e0e498049a3682436096b7d",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -11871,17 +12076,26 @@
       ],
       "source_sha256": "6a079cea075294a6e3a399e692223557986e8f88f4bbef59c1e8c25742902815",
       "cad_sha256": "08685f92c984d7513ecda3e4a14c34bae9a108a876cf3c3db411338a1c09dc65",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-s8bhesnm4-0cdfbd1c",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -11947,17 +12161,26 @@
       ],
       "source_sha256": "80d8b6e2c577aeecdeefceb0680b8dd4b703845c3e7035963d75a74faefade77",
       "cad_sha256": "ff381bbcf5644beec3a264d3d28b0a1486b3bad60822ac89857f2d08772569ff",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-s8bhesnm5-e709843a",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -12023,17 +12246,26 @@
       ],
       "source_sha256": "908e48de08b28477050b7c3d7d7801a890755d5fe927347903b9409b993d2f74",
       "cad_sha256": "1d1c0f5e613856d3525b68040056cfeea5cc984912df038f34a108ad4601e2a7",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-s8bhesnm6-1399fbd1",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -12099,17 +12331,26 @@
       ],
       "source_sha256": "d7dd16935c779d2619292031440a58a9cf6fba9b68a20a43d7143c9353d1ed1e",
       "cad_sha256": "cde482f57eacde10a61dfcaeba1239e647f171f15c9aed1946a3ba2675cdaa0c",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-s8bhesnm8-0ed08332",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -12174,7 +12415,8 @@
       "source_sha256": "96ced203dda52bbaf23195f9913cca10cf10711d76243cead3b7b648181720e1",
       "cad_sha256": "e78de13738c46af345ec6b26f5ba8857dfb9cc59ef5a447213c0007d1b48b9d4",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -12239,7 +12481,8 @@
       "source_sha256": "933618799551ff0b4bf6f6ae51ebc95ab633fec2f1db8e18bd703ee7e1534bdf",
       "cad_sha256": "bbae7a10dad14718529fe38f174b4027de3c2cbeb3342cf46ef5d290d089329c",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -12304,7 +12547,8 @@
       "source_sha256": "3c63fa89ca9dbca7aa7dfff5d5b8b20de3841e8062e90eda22b88342d37664a4",
       "cad_sha256": "92eabb41ea6d6847a52b4da7ca63f0ce50ab98e9f35f763da032d6ca350e0de5",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -12369,7 +12613,8 @@
       "source_sha256": "19d1f3e169d385cf7f758006d111e05857f379e7329d44d36e2c1ecbffcebe8b",
       "cad_sha256": "7456706e55c639509ba95424a0be84fd7a084253ed9a18abc6523125243ef878",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -12443,35 +12688,18 @@
       "fit_results": [
         {
           "profile": "3030",
-          "state": "overlap",
-          "pairs": [
+          "state": "unchecked",
+          "pairs": [],
+          "unchecked": [
             {
               "a": "Parent",
-              "area_mm2": 206.4816294470217,
-              "b": "Volumenkörper1",
-              "bbox": {
-                "max": [
-                  14.00635083818935,
-                  5.800000000000001,
-                  108.0
-                ],
-                "min": [
-                  5.198739431483377,
-                  -5.800000000000001,
-                  92.0
-                ]
-              },
-              "center": [
-                13.173564408686564,
-                -0.016379965318544274,
-                99.99999760855553
-              ],
-              "volume_mm3": 54.26733441909022
+              "b": "motedis-s8bssnm3-3dfed72e",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
             }
-          ],
-          "unchecked": []
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -12545,35 +12773,18 @@
       "fit_results": [
         {
           "profile": "3030",
-          "state": "overlap",
-          "pairs": [
+          "state": "unchecked",
+          "pairs": [],
+          "unchecked": [
             {
               "a": "Parent",
-              "area_mm2": 206.4816294470217,
-              "b": "Volumenkörper1",
-              "bbox": {
-                "max": [
-                  14.00635083818935,
-                  5.800000000000001,
-                  108.0
-                ],
-                "min": [
-                  5.198739431483377,
-                  -5.800000000000001,
-                  92.0
-                ]
-              },
-              "center": [
-                13.173564408686564,
-                -0.016379965318544274,
-                99.99999760855553
-              ],
-              "volume_mm3": 54.26733441909022
+              "b": "motedis-s8bssnm4-460d40f3",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
             }
-          ],
-          "unchecked": []
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -12647,35 +12858,18 @@
       "fit_results": [
         {
           "profile": "3030",
-          "state": "overlap",
-          "pairs": [
+          "state": "unchecked",
+          "pairs": [],
+          "unchecked": [
             {
               "a": "Parent",
-              "area_mm2": 206.4816294470217,
-              "b": "Volumenkörper1",
-              "bbox": {
-                "max": [
-                  14.00635083818935,
-                  5.800000000000001,
-                  108.0
-                ],
-                "min": [
-                  5.198739431483377,
-                  -5.800000000000001,
-                  92.0
-                ]
-              },
-              "center": [
-                13.173564408686564,
-                -0.016379965318544274,
-                99.99999760855553
-              ],
-              "volume_mm3": 54.26733441909022
+              "b": "motedis-s8bssnm5-f3ae3f9a",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
             }
-          ],
-          "unchecked": []
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -12749,35 +12943,18 @@
       "fit_results": [
         {
           "profile": "3030",
-          "state": "overlap",
-          "pairs": [
+          "state": "unchecked",
+          "pairs": [],
+          "unchecked": [
             {
               "a": "Parent",
-              "area_mm2": 206.4816294470217,
-              "b": "Volumenkörper1",
-              "bbox": {
-                "max": [
-                  14.00635083818935,
-                  5.800000000000001,
-                  108.0
-                ],
-                "min": [
-                  5.198739431483377,
-                  -5.800000000000001,
-                  92.0
-                ]
-              },
-              "center": [
-                13.173564408686564,
-                -0.016379965318544274,
-                99.99999760855553
-              ],
-              "volume_mm3": 54.26733441909022
+              "b": "motedis-s8bssnm6-bd20d216",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
             }
-          ],
-          "unchecked": []
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -12851,35 +13028,18 @@
       "fit_results": [
         {
           "profile": "3030",
-          "state": "overlap",
-          "pairs": [
+          "state": "unchecked",
+          "pairs": [],
+          "unchecked": [
             {
               "a": "Parent",
-              "area_mm2": 206.4816294470217,
-              "b": "Volumenkörper1",
-              "bbox": {
-                "max": [
-                  14.00635083818935,
-                  5.800000000000001,
-                  108.0
-                ],
-                "min": [
-                  5.198739431483377,
-                  -5.800000000000001,
-                  92.0
-                ]
-              },
-              "center": [
-                13.173564408686564,
-                -0.016379965318544274,
-                99.99999760855553
-              ],
-              "volume_mm3": 54.26733441909022
+              "b": "motedis-s8bssnm8-dc2ea8e5",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
             }
-          ],
-          "unchecked": []
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -12940,7 +13100,8 @@
       "source_sha256": "eac7f4419d67c794f9c8a0f428136baf1459b058b053c837cda7f3026f9ba287",
       "cad_sha256": "9897f3e14823260fc3b9f9bf05f38aee8b5369ab7038d6d7bd696ef06f544bfe",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13005,7 +13166,8 @@
       "source_sha256": "8bbc3f481346560dc9a406f24e626e0b8a9e574065e6f51d8ca4f31406689ac4",
       "cad_sha256": "bd7e9c66f59c866e6930af5a46a067e18656dd52b060d891ac22e454ca879b36",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13070,7 +13232,8 @@
       "source_sha256": "e637ec9fffd1956270e9faf12922b2e97c8d403a606f15c2d2a8a5a80e86116f",
       "cad_sha256": "df61eeca0130def6d995a2a351c035df8db753ec0efffbf9fe75a801ceec1e36",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13135,7 +13298,8 @@
       "source_sha256": "1a960246f153d141bac2cd58e29cd0b29a1b929b9d5742a0383913a0c56dd50a",
       "cad_sha256": "01dc76266b542a63247a84a65e4439b6cf77bb55679f4ea6da54b7045b3bee93",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13200,7 +13364,8 @@
       "source_sha256": "717ecfc675938b116e90c83c7d86ac7a398621f4f85c1ad1e117c1bde33454a7",
       "cad_sha256": "c811e3d4d58ef1340f1131ec5bef91c32a8b8fc08c31c4f1b4e432278858ec94",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13268,7 +13433,8 @@
       "source_sha256": "4c79ff97c5b7ab9ed37cf0983aa818ce2c28d438a574c573e084db870466d554",
       "cad_sha256": "e4015c129ec8b95d94f0655e217d6c896a2e154854f737733c09f7503e8e2ec6",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13333,7 +13499,8 @@
       "source_sha256": "892894ba0ea52979991559f6d6a36f86956a8443e67a6bc3f6e1a1dd1c5f35ae",
       "cad_sha256": "9c6bdb43e2156b4fb4550487290645e4e50409532f08fa5eeb6389e9f70ff73d",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13398,7 +13565,8 @@
       "source_sha256": "d9e6cca61232dcfb4175b555204d7d81f3f826d1142b1ca3112ca0df1ce70d9d",
       "cad_sha256": "0a383d40275b748179a91a131b178b3f843fdd584411e3af88b4b0b2ec75bc59",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13463,7 +13631,8 @@
       "source_sha256": "e2ef8aac04d5302fba75ef1ddaf987e296d4044213f5fbb1f227977d12534ad7",
       "cad_sha256": "288b9921396a7c36f2c543a7d3627d22e2a4359fe03bce483f02d9263041cb6d",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13528,7 +13697,8 @@
       "source_sha256": "ed0eea7baa4532d7fb8a80eb0a1e719f68d45cb7102a47d66ef1334aa779f3d1",
       "cad_sha256": "0bbc77a0c354e3ccc8a455230fe171c8c2a3bcadd675ddd9156964ff61556069",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13593,7 +13763,8 @@
       "source_sha256": "6e1fbffab95fa18ee1dfd131538c8387d7d5b260ec4da2c0fa0c56a50cdec090",
       "cad_sha256": "21034dbe6de9231861544ebb70251cd4d5b468dbd7727305ea6b79bed7c880da",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13658,7 +13829,8 @@
       "source_sha256": "c6afe0a2949ac9dbc11be56633995bc522c07f7d46f15ff573097d437259ce4b",
       "cad_sha256": "131b6be5583a8e6b5d18c70dc72f99a130dc58cd2d22a3842e7b80256debb7b7",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13723,7 +13895,8 @@
       "source_sha256": "b347ab40777a96ccb6cbaa301e09fc8e41c585553926693ee1c9f9a8a889bc1d",
       "cad_sha256": "f0eec7dcfa913cbc436aeebd647e277a32d3041f334c359e55a178e4fa947683",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -13790,24 +13963,19 @@
       ],
       "source_sha256": "faa9c6557ca1d831e8095c851f9319f479dac3a66d6896fa73ba352885ae0f61",
       "cad_sha256": "8a1ee0b2364804eedde1e718c811f99ad0c562775c77d70a5e2d1cd6feaa1601",
-      "excluded_stock": [
-        "2020"
-      ],
+      "excluded_stock": [],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "2020",
-          "state": "unchecked",
+          "state": "clear",
           "pairs": [],
-          "unchecked": [
-            {
-              "a": "Parent",
-              "b": "Motedis_S6BHASNMX",
-              "reason": "not checked: the time budget of 12 s ran out (budget_s)"
-            }
-          ]
+          "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -13875,17 +14043,26 @@
       ],
       "source_sha256": "9f2cb0b74ca9e3366fd23261e5060e3096f5a7d006c2e7b0e686d279083662ad",
       "cad_sha256": "61fb2a38a47d3cacb9e390b541f3906243274f25bf774a0f31b32229e2fb3bf4",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-s8bhasnm4-2d0c989d",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
-      ]
+      ],
+      "cleared_stock": []
     }
   },
   {
@@ -13962,6 +14139,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -14038,6 +14218,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -14114,6 +14297,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -14190,6 +14376,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -14266,6 +14455,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -14332,42 +14524,19 @@
       ],
       "source_sha256": "3bdc9a7446130652866189bd3031acbb56d1e6734101be2ac3a7c7dabf7ab913",
       "cad_sha256": "3b94239112da644bde7f8c5761cacd8fbbc1aeff8ea777a2aefb86e6a9d83b05",
-      "excluded_stock": [
-        "2020"
-      ],
+      "excluded_stock": [],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "2020",
-          "state": "overlap",
-          "pairs": [
-            {
-              "a": "Parent",
-              "area_mm2": 19.560634709794567,
-              "b": "Motedis_S6BHESNMX",
-              "bbox": {
-                "max": [
-                  8.176979681339562,
-                  5.6072680788428055,
-                  105.9997166781388
-                ],
-                "min": [
-                  7.809585522310633,
-                  -5.6069659799790506,
-                  93.99971013478805
-                ]
-              },
-              "center": [
-                7.998337781097258,
-                0.011201545189601267,
-                99.99971656624231
-              ],
-              "volume_mm3": 0.6545687758654092
-            }
-          ],
+          "state": "clear",
+          "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -14434,42 +14603,19 @@
       ],
       "source_sha256": "c89d6c182ddd167763ccefe1a5d0608fcc26a1fb47917320779a5cfa564045f9",
       "cad_sha256": "ce8e54786a06c32b30d6d8de3bcbe7c618e596b57c97bda1699e18ad63514fda",
-      "excluded_stock": [
-        "2020"
-      ],
+      "excluded_stock": [],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "2020",
-          "state": "overlap",
-          "pairs": [
-            {
-              "a": "Parent",
-              "area_mm2": 19.560641576216643,
-              "b": "Motedis_S6BHESNMX",
-              "bbox": {
-                "max": [
-                  8.176979673155413,
-                  5.607268082080974,
-                  105.99971667813881
-                ],
-                "min": [
-                  7.809585509240387,
-                  -5.6069659767398585,
-                  93.99971013478803
-                ]
-              },
-              "center": [
-                7.998335764293709,
-                0.011259596100396034,
-                99.99970309904485
-              ],
-              "volume_mm3": 0.6545779744403131
-            }
-          ],
+          "state": "clear",
+          "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -14536,42 +14682,19 @@
       ],
       "source_sha256": "9c2ac8fbd80f41b78ee6396bfe58175d7afa2ee0c4076fef68c18e93a7166fd4",
       "cad_sha256": "75997978149f731c85e82da5ad5d4f0881fc0ea66be11a7981abe09ecb52a787",
-      "excluded_stock": [
-        "2020"
-      ],
+      "excluded_stock": [],
       "method": "drawing_shoulder_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "2020",
-          "state": "overlap",
-          "pairs": [
-            {
-              "a": "Parent",
-              "area_mm2": 19.560636998423085,
-              "b": "Motedis_S6BHESNMX",
-              "bbox": {
-                "max": [
-                  8.176979665971341,
-                  5.607268084923447,
-                  105.9997166781388
-                ],
-                "min": [
-                  7.80958549776729,
-                  -5.606965973896486,
-                  93.99971013478802
-                ]
-              },
-              "center": [
-                7.998337094656652,
-                0.011182622055699634,
-                99.99972300712172
-              ],
-              "volume_mm3": 0.6545718420917277
-            }
-          ],
+          "state": "clear",
+          "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -14637,7 +14760,8 @@
       "source_sha256": "ec5fa9aa3f35b31bd84f75cc71d96fce388ca7db5d4e7a121e12820184eb1787",
       "cad_sha256": "f95e98f4e698fb518f062c7d3b020c1db1d715d07ddcf90f8fcab146fc29c85d",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -14702,7 +14826,8 @@
       "source_sha256": "cfbc546da7996595faeac88fb456cc33f771dd7d1ccf5d7f36d3a20c519804f9",
       "cad_sha256": "ab7969a637dfef5e0a44a60cd9af8b4e5a8fe82505e45daac593d174f2da7507",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -14767,7 +14892,8 @@
       "source_sha256": "e6725dfedb59621ddc729034fa76ac61c05fe8dc2b7b9b3ac812aacaa0924d6f",
       "cad_sha256": "3cad46c42eca800ea196ad8fc57ed880ad42f8c2ce469afe11d15bccf148a945",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -14832,7 +14958,8 @@
       "source_sha256": "e1797a829f0c3ac3f6e16979e9dc6f0fcf99ff21b695f3aba9f992bd497399de",
       "cad_sha256": "5981209238423f8868d4e4a2d5962c71e7749cae3233dfce1426d9eeaf4aa830",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -14897,7 +15024,8 @@
       "source_sha256": "c17d85085feaa8508bbe04e5fbc8d714b5d6a9f7ac375359fe4f38f1dfeb1550",
       "cad_sha256": "7f50984e08e03073ea89d7efc32e6c1fb58eee934c005c6abfa3d28c6ef8022e",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -14962,7 +15090,8 @@
       "source_sha256": "4f08cfdfd9d300c5ab142ecbea9a9f0f6a874d3827cac2825c77913a7c102a3d",
       "cad_sha256": "42c968312f9ed00dfab48be0696255f4f55aa0befc15a43d4ca779c7d3deaeca",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -15027,7 +15156,8 @@
       "source_sha256": "def47f7a46f7388b4ae87676df0e2d58b57c5fa06cbe25b702b13515a9458771",
       "cad_sha256": "9c6e71e988f714d377bd2125fe9342a9c3f30248a37ead4a4aa86c4dadeefc9b",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -15089,42 +15219,19 @@
       ],
       "source_sha256": "ffb41ecbd7e47d2370e69145c8008fee09948cb7f0e87aea2862f82af5002c58",
       "cad_sha256": "187800184d9f193ef440085018a56a4360a92087fb3fce5a43e76ed9cd2630a8",
-      "excluded_stock": [
-        "2020"
-      ],
+      "excluded_stock": [],
       "method": "cad_support_planes_and_thread_axis",
       "seat": "under_slot_lip",
       "fit_results": [
         {
           "profile": "2020",
-          "state": "overlap",
-          "pairs": [
-            {
-              "a": "Parent",
-              "area_mm2": 19.046443658068885,
-              "b": "Basis-Linear austragen",
-              "bbox": {
-                "max": [
-                  5.840085211084293,
-                  4.500152162650523,
-                  106.99971376117514
-                ],
-                "min": [
-                  5.699737557288816,
-                  -4.4998555275709915,
-                  92.99970867334073
-                ]
-              },
-              "center": [
-                5.7464992724635255,
-                0.005572162211559,
-                100.00016380019896
-              ],
-              "volume_mm3": 0.49170638937547767
-            }
-          ],
+          "state": "clear",
+          "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -15190,7 +15297,8 @@
       "source_sha256": "14df0759a777f5ba45ebd7ccd19e140110293130cc06eae4adcd3558d32df6d4",
       "cad_sha256": "faa64c64a544c4adf63edea090099f56227f2f1ba5ea1658297e92c2323421df",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -15255,7 +15363,8 @@
       "source_sha256": "ef94ea26fabb90717e594b6f9c49cb8b190c1eb032e6f758315ea650e2a87d53",
       "cad_sha256": "cf78ccfa2d2b1f344517e0e1047ca84f97481a0b2b6b17b4594b313e4b771727",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -15333,7 +15442,8 @@
         0.0,
         0.0
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -15419,6 +15529,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -15509,6 +15622,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "3030"
       ]
     }
   },
@@ -15599,6 +15715,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "3030"
       ]
     }
   },
@@ -15685,6 +15804,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "3030"
       ]
     }
   },
@@ -15771,6 +15893,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -15853,6 +15978,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -15939,6 +16067,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "3030"
       ]
     }
   },
@@ -16025,6 +16156,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "3030"
       ]
     }
   },
@@ -16107,6 +16241,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "3030"
       ]
     }
   },
@@ -16181,7 +16318,8 @@
         54.02936604,
         0.0
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -16255,7 +16393,8 @@
         78.36853006,
         0.0
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -16341,6 +16480,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -16427,6 +16569,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -16505,7 +16650,8 @@
         37.57919778,
         0.0
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -16575,7 +16721,9 @@
       ],
       "source_sha256": "7ba8cf1962f2ce78e41d3eb9343de8a5b4f07bab67c834fbe921241cd0c88380",
       "cad_sha256": "c265ccf434b7327210471a0f3e9e8fdfa2afb2da6f5bf4f01c6770ec05fdc459",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "cad_mounting_plane_and_through_hole",
       "hole_radius": 3.25,
       "hole_count": 3,
@@ -16587,11 +16735,18 @@
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-lp30107-fe90f62c",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
       ],
+      "cleared_stock": [],
       "thickness_mismatch": [
         3.0,
         5.0
@@ -16681,6 +16836,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -16751,7 +16909,9 @@
       ],
       "source_sha256": "ac09925c19a6f5169c8ed17dafc829ea4c63336e6aec25cf882266df7200eb2b",
       "cad_sha256": "2fc0946d98ab7af998e0f78f162d31f8c7e16f9e454baea28a00f33f8919f7aa",
-      "excluded_stock": [],
+      "excluded_stock": [
+        "3030"
+      ],
       "method": "cad_mounting_plane_and_through_hole",
       "hole_radius": 3.25,
       "hole_count": 4,
@@ -16763,11 +16923,18 @@
       "fit_results": [
         {
           "profile": "3030",
-          "state": "clear",
+          "state": "unchecked",
           "pairs": [],
-          "unchecked": []
+          "unchecked": [
+            {
+              "a": "Parent",
+              "b": "motedis-lp30105-2d222809",
+              "reason": "deferred to a later manufacturer-fit batch; no current geometry-fit proof"
+            }
+          ]
         }
       ],
+      "cleared_stock": [],
       "thickness_mismatch": [
         3.0,
         5.0
@@ -16845,7 +17012,8 @@
         0.0,
         0.0
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -16931,6 +17099,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -17013,6 +17184,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "3030"
       ]
     }
   },
@@ -17087,7 +17261,8 @@
         53.55844213,
         0.0
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -17173,6 +17348,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -17259,6 +17437,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -17349,6 +17530,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "3030"
       ]
     }
   },
@@ -17439,6 +17623,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "3030"
       ]
     }
   },
@@ -17503,7 +17690,8 @@
       "source_sha256": "beadd6ffc79f168bb27954373d8c00723db04c6a8b44654aff8305a50e0efb54",
       "cad_sha256": "198b808cd8b6a38ccb700bf529db3f49f65a0a80a09f83aee9ce5cba1a857e15",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -17571,7 +17759,8 @@
       "source_sha256": "637c768b63ecf250d96b93a6fd430a6a7606ecce48652c236824d8db1fe7c73c",
       "cad_sha256": "3176a5d9b502264af59701bdb5088e14465edf54892811852a7e5f08dd91da0d",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -17645,7 +17834,8 @@
         78.35051025,
         0.0
       ],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -17732,6 +17922,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "2020"
       ]
     }
   },
@@ -17814,6 +18007,9 @@
           "pairs": [],
           "unchecked": []
         }
+      ],
+      "cleared_stock": [
+        "4040"
       ]
     }
   },
@@ -17880,7 +18076,8 @@
       "source_sha256": "d858a0909cbef8fae188843fc2740127f9cbc5bc6e7eaab390f5295c12e8a689",
       "cad_sha256": "92b29c049d35a3bf3373201237cfb03b0474c1bb9947e77e2827c416abfbebd9",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -17946,7 +18143,8 @@
       "source_sha256": "fc2f1916bb061550d87bab40c3e36ad16b0e8b202320dbb788f93eafaf79dc67",
       "cad_sha256": "c37a594dd2de32e58ccd2392a8593a08dadc3a4bf9551b810bba54ce30bd071d",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18012,7 +18210,8 @@
       "source_sha256": "12b711e433e7de46700a9302602c266f2936138ad8e790e20b945d4a56fa5da1",
       "cad_sha256": "76047377fc5fa401d98416d62f4075f09dde9dfc5649ecca2cf6bda81e63a2aa",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18078,7 +18277,8 @@
       "source_sha256": "b2ed84aed8edd839385adafa71c06e8735fd77380850adf77b281e285be5b72c",
       "cad_sha256": "06ca5afcc0d346670b032a9f5d9bfa3d2bfe6a96be6c04e25e191161ba892946",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18144,7 +18344,8 @@
       "source_sha256": "0c990dd11abd83bc303e91b1de267bdb75115073d48ec46e1e48d41612ce5fab",
       "cad_sha256": "766457a9f6acb2841ecaa0ee8259150b700c4b8c91d4db9f1f0c3799d82a6fcb",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18206,7 +18407,8 @@
       "source_sha256": "070f54cb2a50a08d728423c92b2a69ecbb65779572f22c32681bd181aae087b3",
       "cad_sha256": "5b38d8ef3e9572041ff2dd1d988ba773619b413f35418348abd3e6e058ffa2dc",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18268,7 +18470,8 @@
       "source_sha256": "cfd6d1a49b9a71f42ffc0092545f366a2a3fb8d10a81ee5ea5e0a9aaafd20ea0",
       "cad_sha256": "d2adc874b0b52d5a65a7c27cf174ec002fa970bb1b6ad3f53f0b093e67d0714c",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18330,7 +18533,8 @@
       "source_sha256": "f0b7312d91f64135d2a83107f988dd214842de690a06518109c8136067abf6ff",
       "cad_sha256": "b11bacbfb6f5af07bfb2aab0fabaf244566975d24896b18bc709bc49da3ee37c",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18392,7 +18596,8 @@
       "source_sha256": "d3c13bcb8e6c035cc8c3a0b17bc54f555ada04042ebe6346b98f5c4663ad8d1f",
       "cad_sha256": "48e2e1b6b118a981a72685dcf777a91acdb882d53fc09ea69764f29b6e31c37d",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18456,7 +18661,8 @@
       "source_sha256": "384e7f702e756d94ec794fe3984dd58c8376e8356e49078c9410c8c4dadb75c2",
       "cad_sha256": "057779361e707fc163826939f9d1ecc9b569b18ec4eecad834ecc2eaa45fd5b3",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18520,7 +18726,8 @@
       "source_sha256": "31d0b61b7b4405d137cde9e0af389fb5e1194105b8b5bc763dc2f983c8084404",
       "cad_sha256": "dec527f616e92e2eef5162303c84332e9279802b02b8d57d4052533e66b8058a",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18588,7 +18795,8 @@
       "source_sha256": "544227c6706dc2c5a2e87e7aadb6de5e5093c7027e7bae5810c351645d42ec3d",
       "cad_sha256": "1c7c46f6ca5a3d988f6e64a679a4542c18d24dd72ccbafa314be6a0d12de521b",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18656,7 +18864,8 @@
       "source_sha256": "631a841fdd3266006e815c6ed765375dd762d7b0b147f0cc0b1af18fb7fcbdee",
       "cad_sha256": "f0e6704574b84093ccb480798d667fa371cebe5781239692c3d071c90f63cfc7",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18724,7 +18933,8 @@
       "source_sha256": "3e7b3e60f141a066351055b27d35dfe60bc8e898e40d900a766533042233beca",
       "cad_sha256": "dc763f5bcc5576923dfe00262a87bcb247d8d16f66616e95cc382f89306b5861",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18790,7 +19000,8 @@
       "source_sha256": "3c5cbe5077e1268c48a0a47eeb5b7ec10672e31d7ddc4571d903a2b8f3542902",
       "cad_sha256": "6961904cc4b8a36cdb6bb49a555930785de987c2cd74584eb6bc0c10fd634216",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   },
   {
@@ -18856,7 +19067,8 @@
       "source_sha256": "658e436fcd09736e5f91ebf1897cf09e7c3fede39c75693634d8029010223d3b",
       "cad_sha256": "f41764acdbed93b4e3f42e65bba241567eeecca507baa09f22619dff9e032f53",
       "excluded_stock": [],
-      "fit_results": []
+      "fit_results": [],
+      "cleared_stock": []
     }
   }
 ]

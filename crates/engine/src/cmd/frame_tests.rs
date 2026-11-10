@@ -821,14 +821,14 @@ fn connector_review_distinguishes_fastener_axes_end_sections_and_actual_mating_o
     let model = |id| crate::stock_connectors::model(id).unwrap();
     let plate = model("motedis-lp20105");
     assert_eq!(plate.anchor, [30.0, 10.5, 0.0], "the click is a real hole, not the midpoint between two holes");
-    assert!(plate.compatible(20.0, "surface"));
+    assert!(!plate.compatible(20.0, "surface"), "20 series is held back until the exact Motedis section is checked");
     assert!(!plate.compatible(20.0, "bore"));
     let oriented = model("motedis-lp30103");
     assert_eq!(oriented.normal, [1.0, 0.0, 0.0], "this supplier plate is thin in CAD X, not Z");
     let nut = model("motedis-s8bhasnm5");
     assert_eq!(nut.anchor, [0.0, 0.0, 4.5]);
     assert_eq!(nut.installation.seat, "under_slot_lip");
-    assert!(nut.compatible(30.0, "slot"));
+    assert!(!nut.compatible(30.0, "slot"), "slot nuts need exact section fit checks before automatic placement");
     assert!(!nut.compatible(30.0, "surface"));
     let bracket_cap = model("motedis-s5i6bbr20c-d4d49e5f");
     assert_eq!(bracket_cap.installation.target, "connector");

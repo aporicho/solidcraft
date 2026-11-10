@@ -1,28 +1,28 @@
 型号ID,料号,名称,安装基准审查,安装类型,配合对象,检查结果,受限截面,厂商资料
-motedis-s6bbr20,S6BBR20,Motedis S6BBR20,已核对安装基准,外角码/刚性连接,型材,2020：检测到重叠,2020,https://www.motedis.com/en/Bracket-20x20-B-type-slot-6
+motedis-s6bbr20,S6BBR20,Motedis S6BBR20,已核对安装基准,外角码/刚性连接,型材,2020：未检出干涉,,https://www.motedis.com/en/Bracket-20x20-B-type-slot-6
 motedis-s8bbr30,S8BBR30,Motedis S8BBR30,已核对安装基准,外角码/刚性连接,型材,3030：未检出干涉,,https://www.motedis.com/en/Bracket-30-B-Type-slot-8
 motedis-s8ibr40,S8IBR40,Motedis S8IBR40,已核对安装基准,外角码/刚性连接,型材,4040：未检出干涉,,https://www.motedis.com/en/Bracket-40-I-Type-slot-8
-motedis-s6bhasnm4,S6BHASNM4,T-nut B-type slot 6 [M4],已核对安装基准,槽内螺母,型材,2020：未完成干涉检查,2020,https://www.motedis.com/en/T-nut-B-type-slot-6-M4
-motedis-s6bhasnm5,S6BHASNM5,T-nut B-type slot 6 [M5],已核对安装基准,槽内螺母,型材,2020：未完成干涉检查,2020,https://www.motedis.com/en/T-nut-B-type-slot-6-M5
-motedis-s8bhasnm5,S8BHASNM5,T-nut B-type slot 8 [M5],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/T-nut-B-type-slot-8-M5
-motedis-s8bhasnm6,S8BHASNM6,T-nut B-type slot 8 [M6],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/T-nut-B-type-slot-8-M6
+motedis-s6bhasnm4,S6BHASNM4,T-nut B-type slot 6 [M4],已核对安装基准,槽内螺母,型材,2020：未检出干涉,,https://www.motedis.com/en/T-nut-B-type-slot-6-M4
+motedis-s6bhasnm5,S6BHASNM5,T-nut B-type slot 6 [M5],已核对安装基准,槽内螺母,型材,2020：未检出干涉,,https://www.motedis.com/en/T-nut-B-type-slot-6-M5
+motedis-s8bhasnm5,S8BHASNM5,T-nut B-type slot 8 [M5],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/T-nut-B-type-slot-8-M5
+motedis-s8bhasnm6,S8BHASNM6,T-nut B-type slot 8 [M6],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/T-nut-B-type-slot-8-M6
 motedis-s8ihasnm5,S8IHASNM5,T-nut I-type slot 8 [M5],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-I-type-slot-8-M5
 motedis-s8ihasnm6,S8IHASNM6,T-nut I-type slot 8 [M6],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-I-type-slot-8-M6
 motedis-lp20105,LP20105,"Connector plate 20x80x3, Lasercut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/Connector-plate-20x80x3-Lasercut
 motedis-lp30103,LP30103,"Connector plate 30x90x3, Laser cut",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/Connector-plate-30x90x3-Laser-cut
 motedis-lp40103,LP40103,"Connector plate 40x120x5, Laser cut",已核对安装基准,面贴连接板,型材,4040：未检出干涉,,https://www.motedis.com/en/Connector-plate-40x120x5-Laser-cut
-motedis-pj562020p,PJ562020P,Joint 20 slot 5 & slot 6,已核对安装基准,活动接头,型材,2020：未检出干涉,,https://www.motedis.com/en/Joint-20-slot-5-slot-6
-motedis-pj83030p,PJ83030P,Joint for Profile 30 B-Type Slot 8,已核对安装基准,活动接头,型材,3030：未检出干涉,,https://www.motedis.com/en/Joint-for-Profile-30-B-Type-Slot-8
+motedis-pj562020p,PJ562020P,Joint 20 slot 5 & slot 6,已核对安装基准,活动接头,型材,2020：未完成干涉检查,2020,https://www.motedis.com/en/Joint-20-slot-5-slot-6
+motedis-pj83030p,PJ83030P,Joint for Profile 30 B-Type Slot 8,已核对安装基准,活动接头,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Joint-for-Profile-30-B-Type-Slot-8
 motedis-sp-pj4040,SP.PJ4040,Joint 40 I-type slot 8 - adjustable friction,已核对安装基准,活动接头,型材,4040：未检出干涉,,https://www.motedis.com/en/Joint-40-I-type-slot-8-movable
-motedis-s8bcc2d30,S8BCC2D30,Cube connector 30 B-type slot 8,已核对安装基准,实心方块,型材,3030：未检出干涉,,https://www.motedis.com/en/Cube-connector-30-B-type-slot-8
-motedis-s8bcc3d30,S8BCC3D30,Cube connector 30 B-type slot 8,已核对安装基准,实心方块,型材,3030：未检出干涉,,https://www.motedis.com/en/Cube-connector-30-B-type-slot-8
+motedis-s8bcc2d30,S8BCC2D30,Cube connector 30 B-type slot 8,已核对安装基准,实心方块,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Cube-connector-30-B-type-slot-8
+motedis-s8bcc3d30,S8BCC3D30,Cube connector 30 B-type slot 8,已核对安装基准,实心方块,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Cube-connector-30-B-type-slot-8
 motedis-cube-connector-40-2d-i-type-slot-8,Cube_connector_40-2D_I-type_slot_8,Cube connector 40-2D I-type slot 8,已核对安装基准,实心方块,型材,4040：未检出干涉,,https://www.motedis.com/en/Cube-connector-40-2D-I-type-slot-8
 motedis-s8icu403d,S8ICU403D,Cube connector 40-3D  I-type slot 8,已核对安装基准,实心方块,型材,4040：未检出干涉,,https://www.motedis.com/en/Cube-connector-40-3D-I-type-slot-8
 motedis-pts8i40x40,PTS8I40x40,Cover Caps 40x40 I-Type Slot 8,已核对安装基准,型材端盖,型材,4040：检测到重叠,4040,https://www.motedis.com/en/Cover-Caps-40x40-I-Type-Slot-8
 motedis-s6bibm5,S6BIBM5,Inner Bracket Zamak Die Cast 20  B-Type slot 6 M5 Alternative,已核对安装基准,内置连接,型材,2020：检测到重叠,2020,https://www.motedis.com/en/Inner-bracket-20-B-Type-slot-6-M5-Alternative
-motedis-s8ibibm6,S8IBIBM6,Inner Bracket Zamak Die Cast (30 B-Type / 40 I-Type) Slot 8 M6,已核对安装基准,内置连接,型材,3030：未检出干涉；4040：未检出干涉,,https://www.motedis.com/en/Inner-bracket-zamak-30-B-Type-40-I-Type-Slot-8-M6
+motedis-s8ibibm6,S8IBIBM6,Inner Bracket Zamak Die Cast (30 B-Type / 40 I-Type) Slot 8 M6,已核对安装基准,内置连接,型材,3030：未完成干涉检查；4040：未检出干涉,3030,https://www.motedis.com/en/Inner-bracket-zamak-30-B-Type-40-I-Type-Slot-8-M6
 motedis-pts6b20x20,PTS6B20x20,Cover Cap 20 B-Type slot 6,已核对安装基准,型材端盖,型材,2020：未完成干涉检查,2020,https://www.motedis.com/en/Cover-Cap-20-B-Type-slot-6
-motedis-pts8b30x30,PTS8B30x30,Cover Cap 30 B-type slot 8,已核对安装基准,型材端盖,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Cover-Cap-30-B-Typ-slot-8
+motedis-pts8b30x30,PTS8B30x30,Cover Cap 30 B-type slot 8,已核对安装基准,型材端盖,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Cover-Cap-30-B-Typ-slot-8
 motedis-pmm-24v-9rpm-4dffe441,PMM-24V-9RPM,42 mm planetary gearbox and permanent magnet DC motor - 9 rpm,需手动定位或配套组件,电机,电机座,未提供自动安装,,https://www.motedis.com/en/42-mm-planetary-gearbox-and-permanent-magnet-DC-motor-10-rpm
 motedis-pmm-24v-143rpm-47224a0d,PMM-24V-143RPM,62 mm planetary gearbox and permanent magnet DC motor - 140 rpm,需手动定位或配套组件,电机,电机座,未提供自动安装,,https://www.motedis.com/en/62-mm-planetary-gearbox-and-permanent-magnet-DC-motor-140-rpm
 motedis-ahsw19-1000-a82b01c0,AHSW19-1000,Aluminium hexagon SW19 length 1000 mm,需手动定位或配套组件,六角轴,轴承/轴支承,未提供自动安装,,https://www.motedis.com/en/Aluminium-hexagon-SW19-length-1000-mm
@@ -63,7 +63,7 @@ motedis-s5ibr2020-b556107c,S5IBR2020,Bracket 20x20 I-type Slot 5,已核对安装
 motedis-s6bbr2040-386bda43,S6BBR2040,Bracket 20x40 B-type slot 6,已核对安装基准,外角码/刚性连接,型材,2020：未检出干涉,,https://www.motedis.com/en/Bracket-20x40-B-type-slot-6
 motedis-s5ibr2040-c06de0ae,S5IBR2040,Bracket 20x40 I-Type slot 5,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-20x40-I-Type-slot-5
 motedis-s6ibr30-d25580db,S6IBR30,Bracket 30 I-type slot 6,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-30-I-type-slot-6
-motedis-s8bbr3060-9a29a1a8,S8BBR3060,Bracket 30x60 B-Typ slot 8,已核对安装基准,外角码/刚性连接,型材,3030：未检出干涉,,https://www.motedis.com/en/Bracket-30x60-B-Typ-slot-8
+motedis-s8bbr3060-9a29a1a8,S8BBR3060,Bracket 30x60 B-Typ slot 8,已核对安装基准,外角码/刚性连接,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Bracket-30x60-B-Typ-slot-8
 motedis-s10bbr40-cee0211c,S10BBR40,Bracket 40 B-Type slot 10,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-40-B-Type-slot-10
 motedis-s10bbr4080-34e4d4dc,S10BBR4080,Bracket 40x80 B-Type slot 10,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-40x80-B-Type-slot-10
 motedis-s8ibr4080-7b907d15,S8IBR4080,Bracket 40x80 I-Type slot 8,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Bracket-40x80-I-Type-slot-8
@@ -170,19 +170,19 @@ motedis-s10bhesnm6-61459535,S10BHESNM6,Heavy Slot Nut B-Type Slot 10 [M6],需手
 motedis-s10bhesnm4-141a8952,S10BHESNM4,Heavy Slot Nut Type B-Type Slot 10 [M4],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Heavy-Slot-Nut-Type-B-Type-Slot-10-M4
 motedis-s10bhesnm8-3bd9ac0e,S10BHESNM8,Sliding block heavy B-type slot 10 [M8],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Sliding-block-heavy-B-type-slot-10-M8
 motedis-slotswbm8-7989dfcf,SLOTSWBM8,Slot 8 O-Type Square nut with spring M8,需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Slot-O-Square-nut-with-spring-M8
-motedis-s8bhesnm4-0cdfbd1c,S8BHESNM4,Slotted block B-type slot 8 [M4],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M4
-motedis-s8bhesnm5-e709843a,S8BHESNM5,Slotted block B-type slot 8 [M5],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M5
-motedis-s8bhesnm6-1399fbd1,S8BHESNM6,Slotted block B-type slot 8 [M6],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M6
-motedis-s8bhesnm8-0ed08332,S8BHESNM8,Slotted block B-type slot 8 [M8],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M8
+motedis-s8bhesnm4-0cdfbd1c,S8BHESNM4,Slotted block B-type slot 8 [M4],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M4
+motedis-s8bhesnm5-e709843a,S8BHESNM5,Slotted block B-type slot 8 [M5],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M5
+motedis-s8bhesnm6-1399fbd1,S8BHESNM6,Slotted block B-type slot 8 [M6],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M6
+motedis-s8bhesnm8-0ed08332,S8BHESNM8,Slotted block B-type slot 8 [M8],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M8
 motedis-s10bssnm4-d41d14f5,S10BSSNM4,Slotted block with spring B-type slot 10 [M4],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M4
 motedis-s10bssnm5-874e5151,S10BSSNM5,Slotted block with spring B-type slot 10 [M5],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M5
 motedis-s10bssnm6-13c94adb,S10BSSNM6,Slotted block with spring B-type slot 10 [M6],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M6
 motedis-s10bssnm8-5747325e,S10BSSNM8,Slotted block with spring B-type slot 10 [M8],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M8
-motedis-s8bssnm3-3dfed72e,S8BSSNM3,Slotted block with spring B-type slot 8 [M3],已核对安装基准,槽内螺母,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M3
-motedis-s8bssnm4-460d40f3,S8BSSNM4,Slotted block with spring B-type slot 8 [M4],已核对安装基准,槽内螺母,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M4
-motedis-s8bssnm5-f3ae3f9a,S8BSSNM5,Slotted block with spring B-type slot 8 [M5],已核对安装基准,槽内螺母,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M5
-motedis-s8bssnm6-bd20d216,S8BSSNM6,Slotted block with spring B-type slot 8 [M6],已核对安装基准,槽内螺母,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M6
-motedis-s8bssnm8-dc2ea8e5,S8BSSNM8,Slotted block with spring B-type slot 8 [M8],已核对安装基准,槽内螺母,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M8
+motedis-s8bssnm3-3dfed72e,S8BSSNM3,Slotted block with spring B-type slot 8 [M3],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M3
+motedis-s8bssnm4-460d40f3,S8BSSNM4,Slotted block with spring B-type slot 8 [M4],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M4
+motedis-s8bssnm5-f3ae3f9a,S8BSSNM5,Slotted block with spring B-type slot 8 [M5],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M5
+motedis-s8bssnm6-bd20d216,S8BSSNM6,Slotted block with spring B-type slot 8 [M6],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M6
+motedis-s8bssnm8-dc2ea8e5,S8BSSNM8,Slotted block with spring B-type slot 8 [M8],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M8
 motedis-4544-89557475,4544,Square Nut Slot 10 B-Type [M5],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Square-Nut-Channel-10mm-M5
 motedis-slotonm5-16474d1e,SLOTONM5,Square nut type O Slot 8 [M5],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Square-nut-type-O-M5
 motedis-slotonm6-554e49d8,SLOTONM6,Square nut type O Slot 8 [M6],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Square-nut-type-O-M6
@@ -196,16 +196,16 @@ motedis-s10bhasnm4-3fe80fcb,S10BHASNM4,T-nut B-Type slot 10 [M4],需手动定位
 motedis-s10bhasnm5-d2949c5d,S10BHASNM5,T-nut B-Type slot 10 [M5],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-B-Type-slot-10-M5
 motedis-s10bhasnm6-496354b8,S10BHASNM6,T-nut B-Type slot 10 [M6],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-B-Type-slot-10-M6
 motedis-s10bhasnm8-bca1fc31,S10BHASNM8,T-nut B-Type slot 10 [M8],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-B-Type-slot-10-M8
-motedis-s6bhasnm3-f4a9bde9,S6BHASNM3,T-nut B-type slot 6 [M3],已核对安装基准,槽内螺母,型材,2020：未完成干涉检查,2020,https://www.motedis.com/en/T-nut-B-type-slot-6-M3
-motedis-s8bhasnm4-2d0c989d,S8BHASNM4,T-nut B-type slot 8 [M4],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/T-nut-B-type-slot-8-M4
+motedis-s6bhasnm3-f4a9bde9,S6BHASNM3,T-nut B-type slot 6 [M3],已核对安装基准,槽内螺母,型材,2020：未检出干涉,,https://www.motedis.com/en/T-nut-B-type-slot-6-M3
+motedis-s8bhasnm4-2d0c989d,S8BHASNM4,T-nut B-type slot 8 [M4],已核对安装基准,槽内螺母,型材,3030：未完成干涉检查,3030,https://www.motedis.com/en/T-nut-B-type-slot-8-M4
 motedis-s8ihasnm4-da7cba54,S8IHASNM4,T-nut I-type slot 8 [M4],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-I-type-slot-8-M4
 motedis-s8ismonm4-f879fdfd,S8ISMONM4,T-nut guided I-type slot 8 [M4],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M4
 motedis-s8ismonm5-84ea034e,S8ISMONM5,T-nut guided I-type slot 8 [M5],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M5
 motedis-s8ismonm6-6ac93e4e,S8ISMONM6,T-nut guided I-type slot 8 [M6],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M6
 motedis-s8ismonm8-35c33fdc,S8ISMONM8,T-nut guided I-type slot 8 [M8],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M8
-motedis-s6bhesnm4-588850c2,S6BHESNM4,T-nut heavy duty steel B-Type slot 6 [M4],已核对安装基准,槽内螺母,型材,2020：检测到重叠,2020,https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M4
-motedis-s6bhesnm5-b9b3ee5a,S6BHESNM5,T-nut heavy duty steel B-Type slot 6 [M5],已核对安装基准,槽内螺母,型材,2020：检测到重叠,2020,https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M5
-motedis-s6bhesnm6-180753f6,S6BHESNM6,T-nut heavy duty steel B-Type slot 6 [M6],已核对安装基准,槽内螺母,型材,2020：检测到重叠,2020,https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M6
+motedis-s6bhesnm4-588850c2,S6BHESNM4,T-nut heavy duty steel B-Type slot 6 [M4],已核对安装基准,槽内螺母,型材,2020：未检出干涉,,https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M4
+motedis-s6bhesnm5-b9b3ee5a,S6BHESNM5,T-nut heavy duty steel B-Type slot 6 [M5],已核对安装基准,槽内螺母,型材,2020：未检出干涉,,https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M5
+motedis-s6bhesnm6-180753f6,S6BHESNM6,T-nut heavy duty steel B-Type slot 6 [M6],已核对安装基准,槽内螺母,型材,2020：未检出干涉,,https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M6
 motedis-s5ismonm3g-715dfbae,S5ISMONM3G,"T-nut with spring ball, with guidance I-Type slot 5 [M3]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-5-M3
 motedis-s5ismonm4g-4a2304e4,S5ISMONM4G,"T-nut with spring ball, with guidance I-Type slot 5 [M4]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-5-M4
 motedis-s5ismonm5g-f882d668,S5ISMONM5G,"T-nut with spring ball, with guidance I-Type slot 5 [M5]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-5-M5
@@ -213,7 +213,7 @@ motedis-s6ismonm3g-9f31f822,S6ISMONM3G,"T-nut with spring ball, with guidance I-
 motedis-s6ismonm4g-e010a924,S6ISMONM4G,"T-nut with spring ball, with guidance I-Type slot 6 [M4]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-6-M4
 motedis-s6ismonm5g-03708078,S6ISMONM5G,"T-nut with spring ball, with guidance I-Type slot 6 [M5]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-6-M5
 motedis-s6ismonm6g-56441333,S6ISMONM6G,"T-nut with spring ball, with guidance I-Type slot 6 [M6]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-6-M6
-motedis-threaded-plate-b-type-slot6-7621fb3c,Threaded_Plate_B-Type_slot6,Threaded Plate B-Type slot 6 [M4],已核对安装基准,槽内螺母,型材,2020：检测到重叠,2020,https://www.motedis.com/en/Threaded-Plate-B-Type-slot-6-M4
+motedis-threaded-plate-b-type-slot6-7621fb3c,Threaded_Plate_B-Type_slot6,Threaded Plate B-Type slot 6 [M4],已核对安装基准,槽内螺母,型材,2020：未检出干涉,,https://www.motedis.com/en/Threaded-Plate-B-Type-slot-6-M4
 motedis-s10bcs180-94794286,S10BCS180,Connecting strip 180 B-Type slot 10,需手动定位或配套组件,槽内拼接条,型材,未提供自动安装,,https://www.motedis.com/en/Connecting-strip-180-B-Type-slot-10
 motedis-s8bics120-3338a0b5,S8BICS120,Connection strip 120  slot 8,需手动定位或配套组件,槽内拼接条,型材,未提供自动安装,,https://www.motedis.com/en/Connection-strip-120-slot-8
 motedis-lp45101-aa8650c0,LP45101,"Connector plate  84x39x5 , Laser cut, series 45",已核对安装基准,面贴连接板,型材,待匹配实际型材截面,,https://www.motedis.com/en/Connector-plate-84x39x5-Laser-cut-series-45
@@ -231,9 +231,9 @@ motedis-lp45106-b60ec91c,LP45106,L connector plate 174x174x5  Laser cut,已核�
 motedis-20-vl-38-alu-3-mm-e477c544,20-VL-38 [Alu 3 mm],"L connector plate 38x38x3, Laser cut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/L-connector-plate-38x38x3-Laser-cut
 motedis-lp20110-8861bd73,LP20110,"L connector plate 78x78x3, Laser cut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/L-connector-plate-78x78x3-Laser-cut
 motedis-lp45107-4a379158,LP45107,"L connector plate 84x84x5, Laser cut",已核对安装基准,面贴连接板,型材,待匹配实际型材截面,,https://www.motedis.com/en/L-connector-plate-84x84x5-Laser-cut
-motedis-lp30107-fe90f62c,LP30107,L connector plate lasered 58x58x3 3-hole 30s,厂商CAD厚度与名称不符,面贴连接板,型材,商品名厚度 3.0 mm；CAD厚度 5.0 mm,,https://www.motedis.com/en/L-connector-plate-lasered-58x58x3-3-hole-30s
+motedis-lp30107-fe90f62c,LP30107,L connector plate lasered 58x58x3 3-hole 30s,厂商CAD厚度与名称不符,面贴连接板,型材,商品名厚度 3.0 mm；CAD厚度 5.0 mm,3030,https://www.motedis.com/en/L-connector-plate-lasered-58x58x3-3-hole-30s
 motedis-20-v-38x38-alu-3-mm-521e1b7f,20-V-38x38 [Alu 3 mm],"Square connector plate 38x38x3, Lasercut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/Square-connector-plate-38x38x3-Lasercut
-motedis-lp30105-2d222809,LP30105,"Square connector plate 58x58x3, Lasercut",厂商CAD厚度与名称不符,面贴连接板,型材,商品名厚度 3.0 mm；CAD厚度 5.0 mm,,https://www.motedis.com/en/Square-connector-plate-58x58x3-Lasercut
+motedis-lp30105-2d222809,LP30105,"Square connector plate 58x58x3, Lasercut",厂商CAD厚度与名称不符,面贴连接板,型材,商品名厚度 3.0 mm；CAD厚度 5.0 mm,3030,https://www.motedis.com/en/Square-connector-plate-58x58x3-Lasercut
 motedis-i-conn-sqr-84-84-5-45-h4-d-8-5-1ccf8403,I-CONN SQR [ 84 84 5] 45 H4 D 8-5,"Square connector plate 84x84x5, Lasercut",已核对安装基准,面贴连接板,型材,待匹配实际型材截面,,https://www.motedis.com/en/Square-connector-plate-84x84x5-Lasercut
 motedis-lp40111-5966a9dc,LP40111,"T connector plate 116x116x5, Laser cut",已核对安装基准,面贴连接板,型材,4040：未检出干涉,,https://www.motedis.com/en/T-connector-plate-116x116x5-Laser-cut
 motedis-t-conn-2to2-118-118-3-30-h12-d6-5-9404a201,T-CONN 2TO2 [118 118 3] 30 H12 D6-5,"T connector plate 118x118x3, Laser cut",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/T-connector-plate-118x118x3-Laser-cut
