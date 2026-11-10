@@ -50,8 +50,9 @@ for product in report['products']:
    else:
     sku=Path(member['name'] or urlparse(source).path).stem;sku=re.sub(r'^motedis[_ -]*','',sku,flags=re.I);id='motedis-'+slug(sku)+'-'+hashlib.sha256((url+member['name']).encode()).hexdigest()[:8]
     m=dict(id=id,series=series[0] if series else 0,slot=slots[0] if slots else 0,supplier='Motedis',part_number=sku,label=name,product_url=url,archive_url=quote(source,safe=':/?&=%'),archive_sha256=a['archive_sha256'],step_member=member['name'],filename='motedis-cad-'+sha[:24]+'.step',step_sha256=sha,category=cat,interface='slot' if cat in ['nut','internal','quick'] else 'end' if cat in ['cap','joint','cube'] else 'surface',placement='manual',anchor=[0,0,0],normal=[0,0,1],along=[1,0,0],compatible_series=series)
-   if prior and m['placement']=='manual':m.update(compatible_series=series,series=series[0] if series else 0,slot=slots[0] if slots else 0)
-   m.update(resources=resources,profile_type=types,compatible_slots=slots or ([m['slot']] if m['slot'] else []),availability=prior.get('availability','ready') if prior else 'ready',import_error=prior.get('import_error','') if prior else '')
+   if prior and m['placement']=='manual' and not m.get('installation'):m.update(compatible_series=series,series=series[0] if series else 0,slot=slots[0] if slots else 0)
+   m.update(resources=resources,availability=prior.get('availability','ready') if prior else 'ready',import_error=prior.get('import_error','') if prior else '')
+   if not m.get('installation'):m.update(profile_type=types,compatible_slots=slots or ([m['slot']] if m['slot'] else []))
    if prior and m['placement']!='manual' and not m['profile_type']:m['profile_type']='B' if m['series'] in [20,30] else 'I'
    if m['id'] not in used:
     if member['name']:

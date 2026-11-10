@@ -190,6 +190,7 @@ pub fn rows(ui: &mut egui::Ui, state: &mut StockConnector) -> bool {
         if matches!(model.geometry.as_str(), "surface" | "mixed") {
             ui.add(egui::Label::new(i18n::tr("catalog.surface_model")).wrap());
         }
+        installation_info(ui, model);
         if model.insertable() {
             preview(ui, model);
         } else {
@@ -440,4 +441,45 @@ fn preview(ui: &mut egui::Ui, model: &Connector) {
             });
         }
     });
+}
+
+/// Explain the actual mating object and the review boundary next to the supplier CAD.
+fn installation_info(ui: &mut egui::Ui, model: &Connector) {
+    if !model.insertable() {
+        return;
+    }
+    let a = &model.installation;
+    ui.add(egui::Label::new(i18n::tr(if a.state == "datum_checked" { "audit.datum_checked" } else { "audit.manual_only" })).wrap());
+    let target = match (a.role.as_str(), a.target.as_str()) {
+        ("bracket_cap", _) => Some("audit.bracket_cap"),
+        ("fitting_link", _) => Some("audit.fitting_link"),
+        (_, "bolt") => Some("audit.bolt"),
+        (_, "bearing") => Some("audit.shaft"),
+        (_, "pulley") => Some("audit.belt"),
+        (_, "hex_profile") => Some("audit.hex_core"),
+        (_, "machined_profile") => Some("audit.machining"),
+        ("corner_node", _) => Some("audit.corner_node"),
+        ("joint_kit", _) => Some("audit.joint_kit"),
+        ("end_cap", _) => Some("audit.section"),
+        ("slot_cover", _) => Some("audit.slot_cover"),
+        _ => None,
+    };
+    if let Some(key) = target {
+        ui.add(egui::Label::new(i18n::tr(key)).wrap());
+    }
+    if a.requirements.iter().any(|r| r == "moving_joint") {
+        ui.add(egui::Label::new(i18n::tr("audit.motion")).wrap());
+    }
+    if a.requirements.iter().any(|r| r == "threading") {
+        ui.add(egui::Label::new(i18n::tr("audit.threading")).wrap());
+    }
+    if a.seat == "under_slot_lip" {
+        ui.add(egui::Label::new(i18n::tr("audit.slot_lip")).wrap());
+    }
+    if !a.excluded_stock.is_empty() {
+        ui.add(egui::Label::new(i18n::format("audit.excluded_stock", &[("models", &a.excluded_stock.join(" / "))])).wrap());
+    }
+    if let Some([width, height]) = a.section {
+        ui.label(i18n::format("audit.section_size", &[("width", &format!("{width}")), ("height", &format!("{height}"))]));
+    }
 }

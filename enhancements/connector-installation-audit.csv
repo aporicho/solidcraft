@@ -1,0 +1,265 @@
+型号ID,料号,名称,安装基准审查,安装类型,配合对象,检查结果,受限截面,厂商资料
+motedis-s6bbr20,S6BBR20,Motedis S6BBR20,已核对安装基准,外角码/刚性连接,型材,2020：检测到重叠,2020,https://www.motedis.com/en/Bracket-20x20-B-type-slot-6
+motedis-s8bbr30,S8BBR30,Motedis S8BBR30,已核对安装基准,外角码/刚性连接,型材,3030：未检出干涉,,https://www.motedis.com/en/Bracket-30-B-Type-slot-8
+motedis-s8ibr40,S8IBR40,Motedis S8IBR40,已核对安装基准,外角码/刚性连接,型材,4040：未检出干涉,,https://www.motedis.com/en/Bracket-40-I-Type-slot-8
+motedis-s6bhasnm4,S6BHASNM4,T-nut B-type slot 6 [M4],已核对安装基准,槽内螺母,型材,2020：未完成干涉检查,2020,https://www.motedis.com/en/T-nut-B-type-slot-6-M4
+motedis-s6bhasnm5,S6BHASNM5,T-nut B-type slot 6 [M5],已核对安装基准,槽内螺母,型材,2020：未完成干涉检查,2020,https://www.motedis.com/en/T-nut-B-type-slot-6-M5
+motedis-s8bhasnm5,S8BHASNM5,T-nut B-type slot 8 [M5],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/T-nut-B-type-slot-8-M5
+motedis-s8bhasnm6,S8BHASNM6,T-nut B-type slot 8 [M6],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/T-nut-B-type-slot-8-M6
+motedis-s8ihasnm5,S8IHASNM5,T-nut I-type slot 8 [M5],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-I-type-slot-8-M5
+motedis-s8ihasnm6,S8IHASNM6,T-nut I-type slot 8 [M6],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-I-type-slot-8-M6
+motedis-lp20105,LP20105,"Connector plate 20x80x3, Lasercut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/Connector-plate-20x80x3-Lasercut
+motedis-lp30103,LP30103,"Connector plate 30x90x3, Laser cut",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/Connector-plate-30x90x3-Laser-cut
+motedis-lp40103,LP40103,"Connector plate 40x120x5, Laser cut",已核对安装基准,面贴连接板,型材,4040：未检出干涉,,https://www.motedis.com/en/Connector-plate-40x120x5-Laser-cut
+motedis-pj562020p,PJ562020P,Joint 20 slot 5 & slot 6,已核对安装基准,活动接头,型材,2020：未检出干涉,,https://www.motedis.com/en/Joint-20-slot-5-slot-6
+motedis-pj83030p,PJ83030P,Joint for Profile 30 B-Type Slot 8,已核对安装基准,活动接头,型材,3030：未检出干涉,,https://www.motedis.com/en/Joint-for-Profile-30-B-Type-Slot-8
+motedis-sp-pj4040,SP.PJ4040,Joint 40 I-type slot 8 - adjustable friction,已核对安装基准,活动接头,型材,4040：未检出干涉,,https://www.motedis.com/en/Joint-40-I-type-slot-8-movable
+motedis-s8bcc2d30,S8BCC2D30,Cube connector 30 B-type slot 8,已核对安装基准,实心方块,型材,3030：未检出干涉,,https://www.motedis.com/en/Cube-connector-30-B-type-slot-8
+motedis-s8bcc3d30,S8BCC3D30,Cube connector 30 B-type slot 8,已核对安装基准,实心方块,型材,3030：未检出干涉,,https://www.motedis.com/en/Cube-connector-30-B-type-slot-8
+motedis-cube-connector-40-2d-i-type-slot-8,Cube_connector_40-2D_I-type_slot_8,Cube connector 40-2D I-type slot 8,已核对安装基准,实心方块,型材,4040：未检出干涉,,https://www.motedis.com/en/Cube-connector-40-2D-I-type-slot-8
+motedis-s8icu403d,S8ICU403D,Cube connector 40-3D  I-type slot 8,已核对安装基准,实心方块,型材,4040：未检出干涉,,https://www.motedis.com/en/Cube-connector-40-3D-I-type-slot-8
+motedis-pts8i40x40,PTS8I40x40,Cover Caps 40x40 I-Type Slot 8,已核对安装基准,型材端盖,型材,4040：检测到重叠,4040,https://www.motedis.com/en/Cover-Caps-40x40-I-Type-Slot-8
+motedis-s6bibm5,S6BIBM5,Inner Bracket Zamak Die Cast 20  B-Type slot 6 M5 Alternative,已核对安装基准,内置连接,型材,2020：检测到重叠,2020,https://www.motedis.com/en/Inner-bracket-20-B-Type-slot-6-M5-Alternative
+motedis-s8ibibm6,S8IBIBM6,Inner Bracket Zamak Die Cast (30 B-Type / 40 I-Type) Slot 8 M6,已核对安装基准,内置连接,型材,3030：未检出干涉；4040：未检出干涉,,https://www.motedis.com/en/Inner-bracket-zamak-30-B-Type-40-I-Type-Slot-8-M6
+motedis-pts6b20x20,PTS6B20x20,Cover Cap 20 B-Type slot 6,已核对安装基准,型材端盖,型材,2020：未完成干涉检查,2020,https://www.motedis.com/en/Cover-Cap-20-B-Type-slot-6
+motedis-pts8b30x30,PTS8B30x30,Cover Cap 30 B-type slot 8,已核对安装基准,型材端盖,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Cover-Cap-30-B-Typ-slot-8
+motedis-pmm-24v-9rpm-4dffe441,PMM-24V-9RPM,42 mm planetary gearbox and permanent magnet DC motor - 9 rpm,需手动定位或配套组件,电机,电机座,未提供自动安装,,https://www.motedis.com/en/42-mm-planetary-gearbox-and-permanent-magnet-DC-motor-10-rpm
+motedis-pmm-24v-143rpm-47224a0d,PMM-24V-143RPM,62 mm planetary gearbox and permanent magnet DC motor - 140 rpm,需手动定位或配套组件,电机,电机座,未提供自动安装,,https://www.motedis.com/en/62-mm-planetary-gearbox-and-permanent-magnet-DC-motor-140-rpm
+motedis-ahsw19-1000-a82b01c0,AHSW19-1000,Aluminium hexagon SW19 length 1000 mm,需手动定位或配套组件,六角轴,轴承/轴支承,未提供自动安装,,https://www.motedis.com/en/Aluminium-hexagon-SW19-length-1000-mm
+motedis-ahsw19-250-5c80c5f0,AHSW19-250,Aluminium hexagon SW19 length 250mm,需手动定位或配套组件,六角轴,轴承/轴支承,未提供自动安装,,https://www.motedis.com/en/Aluminium-hexagon-SW19-length-250mm
+motedis-ahsw19-42-10-3-16f312f7,"AHSW19-42-10,3","Aluminium hexagon SW19 length 42mm Ø10,3",需手动定位或配套组件,六角轴,轴承/轴支承,未提供自动安装,,https://www.motedis.com/en/Aluminium-hexagon-SW19-length-42mm-103-all-the-way-through
+motedis-ahsw19-77-9b220dfd,AHSW19-77,Aluminium hexagon SW19 length 77mm M8 all the way through,需手动定位或配套组件,六角轴,轴承/轴支承,未提供自动安装,,https://www.motedis.com/en/Aluminium-hexagon-SW19-length-77mm-M8-all-the-way-through
+motedis-ahsw19-77-10-3-12bac15f,"AHSW19-77-10,3","Aluminium hexagon SW19 length 77mm Ø10,3 all the way through",需手动定位或配套组件,六角轴,轴承/轴支承,未提供自动安装,,https://www.motedis.com/en/Aluminium-hexagon-SW19-length-77mm-103-all-the-way-through
+motedis-ahsw19-77-8-3-03f59db8,"AHSW19-77-8,3","Aluminium hexagon SW19 length 77mm Ø8,3 all the way through",需手动定位或配套组件,六角轴,轴承/轴支承,未提供自动安装,,https://www.motedis.com/en/Aluminium-hexagon-SW19-length-77mm-83-all-the-way-through
+motedis-ahsw19-80-f8e3e26d,AHSW19-80,Aluminium hexagon SW19 length 80mm M8 all the way through,需手动定位或配套组件,六角轴,轴承/轴支承,未提供自动安装,,https://www.motedis.com/en/Aluminium-hexagon-SW19-length-80mm-M8-all-the-way-through
+motedis-sw19-l-118-5mm-d11-e0f71249,"SW19 L=118,5mm - D11","Axis aluminium hexagon SW19 L=118,5mm - D11",需手动定位或配套组件,六角轴,轴承/轴支承,未提供自动安装,,https://www.motedis.com/en/Axis-aluminium-hexagon-SW19-L1185mm-D11
+motedis-sw19-l-118-5mm-m8-99a76488,"SW19 L=118,5mm - M8","Axis steel hexagon SW19 L=118,5mm - M8",需手动定位或配套组件,六角轴,轴承/轴支承,未提供自动安装,,https://www.motedis.com/en/Axis-steel-hexagon-SW19-L1185mm-M8
+motedis-block-733ca6e6,BLOCK,Block 40 I-Type Slot 8,需手动定位或配套组件,配件连接块,配套连接件,未提供自动安装,,https://www.motedis.com/en/Block-40-I-Type-Slot-8
+motedis-stkab17-ee7c1ee7,STKAB17,CABLE BINDER BLOCK 17,需手动定位或配套组件,扎带座,型材,未提供自动安装,,https://www.motedis.com/en/CABLE-BINDER-BLOCK-17
+motedis-stkab26-04c043f8,STKAB26,CABLE BINDER BLOCK 26,需手动定位或配套组件,扎带座,型材,未提供自动安装,,https://www.motedis.com/en/CABLE-BINDER-BLOCK-26
+motedis-s8crpom-814560cf,S8CRPOM,Cable Block S8 POM Black,需手动定位或配套组件,槽装扎带座,型材,未提供自动安装,,https://www.motedis.com/en/Cable-Block-S8-POM
+motedis-s8bkablock-0eed4305,S8BKABLOCK,Cross Cable Binding Block B Type Slot 8,需手动定位或配套组件,槽装扎带座,型材,未提供自动安装,,https://www.motedis.com/en/Cross-Cable-Binding-Block-B-Type-Slot-8
+motedis-s10crpa-000b4f92,S10CRPA,Cross Cable Binding Block B-Type slot 10,需手动定位或配套组件,槽装扎带座,型材,未提供自动安装,,https://www.motedis.com/en/Cross-Cable-Binding-Block-B-Type-slot-10
+motedis-4277-53563eee,4277,Cross Cable Binding Block B-Type slot 6,需手动定位或配套组件,槽装扎带座,型材,未提供自动安装,,https://www.motedis.com/en/Cross-Cable-Binding-Block-B-Type-slot-6
+motedis-s8ikablock-8658ad69,S8IKABLOCK,Cross Cable Binding Block I-Type slot 8,需手动定位或配套组件,槽装扎带座,型材,未提供自动安装,,https://www.motedis.com/en/Cross-Cable-Binding-Block-I-Type-slot-8
+motedis-source-5f7aa4bc34c6,Diagonal-configurator,Diagonal configurator,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/Diagonal-configurator
+motedis-drivbel936-d113c591,DRIVBEL936,Driving belt HTD-8M 936mm,需手动定位或配套组件,皮带,带轮,未提供自动安装,,https://www.motedis.com/en/Driving-belt-HTD-8M-936mm
+motedis-source-9a53b0ce8c8e,LOGIC-AUTOMATED-LINEAR-SYSTEM-Profil-I-45x90,LOGIC AUTOMATED LINEAR SYSTEM Profil I 45x90,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/LOGIC-AUTOMATED-LINEAR-SYSTEM-Profil-I-45x90
+motedis-t-block-slot-10-b-type-6be246fe,T-BLOCK SLOT 10 B-TYPE,T- Block slot 10 B-Type,需手动定位或配套组件,接头转接件,型材,未提供自动安装,,https://www.motedis.com/en/T-Block-slot-10-B-Type
+motedis-t-block-slot-8-i-type-6064ba7a,T-BLOCK SLOT 8 I-TYPE,T-Block slot 8 I-Type,需手动定位或配套组件,接头转接件,型材,未提供自动安装,,https://www.motedis.com/en/T-Block-slot-8-I-Type
+motedis-cev-e5-on-a95c5714,CEV-E5-ON,T-Matic Connector 20 I-Type slot 5,需手动定位或配套组件,隐藏式连接,型材,未提供自动安装,,https://www.motedis.com/en/T-Matic-Connector-20-I-Type-slot-5
+motedis-cev-e8-fc-on-04a5545d,CEV-E8-FC-ON,T-Matic Connector 40 I-Type slot 8,需手动定位或配套组件,隐藏式连接,型材,未提供自动安装,,https://www.motedis.com/en/T-Matic-Connector-40-I-Type-slot-8
+motedis-s8ibfc40-cc92a10d,S8IBFC40,Universal Connector 40 I-Typ slot 8,需手动定位或配套组件,隐藏式连接,型材,未提供自动安装,,https://www.motedis.com/en/Universal-Connector-40-I-Typ-slot-8
+motedis-s6ibr60wl-c0da40e4,S6IBR60WL,Angle 60x60 without lugs,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Angle-60x60-without-lugs
+motedis-s8iacll40-c24e4023,S8IACLL40,Angle Clamp 40 I-Type slot 8,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Angle-Clamp-40-I-Type-slot-8
+motedis-alucon3030-598a26a1,ALUCON3030,Angle Connector 45° 30 B-Type slot 8,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Angle-Connector-45G-30-B-Type-slot-8
+motedis-escuadra-45-30x60-4f860c69,ESCUADRA 45 30x60,Angle Connector 45° 3060 without slot,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Angle-Connector-45G-3060-without-slot
+motedis-alucon3060-58159013,ALUCON3060,Angle Connector 45° 30x60 B-Type slot 8,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Angle-Connector-45G-30x60-B-Type-slot-8
+motedis-s8ialucon45-9d607fe6,S8IALUCON45,Angle Connector 45° 40 I-Typ slot 8,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Angle-Connector-45G-40-I-Typ-slot-8
+motedis-angle-connector-45-40-40x80-i-type-slot-8-new-bf83d02d,Angle_Connector_45°_40-40x80_I-Type_slot_8_NEW,Angle Connector 45° 40x80 I-Typ slot 8,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Angle-Connector-45G-40x80-I-Typ-slot-8
+motedis-angle-connector-45-45-b-type-slot-10-new-ea865ede,Angle_Connector_45°_45_B-Type_slot_10_NEW,Angle Connector 45° 45 B-Type slot 10 NEW,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Angle-Connector-45G-45-B-Type-slot-10-NEW
+motedis-angle-connector-45-40x80-i-type-slot-8-eeca3855,Angle_Connector_45°_40x80_I-Type_slot_8,Angle Connector 45° 80x40 I-Typ slot 8,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Angle-Connector-45G-80x40-I-Typ-slot-8
+motedis-s5ibr2020-b556107c,S5IBR2020,Bracket 20x20 I-type Slot 5,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-20x20-I-type-Slot-5
+motedis-s6bbr2040-386bda43,S6BBR2040,Bracket 20x40 B-type slot 6,已核对安装基准,外角码/刚性连接,型材,2020：未检出干涉,,https://www.motedis.com/en/Bracket-20x40-B-type-slot-6
+motedis-s5ibr2040-c06de0ae,S5IBR2040,Bracket 20x40 I-Type slot 5,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-20x40-I-Type-slot-5
+motedis-s6ibr30-d25580db,S6IBR30,Bracket 30 I-type slot 6,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-30-I-type-slot-6
+motedis-s8bbr3060-9a29a1a8,S8BBR3060,Bracket 30x60 B-Typ slot 8,已核对安装基准,外角码/刚性连接,型材,3030：未检出干涉,,https://www.motedis.com/en/Bracket-30x60-B-Typ-slot-8
+motedis-s10bbr40-cee0211c,S10BBR40,Bracket 40 B-Type slot 10,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-40-B-Type-slot-10
+motedis-s10bbr4080-34e4d4dc,S10BBR4080,Bracket 40x80 B-Type slot 10,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-40x80-B-Type-slot-10
+motedis-s8ibr4080-7b907d15,S8IBR4080,Bracket 40x80 I-Type slot 8,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Bracket-40x80-I-Type-slot-8
+motedis-s10bbr45-ba6c6d1a,S10BBR45,Bracket 45 B-Type slot 10,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Bracket-45-B-Type-slot-10
+motedis-s10bbr45-t-e762accb,S10BBR45-T,Bracket 45 B-Type slot 10  Holes T,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Bracket-45-B-Type-slot-10-Holes-T
+motedis-s10bbr4590-480f236f,S10BBR4590,Bracket 45x90 B-type slot 10,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-45x90-B-type-slot-10
+motedis-s10bbr60-783cd485,S10BBR60,Bracket 60x60 B-Type slot 10,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-60x60-B-Type
+motedis-s8ibr80-1efa690b,S8IBR80,Bracket 80 Slot 8 - 10,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-80-Slot-8-10
+motedis-s10bbr90-59789675,S10BBR90,Bracket 90 B-type slot 10,已核对安装基准,外角码/刚性连接,型材,待匹配实际型材截面,,https://www.motedis.com/en/Bracket-90-B-type-slot-10
+motedis-4931-33f2ea16,4931,Clamping Bracket 30 I-Type slot 6,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Clamping-Bracket-30-I-Type-slot-6
+motedis-steel-bracket-40-for-scooter-9f0063e8,STEEL BRACKET 40 FOR SCOOTER,"Steel bracket 40 for Scooter, black",需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Steel-bracket-40-for-Scooter-black
+motedis-s8ibrc8080-8af2d473,S8IBRC8080,Angle Cover Cap 80 Slot 8 - 10,需手动定位或配套组件,角码盖,配套连接件,未提供自动安装,,https://www.motedis.com/en/Angle-Cover-Cap-80-Slot-8-10
+motedis-angle-cover-cap60-759f3909,Angle_Cover_Cap60,Angle cover cap 60,需手动定位或配套组件,角码盖,配套连接件,未提供自动安装,,https://www.motedis.com/en/Angle-cover-cap-60
+motedis-s5i6bbr2040c-60f2b674,S5I6BBR2040C,Bracket Cover Cap 20x40,需手动定位或配套组件,角码盖,配套连接件,未提供自动安装,,https://www.motedis.com/en/Bracket-Cover-Cap-20x40
+motedis-s10bbrc4545-dff7932b,S10BBRC4545,Bracket cover Cap 45 B-Type slot 10,需手动定位或配套组件,角码盖,配套连接件,未提供自动安装,,https://www.motedis.com/en/Bracket-cover-Cap-45-B-Type-slot-10
+motedis-093wa901-ef1bd5df,093WA901,Bracket cover Cap 90 B-Type slot 10,需手动定位或配套组件,角码盖,配套连接件,未提供自动安装,,https://www.motedis.com/en/Bracket-cover-Cap-90-B-Type-slot-10
+motedis-s8ibr4080c-9a415dd8,S8IBR4080C,Bracket cover cap 40x80,需手动定位或配套组件,角码盖,配套连接件,未提供自动安装,,https://www.motedis.com/en/Bracket-cover-cap-40x80
+motedis-abdkap-mittel-96648965,AbdKap_Mittel,Bracket cover cap 45x90 B-Type Slot 10,需手动定位或配套组件,角码盖,配套连接件,未提供自动安装,,https://www.motedis.com/en/Bracket-cover-cap-45x90-B-Type-Slot-10
+motedis-pts5i20x20-0071aba6,PTS5I20x20,Cover Cap 20 I-Type slot 5,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Cap-20-I-Type-slot-5
+motedis-771-c2a421de,771,Cover Cap 20x10 I-Type slot 5,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Cap-20x10-I-Type-slot-5
+motedis-pts6b20x40-04986429,PTS6B20x40,Cover Cap 20x40 B-Type slot 6,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Cap-20x40-B-Type-slot-6
+motedis-pts5i20x40-02f85495,PTS5I20x40,Cover Cap 20x40 I-Type slot 5,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Cap-20x40-I-Type-slot-5
+motedis-091183-86d9490f,091183,Cover Cap 20x60 I-Type slot 5,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Cap-20x60-I-Type-slot-5
+motedis-pts6i30x30-26264968,PTS6I30x30,Cover Cap 30 I-Type slot 6,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Cap-30-I-Type-slot-6
+motedis-pts8b30x60-158b7522,PTS8B30x60,Cover Cap 30x60 B-Typ slot 8,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Cap-30x60-B-Typ-slot-8
+motedis-1219-53944573,1219,Cover Cap 30x60 I-Type slot 6,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Cap-30x60-I-Type-slot-6
+motedis-s5i6bbr20c-d4d49e5f,S5I6BBR20C,Cover Cap Bracket 20,需手动定位或配套组件,角码盖,配套连接件,未提供自动安装,,https://www.motedis.com/en/Cover-Cap-Bracket-20
+motedis-s68br30c-17f79efe,S68BR30C,Cover Cap Bracket 30,需手动定位或配套组件,角码盖,配套连接件,未提供自动安装,,https://www.motedis.com/en/Cover-Cap-bracket-30
+motedis-s810br40c-7a87077b,S810BR40C,Cover Cap Bracket 40x40 I-Type Slot 8,需手动定位或配套组件,角码盖,配套连接件,未提供自动安装,,https://www.motedis.com/en/Cover-Cap-Bracket-40x40-I-Type-Slot-8
+motedis-pts8i40x120-529f6645,PTS8I40x120,Cover Caps 40x120 I-Type slot 8,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Caps-40x120-I-Type-slot-8
+motedis-pts8i40x16-3eeef016,PTS8I40x16,Cover Caps 40x16 I-Type slot 8,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Caps-40x16-I-Type-slot-8
+motedis-pts8i40x160-b4ceff50,PTS8I40x160,Cover Caps 40x160 I-Type slot 8,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Caps-40x160-I-Type-slot-8
+motedis-pts8i40x80-e2ce2fc5,PTS8I40x80,Cover Caps 40x80 I-Type slot 8,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Caps-40x80-I-Type-slot-8
+motedis-pts10b45x45-884b9760,PTS10B45x45,Cover Caps 45x45 B-Type slot 10,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-caps-45x45-B-Type-slot-10
+motedis-pts10b45x90-6dee3d6d,PTS10B45x90,Cover Caps 45x90 B-Type slot 10,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Caps-45x90-B-Type-slot-10
+motedis-746-73558168,746,Cover Caps 80x16 I-Type slot 8,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Caps-80x16-I-Type-slot-8
+motedis-pts8i80x80-db53fdc5,PTS8I80x80,Cover Caps 80x80 I-Type slot 8,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Caps-80x80-I-Type-slot-8
+motedis-091030-9d68948d,091030,Cover Caps 90x90 L B-Type slot 10,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Caps-90x90-L-B-Type-slot-10
+motedis-pts8o45x45-e926e1c5,PTS8O45x45,Cover caps 45x45 O-Type slot 8,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-caps-45x45-O-Type-slot-8-Grey
+motedis-pts8o45x45-d2eab6a5,PTS8O45x45,Cover caps 45x45 O-Type slot 8 Grey,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-caps-45x45-O-Type-slot-8
+motedis-pts8o45x90-1feb9a5b,PTS8O45x90,Cover caps 45x90 O-Type slot 8,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-caps-45x90-O-Type-slot-8-Grey
+motedis-pts8o45x90-57db71b7,PTS8O45x90,Cover caps 45x90 O-Type slot 8 Grey,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Cover-caps-45x90-O-Type-slot-8-
+motedis-abdk2-8-5-dc6a1476,ABDK2-8-5,Profile cover Caps 20x80 I-Type slot 5,需手动定位或配套组件,型材端盖,型材,未提供自动安装,,https://www.motedis.com/en/Profile-cover-Caps-20x80-I-Type-slot-5
+motedis-3006-0d6ee375,3006,Cover Profile Plastic NBR I-Type Slot 8 (~1m),需手动定位或配套组件,槽盖条,型材,未提供自动安装,,https://www.motedis.com/en/Cover-Profile-Plastic-NBR-I-Type-Slot-8-1m
+motedis-psil08br-3dd281dd,PSIL08BR,Cover and Reduction Profile black B-type slot 8 (1 meter),需手动定位或配套组件,槽盖条,型材,未提供自动安装,,https://www.motedis.com/en/Cover-and-Reduction-Profile-black-B-type-slot-8-1-meter
+motedis-128-5acce646,128,Cover profile black B-type slot 10 (1 meter +X),需手动定位或配套组件,槽盖条,型材,未提供自动安装,,https://www.motedis.com/en/Cover-profile-black-B-type-slot-10-1-meter-X
+motedis-125-34e372d2,125,Cover profile black B-type slot 8 (1 meter +X),需手动定位或配套组件,槽盖条,型材,未提供自动安装,,https://www.motedis.com/en/Cover-profile-black-B-type-slot-8-1-meter-X
+motedis-129-583ff53f,129,Cover- & slot profile black I-type slot 8 (1 meter +X),需手动定位或配套组件,槽盖条,型材,未提供自动安装,,https://www.motedis.com/en/Cover-slot-profile-black-I-type-slot-8-1-meter-X
+motedis-cc3d20x20m4x5-6c2938c7,CC3D20x20M4x5,Corner connector 3D 20x20 B-Type slot 6 with screw M4x5,需手动定位或配套组件,三维角件,型材,未提供自动安装,,https://www.motedis.com/en/Corner-connector-3D-20x20-with-M45-screw
+motedis-cc3d30x30m6x8-56d57d0e,CC3D30x30M6x8,Corner connector 3D 30x30 B-Type slot 8 with screw M6*8,需手动定位或配套组件,三维角件,型材,未提供自动安装,,https://www.motedis.com/en/Corner-connector-3D-30x30-with-M68-screw
+motedis-cc3d40x40m6x12-cb26b950,CC3D40x40M6x12,Corner connector 3D 40x40  I-Type slot 8 with M6*12 screw,需手动定位或配套组件,三维角件,型材,未提供自动安装,,https://www.motedis.com/en/Corner-connector-3D-40x40-with-M612-screw
+motedis-cube-connector-20-2d-i-type-slot-5-c34e1ea2,cube_connector_20-2D_I-type_slot_5,Cube connector 20-2D I-type slot 5,已核对安装基准,实心方块,型材,待匹配实际型材截面,,https://www.motedis.com/en/Cube-connector-20-2D-I-type-slot-5
+motedis-cube-connector-20-3d-i-type-slot-5-a861d1fe,cube_connector_20-3D_I-type_slot_5,Cube connector 20-3D I-type slot 5,已核对安装基准,实心方块,型材,待匹配实际型材截面,,https://www.motedis.com/en/Cube-connector-20-3D-I-type-slot-5
+motedis-cube-connector-45-2d-b-type-slot-10-e4320ec0,Cube_connector_45-2D_B-type_slot_10,Cube connector 45 B-type slot 10,已核对安装基准,实心方块,型材,待匹配实际型材截面,,https://www.motedis.com/en/Cube-connector-45-B-type-slot-10
+motedis-cube-connector-45-3d-b-type-slot-10-5a3c2123,Cube_connector_45-3D_B-type_slot_10,Cube connector 45 B-type slot 10,已核对安装基准,实心方块,型材,待匹配实际型材截面,,https://www.motedis.com/en/Cube-connector-45-B-type-slot-10
+motedis-s10bcstat12x30sw8-85517417,S10BCSTAT12x30SW8,Central Screw M12x30 SW8 P45 B-Type slot 10,需手动定位或配套组件,孔轴紧固件,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Central-Screw-M12x30-SW8-P45-B-type-slot-10
+motedis-s10bcstat12x30-295e2364,S10BCSTAT12x30,Central Screw M12x30 T50 P45 B-Type slot 10,需手动定位或配套组件,孔轴紧固件,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Central-Screw-M12x30-T50-P45-B-type-slot-10
+motedis-589-34c3bccc,589,Cutting sleeve S12/M8 B-type slot 10,需手动定位或配套组件,孔轴紧固件,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Cutting-sleeve-S12-M8-B-type-slot-10
+motedis-thbm8x20-09af9f39,THBM8X20,Hammer Head Screw B Type slot 10 [M8x20],需手动定位或配套组件,锤头螺栓,型材,未提供自动安装,,https://www.motedis.com/en/Hammer-Head-Screw-B-Type-slot-10-M8x20
+motedis-thbm8x25-d868f8ff,THBM8X25,Hammer Head Screw B Type slot 10 [M8x25],需手动定位或配套组件,锤头螺栓,型材,未提供自动安装,,https://www.motedis.com/en/Hammer-Head-Screw-B-Type-slot-10-M8x25
+motedis-thbm8x25verstemmt-ae8d5e9b,THBM8X25verstemmt,Hammer Head Screw B Type slot 10 [M8x25] - caulked,需手动定位或配套组件,锤头螺栓,型材,未提供自动安装,,https://www.motedis.com/en/Hammer-Head-Screw-B-Type-slot-10-M8x25-caulked
+motedis-thbm8x30-e68ef973,THBM8X30,Hammer Head Screw B Type slot 10 [M8x30],需手动定位或配套组件,锤头螺栓,型材,未提供自动安装,,https://www.motedis.com/en/Hammer-Head-Screw-B-Type-slot-10-M8x30
+motedis-hex-spacer-13670c56,HEX-SPACER,Hexagonal-Spacer,需手动定位或配套组件,螺栓配套件,螺栓,未提供自动安装,,https://www.motedis.com/en/Hexagonal-Spacer
+motedis-s8icsfam6-19c1af79,S8ICSFAM6,Screw collar with female thread M6 I-Type slot 8,需手动定位或配套组件,孔轴紧固件,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Screw-collar-with-female-thread-M6-I-Type-slot-8
+motedis-s10bcs12x30-9f96fce7,S10BCS12x30,Self Forming Screw S12x30 T50 P45 B-type slot 10,需手动定位或配套组件,孔轴紧固件,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Self-Forming-Screw-S12x30-T50-P45-B-type-slot-10
+motedis-s8iss725-36cc1003,S8ISS725,Self Forming Screw S7x25 T40 I-Type slot 8,需手动定位或配套组件,孔轴紧固件,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Self-Forming-Screw-S7x25-T40-I-Type-slot-8
+motedis-4854-7d67f3a2,4854,Special screw Shut-off connector 180 ° DIN 912-M4x40 slot 5 I-Type,需手动定位或配套组件,孔轴紧固件,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Special-screw-Shut-off-connector-180-G-DIN-912-M4x40-N5-I-Type
+motedis-h-20x20-l-1ae2b644,H-20x20-L,Hinge 20x20 light,需手动定位或配套组件,其他附件,型材,未提供自动安装,,https://www.motedis.com/en/Hinge-20x20-light
+motedis-s10bibm8-321a8ca8,S10BIBM8,Inner Bracket Zamak Die Cast Slot 10 Alternative,需手动定位或配套组件,内置连接,型材,未提供自动安装,,https://www.motedis.com/en/Inner-Bracket-zinc-die-cast-groove-10-Alternative
+motedis-angle-joint-f646e9e1,ANGLE-JOINT,Fixing kit for core mounting Plastic swivel joint 40B,需手动定位或配套组件,接头配套组件,配套连接件,未提供自动安装,,https://www.motedis.com/en/Fixing-kit-for-core-mounting-Plastic-swivel-joint-40B
+motedis-angle-joint-853d8d42,ANGLE-JOINT,Fixing kit for core mounting Plastic swivel joint 40I,需手动定位或配套组件,接头配套组件,配套连接件,未提供自动安装,,https://www.motedis.com/en/Fixing-kit-for-core-mounting-Plastic-swivel-joint-40I
+motedis-source-74d2316e59c6,Fixing-kit-for-groove-mounting-Plastic-U-joint-40B,Fixing kit for groove mounting Plastic U-joint 40B,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/Fixing-kit-for-groove-mounting-Plastic-U-joint-40B
+motedis-source-ebe0021499a7,Fixing-kit-for-slot-mounting-Plastic-U-joint-40I,Fixing kit for slot mounting Plastic U-joint 40I,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/Fixing-kit-for-slot-mounting-Plastic-U-joint-40I
+motedis-angle-joint-8edb5f50,ANGLE-JOINT,Fixing kit for slot mounting Plastic swivel joint 40B,需手动定位或配套组件,接头配套组件,配套连接件,未提供自动安装,,https://www.motedis.com/en/Fixing-kit-for-slot-mounting-Plastic-swivel-joint-40B
+motedis-angle-joint-93fda6bc,ANGLE-JOINT,Fixing kit for slot mounting Plastic swivel joint 40I,需手动定位或配套组件,接头配套组件,配套连接件,未提供自动安装,,https://www.motedis.com/en/Fixing-kit-for-slot-mounting-Plastic-swivel-joint-40I
+motedis-source-1b2a34f8349b,Hexagon-joint-plastic-40I-Groove-mounting,Hexagon joint plastic 40I Groove mounting,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/Hexagon-joint-plastic-40I-Groove-mounting
+motedis-hex-joint-15377275,HEX-JOINT,Hexagonal joint plastic 40,需手动定位或配套组件,接头配套组件,配套连接件,未提供自动安装,,https://www.motedis.com/en/Hexagonal-joint-plastic-40
+motedis-source-85b448cf681f,Hexagonal-joint-plastic-40B-Core-mounting,Hexagonal joint plastic 40B Core mounting,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/Hexagonal-joint-plastic-40B-Core-mounting
+motedis-source-b506bdeb6e3b,Hexagonal-joint-plastic-40B-Groove-mounting,Hexagonal joint plastic 40B Groove mounting,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/Hexagonal-joint-plastic-40B-Groove-mounting
+motedis-source-c7e6a320ad3a,Hexagonal-joint-plastic-40I-Core-mounting,Hexagonal joint plastic 40I Core mounting,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/Hexagonal-joint-plastic-40I-Core-mounting
+motedis-40x40-hex-bearing-joint-81329de3,40x40 HEX BEARING JOINT,Hexagonal joint with bearing 40x40,需手动定位或配套组件,六角轴支承,六角芯孔型材,未提供自动安装,,https://www.motedis.com/en/Hexagonal-joint-with-bearing-40x40
+motedis-40x80-hex-bearing-joint-76859065,40x80 Hex-bearing joint,Hexagonal joint with bearing 40x80,需手动定位或配套组件,六角轴支承,六角芯孔型材,未提供自动安装,,https://www.motedis.com/en/Hexagonal-joint-with-bearing-40x80
+motedis-pj104545p-40d945cc,PJ104545P,Joint 45 M8 B-type slot 10,需手动定位或配套组件,活动接头,型材,未提供自动安装,,https://www.motedis.com/en/Joint-45-M8-B-type-slot-10
+motedis-lp20101-3194d3e6,LP20101,Pivot Angle 84x2 Steel Galvanized Black,需手动定位或配套组件,转角连接板,型材,未提供自动安装,,https://www.motedis.com/en/Pivot-Angle-84x2-Steel-Galvanized-Black
+motedis-angle-joint-801afa03,ANGLE-JOINT,Plastic Swivel Joint Kit 40B - Core Mounting,需手动定位或配套组件,接头配套组件,配套连接件,未提供自动安装,,https://www.motedis.com/en/Plastic-Swivel-Joint-Kit-40B-Core-Mounting
+motedis-angle-joint-26342954,ANGLE-JOINT,Plastic Swivel Joint Kit 40I - Core Mounted,需手动定位或配套组件,接头配套组件,配套连接件,未提供自动安装,,https://www.motedis.com/en/Plastic-Swivel-Joint-Kit-40I-Core-Mounted
+motedis-u-joint-44c647ac,U JOINT,Plastic U joint,需手动定位或配套组件,接头配套组件,配套连接件,未提供自动安装,,https://www.motedis.com/en/Plastic-U-joint
+motedis-source-0c5921de2433,Plastic-U-joint-kit-40B-Core-mounting,Plastic U-joint kit 40B - Core mounting,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/Plastic-U-joint-kit-40B-Core-mounting
+motedis-source-9fd0d1af62c3,Plastic-U-joint-kit-40B-groove-mounting,Plastic U-joint kit 40B - groove mounting,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/Plastic-U-joint-kit-40B-groove-mounting
+motedis-source-95ce19bca305,Plastic-U-joint-kit-40I-Core-mounting,Plastic U-joint kit 40I - Core mounting,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/Plastic-U-joint-kit-40I-Core-mounting
+motedis-source-c30bd49a47e8,Plastic-U-joint-kit-40I-groove-mounting,Plastic U-joint kit 40I - groove mounting,仅参考资料,参考资料,参考资料,未提供自动安装,,https://www.motedis.com/en/Plastic-U-joint-kit-40I-groove-mounting
+motedis-angle-joint-08e3e253,ANGLE-JOINT,Plastic pivot joint 40I,需手动定位或配套组件,接头配套组件,配套连接件,未提供自动安装,,https://www.motedis.com/en/Plastic-pivot-joint-40I
+motedis-angle-joint-1d4b7980,ANGLE-JOINT,Plastic swivel joint kit 40B- Slot mounting,需手动定位或配套组件,接头配套组件,配套连接件,未提供自动安装,,https://www.motedis.com/en/Plastic-swivel-joint-kit-40B-Slot-mounting
+motedis-angle-joint-b1cfff38,ANGLE-JOINT,Plastic swivel joint kit 40I- Slot mounting,需手动定位或配套组件,接头配套组件,配套连接件,未提供自动安装,,https://www.motedis.com/en/Plastic-swivel-joint-kit-40I-Slot-mounting
+motedis-su-br45-turn-9a509ddc,SU-BR45-TURN,Swivel Angle 45 B-Type slot 10,需手动定位或配套组件,活动接头,型材,未提供自动安装,,https://www.motedis.com/en/Swivel-Angle-45-B-Type-slot-10
+motedis-su-br20-turn-dd9fae69,SU-BR20-TURN,Swiveling angle 20 B-type slot 6 and type I slot 5,需手动定位或配套组件,活动接头,型材,未提供自动安装,,https://www.motedis.com/en/Swiveling-angle-20-B-type-slot-6-and-type-I-slot-5
+motedis-s8bta30-558431d0,S8BTA30,Swivelling Angle 30 B-Type slot 8,需手动定位或配套组件,活动接头,型材,未提供自动安装,,https://www.motedis.com/en/Swivelling-Angle-30-B-Type-slot-8
+motedis-tooth-joint-09d923ec,TOOTH-JOINT,Toothed joint,需手动定位或配套组件,活动接头,型材,未提供自动安装,,https://www.motedis.com/en/Toothed-joint
+motedis-angle-connector-45-20-i-type-nut-5-2e8a3027,Angle_Connector_45°_20_I-Type_Nut_5,Angle Connector 45° 20 I-Type Nut 5,需手动定位或配套组件,外角码/刚性连接,型材,未提供自动安装,,https://www.motedis.com/en/Angle-Connector-45G-20-I-Type-Nut-5
+motedis-340me154-a96c309a,340me154,Flange nut M6,需手动定位或配套组件,螺栓配套件,螺栓,未提供自动安装,,https://www.motedis.com/en/Flange-nut-M6
+motedis-fnm8-7af1b5d9,FNM8,Flange nut M8,需手动定位或配套组件,螺栓配套件,螺栓,未提供自动安装,,https://www.motedis.com/en/Flange-nut-M8
+motedis-s10bhesnm5-68180c1d,S10BHESNM5,Heavy Slot Nut B-Type Slot 10 [M5],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Heavy-Slot-Nut-B-Type-Slot-10-M5
+motedis-s10bhesnm6-61459535,S10BHESNM6,Heavy Slot Nut B-Type Slot 10 [M6],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Heavy-Slot-Nut-B-Type-Slot-10-M6
+motedis-s10bhesnm4-141a8952,S10BHESNM4,Heavy Slot Nut Type B-Type Slot 10 [M4],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Heavy-Slot-Nut-Type-B-Type-Slot-10-M4
+motedis-s10bhesnm8-3bd9ac0e,S10BHESNM8,Sliding block heavy B-type slot 10 [M8],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Sliding-block-heavy-B-type-slot-10-M8
+motedis-slotswbm8-7989dfcf,SLOTSWBM8,Slot 8 O-Type Square nut with spring M8,需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Slot-O-Square-nut-with-spring-M8
+motedis-s8bhesnm4-0cdfbd1c,S8BHESNM4,Slotted block B-type slot 8 [M4],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M4
+motedis-s8bhesnm5-e709843a,S8BHESNM5,Slotted block B-type slot 8 [M5],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M5
+motedis-s8bhesnm6-1399fbd1,S8BHESNM6,Slotted block B-type slot 8 [M6],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M6
+motedis-s8bhesnm8-0ed08332,S8BHESNM8,Slotted block B-type slot 8 [M8],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/Slotted-block-B-type-slot-8-M8
+motedis-s10bssnm4-d41d14f5,S10BSSNM4,Slotted block with spring B-type slot 10 [M4],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M4
+motedis-s10bssnm5-874e5151,S10BSSNM5,Slotted block with spring B-type slot 10 [M5],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M5
+motedis-s10bssnm6-13c94adb,S10BSSNM6,Slotted block with spring B-type slot 10 [M6],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M6
+motedis-s10bssnm8-5747325e,S10BSSNM8,Slotted block with spring B-type slot 10 [M8],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M8
+motedis-s8bssnm3-3dfed72e,S8BSSNM3,Slotted block with spring B-type slot 8 [M3],已核对安装基准,槽内螺母,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M3
+motedis-s8bssnm4-460d40f3,S8BSSNM4,Slotted block with spring B-type slot 8 [M4],已核对安装基准,槽内螺母,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M4
+motedis-s8bssnm5-f3ae3f9a,S8BSSNM5,Slotted block with spring B-type slot 8 [M5],已核对安装基准,槽内螺母,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M5
+motedis-s8bssnm6-bd20d216,S8BSSNM6,Slotted block with spring B-type slot 8 [M6],已核对安装基准,槽内螺母,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M6
+motedis-s8bssnm8-dc2ea8e5,S8BSSNM8,Slotted block with spring B-type slot 8 [M8],已核对安装基准,槽内螺母,型材,3030：检测到重叠,3030,https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M8
+motedis-4544-89557475,4544,Square Nut Slot 10 B-Type [M5],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Square-Nut-Channel-10mm-M5
+motedis-slotonm5-16474d1e,SLOTONM5,Square nut type O Slot 8 [M5],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Square-nut-type-O-M5
+motedis-slotonm6-554e49d8,SLOTONM6,Square nut type O Slot 8 [M6],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Square-nut-type-O-M6
+motedis-slotonm8-512feb2b,SLOTONM8,Square nut type O Slot 8 [M8],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Square-nut-type-O-M8
+motedis-slotswbm6-00f3b1f2,SLOTSWBM6,Square nut with spring type O Slot 8 [M6],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/Square-nut-with-spring-type-O-M6
+motedis-cev-e8-b1126-on-e06ea0c7,CEV-E8-B1126-ON,T-Matik Connector 30 B-Type Nut 8,需手动定位或配套组件,隐藏式连接,型材,未提供自动安装,,https://www.motedis.com/en/T-Matik-Connector-30-B-Type-Nut-8
+motedis-s5ismonm3-881103d1,S5ISMONM3,"T-Nut with spring ball, without guidance I-Type slot 5 [M3]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-Nut-with-spring-ball-without-guidance-I-Type-slot-5-M3
+motedis-s5ismonm4-1b1498ac,S5ISMONM4,"T-Nut with spring ball, without guidance I-Type slot 5 [M4]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-Nut-with-spring-ball-without-guidance-I-Type-slot-5-M4
+motedis-s5ismonm5-aeabec0c,S5ISMONM5,"T-Nut with spring ball, without guidance I-Type slot 5 [M5]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-Nut-with-spring-ball-without-guidance-I-Type-slot-5-M5
+motedis-s10bhasnm4-3fe80fcb,S10BHASNM4,T-nut B-Type slot 10 [M4],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-B-Type-slot-10-M4
+motedis-s10bhasnm5-d2949c5d,S10BHASNM5,T-nut B-Type slot 10 [M5],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-B-Type-slot-10-M5
+motedis-s10bhasnm6-496354b8,S10BHASNM6,T-nut B-Type slot 10 [M6],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-B-Type-slot-10-M6
+motedis-s10bhasnm8-bca1fc31,S10BHASNM8,T-nut B-Type slot 10 [M8],需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-B-Type-slot-10-M8
+motedis-s6bhasnm3-f4a9bde9,S6BHASNM3,T-nut B-type slot 6 [M3],已核对安装基准,槽内螺母,型材,2020：未完成干涉检查,2020,https://www.motedis.com/en/T-nut-B-type-slot-6-M3
+motedis-s8bhasnm4-2d0c989d,S8BHASNM4,T-nut B-type slot 8 [M4],已核对安装基准,槽内螺母,型材,3030：未检出干涉,,https://www.motedis.com/en/T-nut-B-type-slot-8-M4
+motedis-s8ihasnm4-da7cba54,S8IHASNM4,T-nut I-type slot 8 [M4],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-I-type-slot-8-M4
+motedis-s8ismonm4-f879fdfd,S8ISMONM4,T-nut guided I-type slot 8 [M4],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M4
+motedis-s8ismonm5-84ea034e,S8ISMONM5,T-nut guided I-type slot 8 [M5],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M5
+motedis-s8ismonm6-6ac93e4e,S8ISMONM6,T-nut guided I-type slot 8 [M6],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M6
+motedis-s8ismonm8-35c33fdc,S8ISMONM8,T-nut guided I-type slot 8 [M8],已核对安装基准,槽内螺母,型材,4040：未检出干涉,,https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M8
+motedis-s6bhesnm4-588850c2,S6BHESNM4,T-nut heavy duty steel B-Type slot 6 [M4],已核对安装基准,槽内螺母,型材,2020：检测到重叠,2020,https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M4
+motedis-s6bhesnm5-b9b3ee5a,S6BHESNM5,T-nut heavy duty steel B-Type slot 6 [M5],已核对安装基准,槽内螺母,型材,2020：检测到重叠,2020,https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M5
+motedis-s6bhesnm6-180753f6,S6BHESNM6,T-nut heavy duty steel B-Type slot 6 [M6],已核对安装基准,槽内螺母,型材,2020：检测到重叠,2020,https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M6
+motedis-s5ismonm3g-715dfbae,S5ISMONM3G,"T-nut with spring ball, with guidance I-Type slot 5 [M3]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-5-M3
+motedis-s5ismonm4g-4a2304e4,S5ISMONM4G,"T-nut with spring ball, with guidance I-Type slot 5 [M4]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-5-M4
+motedis-s5ismonm5g-f882d668,S5ISMONM5G,"T-nut with spring ball, with guidance I-Type slot 5 [M5]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-5-M5
+motedis-s6ismonm3g-9f31f822,S6ISMONM3G,"T-nut with spring ball, with guidance I-Type slot 6 [M3]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-6-M3
+motedis-s6ismonm4g-e010a924,S6ISMONM4G,"T-nut with spring ball, with guidance I-Type slot 6 [M4]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-6-M4
+motedis-s6ismonm5g-03708078,S6ISMONM5G,"T-nut with spring ball, with guidance I-Type slot 6 [M5]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-6-M5
+motedis-s6ismonm6g-56441333,S6ISMONM6G,"T-nut with spring ball, with guidance I-Type slot 6 [M6]",需手动定位或配套组件,槽内螺母,型材,未提供自动安装,,https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-6-M6
+motedis-threaded-plate-b-type-slot6-7621fb3c,Threaded_Plate_B-Type_slot6,Threaded Plate B-Type slot 6 [M4],已核对安装基准,槽内螺母,型材,2020：检测到重叠,2020,https://www.motedis.com/en/Threaded-Plate-B-Type-slot-6-M4
+motedis-s10bcs180-94794286,S10BCS180,Connecting strip 180 B-Type slot 10,需手动定位或配套组件,槽内拼接条,型材,未提供自动安装,,https://www.motedis.com/en/Connecting-strip-180-B-Type-slot-10
+motedis-s8bics120-3338a0b5,S8BICS120,Connection strip 120  slot 8,需手动定位或配套组件,槽内拼接条,型材,未提供自动安装,,https://www.motedis.com/en/Connection-strip-120-slot-8
+motedis-lp45101-aa8650c0,LP45101,"Connector plate  84x39x5 , Laser cut, series 45",已核对安装基准,面贴连接板,型材,待匹配实际型材截面,,https://www.motedis.com/en/Connector-plate-84x39x5-Laser-cut-series-45
+motedis-20-v-18x40-alu-3-mm-44a403ce,20-V-18x40 [Alu 3 mm],"Connector plate 18x40x3, Laser cut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/Connector-plate-18x40x3-Laser-cut
+motedis-lp30101-d676fd38,LP30101,"Connector plate 28x58x3, Laser cut",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/Connector-plate-28x58x3-Laser-cut
+motedis-lp30101sb-a2f0a902,LP30101SB,"Connector plate 28x58x3, Laser cut",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/Connector-plate-28x58x3-Laser-cut
+motedis-lp30102-2d37ecfe,LP30102,"Connector plate 30x120x3, Laser cut",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/Connector-plate-30x120x3-Laser-cut
+motedis-20-v-20x60-alu-3-mm-fc331c59,20-V-20x60 [Alu 3 mm],Connector plate aluminum lasered 20x60x3 3-hole 20s,已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/Connector-plate-aluminum-steel-lasered-20x60x3-3-hole-20s
+motedis-lp20107-458fc4c3,LP20107,"Connector plate double 38x78x3, lasercut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/Connector-plate-double-38x78x3-lasercut
+motedis-lp30104-072aab39,LP30104,"Connector plate double 58x118x3, lasercut",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/Connector-plate-double-58x118x3-lasercut
+motedis-lp30108-a5000736,LP30108,L Connector plate aluminum lasered 88x88x3 5-hole 30s,已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/L-Connector-plate-aluminum-lasered-88x88x3-5-hole-30s
+motedis-lp30106-47fac223,LP30106,"L connector plate 118x118x3, Laser cut",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/L-connector-plate-118x118x3-Laser-cut
+motedis-lp45105-49c9fcef,LP45105,"L connector plate 129x129x5, Laser cut",已核对安装基准,面贴连接板,型材,待匹配实际型材截面,,https://www.motedis.com/en/L-connector-plate-129x129x5-Laser-cut
+motedis-lp45106-b60ec91c,LP45106,L connector plate 174x174x5  Laser cut,已核对安装基准,面贴连接板,型材,待匹配实际型材截面,,https://www.motedis.com/en/L-connector-plate-174x174x5-Laser-cut
+motedis-20-vl-38-alu-3-mm-e477c544,20-VL-38 [Alu 3 mm],"L connector plate 38x38x3, Laser cut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/L-connector-plate-38x38x3-Laser-cut
+motedis-lp20110-8861bd73,LP20110,"L connector plate 78x78x3, Laser cut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/L-connector-plate-78x78x3-Laser-cut
+motedis-lp45107-4a379158,LP45107,"L connector plate 84x84x5, Laser cut",已核对安装基准,面贴连接板,型材,待匹配实际型材截面,,https://www.motedis.com/en/L-connector-plate-84x84x5-Laser-cut
+motedis-lp30107-fe90f62c,LP30107,L connector plate lasered 58x58x3 3-hole 30s,已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/L-connector-plate-lasered-58x58x3-3-hole-30s
+motedis-20-v-38x38-alu-3-mm-521e1b7f,20-V-38x38 [Alu 3 mm],"Square connector plate 38x38x3, Lasercut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/Square-connector-plate-38x38x3-Lasercut
+motedis-lp30105-2d222809,LP30105,"Square connector plate 58x58x3, Lasercut",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/Square-connector-plate-58x58x3-Lasercut
+motedis-i-conn-sqr-84-84-5-45-h4-d-8-5-1ccf8403,I-CONN SQR [ 84 84 5] 45 H4 D 8-5,"Square connector plate 84x84x5, Lasercut",已核对安装基准,面贴连接板,型材,待匹配实际型材截面,,https://www.motedis.com/en/Square-connector-plate-84x84x5-Lasercut
+motedis-lp40111-5966a9dc,LP40111,"T connector plate 116x116x5, Laser cut",已核对安装基准,面贴连接板,型材,4040：未检出干涉,,https://www.motedis.com/en/T-connector-plate-116x116x5-Laser-cut
+motedis-t-conn-2to2-118-118-3-30-h12-d6-5-9404a201,T-CONN 2TO2 [118 118 3] 30 H12 D6-5,"T connector plate 118x118x3, Laser cut",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/T-connector-plate-118x118x3-Laser-cut
+motedis-lp45108-1f6d8861,LP45108,"T connector plate 129x129x5, Laser cut",已核对安装基准,面贴连接板,型材,待匹配实际型材截面,,https://www.motedis.com/en/T-connector-plate-129x129x5-Laser-cut
+motedis-lp20111-9c5052b7,LP20111,"T connector plate 58x58x3, Laser cut, 20 series",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/T-connector-plate-58x58x3-Laser-cut-20-series
+motedis-lp20112-3cf2eb7d,LP20112,"T connector plate 78x78x3, Laser cut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/T-connector-plate-78x78x3-Laser-cut
+motedis-lp30110-81e8b493,LP30110,"T connector plate 88x88x3, Laser cut, 30 series",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/T-connector-plate-88x88x3-Laser-cut-30-series
+motedis-lp30110b-ae2bdcfa,LP30110B,"T connector plate 88x88x3, Laser cut, 30 series",已核对安装基准,面贴连接板,型材,3030：未检出干涉,,https://www.motedis.com/en/T-connector-plate-88x88x3-Laser-cut-30-series
+motedis-t-connection-plate-sapla-30-b-type-slot-8-cb677006,T-Connection plate SAPLA 30 B-Type slot 8,T-Connection plate SAPLA 30 B-Type slot 8 with fixing set,需手动定位或配套组件,内置连接,型材,未提供自动安装,,https://www.motedis.com/en/T-Connection-plate-SAPLA-30-B-Type-slot-8-with-fixing-set
+motedis-pcb4545s10-27cc532e,PCB4545S10,T-connection plate SAPLA 45 B-Type slot 10,需手动定位或配套组件,内置连接,型材,未提供自动安装,,https://www.motedis.com/en/T-connection-plate-SAPLA-45-B-Type-slot-10
+motedis-lp45109-2b039117,LP45109,"T-connector plate 174x174x5, Laser cut",已核对安装基准,面贴连接板,型材,待匹配实际型材截面,,https://www.motedis.com/en/T-connector-plate-174x174x5-Laser-cut
+motedis-lp20302-7ec61b9f,LP20302,"X-connector plate 120x70x3, Laser cut",已核对安装基准,面贴连接板,型材,2020：未检出干涉,,https://www.motedis.com/en/X-connector-plate-120x70x3-Laser-cut
+motedis-lp40453-ce3e5646,LP40453,"X-connector plate 184x104x5, Laser cut",已核对安装基准,面贴连接板,型材,4040：未检出干涉,,https://www.motedis.com/en/X-connector-plate-184x104x5-Laser-cut
+motedis-s8bcsfa-c85110a5,S8BCSFA,Cutting sleeve for automatic connector B-Type slot 8 (additional internal thread M6),需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Cutting-sleeve-for-automatic-connector-B-type-Nut-8
+motedis-s8bcsfanew-22224140,S8BCSFAnew,Cutting sleeve for automatic connector B-Type slot 8 (new version),需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Cutting-sleeve-for-automatic-connector-B-Type-slot-8-new-version
+motedis-s5icsfa-0cf2e866,S5ICSFA,Cutting sleeve for automatic connector I-type slot 5,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Cutting-sleeve-for-automatic-connector-I-type-Nut-5
+motedis-s6icsfa-7253f040,S6ICSFA,Cutting sleeve for automatic connector I-type slot 6,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Cutting-sleeve-for-automatic-connector-I-type-Nut-6
+motedis-s8icsfa-e93ff37d,S8ICSFA,Cutting sleeve for automatic connector I-type slot 8,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Cutting-sleeve-for-automatic-connector-I-type-Nut-8
+motedis-s10bqc0-f584b832,S10BQC0,Quick Connector B-Type slot 10 - D17 - 0°,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Quick-Connector-B-Type-slot-10-D17-0G
+motedis-s10bqc90-1c093051,S10BQC90,Quick Connector B-Type slot 10 - D17 - 90°,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Quick-Connector-B-Type-slot-10-D17-90G
+motedis-s8bqc0-cb5b028a,S8BQC0,Quick Connector B-Type slot 8 - 0°,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Quick-Connector-B-Type-slot-8-0G
+motedis-s8bqc90-5440dcfc,S8BQC90,Quick Connector B-Type slot 8 - 90°,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Quick-Connector-B-Type-slot-8-90G
+motedis-s5icp1912430-0343cb81,S5ICP1912430,Special screw automatic connector DIN 912-M4x30 N5 I-Type,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Special-screw-automatic-connector-DIN-912-M4x30-N5-I-Type
+motedis-s5icp1912435-7a66eba5,S5ICP1912435,Special screw automatic connector DIN 912-M4x35 N5 I-Type,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Special-screw-automatic-connector-DIN-912-M4x35-N5-I-Type
+motedis-s5istanverb-e9996d88,S5ISTANVERB,Standard connector 20 I-Type slot 5,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Standard-connector-20-I-Type-slot-5
+motedis-s6istanverb-879f5793,S6ISTANVERB,Standard connector 30 I-Type slot 6,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Standard-connector-30-I-Type-slot-6
+motedis-092040-c24d9c10,092040,Standard connector 40 I-Type slot 8,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/Standard-connector-40-I-Type-slot-8
+motedis-10cev-e8-14-on-3dfb17e1,10CEV-E8-14-ON,T-Matik Connector Light Slot 10 B-Type,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/T-Matik-Connector-Light-Slot-10-B-Type
+motedis-10cev-e8-12-on-802733a5,10CEV-E8-12-ON,T-Matik connector heavy Slot 10 B-Type,需手动定位或配套组件,隐藏式连接,需匹配孔/螺纹的型材,未提供自动安装,,https://www.motedis.com/en/T-Matik-connector-heavy-Slot-10-B-Type

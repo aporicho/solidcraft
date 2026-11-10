@@ -12,8 +12,29 @@ pub struct Resource {
     pub kind: String,
 }
 
+/// Audit of a real mating interface, distinct from the ability to import the CAD file.
+#[derive(Clone, Debug, Default, Deserialize, Serialize, schemars::JsonSchema)]
+pub struct Installation {
+    pub state: String,
+    pub role: String,
+    pub target: String,
+    pub reason: String,
+    #[serde(default)]
+    pub interfaces: Vec<String>,
+    #[serde(default)]
+    pub section: Option<[f64; 2]>,
+    #[serde(default)]
+    pub seat: String,
+    #[serde(default)]
+    pub excluded_stock: Vec<String>,
+    #[serde(default)]
+    pub requirements: Vec<String>,
+}
+
 #[derive(Clone, Debug, Deserialize, Serialize, schemars::JsonSchema)]
 pub struct Connector {
+    #[serde(default)]
+    pub installation: Installation,
     #[serde(default)]
     pub resources: Vec<Resource>,
     #[serde(default)]
@@ -73,7 +94,13 @@ impl Connector {
     }
 
     pub fn compatible(&self, series: f64, interface: &str) -> bool {
-        if !self.insertable() {
+        if !self.insertable() || self.installation.state != "datum_checked" || !self.installation.interfaces.iter().any(|i| i == interface) {
+            return false;
+        }
+        let stock = format!("{0:.0}{0:.0}", series);
+        if self.installation.excluded_stock.contains(&stock)
+            || self.installation.section.is_some_and(|s| s.iter().any(|size| (size - series).abs() > 1e-6))
+        {
             return false;
         }
         let slot = if series == 20.0 { 6 } else { 8 };
@@ -87,13 +114,7 @@ impl Connector {
         {
             return false;
         }
-        match interface {
-            "surface" => self.interface == "surface",
-            "slot" => self.interface == "slot" || self.interface == "surface",
-            "end" => self.interface == "end" || self.placement == "angle",
-            "bore" => matches!(self.category.as_str(), "joint" | "cube"),
-            _ => false,
-        }
+        true
     }
 }
 
@@ -203,6 +224,9 @@ pub fn import_params(session: &Session, params: &Value) -> Result<Value> {
             return Err(bad(cmd, "invalid connector offset"));
         }
         let kind = mount.get("interface").and_then(Value::as_str).unwrap_or("end");
+        if model.installation.state != "datum_checked" {
+            return Err(bad(cmd, "this part needs a separately defined mating interface; use free placement and its supplier drawing"));
+        }
         if !model.compatible(frame.size, kind) || (port.is_end() != matches!(kind, "end" | "bore")) {
             return Err(bad(cmd, "connector is incompatible with this installation interface"));
         }
@@ -211,7 +235,15 @@ pub fn import_params(session: &Session, params: &Value) -> Result<Value> {
             .map_or(Some(0.5), Value::as_f64)
             .filter(|v| v.is_finite() && (0.0..=1.0).contains(v))
             .ok_or_else(|| bad(cmd, "interface position must be between 0 and 1"))?;
-        let (at, normal, _) = frame.port(port, position, gap);
+        let (mut at, normal, _) = frame.port(port, position, gap);
+        if model.installation.seat == "under_slot_lip" {
+            let lip = solidcraft_doc::aluminium::MODELS
+                .iter()
+                .find(|m| m.0 == frame.model)
+                .map(|m| m.4)
+                .ok_or_else(|| bad(cmd, "the profile's slot lip dimensions are unavailable"))?;
+            at = at - normal * lip;
+        }
         let radial = match side {
             0 => frame.x,
             1 => frame.y,

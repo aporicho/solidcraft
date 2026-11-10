@@ -253,7 +253,7 @@ fn detail(ui: &mut Ui, state: &StockConnector) {
     ui.label(&model.label);
     if model.insertable() {
         preview(ui, model);
-        ui.label(i18n::tr(if model.placement == "manual" { "browser.datum_unset" } else { "browser.datum_preset" }));
+        super::installation_info(ui, model);
         if matches!(model.geometry.as_str(), "surface" | "mixed") {
             ui.label(i18n::tr("catalog.surface_model"));
         }

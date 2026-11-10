@@ -1,6 +1,7 @@
 #![allow(clippy::unwrap_used, clippy::expect_used, clippy::panic)]
 
 use serde_json::{Value, json};
+use solidcraft_geom::Vec3;
 use std::f64::consts::PI;
 
 use crate::Session;
@@ -774,7 +775,9 @@ fn stock_catalogue_keeps_reference_documents_out_of_model_insertion() {
     assert!(legacy.insertable());
     assert!(legacy.matches_query("S6BBR20 motedis"));
     assert!(!legacy.matches_query("nonexistent catalogue item"));
-    assert!(legacy.compatible(20.0, "surface"));
+    assert!(!legacy.compatible(20.0, "surface"), "the nominal 2020 slot conflicts with its centring lugs");
+    let checked = catalogue.iter().find(|m| m.id == "motedis-s8bbr30").unwrap();
+    assert!(checked.compatible(30.0, "surface"));
     assert!(!legacy.compatible(40.0, "surface"));
 }
 
@@ -790,4 +793,52 @@ fn preset_hammer_nuts_use_the_locked_cross_slot_orientation() {
             "{id}: the narrow CAD Y direction runs along the slot, leaving the long X direction across its lips"
         );
     }
+}
+
+#[test]
+fn every_connector_requires_an_audited_matching_installation_interface() {
+    let catalogue = crate::stock_connectors::catalogue().unwrap();
+    assert_eq!(catalogue.len(), 264);
+    for m in &catalogue {
+        assert!(["datum_checked", "manual_only", "reference_only"].contains(&m.installation.state.as_str()), "{}", m.id);
+        if m.installation.state != "datum_checked" {
+            for size in [20.0, 30.0, 40.0] {
+                for kind in ["surface", "slot", "end", "bore"] {
+                    assert!(!m.compatible(size, kind), "{} must never use an uncalibrated mounting centre", m.id);
+                }
+            }
+        } else {
+            let n = Vec3::new(m.normal[0], m.normal[1], m.normal[2]);
+            let u = Vec3::new(m.along[0], m.along[1], m.along[2]);
+            assert!((n.len() - 1.0).abs() < 1e-7 && (u.len() - 1.0).abs() < 1e-7 && n.dot(u).abs() < 1e-7, "{}", m.id);
+            assert!(!m.installation.interfaces.is_empty());
+        }
+    }
+}
+
+#[test]
+fn connector_review_distinguishes_fastener_axes_end_sections_and_actual_mating_objects() {
+    let model = |id| crate::stock_connectors::model(id).unwrap();
+    let plate = model("motedis-lp20105");
+    assert_eq!(plate.anchor, [30.0, 10.5, 0.0], "the click is a real hole, not the midpoint between two holes");
+    assert!(plate.compatible(20.0, "surface"));
+    assert!(!plate.compatible(20.0, "bore"));
+    let oriented = model("motedis-lp30103");
+    assert_eq!(oriented.normal, [1.0, 0.0, 0.0], "this supplier plate is thin in CAD X, not Z");
+    let nut = model("motedis-s8bhasnm5");
+    assert_eq!(nut.anchor, [0.0, 0.0, 4.5]);
+    assert_eq!(nut.installation.seat, "under_slot_lip");
+    assert!(nut.compatible(30.0, "slot"));
+    assert!(!nut.compatible(30.0, "surface"));
+    let bracket_cap = model("motedis-s5i6bbr20c-d4d49e5f");
+    assert_eq!(bracket_cap.installation.target, "connector");
+    assert!(!bracket_cap.compatible(20.0, "end"));
+    let mut rectangular = model("motedis-pts6b20x40-04986429");
+    rectangular.installation.state = "datum_checked".into();
+    rectangular.installation.interfaces = vec!["end".into()];
+    assert!(!rectangular.compatible(20.0, "end"), "20x40 end caps do not fit a 20x20 end");
+    let mut cube = model("motedis-s8bcc3d30");
+    assert!(!cube.compatible(30.0, "surface"));
+    cube.installation.excluded_stock.push("3030".into());
+    assert!(!cube.compatible(30.0, "end"), "failed fits are excluded even with a calibrated datum");
 }

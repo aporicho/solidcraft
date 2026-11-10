@@ -16,6 +16,53 @@
       "solid": 247,
       "mixed": 5,
       "reference": 12
+    },
+    "installation_audit": {
+      "catalogue_entries": 264,
+      "source_products_examined": 260,
+      "cad_models_examined": 252,
+      "states": {
+        "datum_checked": 88,
+        "manual_only": 164,
+        "reference_only": 12
+      },
+      "roles": {
+        "rigid_bridge": 29,
+        "slot_insert": 54,
+        "face_plate": 32,
+        "moving_joint": 8,
+        "multiport_node": 8,
+        "end_cap": 25,
+        "internal_bridge": 5,
+        "motor": 2,
+        "shaft": 9,
+        "fitting_link": 1,
+        "cable_mount": 2,
+        "cable_slot_mount": 5,
+        "reference": 12,
+        "belt": 1,
+        "joint_adapter": 2,
+        "hidden_connector": 20,
+        "bracket_cap": 10,
+        "slot_cover": 5,
+        "corner_node": 3,
+        "axial_fastener": 7,
+        "hammer_bolt": 4,
+        "bolt_fitting": 3,
+        "accessory": 1,
+        "joint_kit": 11,
+        "shaft_bearing": 2,
+        "pivot_plate": 1,
+        "slot_splice": 2
+      },
+      "changed_entries": 136,
+      "physical_fit_cases": 69,
+      "physical_fit_results": {
+        "overlap": 13,
+        "clear": 52,
+        "unchecked": 4
+      },
+      "note": "A reviewed installation datum is not a certification of fit to a supplier section or a complete fastener kit. Manual-only parts remain available for free placement."
     }
   },
   "products": [
