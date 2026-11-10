@@ -160,7 +160,7 @@ pub fn rows(ui: &mut egui::Ui, state: &mut StockConnector) -> bool {
             ui.label(format!("{}: {}", i18n::tr("catalog.profile_type"), model.profile_type));
         }
         ui.hyperlink_to(i18n::tr("connector.source"), &model.product_url);
-        egui::CollapsingHeader::new(i18n::tr("catalog.source_file")).default_open(!model.insertable()).show(ui, |ui| {
+        egui::CollapsingHeader::new(i18n::tr("catalog.source_file")).id_salt(&model.id).default_open(!model.insertable()).show(ui, |ui| {
             for (index, resource) in model.resources.iter().enumerate() {
                 let response =
                     ui.hyperlink_to(format!("{} {} · {}", i18n::tr("catalog.source_file"), index + 1, resource.kind.to_uppercase()), &resource.url);
