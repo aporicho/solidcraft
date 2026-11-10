@@ -157,7 +157,7 @@ summary={'catalogue_entries':len(models),'source_products_examined':len(receipts
 path.write_text(json.dumps(models,ensure_ascii=False,indent=2)+'\n')
 report=root/'enhancements/connector-installation-audit.json';report.write_text(json.dumps({'summary':summary,'models':rows},ensure_ascii=False,indent=2)+'\n')
 with (root/'enhancements/connector-installation-audit.csv').open('w',newline='') as f:
- w=csv.writer(f);w.writerow(['型号ID','料号','名称','安装基准审查','安装类型','配合对象','检查结果','受限截面','厂商资料'])
+ w=csv.writer(f,lineterminator="\n");w.writerow(['型号ID','料号','名称','安装基准审查','安装类型','配合对象','检查结果','受限截面','厂商资料'])
  for r in rows:
   states={'datum_checked':'已核对安装基准','manual_only':'需手动定位或配套组件','reference_only':'仅参考资料'}
   roles={'rigid_bridge':'外角码/刚性连接','slot_insert':'槽内螺母','face_plate':'面贴连接板','moving_joint':'活动接头','multiport_node':'实心方块','end_cap':'型材端盖','internal_bridge':'内置连接','motor':'电机','shaft':'六角轴','fitting_link':'配件连接块','cable_mount':'扎带座','cable_slot_mount':'槽装扎带座','reference':'参考资料','belt':'皮带','joint_adapter':'接头转接件','hidden_connector':'隐藏式连接','bracket_cap':'角码盖','slot_cover':'槽盖条','corner_node':'三维角件','axial_fastener':'孔轴紧固件','hammer_bolt':'锤头螺栓','bolt_fitting':'螺栓配套件','accessory':'其他附件','joint_kit':'接头配套组件','shaft_bearing':'六角轴支承','pivot_plate':'转角连接板','slot_splice':'槽内拼接条'}
