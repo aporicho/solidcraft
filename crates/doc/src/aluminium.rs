@@ -108,6 +108,52 @@ pub struct Attachment {
     pub path: Vec<u64>,
     #[serde(default)]
     pub author_path: Vec<u64>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub datum: Option<ConnectorDatum>,
+}
+
+/// Frozen CAD-local installation frame. Metadata changes never silently move saved members.
+#[derive(Clone, Debug, PartialEq, serde::Serialize, serde::Deserialize, solidcraft_derive::Walk)]
+pub struct ConnectorDatum {
+    pub model: String,
+    pub port: String,
+    pub cad_sha256: String,
+    pub origin: [f64; 3],
+    pub normal: [f64; 3],
+    pub reference: [f64; 3],
+    pub size: f64,
+    pub slot: u32,
+}
+
+impl ConnectorDatum {
+    pub fn frame(&self) -> Result<MemberFrame> {
+        use solidcraft_geom::Vec3;
+        let vector = |v: [f64; 3]| Vec3::new(v[0], v[1], v[2]);
+        let axis = vector(self.normal);
+        let x = vector(self.reference);
+        if self.origin.iter().chain(&self.normal).chain(&self.reference).any(|v| !v.is_finite() || v.abs() > 10_000_000.0)
+            || !self.size.is_finite()
+            || !(10.0..=200.0).contains(&self.size)
+            || (axis.len() - 1.0).abs() > 1e-6
+            || (x.len() - 1.0).abs() > 1e-6
+            || axis.dot(x).abs() > 1e-6
+            || self.model.len() > 256
+            || self.port.is_empty()
+            || self.port.len() > 128
+            || self.cad_sha256.len() > 128
+        {
+            return Err(DocError::Invalid("invalid connector installation datum".into()));
+        }
+        Ok(MemberFrame {
+            model: format!("{0:.0}{0:.0}", self.size),
+            origin: vector(self.origin),
+            x,
+            y: axis.cross(x),
+            axis,
+            length: 0.0,
+            size: self.size,
+        })
+    }
 }
 
 #[derive(Clone, Debug)]
@@ -184,5 +230,9 @@ pub fn attachment_frame(doc: &crate::Document, st: &crate::ModelState, consumer:
     let parent = doc.model_body_offset(body).map_or(parent, |offset| crate::mat_mul(&parent, offset));
     let author = placement(consumer, &attachment.author_path)?;
     let inverse = crate::mat_inverse(&author).ok_or_else(|| DocError::Invalid("invalid attachment author frame".into()))?;
-    Ok(member_frame(doc, body)?.transformed(&crate::mat_mul(&inverse, &parent)))
+    let frame = match &attachment.datum {
+        Some(datum) => datum.frame()?,
+        None => member_frame(doc, body)?,
+    };
+    Ok(frame.transformed(&crate::mat_mul(&inverse, &parent)))
 }

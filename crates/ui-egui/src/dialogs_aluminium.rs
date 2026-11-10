@@ -65,17 +65,24 @@ pub fn rows(app: &SolveApp, ui: &mut egui::Ui, m: &mut Profile) -> bool {
     }
     if let Some(mount) = &mut m.attachment {
         let body = mount.get("body").and_then(Value::as_str).unwrap_or_default();
-        ui.label(i18n::format("aluminium.attached_to", &[("body", body)]));
+        let connector = mount.get("datum").is_some() || mount.get("connector_port").is_some();
+        if connector {
+            ui.label(format!("{}: {body}", i18n::tr("ports.parent")));
+        } else {
+            ui.label(i18n::format("aluminium.attached_to", &[("body", body)]));
+        }
         let mut position = mount.get("position").and_then(Value::as_str).unwrap_or("0.5").to_owned();
         let mut gap = mount.get("gap").and_then(Value::as_str).unwrap_or("0 mm").to_owned();
-        ui.collapsing(i18n::tr("aluminium.precise_position"), |ui| {
-            enter |= expr_row(ui, i18n::tr("aluminium.port_position"), &mut position);
-        });
+        if !connector {
+            ui.collapsing(i18n::tr("aluminium.precise_position"), |ui| {
+                enter |= expr_row(ui, i18n::tr("aluminium.port_position"), &mut position);
+            });
+        }
         enter |= expr_row(ui, i18n::tr("aluminium.port_gap"), &mut gap);
         mount["position"] = json!(position);
         mount["gap"] = json!(gap);
         enter |= expr_row(ui, i18n::tr("aluminium.rotation"), &mut m.angle);
-        ui.add(egui::Label::new(i18n::tr("aluminium.attach_note")).wrap());
+        ui.add(egui::Label::new(i18n::tr(if connector { "ports.attach_note" } else { "aluminium.attach_note" })).wrap());
         return enter;
     }
     let old_axis = m.axis;
@@ -169,5 +176,22 @@ pub(crate) fn attach(app: &mut SolveApp, body: &str, port: solidcraft_engine::do
         m.model = solidcraft_engine::doc::aluminium::MODELS.iter().position(|e| e.0 == info.frame.model).unwrap_or(0);
         m.length = "100 mm".into();
         m.attachment = Some(json!({"body":body,"port":port,"position":position.to_string(),"gap":"0 mm"}));
+    }
+}
+
+/// Open one free port at a time; other ports may remain empty indefinitely.
+pub(crate) fn attach_connector(app: &mut SolveApp, body: &str, port: &str) {
+    let Ok(instance) = solidcraft_engine::connector_ports::instance(&app.session, body) else { return };
+    let Some(target) = instance.ports(&app.session).into_iter().find(|p| p.id == port && p.occupied.is_none()) else { return };
+    let Some(index) =
+        solidcraft_engine::doc::aluminium::MODELS.iter().position(|m| m.1 == target.size && target.slot == if target.size == 20.0 { 6 } else { 8 })
+    else {
+        return;
+    };
+    app.start("aluminium.profile");
+    if let Some(Kind::Aluminium(m)) = app.dialog.as_mut().map(|d| &mut d.kind) {
+        m.model = index;
+        m.length = "100 mm".into();
+        m.attachment = Some(json!({"body":body,"port":"end","connector_port":port,"position":"0.5","gap":"0 mm"}));
     }
 }

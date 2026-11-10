@@ -260,6 +260,10 @@ fn detail(ui: &mut Ui, state: &StockConnector) {
     } else {
         ui.label(i18n::tr("catalog.documents_only"));
     }
+    let ports = solidcraft_engine::connector_ports::definitions(&model.id);
+    if !ports.is_empty() {
+        ui.label(i18n::format("ports.count", &[("count", &ports.len().to_string())]));
+    }
     ui.separator();
     if !model.compatible_series.is_empty() {
         ui.label(format!("{}: {}", i18n::tr("catalog.series"), model.compatible_series.iter().map(u32::to_string).collect::<Vec<_>>().join("/")));

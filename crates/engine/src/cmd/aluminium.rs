@@ -13,6 +13,9 @@ const CONNECTOR_CONTRACT: crate::schema::TypedContract<crate::schema::features::
 const MEMBERS_CONTRACT: crate::schema::TypedContract<crate::schema::features::AluminiumMembersParams> = crate::schema::TypedContract::new();
 const FRAME_CONTRACT: crate::schema::TypedContract<crate::schema::features::AluminiumFrameParams> = crate::schema::TypedContract::new();
 pub static COMMANDS: &[CommandSpec] = &[
+    CommandSpec::new("aluminium.connector.ports","Inspect Connector Ports",crate::checked!("aluminium.connector.ports",crate::connector_ports::inspect))
+        .icon("inspect").noundo().contract(&crate::schema::TypedContract::<crate::schema::features::ConnectorPortsParams>::new())
+        .output(crate::schema::output_schema_for::<crate::connector_ports::Inspection>).params("body: placed library connector body; returns named installation ports with world frames and connected member names"),
     CommandSpec::new("aluminium.connector", "Insert Connector", crate::checked!("aluminium.connector", connector))
         .at("ALUMINIUM", "CONNECT").icon("joint").enabled(super::not_in_sketch)
         .contract(&CONNECTOR_CONTRACT).output(crate::schema::output_schema_for::<Value>)
@@ -70,6 +73,13 @@ fn create(s: &mut Session, p: &Value) -> Result<Value> {
         params["body_name"] = json!(format!("EU{model}"));
     }
     let attachment = crate::aluminium_ports::attachment(s, p.get("attachment"))?;
+    if let Some(datum) = attachment.as_ref().and_then(|a| a.datum.as_ref()) {
+        let size = solidcraft_doc::aluminium::MODELS.iter().find(|m| m.0 == model).map_or(0.0, |m| m.1);
+        let slot = if size == 20.0 { 6 } else { 8 };
+        if (size - datum.size).abs() > 1e-6 || slot != datum.slot {
+            return Err(bad(cmd, "profile model does not match the connector port"));
+        }
+    }
     let result = super::features::add_feature(
         s,
         &params,

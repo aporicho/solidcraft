@@ -1,0 +1,32 @@
+{
+  "en": {
+    "navbar.origin_planes": "Origin planes",
+    "navbar.origin_axes": "Origin axes",
+    "navbar.description.origin_planes": "Toggle the origin reference planes.",
+    "navbar.description.origin_axes": "Toggle the origin axes and centre point."
+  },
+  "zh": {
+    "navbar.origin_planes": "原点基准面",
+    "navbar.origin_axes": "原点坐标轴",
+    "navbar.description.origin_planes": "显示或隐藏原点基准面。",
+    "navbar.description.origin_axes": "显示或隐藏原点坐标轴和中心点。"
+  },
+  "ja": {
+    "navbar.origin_planes": "原点基準面",
+    "navbar.origin_axes": "原点座標軸",
+    "navbar.description.origin_planes": "原点の基準面の表示を切り替えます。",
+    "navbar.description.origin_axes": "原点の座標軸と中心点の表示を切り替えます。"
+  },
+  "de": {
+    "navbar.origin_planes": "Ursprungsebenen",
+    "navbar.origin_axes": "Ursprungsachsen",
+    "navbar.description.origin_planes": "Blendet die Ursprungsebenen ein oder aus.",
+    "navbar.description.origin_axes": "Blendet die Ursprungsachsen und den Mittelpunkt ein oder aus."
+  },
+  "ko": {
+    "navbar.origin_planes": "원점 기준면",
+    "navbar.origin_axes": "원점 좌표축",
+    "navbar.description.origin_planes": "원점 기준면을 표시하거나 숨깁니다.",
+    "navbar.description.origin_axes": "원점 좌표축과 중심점을 표시하거나 숨깁니다."
+  }
+}

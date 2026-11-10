@@ -97,9 +97,21 @@ impl Connector {
     }
 }
 
+fn stored_catalogue() -> Result<&'static Vec<Connector>> {
+    static MODELS: std::sync::OnceLock<std::result::Result<Vec<Connector>, String>> = std::sync::OnceLock::new();
+    MODELS
+        .get_or_init(|| {
+            serde_json::from_str(include_str!("../../../enhancements/connector-catalog.json")).map_err(|e| format!("connector catalogue: {e}"))
+        })
+        .as_ref()
+        .map_err(|e| crate::EngineError::Other(e.clone()))
+}
+
 pub fn catalogue() -> Result<Vec<Connector>> {
-    serde_json::from_str(include_str!("../../../enhancements/connector-catalog.json"))
-        .map_err(|error| crate::EngineError::Other(format!("connector catalogue: {error}")))
+    Ok(stored_catalogue()?.clone())
+}
+pub fn model(id: &str) -> Result<Connector> {
+    stored_catalogue()?.iter().find(|m| m.id == id).cloned().ok_or_else(|| bad("aluminium.connector", "unknown fixed connector model"))
 }
 
 pub fn cache_dir() -> PathBuf {
@@ -206,7 +218,22 @@ pub fn import_params(session: &Session, params: &Value) -> Result<Value> {
             2 => -frame.x,
             _ => -frame.y,
         };
-        if model.placement == "angle" {
+        if let Some(base) = crate::connector_ports::definitions(&model.id).first().filter(|_| port.is_end()) {
+            use solidcraft_geom::Vec3;
+            let vector = |p: [f64; 3]| Vec3::new(p[0], p[1], p[2]);
+            let local_n = vector(base.normal);
+            let local_u = vector(base.reference);
+            let local_v = local_n.cross(local_u);
+            let n = -normal;
+            let u = radial;
+            let v = n.cross(u);
+            let transform = |p: Vec3| u * p.dot(local_u) + v * p.dot(local_v) + n * p.dot(local_n);
+            let x = transform(Vec3::X);
+            let y = transform(Vec3::Y);
+            let z = transform(Vec3::Z);
+            let origin = at - transform(vector(base.origin));
+            output["matrix"] = json!([[x.x, y.x, z.x, origin.x], [x.y, y.y, z.y, origin.y], [x.z, y.z, z.z, origin.z], [0, 0, 0, 1]]);
+        } else if model.placement == "angle" {
             let n = if port.is_end() {
                 normal
             } else if position < 0.5 {

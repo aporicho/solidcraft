@@ -73,7 +73,10 @@ fn catalogue_slot_descriptions_explain_slots_without_settings_jargon() {
 #[test]
 fn default_slots_and_canvas_availability_preserve_navigation() {
     let bar = NavigationBar::default();
-    assert_eq!(bar.slots, ["orbit", "pan", "zoom", "separator", "fit", "look_at", "home", "separator", "visual_style", "display"]);
+    assert_eq!(
+        bar.slots,
+        ["orbit", "pan", "zoom", "separator", "fit", "look_at", "home", "separator", "visual_style", "display", "origin_planes", "origin_axes"]
+    );
     let flat = NavCaps { orbit: false, pick: false };
     for caps in [NavCaps::MODEL, NavCaps::RENDER, flat] {
         let shown: Vec<_> = CATALOGUE.iter().filter(|slot| slot.available(caps)).map(|slot| slot.id).collect();
@@ -616,4 +619,13 @@ fn navigation_board_drops_menu_value_text_before_folding_slots() {
     let folded = measure(Rect::from_min_size(egui::Pos2::ZERO, vec2(100.0, 200.0)), &bar, NavCaps::MODEL, |_| 120.0);
     assert!(!folded.values && !folded.overflow.is_empty());
     assert_eq!(folded.more.size(), vec2(32.0, 32.0));
+}
+
+#[test]
+fn origin_buttons_upgrade_only_the_previous_default_toolbar() {
+    let old = json!({"slots":["orbit", "pan", "zoom", "separator", "fit", "look_at", "home", "separator", "visual_style", "display"]});
+    let migrated: NavigationBar = serde_json::from_value(old).unwrap();
+    assert_eq!(migrated.slots, NavigationBar::default().slots);
+    let custom: NavigationBar = serde_json::from_value(json!({"slots":["fit", "home"]})).unwrap();
+    assert_eq!(custom.slots, ["fit", "home"]);
 }

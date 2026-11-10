@@ -34,7 +34,21 @@ pub fn attachment(session: &Session, value: Option<&Value>) -> Result<Option<Att
         .iter()
         .find(|(world, source, _, path, _)| (world == body || source == body) && requested_path.as_ref().is_none_or(|p| p == path))
         .ok_or_else(|| bad(cmd, "attached member placement is unavailable"))?;
-    member(session, world)?;
+    let datum = if let Some(port) = value.get("connector_port").and_then(Value::as_str) {
+        let instance = crate::connector_ports::instance(session, world)?;
+        if instance.ports(session).iter().any(|p| p.id == port && p.occupied.is_some()) {
+            return Err(bad(cmd, "connector port is already connected"));
+        }
+        Some(instance.datum(port)?)
+    } else if let Some(raw) = value.get("datum").filter(|v| !v.is_null()) {
+        Some(serde_json::from_value::<solidcraft_doc::aluminium::ConnectorDatum>(raw.clone()).map_err(|_| bad(cmd, "invalid connector datum"))?)
+    } else {
+        member(session, world)?;
+        None
+    };
+    if let Some(datum) = &datum {
+        datum.frame()?;
+    }
     let port = serde_json::from_value(value.get("port").cloned().unwrap_or(Value::Null)).map_err(|_| bad(cmd, "invalid member interface"))?;
     let expression = |key, default: &str| -> Result<solidcraft_doc::Expr> {
         if value.get(key).is_none() {
@@ -59,7 +73,7 @@ pub fn attachment(session: &Session, value: Option<&Value>) -> Result<Option<Att
     if path.len() > 64 || author_path.len() > 64 {
         return Err(bad(cmd, "attachment occurrence path is too deep"));
     }
-    Ok(Some(Attachment { body: source.clone().into(), port, position, gap, path: path.clone(), author_path }))
+    Ok(Some(Attachment { body: source.clone().into(), port, position, gap, path: path.clone(), author_path, datum }))
 }
 
 /// World-space base, growth axis and section reference for the placement handle.

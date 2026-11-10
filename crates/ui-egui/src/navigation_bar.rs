@@ -76,6 +76,8 @@ pub(crate) const CATALOGUE: &[Slot] = &[
     slot!("visual_style", Menu, "style_shaded_edges", Some("view.visual_style")),
     slot!("projection", Toggle, "perspective", None),
     slot!("display", Menu, "display", None),
+    slot!("origin_planes", Toggle, "plane", Some("browser.visibility")),
+    slot!("origin_axes", Toggle, "axis", Some("browser.visibility")),
     slot!("grid", Toggle, "grid", Some("view.grid")),
     slot!("ground_shadow", Toggle, "ground_shadow", Some("view.ground_shadow")),
     slot!("ambient_occlusion", Toggle, "ambient_occlusion", Some("view.ambient_occlusion")),
@@ -192,10 +194,23 @@ pub struct NavigationBar {
 impl Default for NavigationBar {
     fn default() -> Self {
         Self {
-            slots: ["orbit", "pan", "zoom", "separator", "fit", "look_at", "home", "separator", "visual_style", "display"]
-                .into_iter()
-                .map(str::to_owned)
-                .collect(),
+            slots: [
+                "orbit",
+                "pan",
+                "zoom",
+                "separator",
+                "fit",
+                "look_at",
+                "home",
+                "separator",
+                "visual_style",
+                "display",
+                "origin_planes",
+                "origin_axes",
+            ]
+            .into_iter()
+            .map(str::to_owned)
+            .collect(),
             slot_options: Default::default(),
             position: Position::default(),
             edge: Edge::default(),
@@ -230,6 +245,10 @@ impl<'de> Deserialize<'de> for NavigationBar {
                 .take(MAX_SLOTS)
                 .map(str::to_owned)
                 .collect();
+        }
+        // Upgrade the former stock toolbar; explicitly customised layouts stay intact.
+        if bar.slots == ["orbit", "pan", "zoom", "separator", "fit", "look_at", "home", "separator", "visual_style", "display"] {
+            bar.slots.extend(["origin_planes".to_owned(), "origin_axes".to_owned()]);
         }
         if let Some(options) = value.get("slot_options").and_then(Value::as_object) {
             for (id, option) in options.iter().take(MAX_SLOTS) {

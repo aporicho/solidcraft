@@ -507,6 +507,8 @@ pub struct AluminiumAttachmentParams {
     pub gap: Option<LengthExpr>,
     pub path: Option<Vec<u64>>,
     pub author_path: Option<Vec<u64>>,
+    pub connector_port: Option<String>,
+    pub datum: Option<ConnectorDatumParams>,
 }
 
 #[derive(Debug, Deserialize, JsonSchema)]
@@ -519,4 +521,23 @@ pub struct AluminiumConnectorMountParams {
     pub position: Option<f64>,
     pub side: Option<u32>,
     pub gap: Option<LengthExpr>,
+}
+
+#[derive(Debug, Deserialize, JsonSchema)]
+#[schemars(deny_unknown_fields)]
+pub struct ConnectorDatumParams {
+    pub model: String,
+    pub port: String,
+    pub cad_sha256: String,
+    pub origin: [f64; 3],
+    pub normal: [f64; 3],
+    pub reference: [f64; 3],
+    pub size: f64,
+    pub slot: u32,
+}
+
+#[derive(Debug, Deserialize, JsonSchema)]
+#[schemars(deny_unknown_fields)]
+pub struct ConnectorPortsParams {
+    pub body: String,
 }

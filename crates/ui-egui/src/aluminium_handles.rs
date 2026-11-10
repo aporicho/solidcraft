@@ -1,4 +1,7 @@
 //! Direct model interfaces: extend a stock member from a face or place a connector at an end.
+#[path = "connector_handles.rs"]
+mod connectors;
+
 use crate::{SolveApp, dialogs::Kind, theme::Tokens, viewport::Proj};
 use egui::{Align2, FontId, Pos2, Rect, Sense, Stroke, Vec2, vec2};
 use solidcraft_engine::{Sel, aluminium_ports, doc::aluminium::Port};
@@ -61,6 +64,9 @@ fn action_rect(interface: &Interface, info: &aluminium_ports::MemberInfo, proj: 
 }
 
 pub(crate) fn owns_pointer(app: &SolveApp, proj: &Proj, point: Pos2) -> bool {
+    if connectors::owns_pointer(app, proj, point) {
+        return true;
+    }
     if let Some((interface, info)) = selected(app) {
         return action_rect(&interface, &info, proj).is_some_and(|r| r.contains(point) && !crate::shell::covered(app, point));
     }
@@ -136,6 +142,7 @@ pub(crate) fn show(app: &mut SolveApp, ui: &mut egui::Ui, proj: &Proj) {
             }
         }
     }
+    connectors::show(app, ui, proj);
     position_handle(app, ui, proj);
     length_handle(app, ui, proj);
     crate::dialogs_connectors::mount_guide(app, ui, proj);

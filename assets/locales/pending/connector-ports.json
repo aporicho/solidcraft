@@ -1,0 +1,47 @@
+{
+  "en": {
+    "cmd.aluminium.connector.ports": "Inspect Connector Ports",
+    "ports.add_member": "Connect a profile from this free port",
+    "ports.connected": "Connected: {member}",
+    "ports.unsupported_stock": "This port needs a matching profile section that is not yet in the stock catalogue.",
+    "ports.count": "{count} installation ports; connect them one at a time",
+    "ports.attach_note": "This member follows the selected connector port. Other ports may remain free.",
+    "ports.parent": "Connected to"
+  },
+  "zh": {
+    "cmd.aluminium.connector.ports": "查看连接件端口",
+    "ports.add_member": "从此空闲端口接出型材",
+    "ports.connected": "已连接：{member}",
+    "ports.unsupported_stock": "此端口所需的匹配截面尚未加入当前型材库。",
+    "ports.count": "{count} 个安装端口，可逐个接续",
+    "ports.attach_note": "此型材跟随所选连接件端口，其他端口可以保持空闲。",
+    "ports.parent": "连接对象"
+  },
+  "ja": {
+    "cmd.aluminium.connector.ports": "接続部品ポートを確認",
+    "ports.add_member": "空きポートから形材を接続",
+    "ports.connected": "接続済み：{member}",
+    "ports.unsupported_stock": "このポートに対応する形材断面は未登録です。",
+    "ports.count": "取付ポート{count}個。個別に接続できます",
+    "ports.attach_note": "この形材は選択した部品ポートに追従します。他のポートは空いたままにできます。",
+    "ports.parent": "接続先"
+  },
+  "de": {
+    "cmd.aluminium.connector.ports": "Verbinderanschlüsse prüfen",
+    "ports.add_member": "Profil an diesem freien Anschluss ansetzen",
+    "ports.connected": "Verbunden: {member}",
+    "ports.unsupported_stock": "Der passende Profilquerschnitt ist noch nicht im Katalog.",
+    "ports.count": "{count} Montageanschlüsse einzeln verbinden",
+    "ports.attach_note": "Das Profil folgt dem gewählten Verbinderanschluss. Andere Anschlüsse dürfen frei bleiben.",
+    "ports.parent": "Verbunden mit"
+  },
+  "ko": {
+    "cmd.aluminium.connector.ports": "커넥터 포트 확인",
+    "ports.add_member": "이 빈 포트에서 프로파일 연결",
+    "ports.connected": "연결됨: {member}",
+    "ports.unsupported_stock": "이 포트에 맞는 단면이 아직 프로파일 목록에 없습니다.",
+    "ports.count": "설치 포트 {count}개를 하나씩 연결하세요",
+    "ports.attach_note": "프로파일은 선택한 커넥터 포트를 따라갑니다. 다른 포트는 비워 둘 수 있습니다.",
+    "ports.parent": "연결 대상"
+  }
+}

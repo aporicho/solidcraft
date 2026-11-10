@@ -144,6 +144,9 @@ fn selected(app: &SolveApp, id: &str) -> bool {
         "zoom" => app.viewport.nav == Some(NavMode::Zoom),
         "spin" => app.viewport.spin,
         "projection" => app.perspective_view(),
+        "origin_planes" | "origin_axes" => {
+            app.origin_shown() && origin_items(id).iter().any(|name| !app.session.visibility.hidden_origin.iter().any(|hidden| hidden == name))
+        }
         "grid" => app.ui.show_grid,
         "ground_shadow" => app.ui.ground_shadow,
         "ambient_occlusion" => app.preferences.ambient_occlusion,
@@ -163,10 +166,31 @@ fn toggle_projection(app: &mut SolveApp) {
     }
 }
 
+fn origin_items(id: &str) -> &'static [&'static str] {
+    if id == "origin_planes" { &["XY", "XZ", "YZ"] } else { &["X", "Y", "Z", "O"] }
+}
+
+fn toggle_origin_group(app: &mut SolveApp, id: &str) {
+    let visible = !selected(app, id);
+    if visible && !app.origin_shown() {
+        // The folder can be hidden by the design or by the initial preference.
+        // Reveal only the requested group, keeping the other one visually hidden.
+        if app.run("browser.visibility", json!({"folder":"origin", "visible":true})).is_err() {
+            return;
+        }
+        let other = if id == "origin_planes" { "origin_axes" } else { "origin_planes" };
+        if app.run("browser.visibility", json!({"items":origin_items(other), "visible":false})).is_err() {
+            return;
+        }
+    }
+    let _ = app.run("browser.visibility", json!({"items":origin_items(id), "visible":visible}));
+}
+
 fn activate(app: &mut SolveApp, slot: &Slot) {
     match slot.id {
         "look_at" => crate::viewport::look_at_selection(app),
         "projection" => toggle_projection(app),
+        "origin_planes" | "origin_axes" => toggle_origin_group(app, slot.id),
         _ => {
             if let Some(command) = slot.command {
                 let params = match slot.kind {
