@@ -1,0 +1,4259 @@
+{
+  "summary": {
+    "source_url": "https://www.motedis.com/en/cad-database?category_id=16",
+    "product_count": 260,
+    "catalogue_entries": 264,
+    "step_models": 252,
+    "status_counts": {
+      "ready": 252,
+      "source_only": 12
+    },
+    "archive_count": 243,
+    "archive_errors": [],
+    "unique_cad_files": 244,
+    "verified_models": 252,
+    "geometry_counts": {
+      "solid": 247,
+      "mixed": 5,
+      "reference": 12
+    }
+  },
+  "products": [
+    {
+      "name": "Cube connector 30 B-type slot 8",
+      "product_url": "https://www.motedis.com/en/Cube-connector-30-B-type-slot-8",
+      "models": [
+        "motedis-s8bcc2d30",
+        "motedis-s8bcc3d30"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BCC3D30-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BCC2D30.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BCC2D30-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BCC3D30.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cube connector 45 B-type slot 10",
+      "product_url": "https://www.motedis.com/en/Cube-connector-45-B-type-slot-10",
+      "models": [
+        "motedis-cube-connector-45-3d-b-type-slot-10-5a3c2123",
+        "motedis-cube-connector-45-2d-b-type-slot-10-e4320ec0"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Cube_connector_45_B-type_slot_10.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 40 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Bracket-40-I-Type-slot-8",
+      "models": [
+        "motedis-s8ibr40"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBR40_1.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBR40-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 40x80 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Bracket-40x80-I-Type-slot-8",
+      "models": [
+        "motedis-s8ibr4080-7b907d15"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBR4080.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBR4080-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Hinge 20x20 light",
+      "product_url": "https://www.motedis.com/en/Hinge-20x20-light",
+      "models": [
+        "motedis-h-20x20-l-1ae2b644"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_H-20x20-L.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_H-20x20-L-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Joint for Profile 30 B-Type Slot 8",
+      "product_url": "https://www.motedis.com/en/Joint-for-Profile-30-B-Type-Slot-8",
+      "models": [
+        "motedis-pj83030p"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PJ83030P.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PJ83030P-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover profile black B-type slot 8 (1 meter +X)",
+      "product_url": "https://www.motedis.com/en/Cover-profile-black-B-type-slot-8-1-meter-X",
+      "models": [
+        "motedis-125-34e372d2"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_125.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_125-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover and Reduction Profile black B-type slot 8 (1 meter)",
+      "product_url": "https://www.motedis.com/en/Cover-and-Reduction-Profile-black-B-type-slot-8-1-meter",
+      "models": [
+        "motedis-psil08br-3dd281dd"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PSIL08BR.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PSIL08BR-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover profile black B-type slot 10 (1 meter +X)",
+      "product_url": "https://www.motedis.com/en/Cover-profile-black-B-type-slot-10-1-meter-X",
+      "models": [
+        "motedis-128-5acce646"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_128.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_128-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover- & slot profile black I-type slot 8 (1 meter +X)",
+      "product_url": "https://www.motedis.com/en/Cover-slot-profile-black-I-type-slot-8-1-meter-X",
+      "models": [
+        "motedis-129-583ff53f"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_129.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_129-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 20x40 I-Type slot 5",
+      "product_url": "https://www.motedis.com/en/Bracket-20x40-I-Type-slot-5",
+      "models": [
+        "motedis-s5ibr2040-c06de0ae"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5IBR2040.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5IBR2040-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap 20 I-Type slot 5",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-20-I-Type-slot-5",
+      "models": [
+        "motedis-pts5i20x20-0071aba6"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS5I20x20.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Joint 20 slot 5 & slot 6",
+      "product_url": "https://www.motedis.com/en/Joint-20-slot-5-slot-6",
+      "models": [
+        "motedis-pj562020p"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PJ562020P.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PJ562020P-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap 30 B-type slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-30-B-Typ-slot-8",
+      "models": [
+        "motedis-pts8b30x30"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8B30x30-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8B30x30.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Central Screw M12x30 T50 P45 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Central-Screw-M12x30-T50-P45-B-type-slot-10",
+      "models": [
+        "motedis-s10bcstat12x30-295e2364"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BCSTAT12x30.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BCSTAT12x30-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 30x60 B-Typ slot 8",
+      "product_url": "https://www.motedis.com/en/Bracket-30x60-B-Typ-slot-8",
+      "models": [
+        "motedis-s8bbr3060-9a29a1a8"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BBR3060-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BBR3060.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-Connection plate SAPLA 30 B-Type slot 8 with fixing set",
+      "product_url": "https://www.motedis.com/en/T-Connection-plate-SAPLA-30-B-Type-slot-8-with-fixing-set",
+      "models": [
+        "motedis-t-connection-plate-sapla-30-b-type-slot-8-cb677006"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_T-Connection%20plate%20SAPLA%2030%20B-Type%20slot%208.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Self Forming Screw S7x25 T40 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Self-Forming-Screw-S7x25-T40-I-Type-slot-8",
+      "models": [
+        "motedis-s8iss725-36cc1003"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ISS725-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ISS725_1.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Quick Connector B-Type slot 8 - 0°",
+      "product_url": "https://www.motedis.com/en/Quick-Connector-B-Type-slot-8-0G",
+      "models": [
+        "motedis-s8bqc0-cb5b028a"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BQC0_2.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Swivelling Angle 30 B-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Swivelling-Angle-30-B-Type-slot-8",
+      "models": [
+        "motedis-s8bta30-558431d0"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BTA30.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BTA30-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-connection plate SAPLA 45 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/T-connection-plate-SAPLA-45-B-Type-slot-10",
+      "models": [
+        "motedis-pcb4545s10-27cc532e"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PCB4545S10-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PCB4545S10.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Swivel Angle 45 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Swivel-Angle-45-B-Type-slot-10",
+      "models": [
+        "motedis-su-br45-turn-9a509ddc"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SU-BR45-TURN.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SU-BR45-TURN-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cross Cable Binding Block I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Cross-Cable-Binding-Block-I-Type-slot-8",
+      "models": [
+        "motedis-s8ikablock-8658ad69"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IKABLOCK.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IKABLOCK-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Angle Connector 45° 40 I-Typ slot 8",
+      "product_url": "https://www.motedis.com/en/Angle-Connector-45G-40-I-Typ-slot-8",
+      "models": [
+        "motedis-s8ialucon45-9d607fe6"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IALUCON45-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IALUCON45.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/DIAGONAL%20L.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/DIAGONAL%20PARALELA.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-Matik Connector Light Slot 10 B-Type",
+      "product_url": "https://www.motedis.com/en/T-Matik-Connector-Light-Slot-10-B-Type",
+      "models": [
+        "motedis-10cev-e8-14-on-3dfb17e1"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_10CEV-E8-14-ON.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_10CEV-E8-14-ON-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Aluminium hexagon SW19 length 42mm Ø10,3",
+      "product_url": "https://www.motedis.com/en/Aluminium-hexagon-SW19-length-42mm-103-all-the-way-through",
+      "models": [
+        "motedis-ahsw19-42-10-3-16f312f7"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_AHSW19-42-10%2C3.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_AHSW19-42-10%2C3.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Aluminium hexagon SW19 length 77mm Ø8,3 all the way through",
+      "product_url": "https://www.motedis.com/en/Aluminium-hexagon-SW19-length-77mm-83-all-the-way-through",
+      "models": [
+        "motedis-ahsw19-77-8-3-03f59db8"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_AHSW19-77-8%2C3.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_AHSW19-77-8%2C3.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Aluminium hexagon SW19 length 77mm Ø10,3 all the way through",
+      "product_url": "https://www.motedis.com/en/Aluminium-hexagon-SW19-length-77mm-103-all-the-way-through",
+      "models": [
+        "motedis-ahsw19-77-10-3-12bac15f"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_AHSW19-77-10%2C3.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_AHSW19-77-10%2C3.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Axis aluminium hexagon SW19 L=118,5mm - D11",
+      "product_url": "https://www.motedis.com/en/Axis-aluminium-hexagon-SW19-L1185mm-D11",
+      "models": [
+        "motedis-sw19-l-118-5mm-d11-e0f71249"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SW19%20L=118%2C5mm%20-%20D11.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SW19%20L=118%2C5mm%20-%20D11.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block with spring B-type slot 8 [M3]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M3",
+      "models": [
+        "motedis-s8bssnm3-3dfed72e"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BSSNM3.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BSSNM3-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Joint 40 I-type slot 8 - adjustable friction",
+      "product_url": "https://www.motedis.com/en/Joint-40-I-type-slot-8-movable",
+      "models": [
+        "motedis-sp-pj4040"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SP.PJ4040.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SP.PJ4040-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Special screw automatic connector DIN 912-M4x35 N5 I-Type",
+      "product_url": "https://www.motedis.com/en/Special-screw-automatic-connector-DIN-912-M4x35-N5-I-Type",
+      "models": [
+        "motedis-s5icp1912435-7a66eba5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ICP1912435.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ICP1912435-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Axis steel hexagon SW19 L=118,5mm - M8",
+      "product_url": "https://www.motedis.com/en/Axis-steel-hexagon-SW19-L1185mm-M8",
+      "models": [
+        "motedis-sw19-l-118-5mm-m8-99a76488"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SW19%20L=118%2C5mm%20-%20M8.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SW19%20L=118%2C5mm%20-%20M8.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Square nut with spring type O Slot 8 [M6]",
+      "product_url": "https://www.motedis.com/en/Square-nut-with-spring-type-O-M6",
+      "models": [
+        "motedis-slotswbm6-00f3b1f2"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SLOTSWBM6.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SLOTSWBM6-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Diagonal configurator",
+      "product_url": "https://www.motedis.com/en/Diagonal-configurator",
+      "models": [
+        "motedis-source-5f7aa4bc34c6"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Winkel_45_.png",
+          "kind": "png"
+        }
+      ]
+    },
+    {
+      "name": "Cutting sleeve for automatic connector B-Type slot 8 (additional internal thread M6)",
+      "product_url": "https://www.motedis.com/en/Cutting-sleeve-for-automatic-connector-B-type-Nut-8",
+      "models": [
+        "motedis-s8bcsfa-c85110a5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BCSFA.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BCSFA-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Square nut type O Slot 8 [M5]",
+      "product_url": "https://www.motedis.com/en/Square-nut-type-O-M5",
+      "models": [
+        "motedis-slotonm5-16474d1e"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SLOTONM5.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SLOTONM5-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Square nut type O Slot 8 [M6]",
+      "product_url": "https://www.motedis.com/en/Square-nut-type-O-M6",
+      "models": [
+        "motedis-slotonm6-554e49d8"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SLOTONM6.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SLOTONM6-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Square nut type O Slot 8 [M8]",
+      "product_url": "https://www.motedis.com/en/Square-nut-type-O-M8",
+      "models": [
+        "motedis-slotonm8-512feb2b"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SLOTONM8.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SLOTONM8-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Hammer Head Screw B Type slot 10 [M8x25] - caulked",
+      "product_url": "https://www.motedis.com/en/Hammer-Head-Screw-B-Type-slot-10-M8x25-caulked",
+      "models": [
+        "motedis-thbm8x25verstemmt-ae8d5e9b"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_THBM8X25verstemmt.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_THBM8X25verstemmt-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Corner connector 3D 20x20 B-Type slot 6 with screw M4x5",
+      "product_url": "https://www.motedis.com/en/Corner-connector-3D-20x20-with-M45-screw",
+      "models": [
+        "motedis-cc3d20x20m4x5-6c2938c7"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CC3D20x20M4x5.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CC3D20x20M4x5-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Corner connector 3D 30x30 B-Type slot 8 with screw M6*8",
+      "product_url": "https://www.motedis.com/en/Corner-connector-3D-30x30-with-M68-screw",
+      "models": [
+        "motedis-cc3d30x30m6x8-56d57d0e"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CC3D30x30M6x8.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CC3D30x30M6x8-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Corner connector 3D 40x40  I-Type slot 8 with M6*12 screw",
+      "product_url": "https://www.motedis.com/en/Corner-connector-3D-40x40-with-M612-screw",
+      "models": [
+        "motedis-cc3d40x40m6x12-cb26b950"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CC3D40x40M6x12.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CC3D40x40M6x12-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cable Block S8 POM Black",
+      "product_url": "https://www.motedis.com/en/Cable-Block-S8-POM",
+      "models": [
+        "motedis-s8crpom-814560cf"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8CRPOM.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8CRPOM-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cross Cable Binding Block B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Cross-Cable-Binding-Block-B-Type-slot-10",
+      "models": [
+        "motedis-s10crpa-000b4f92"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10CRPA.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10CRPA-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Swiveling angle 20 B-type slot 6 and type I slot 5",
+      "product_url": "https://www.motedis.com/en/Swiveling-angle-20-B-type-slot-6-and-type-I-slot-5",
+      "models": [
+        "motedis-su-br20-turn-dd9fae69"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SU-BR20-TURN.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SU-BR20-TURN-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover caps 45x45 O-Type slot 8 Grey",
+      "product_url": "https://www.motedis.com/en/Cover-caps-45x45-O-Type-slot-8",
+      "models": [
+        "motedis-pts8o45x45-d2eab6a5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8O45x45_1.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8O45x45-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover caps 45x90 O-Type slot 8 Grey",
+      "product_url": "https://www.motedis.com/en/Cover-caps-45x90-O-Type-slot-8-",
+      "models": [
+        "motedis-pts8o45x90-57db71b7"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8O45x90_1.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8O45x90-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Flange nut M6",
+      "product_url": "https://www.motedis.com/en/Flange-nut-M6",
+      "models": [
+        "motedis-340me154-a96c309a"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Flange_M8.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cover caps 45x45 O-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-caps-45x45-O-Type-slot-8-Grey",
+      "models": [
+        "motedis-pts8o45x45-e926e1c5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8O45x45.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8O45x45-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover caps 45x90 O-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-caps-45x90-O-Type-slot-8-Grey",
+      "models": [
+        "motedis-pts8o45x90-1feb9a5b"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8O45x90.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8O45x90-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cutting sleeve for automatic connector B-Type slot 8 (new version)",
+      "product_url": "https://www.motedis.com/en/Cutting-sleeve-for-automatic-connector-B-Type-slot-8-new-version",
+      "models": [
+        "motedis-s8bcsfanew-22224140"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BCSFAnew.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BCSFAnew-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Connecting strip 180 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Connecting-strip-180-B-Type-slot-10",
+      "models": [
+        "motedis-s10bcs180-94794286"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BCS180.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BCS180-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Standard connector 40 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Standard-connector-40-I-Type-slot-8",
+      "models": [
+        "motedis-092040-c24d9c10"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ISTANDVERB-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Standard_connector_I-Type_slot_8.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap 30x60 B-Typ slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-30x60-B-Typ-slot-8",
+      "models": [
+        "motedis-pts8b30x60-158b7522"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8B30x60.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-Nut with spring ball, without guidance I-Type slot 5 [M3]",
+      "product_url": "https://www.motedis.com/en/T-Nut-with-spring-ball-without-guidance-I-Type-slot-5-M3",
+      "models": [
+        "motedis-s5ismonm3-881103d1"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM3-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM3_1.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 20x40 B-type slot 6",
+      "product_url": "https://www.motedis.com/en/Bracket-20x40-B-type-slot-6",
+      "models": [
+        "motedis-s6bbr2040-386bda43"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BBR2040.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BBR2040-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut B-type slot 6 [M4]",
+      "product_url": "https://www.motedis.com/en/T-nut-B-type-slot-6-M4",
+      "models": [
+        "motedis-s6bhasnm4"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHASNM4.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHASNM4-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap 20 B-Type slot 6",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-20-B-Type-slot-6",
+      "models": [
+        "motedis-pts6b20x20"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS6B20x20.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS6B20x20-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Threaded Plate B-Type slot 6 [M4]",
+      "product_url": "https://www.motedis.com/en/Threaded-Plate-B-Type-slot-6-M4",
+      "models": [
+        "motedis-threaded-plate-b-type-slot6-7621fb3c"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Threaded_Plate_B-Type_slot6.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap 20x40 I-Type slot 5",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-20x40-I-Type-slot-5",
+      "models": [
+        "motedis-pts5i20x40-02f85495"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS5I20x40.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Standard connector 20 I-Type slot 5",
+      "product_url": "https://www.motedis.com/en/Standard-connector-20-I-Type-slot-5",
+      "models": [
+        "motedis-s5istanverb-e9996d88"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISTANVERB-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISTANVERB.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cutting sleeve S12/M8 B-type slot 10",
+      "product_url": "https://www.motedis.com/en/Cutting-sleeve-S12-M8-B-type-slot-10",
+      "models": [
+        "motedis-589-34c3bccc"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_589.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_589-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 45 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Bracket-45-B-Type-slot-10",
+      "models": [
+        "motedis-s10bbr45-ba6c6d1a"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Bracket_45%20B-Type_Slot_10.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR45.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Flange nut M8",
+      "product_url": "https://www.motedis.com/en/Flange-nut-M8",
+      "models": [
+        "motedis-fnm8-7af1b5d9"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_FNM8-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_FNM8.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 90 B-type slot 10",
+      "product_url": "https://www.motedis.com/en/Bracket-90-B-type-slot-10",
+      "models": [
+        "motedis-s10bbr90-59789675"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR90-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR90.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 45x90 B-type slot 10",
+      "product_url": "https://www.motedis.com/en/Bracket-45x90-B-type-slot-10",
+      "models": [
+        "motedis-s10bbr4590-480f236f"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR4590-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR4590.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cover Caps 45x90 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Cover-Caps-45x90-B-Type-slot-10",
+      "models": [
+        "motedis-pts10b45x90-6dee3d6d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS10B45x90.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cover Caps 45x45 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Cover-caps-45x45-B-Type-slot-10",
+      "models": [
+        "motedis-pts10b45x45-884b9760"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS10B45x45.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS10B45x45-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Caps 40x40 I-Type Slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-Caps-40x40-I-Type-Slot-8",
+      "models": [
+        "motedis-pts8i40x40"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I40x40.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I40x40-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Caps 40x80 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-Caps-40x80-I-Type-slot-8",
+      "models": [
+        "motedis-pts8i40x80-e2ce2fc5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I40x80.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I40x80-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Caps 40x120 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-Caps-40x120-I-Type-slot-8",
+      "models": [
+        "motedis-pts8i40x120-529f6645"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I40x120.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I40x120-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Caps 40x16 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-Caps-40x16-I-Type-slot-8",
+      "models": [
+        "motedis-pts8i40x16-3eeef016"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I40x16.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I40x16-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Universal Connector 40 I-Typ slot 8",
+      "product_url": "https://www.motedis.com/en/Universal-Connector-40-I-Typ-slot-8",
+      "models": [
+        "motedis-s8ibfc40-cc92a10d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBFC40.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBFC40-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 20x20 I-type Slot 5",
+      "product_url": "https://www.motedis.com/en/Bracket-20x20-I-type-Slot-5",
+      "models": [
+        "motedis-s5ibr2020-b556107c"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5IBR2020-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5IBR2020_1.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cover Caps 80x16 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-Caps-80x16-I-Type-slot-8",
+      "models": [
+        "motedis-746-73558168"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_746.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_746-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Angle Clamp 40 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Angle-Clamp-40-I-Type-slot-8",
+      "models": [
+        "motedis-s8iacll40-c24e4023"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IACLL40_1.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IACLL40-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap 20x10 I-Type slot 5",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-20x10-I-Type-slot-5",
+      "models": [
+        "motedis-771-c2a421de"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_771.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_771-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap 20x60 I-Type slot 5",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-20x60-I-Type-slot-5",
+      "models": [
+        "motedis-091183-86d9490f"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_091183.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cross Cable Binding Block B Type Slot 8",
+      "product_url": "https://www.motedis.com/en/Cross-Cable-Binding-Block-B-Type-Slot-8",
+      "models": [
+        "motedis-s8bkablock-0eed4305"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BKABLOCK.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BKABLOCK-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Angle Connector 45° 80x40 I-Typ slot 8",
+      "product_url": "https://www.motedis.com/en/Angle-Connector-45G-80x40-I-Typ-slot-8",
+      "models": [
+        "motedis-angle-connector-45-40x80-i-type-slot-8-eeca3855"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Angle_Connector_45_40x80_I-Type_slot_8.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cover Caps 80x80 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-Caps-80x80-I-Type-slot-8",
+      "models": [
+        "motedis-pts8i80x80-db53fdc5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I80x80.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cover Caps 90x90 L B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Cover-Caps-90x90-L-B-Type-slot-10",
+      "models": [
+        "motedis-091030-9d68948d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Cover_Caps_90x90_L_B-Type_slot_10.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Angle 60x60 without lugs",
+      "product_url": "https://www.motedis.com/en/Angle-60x60-without-lugs",
+      "models": [
+        "motedis-s6ibr60wl-c0da40e4"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6IBR60WL.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6IBR60WL-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap Bracket 30",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-bracket-30",
+      "models": [
+        "motedis-s68br30c-17f79efe"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S68BR30C-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S68BR30C.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap Bracket 40x40 I-Type Slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-Bracket-40x40-I-Type-Slot-8",
+      "models": [
+        "motedis-s810br40c-7a87077b"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S810BR40C-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S810BR40C.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Bracket cover cap 40x80",
+      "product_url": "https://www.motedis.com/en/Bracket-cover-cap-40x80",
+      "models": [
+        "motedis-s8ibr4080c-9a415dd8"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBR4080C.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBR4080C-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap Bracket 20",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-Bracket-20",
+      "models": [
+        "motedis-s5i6bbr20c-d4d49e5f"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5I6BBR20C-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5I6BBR20C.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Bracket cover Cap 45 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Bracket-cover-Cap-45-B-Type-slot-10",
+      "models": [
+        "motedis-s10bbrc4545-dff7932b"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBRC4545.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBRC4545-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 30 B-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Bracket-30-B-Type-slot-8",
+      "models": [
+        "motedis-s8bbr30"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BBR30-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BBR30.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 20x20 B-type slot 6",
+      "product_url": "https://www.motedis.com/en/Bracket-20x20-B-type-slot-6",
+      "models": [
+        "motedis-s6bbr20"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BBR20-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BBR20_2.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Standard connector 30 I-Type slot 6",
+      "product_url": "https://www.motedis.com/en/Standard-connector-30-I-Type-slot-6",
+      "models": [
+        "motedis-s6istanverb-879f5793"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ISTANVERB-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ISTANVERB.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap 30 I-Type slot 6",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-30-I-Type-slot-6",
+      "models": [
+        "motedis-pts6i30x30-26264968"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS6I30x30.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS6I30x30-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap 30x60 I-Type slot 6",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-30x60-I-Type-slot-6",
+      "models": [
+        "motedis-1219-53944573"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_1219.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_1219-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Bracket cover cap 45x90 B-Type Slot 10",
+      "product_url": "https://www.motedis.com/en/Bracket-cover-cap-45x90-B-Type-Slot-10",
+      "models": [
+        "motedis-abdkap-mittel-96648965"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Bracket_cover_cap_45x90_B-Type_Slot_10.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Self Forming Screw S12x30 T50 P45 B-type slot 10",
+      "product_url": "https://www.motedis.com/en/Self-Forming-Screw-S12x30-T50-P45-B-type-slot-10",
+      "models": [
+        "motedis-s10bcs12x30-9f96fce7"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BCS12x30-Drawing_2.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BCS12x30.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Bracket cover Cap 90 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Bracket-cover-Cap-90-B-Type-slot-10",
+      "models": [
+        "motedis-093wa901-ef1bd5df"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/WAK9090.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Bracket_cover_Cap_90_B-Type_slot_10.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Screw collar with female thread M6 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Screw-collar-with-female-thread-M6-I-Type-slot-8",
+      "models": [
+        "motedis-s8icsfam6-19c1af79"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ICSFAM6.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ICSFAM6-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 40x80 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Bracket-40x80-B-Type-slot-10",
+      "models": [
+        "motedis-s10bbr4080-34e4d4dc"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR4080.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR4080-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Joint 45 M8 B-type slot 10",
+      "product_url": "https://www.motedis.com/en/Joint-45-M8-B-type-slot-10",
+      "models": [
+        "motedis-pj104545p-40d945cc"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PJ104545P.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PJ104545P-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 40 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Bracket-40-B-Type-slot-10",
+      "models": [
+        "motedis-s10bbr40-cee0211c"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR40.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR40-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Profile Plastic NBR I-Type Slot 8 (~1m)",
+      "product_url": "https://www.motedis.com/en/Cover-Profile-Plastic-NBR-I-Type-Slot-8-1m",
+      "models": [
+        "motedis-3006-0d6ee375"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_3006.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Profile cover Caps 20x80 I-Type slot 5",
+      "product_url": "https://www.motedis.com/en/Profile-cover-Caps-20x80-I-Type-slot-5",
+      "models": [
+        "motedis-abdk2-8-5-dc6a1476"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_ABDK2-8-5.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_ABDK2-8-5-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T connector plate 58x58x3, Laser cut, 20 series",
+      "product_url": "https://www.motedis.com/en/T-connector-plate-58x58x3-Laser-cut-20-series",
+      "models": [
+        "motedis-lp20111-9c5052b7"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP20111.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP20111.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T connector plate 116x116x5, Laser cut",
+      "product_url": "https://www.motedis.com/en/T-connector-plate-116x116x5-Laser-cut",
+      "models": [
+        "motedis-lp40111-5966a9dc"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP40111_3.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP40111-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Connector plate 18x40x3, Laser cut",
+      "product_url": "https://www.motedis.com/en/Connector-plate-18x40x3-Laser-cut",
+      "models": [
+        "motedis-20-v-18x40-alu-3-mm-44a403ce"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20102.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20102.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Connector plate aluminum lasered 20x60x3 3-hole 20s",
+      "product_url": "https://www.motedis.com/en/Connector-plate-aluminum-steel-lasered-20x60x3-3-hole-20s",
+      "models": [
+        "motedis-20-v-20x60-alu-3-mm-fc331c59"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20104.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20104.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Connector plate 20x80x3, Lasercut",
+      "product_url": "https://www.motedis.com/en/Connector-plate-20x80x3-Lasercut",
+      "models": [
+        "motedis-lp20105"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20105.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20105.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Pivot Angle 84x2 Steel Galvanized Black",
+      "product_url": "https://www.motedis.com/en/Pivot-Angle-84x2-Steel-Galvanized-Black",
+      "models": [
+        "motedis-lp20101-3194d3e6"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20101.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20101.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Connector plate double 38x78x3, lasercut",
+      "product_url": "https://www.motedis.com/en/Connector-plate-double-38x78x3-lasercut",
+      "models": [
+        "motedis-lp20107-458fc4c3"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP20107.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Square connector plate 38x38x3, Lasercut",
+      "product_url": "https://www.motedis.com/en/Square-connector-plate-38x38x3-Lasercut",
+      "models": [
+        "motedis-20-v-38x38-alu-3-mm-521e1b7f"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20106.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20106.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "L connector plate 78x78x3, Laser cut",
+      "product_url": "https://www.motedis.com/en/L-connector-plate-78x78x3-Laser-cut",
+      "models": [
+        "motedis-lp20110-8861bd73"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP20110.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20110.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "L connector plate 38x38x3, Laser cut",
+      "product_url": "https://www.motedis.com/en/L-connector-plate-38x38x3-Laser-cut",
+      "models": [
+        "motedis-20-vl-38-alu-3-mm-e477c544"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20108.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20108.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T connector plate 78x78x3, Laser cut",
+      "product_url": "https://www.motedis.com/en/T-connector-plate-78x78x3-Laser-cut",
+      "models": [
+        "motedis-lp20112-3cf2eb7d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20112.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20112.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Angle Cover Cap 80 Slot 8 - 10",
+      "product_url": "https://www.motedis.com/en/Angle-Cover-Cap-80-Slot-8-10",
+      "models": [
+        "motedis-s8ibrc8080-8af2d473"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBRC8080.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBRC8080-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Connector plate 28x58x3, Laser cut",
+      "product_url": "https://www.motedis.com/en/Connector-plate-28x58x3-Laser-cut",
+      "models": [
+        "motedis-lp30101sb-a2f0a902",
+        "motedis-lp30101-d676fd38"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP30101.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP30101SB.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP30101.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T connector plate 88x88x3, Laser cut, 30 series",
+      "product_url": "https://www.motedis.com/en/T-connector-plate-88x88x3-Laser-cut-30-series",
+      "models": [
+        "motedis-lp30110-81e8b493",
+        "motedis-lp30110b-ae2bdcfa"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP30110.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP30110B.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP30110-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T connector plate 118x118x3, Laser cut",
+      "product_url": "https://www.motedis.com/en/T-connector-plate-118x118x3-Laser-cut",
+      "models": [
+        "motedis-t-conn-2to2-118-118-3-30-h12-d6-5-9404a201"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/T-CONN%202TO2%20%5B118%20118%203%5D%2030%20H12%20D6-5.stp",
+          "kind": "stp"
+        }
+      ]
+    },
+    {
+      "name": "Connector plate double 58x118x3, lasercut",
+      "product_url": "https://www.motedis.com/en/Connector-plate-double-58x118x3-lasercut",
+      "models": [
+        "motedis-lp30104-072aab39"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP30104.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP30104.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Square connector plate 58x58x3, Lasercut",
+      "product_url": "https://www.motedis.com/en/Square-connector-plate-58x58x3-Lasercut",
+      "models": [
+        "motedis-lp30105-2d222809"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP30105.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP30105.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "L connector plate 118x118x3, Laser cut",
+      "product_url": "https://www.motedis.com/en/L-connector-plate-118x118x3-Laser-cut",
+      "models": [
+        "motedis-lp30106-47fac223"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP30106.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "L Connector plate aluminum lasered 88x88x3 5-hole 30s",
+      "product_url": "https://www.motedis.com/en/L-Connector-plate-aluminum-lasered-88x88x3-5-hole-30s",
+      "models": [
+        "motedis-lp30108-a5000736"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP30108.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP30108-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "L connector plate lasered 58x58x3 3-hole 30s",
+      "product_url": "https://www.motedis.com/en/L-connector-plate-lasered-58x58x3-3-hole-30s",
+      "models": [
+        "motedis-lp30107-fe90f62c"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP30107.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP30107.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Connector plate  84x39x5 , Laser cut, series 45",
+      "product_url": "https://www.motedis.com/en/Connector-plate-84x39x5-Laser-cut-series-45",
+      "models": [
+        "motedis-lp45101-aa8650c0"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP45101.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP45101.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-connector plate 174x174x5, Laser cut",
+      "product_url": "https://www.motedis.com/en/T-connector-plate-174x174x5-Laser-cut",
+      "models": [
+        "motedis-lp45109-2b039117"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP45109.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T connector plate 129x129x5, Laser cut",
+      "product_url": "https://www.motedis.com/en/T-connector-plate-129x129x5-Laser-cut",
+      "models": [
+        "motedis-lp45108-1f6d8861"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP45108.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Square connector plate 84x84x5, Lasercut",
+      "product_url": "https://www.motedis.com/en/Square-connector-plate-84x84x5-Lasercut",
+      "models": [
+        "motedis-i-conn-sqr-84-84-5-45-h4-d-8-5-1ccf8403"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/I-CONN%20SQR%20%5B%2084%2084%205%5D%2045%20H4%20D%208-5.stp",
+          "kind": "stp"
+        }
+      ]
+    },
+    {
+      "name": "T-nut B-type slot 8 [M4]",
+      "product_url": "https://www.motedis.com/en/T-nut-B-type-slot-8-M4",
+      "models": [
+        "motedis-s8bhasnm4-2d0c989d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHASNM4-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHASNM4.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut B-type slot 8 [M5]",
+      "product_url": "https://www.motedis.com/en/T-nut-B-type-slot-8-M5",
+      "models": [
+        "motedis-s8bhasnm5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHASNM5-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHASNM5_1.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut B-type slot 8 [M6]",
+      "product_url": "https://www.motedis.com/en/T-nut-B-type-slot-8-M6",
+      "models": [
+        "motedis-s8bhasnm6"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHASNM6-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHASNM6_1.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut guided I-type slot 8 [M4]",
+      "product_url": "https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M4",
+      "models": [
+        "motedis-s8ismonm4-f879fdfd"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ISMONM4-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ISMONM4.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut guided I-type slot 8 [M5]",
+      "product_url": "https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M5",
+      "models": [
+        "motedis-s8ismonm5-84ea034e"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ISMONM5-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ISMONM5.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut guided I-type slot 8 [M6]",
+      "product_url": "https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M6",
+      "models": [
+        "motedis-s8ismonm6-6ac93e4e"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ISMONM6-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ISMONM6.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut guided I-type slot 8 [M8]",
+      "product_url": "https://www.motedis.com/en/T-nut-guided-I-type-slot-8-M8",
+      "models": [
+        "motedis-s8ismonm8-35c33fdc"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ISMONM8-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ISMONM8.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut with spring ball, with guidance I-Type slot 5 [M3]",
+      "product_url": "https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-5-M3",
+      "models": [
+        "motedis-s5ismonm3g-715dfbae"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM3G-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM3G_1.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut with spring ball, with guidance I-Type slot 5 [M4]",
+      "product_url": "https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-5-M4",
+      "models": [
+        "motedis-s5ismonm4g-4a2304e4"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM4G-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM4G_1.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut with spring ball, with guidance I-Type slot 5 [M5]",
+      "product_url": "https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-5-M5",
+      "models": [
+        "motedis-s5ismonm5g-f882d668"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM5G-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM5G_1.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut with spring ball, with guidance I-Type slot 6 [M3]",
+      "product_url": "https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-6-M3",
+      "models": [
+        "motedis-s6ismonm3g-9f31f822"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ISMONM3G.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ISMONM3G-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut with spring ball, with guidance I-Type slot 6 [M4]",
+      "product_url": "https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-6-M4",
+      "models": [
+        "motedis-s6ismonm4g-e010a924"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ISMONM4G.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ISMONM4G-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut with spring ball, with guidance I-Type slot 6 [M5]",
+      "product_url": "https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-6-M5",
+      "models": [
+        "motedis-s6ismonm5g-03708078"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ISMONM5G-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ISMONM5G.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut with spring ball, with guidance I-Type slot 6 [M6]",
+      "product_url": "https://www.motedis.com/en/T-nut-with-spring-ball-with-guidance-I-Type-slot-6-M6",
+      "models": [
+        "motedis-s6ismonm6g-56441333"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ISMONM6G-Drawing_1.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ISMONM6G.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Hammer Head Screw B Type slot 10 [M8x20]",
+      "product_url": "https://www.motedis.com/en/Hammer-Head-Screw-B-Type-slot-10-M8x20",
+      "models": [
+        "motedis-thbm8x20-09af9f39"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_THBM8X20.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_THBM8X20-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Hammer Head Screw B Type slot 10 [M8x25]",
+      "product_url": "https://www.motedis.com/en/Hammer-Head-Screw-B-Type-slot-10-M8x25",
+      "models": [
+        "motedis-thbm8x25-d868f8ff"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_THBM8X25-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_THBM8X25.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Hammer Head Screw B Type slot 10 [M8x30]",
+      "product_url": "https://www.motedis.com/en/Hammer-Head-Screw-B-Type-slot-10-M8x30",
+      "models": [
+        "motedis-thbm8x30-e68ef973"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_THBM8X30.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_THBM8X30-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Connector plate 30x90x3, Laser cut",
+      "product_url": "https://www.motedis.com/en/Connector-plate-30x90x3-Laser-cut",
+      "models": [
+        "motedis-lp30103"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP30103.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP30103.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Connector plate 30x120x3, Laser cut",
+      "product_url": "https://www.motedis.com/en/Connector-plate-30x120x3-Laser-cut",
+      "models": [
+        "motedis-lp30102-2d37ecfe"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP30102.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP30102.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Connector plate 40x120x5, Laser cut",
+      "product_url": "https://www.motedis.com/en/Connector-plate-40x120x5-Laser-cut",
+      "models": [
+        "motedis-lp40103"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP40103.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cross Cable Binding Block B-Type slot 6",
+      "product_url": "https://www.motedis.com/en/Cross-Cable-Binding-Block-B-Type-slot-6",
+      "models": [
+        "motedis-4277-53563eee"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_4277.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_4277-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Square Nut Slot 10 B-Type [M5]",
+      "product_url": "https://www.motedis.com/en/Square-Nut-Channel-10mm-M5",
+      "models": [
+        "motedis-4544-89557475"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_4544.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block with spring B-type slot 8 [M4]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M4",
+      "models": [
+        "motedis-s8bssnm4-460d40f3"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BSSNM4.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BSSNM4-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Angle Connector 45° 20 I-Type Nut 5",
+      "product_url": "https://www.motedis.com/en/Angle-Connector-45G-20-I-Type-Nut-5",
+      "models": [
+        "motedis-angle-connector-45-20-i-type-nut-5-2e8a3027"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Angle_Connector_45_20_I-Type_Nut_5.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Angle Connector 45° 30 B-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Angle-Connector-45G-30-B-Type-slot-8",
+      "models": [
+        "motedis-alucon3030-598a26a1"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/4567%20L.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/4567%20H.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_ALUCON3030-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_ALUCON3030.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Angle Connector 45° 30x60 B-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Angle-Connector-45G-30x60-B-Type-slot-8",
+      "models": [
+        "motedis-alucon3060-58159013"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/30%2060%20L.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/30%2060%20H.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_ALUCON3060.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_ALUCON3060-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Angle Connector 45° 45 B-Type slot 10 NEW",
+      "product_url": "https://www.motedis.com/en/Angle-Connector-45G-45-B-Type-slot-10-NEW",
+      "models": [
+        "motedis-angle-connector-45-45-b-type-slot-10-new-ea865ede"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Angle_Connector_45_45_B-Type_slot_10_NEW.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Angle Connector 45° 40x80 I-Typ slot 8",
+      "product_url": "https://www.motedis.com/en/Angle-Connector-45G-40x80-I-Typ-slot-8",
+      "models": [
+        "motedis-angle-connector-45-40-40x80-i-type-slot-8-new-bf83d02d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/4570%20L%20%281%29.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/4570%20H%20%281%29.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Angle_Connector_45_40-40x80_I-Type_slot_8_NEW.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 60x60 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Bracket-60x60-B-Type",
+      "models": [
+        "motedis-s10bbr60-783cd485"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR60_1.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR60-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Angle cover cap 60",
+      "product_url": "https://www.motedis.com/en/Angle-cover-cap-60",
+      "models": [
+        "motedis-angle-cover-cap60-759f3909"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Angle_Cover_Cap60.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut B-Type slot 10 [M4]",
+      "product_url": "https://www.motedis.com/en/T-nut-B-Type-slot-10-M4",
+      "models": [
+        "motedis-s10bhasnm4-3fe80fcb"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHASNM4.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHASNM4-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut B-Type slot 10 [M6]",
+      "product_url": "https://www.motedis.com/en/T-nut-B-Type-slot-10-M6",
+      "models": [
+        "motedis-s10bhasnm6-496354b8"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHASNM6.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHASNM6-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut B-Type slot 10 [M5]",
+      "product_url": "https://www.motedis.com/en/T-nut-B-Type-slot-10-M5",
+      "models": [
+        "motedis-s10bhasnm5-d2949c5d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHASNM5.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHASNM5-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut B-Type slot 10 [M8]",
+      "product_url": "https://www.motedis.com/en/T-nut-B-Type-slot-10-M8",
+      "models": [
+        "motedis-s10bhasnm8-bca1fc31"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHASNM8.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHASNM8-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block with spring B-type slot 10 [M4]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M4",
+      "models": [
+        "motedis-s10bssnm4-d41d14f5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BSSNM4.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BSSNM4-Drawing_2.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block with spring B-type slot 10 [M6]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M6",
+      "models": [
+        "motedis-s10bssnm6-13c94adb"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BSSNM6.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BSSNM6-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block with spring B-type slot 10 [M5]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M5",
+      "models": [
+        "motedis-s10bssnm5-874e5151"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BSSNM5.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BSSNM5-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block with spring B-type slot 10 [M8]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-10-M8",
+      "models": [
+        "motedis-s10bssnm8-5747325e"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BSSNM8.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BSSNM8-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Heavy Slot Nut Type B-Type Slot 10 [M4]",
+      "product_url": "https://www.motedis.com/en/Heavy-Slot-Nut-Type-B-Type-Slot-10-M4",
+      "models": [
+        "motedis-s10bhesnm4-141a8952"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHESNM4.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHESNM4-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Heavy Slot Nut B-Type Slot 10 [M5]",
+      "product_url": "https://www.motedis.com/en/Heavy-Slot-Nut-B-Type-Slot-10-M5",
+      "models": [
+        "motedis-s10bhesnm5-68180c1d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHESNM5.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHESNM5-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Heavy Slot Nut B-Type Slot 10 [M6]",
+      "product_url": "https://www.motedis.com/en/Heavy-Slot-Nut-B-Type-Slot-10-M6",
+      "models": [
+        "motedis-s10bhesnm6-61459535"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHESNM6.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHESNM6-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Sliding block heavy B-type slot 10 [M8]",
+      "product_url": "https://www.motedis.com/en/Sliding-block-heavy-B-type-slot-10-M8",
+      "models": [
+        "motedis-s10bhesnm8-3bd9ac0e"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHESNM8.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BHESNM8-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block with spring B-type slot 8 [M6]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M6",
+      "models": [
+        "motedis-s8bssnm6-bd20d216"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BSSNM6.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BSSNM6-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block with spring B-type slot 8 [M5]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M5",
+      "models": [
+        "motedis-s8bssnm5-f3ae3f9a"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BSSNM5.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BSSNM5-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block with spring B-type slot 8 [M8]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-with-spring-B-type-slot-8-M8",
+      "models": [
+        "motedis-s8bssnm8-dc2ea8e5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BSSNM8.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BSSNM8-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block B-type slot 8 [M4]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-B-type-slot-8-M4",
+      "models": [
+        "motedis-s8bhesnm4-0cdfbd1c"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHESNM4-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHESNM4.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block B-type slot 8 [M5]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-B-type-slot-8-M5",
+      "models": [
+        "motedis-s8bhesnm5-e709843a"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHESNM5-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHESNM5.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block B-type slot 8 [M6]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-B-type-slot-8-M6",
+      "models": [
+        "motedis-s8bhesnm6-1399fbd1"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHESNM6-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHESNM6.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Slotted block B-type slot 8 [M8]",
+      "product_url": "https://www.motedis.com/en/Slotted-block-B-type-slot-8-M8",
+      "models": [
+        "motedis-s8bhesnm8-0ed08332"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHESNM8.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BHESNM8-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut B-type slot 6 [M3]",
+      "product_url": "https://www.motedis.com/en/T-nut-B-type-slot-6-M3",
+      "models": [
+        "motedis-s6bhasnm3-f4a9bde9"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHASNM3.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHASNM3-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "L connector plate 174x174x5  Laser cut",
+      "product_url": "https://www.motedis.com/en/L-connector-plate-174x174x5-Laser-cut",
+      "models": [
+        "motedis-lp45106-b60ec91c"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP45106.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "L connector plate 129x129x5, Laser cut",
+      "product_url": "https://www.motedis.com/en/L-connector-plate-129x129x5-Laser-cut",
+      "models": [
+        "motedis-lp45105-49c9fcef"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP45105.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "L connector plate 84x84x5, Laser cut",
+      "product_url": "https://www.motedis.com/en/L-connector-plate-84x84x5-Laser-cut",
+      "models": [
+        "motedis-lp45107-4a379158"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP45107.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP45107.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cutting sleeve for automatic connector I-type slot 6",
+      "product_url": "https://www.motedis.com/en/Cutting-sleeve-for-automatic-connector-I-type-Nut-6",
+      "models": [
+        "motedis-s6icsfa-7253f040"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ICSFA.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6ICSFA-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cutting sleeve for automatic connector I-type slot 8",
+      "product_url": "https://www.motedis.com/en/Cutting-sleeve-for-automatic-connector-I-type-Nut-8",
+      "models": [
+        "motedis-s8icsfa-e93ff37d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ICSFA.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ICSFA-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut I-type slot 8 [M4]",
+      "product_url": "https://www.motedis.com/en/T-nut-I-type-slot-8-M4",
+      "models": [
+        "motedis-s8ihasnm4-da7cba54"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IHASNM4.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IHASNM4-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut I-type slot 8 [M5]",
+      "product_url": "https://www.motedis.com/en/T-nut-I-type-slot-8-M5",
+      "models": [
+        "motedis-s8ihasnm5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IHASNM5.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IHASNM5-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut I-type slot 8 [M6]",
+      "product_url": "https://www.motedis.com/en/T-nut-I-type-slot-8-M6",
+      "models": [
+        "motedis-s8ihasnm6"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IHASNM6.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IHASNM6-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-Matic Connector 40 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/T-Matic-Connector-40-I-Type-slot-8",
+      "models": [
+        "motedis-cev-e8-fc-on-04a5545d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CEV-E8-FC-ON.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CEV-E8-FC-ON-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-Matik Connector 30 B-Type Nut 8",
+      "product_url": "https://www.motedis.com/en/T-Matik-Connector-30-B-Type-Nut-8",
+      "models": [
+        "motedis-cev-e8-b1126-on-e06ea0c7"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CEV-E8-B1126-ON-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CEV-E8-B1126-ON.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Special screw automatic connector DIN 912-M4x30 N5 I-Type",
+      "product_url": "https://www.motedis.com/en/Special-screw-automatic-connector-DIN-912-M4x30-N5-I-Type",
+      "models": [
+        "motedis-s5icp1912430-0343cb81"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ICP1912430.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ICP1912430-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Special screw Shut-off connector 180 ° DIN 912-M4x40 slot 5 I-Type",
+      "product_url": "https://www.motedis.com/en/Special-screw-Shut-off-connector-180-G-DIN-912-M4x40-N5-I-Type",
+      "models": [
+        "motedis-4854-7d67f3a2"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_4854.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_4854-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cutting sleeve for automatic connector I-type slot 5",
+      "product_url": "https://www.motedis.com/en/Cutting-sleeve-for-automatic-connector-I-type-Nut-5",
+      "models": [
+        "motedis-s5icsfa-0cf2e866"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ICSFA-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ICSFA.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-Matik connector heavy Slot 10 B-Type",
+      "product_url": "https://www.motedis.com/en/T-Matik-connector-heavy-Slot-10-B-Type",
+      "models": [
+        "motedis-10cev-e8-12-on-802733a5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_10CEV-E8-12-ON.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_10CEV-E8-12-ON-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-Matic Connector 20 I-Type slot 5",
+      "product_url": "https://www.motedis.com/en/T-Matic-Connector-20-I-Type-slot-5",
+      "models": [
+        "motedis-cev-e5-on-a95c5714"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CEV-E5-ON.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_CEV-E5-ON-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Clamping Bracket 30 I-Type slot 6",
+      "product_url": "https://www.motedis.com/en/Clamping-Bracket-30-I-Type-slot-6",
+      "models": [
+        "motedis-4931-33f2ea16"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_4931.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_4931-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "X-connector plate 184x104x5, Laser cut",
+      "product_url": "https://www.motedis.com/en/X-connector-plate-184x104x5-Laser-cut",
+      "models": [
+        "motedis-lp40453-ce3e5646"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_LP40453.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "X-connector plate 120x70x3, Laser cut",
+      "product_url": "https://www.motedis.com/en/X-connector-plate-120x70x3-Laser-cut",
+      "models": [
+        "motedis-lp20302-7ec61b9f"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20302.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis-LP20302.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-Nut with spring ball, without guidance I-Type slot 5 [M4]",
+      "product_url": "https://www.motedis.com/en/T-Nut-with-spring-ball-without-guidance-I-Type-slot-5-M4",
+      "models": [
+        "motedis-s5ismonm4-1b1498ac"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM4-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM4_1.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-Nut with spring ball, without guidance I-Type slot 5 [M5]",
+      "product_url": "https://www.motedis.com/en/T-Nut-with-spring-ball-without-guidance-I-Type-slot-5-M5",
+      "models": [
+        "motedis-s5ismonm5-aeabec0c"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM5-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5ISMONM5_1.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 30 I-type slot 6",
+      "product_url": "https://www.motedis.com/en/Bracket-30-I-type-slot-6",
+      "models": [
+        "motedis-s6ibr30-d25580db"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6IBR30-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6IBR30.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cube connector 40-2D I-type slot 8",
+      "product_url": "https://www.motedis.com/en/Cube-connector-40-2D-I-type-slot-8",
+      "models": [
+        "motedis-cube-connector-40-2d-i-type-slot-8"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Cube_connector_40-2D_I-type_slot_8.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cube connector 40-3D  I-type slot 8",
+      "product_url": "https://www.motedis.com/en/Cube-connector-40-3D-I-type-slot-8",
+      "models": [
+        "motedis-s8icu403d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ICU403D-Drawing.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8ICU403D.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Bracket Cover Cap 20x40",
+      "product_url": "https://www.motedis.com/en/Bracket-Cover-Cap-20x40",
+      "models": [
+        "motedis-s5i6bbr2040c-60f2b674"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5I6BBR2040C_1.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S5I6BBR2040C-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cube connector 20-2D I-type slot 5",
+      "product_url": "https://www.motedis.com/en/Cube-connector-20-2D-I-type-slot-5",
+      "models": [
+        "motedis-cube-connector-20-2d-i-type-slot-5-c34e1ea2"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/20-2D_I-type_slot_5.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Cube connector 20-3D I-type slot 5",
+      "product_url": "https://www.motedis.com/en/Cube-connector-20-3D-I-type-slot-5",
+      "models": [
+        "motedis-cube-connector-20-3d-i-type-slot-5-a861d1fe"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_cube_connector_20-3D_I-type_slot_5.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut B-type slot 6 [M5]",
+      "product_url": "https://www.motedis.com/en/T-nut-B-type-slot-6-M5",
+      "models": [
+        "motedis-s6bhasnm5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHASNM5.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHASNM5-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Quick Connector B-Type slot 10 - D17 - 0°",
+      "product_url": "https://www.motedis.com/en/Quick-Connector-B-Type-slot-10-D17-0G",
+      "models": [
+        "motedis-s10bqc0-f584b832"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BQC0.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Quick Connector B-Type slot 10 - D17 - 90°",
+      "product_url": "https://www.motedis.com/en/Quick-Connector-B-Type-slot-10-D17-90G",
+      "models": [
+        "motedis-s10bqc90-1c093051"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BQC90.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-nut heavy duty steel B-Type slot 6 [M4]",
+      "product_url": "https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M4",
+      "models": [
+        "motedis-s6bhesnm4-588850c2"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHESNM4.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHESNM4-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut heavy duty steel B-Type slot 6 [M5]",
+      "product_url": "https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M5",
+      "models": [
+        "motedis-s6bhesnm5-b9b3ee5a"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHESNM5.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHESNM5-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "T-nut heavy duty steel B-Type slot 6 [M6]",
+      "product_url": "https://www.motedis.com/en/T-nut-heavy-duty-steel-B-Type-slot-6-M6",
+      "models": [
+        "motedis-s6bhesnm6-180753f6"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHESNM6.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BHESNM6-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Caps 40x160 I-Type slot 8",
+      "product_url": "https://www.motedis.com/en/Cover-Caps-40x160-I-Type-slot-8",
+      "models": [
+        "motedis-pts8i40x160-b4ceff50"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I40x160.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS8I40x160-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Quick Connector B-Type slot 8 - 90°",
+      "product_url": "https://www.motedis.com/en/Quick-Connector-B-Type-slot-8-90G",
+      "models": [
+        "motedis-s8bqc90-5440dcfc"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BQC90.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Inner Bracket Zamak Die Cast 20  B-Type slot 6 M5 Alternative",
+      "product_url": "https://www.motedis.com/en/Inner-bracket-20-B-Type-slot-6-M5-Alternative",
+      "models": [
+        "motedis-s6bibm5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BIBM5_1.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S6BIBM5-Drawing_2.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Inner Bracket Zamak Die Cast (30 B-Type / 40 I-Type) Slot 8 M6",
+      "product_url": "https://www.motedis.com/en/Inner-bracket-zamak-30-B-Type-40-I-Type-Slot-8-M6",
+      "models": [
+        "motedis-s8ibibm6"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBIBM6_1.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBIBM6-Drawing_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Inner Bracket Zamak Die Cast Slot 10 Alternative",
+      "product_url": "https://www.motedis.com/en/Inner-Bracket-zinc-die-cast-groove-10-Alternative",
+      "models": [
+        "motedis-s10bibm8-321a8ca8"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BIBM8.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BIBM8-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Connection strip 120  slot 8",
+      "product_url": "https://www.motedis.com/en/Connection-strip-120-slot-8",
+      "models": [
+        "motedis-s8bics120-3338a0b5"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BICS120.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8BICS120-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "CABLE BINDER BLOCK 26",
+      "product_url": "https://www.motedis.com/en/CABLE-BINDER-BLOCK-26",
+      "models": [
+        "motedis-stkab26-04c043f8"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_STKAB26.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_STKAB26-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "CABLE BINDER BLOCK 17",
+      "product_url": "https://www.motedis.com/en/CABLE-BINDER-BLOCK-17",
+      "models": [
+        "motedis-stkab17-ee7c1ee7"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_STKAB17.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_STKAB17-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 80 Slot 8 - 10",
+      "product_url": "https://www.motedis.com/en/Bracket-80-Slot-8-10",
+      "models": [
+        "motedis-s8ibr80-1efa690b"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBR80.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S8IBR80-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "LOGIC AUTOMATED LINEAR SYSTEM Profil I 45x90",
+      "product_url": "https://www.motedis.com/en/LOGIC-AUTOMATED-LINEAR-SYSTEM-Profil-I-45x90",
+      "models": [
+        "motedis-source-9a53b0ce8c8e"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_Profile%2045x90L%20con%20conectores.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Bracket 45 B-Type slot 10  Holes T",
+      "product_url": "https://www.motedis.com/en/Bracket-45-B-Type-slot-10-Holes-T",
+      "models": [
+        "motedis-s10bbr45-t-e762accb"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR45-T.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BBR45-T-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Cover Cap 20x40 B-Type slot 6",
+      "product_url": "https://www.motedis.com/en/Cover-Cap-20x40-B-Type-slot-6",
+      "models": [
+        "motedis-pts6b20x40-04986429"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS6B20x40.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PTS6B20x40-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Central Screw M12x30 SW8 P45 B-Type slot 10",
+      "product_url": "https://www.motedis.com/en/Central-Screw-M12x30-SW8-P45-B-type-slot-10",
+      "models": [
+        "motedis-s10bcstat12x30sw8-85517417"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BCSTAT12x30SW8.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_S10BCSTAT12x30SW8-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Slot 8 O-Type Square nut with spring M8",
+      "product_url": "https://www.motedis.com/en/Slot-O-Square-nut-with-spring-M8",
+      "models": [
+        "motedis-slotswbm8-7989dfcf"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SLOTSWBM8.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_SLOTSWBM8-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Steel bracket 40 for Scooter, black",
+      "product_url": "https://www.motedis.com/en/Steel-bracket-40-for-Scooter-black",
+      "models": [
+        "motedis-steel-bracket-40-for-scooter-9f0063e8"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_STEEL%20BRACKET%2040%20FOR%20SCOOTER.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_STEEL%20BRACKET%2040%20FOR%20SCOOTER.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Angle Connector 45° 3060 without slot",
+      "product_url": "https://www.motedis.com/en/Angle-Connector-45G-3060-without-slot",
+      "models": [
+        "motedis-escuadra-45-30x60-4f860c69"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/ESCUADRA%2030x60.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/ESCUADRA%2045%2030x60.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Plastic pivot joint 40I",
+      "product_url": "https://www.motedis.com/en/Plastic-pivot-joint-40I",
+      "models": [
+        "motedis-angle-joint-08e3e253"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/ANGLE-JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T-Block slot 8 I-Type",
+      "product_url": "https://www.motedis.com/en/T-Block-slot-8-I-Type",
+      "models": [
+        "motedis-t-block-slot-8-i-type-6064ba7a"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_T-BLOCK%20SLOT%208%20I-TYPE.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_T-BLOCK%20SLOT%208%20I-TYPE.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Block 40 I-Type Slot 8",
+      "product_url": "https://www.motedis.com/en/Block-40-I-Type-Slot-8",
+      "models": [
+        "motedis-block-733ca6e6"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/BLOCK.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/BLOCK.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Driving belt HTD-8M 936mm",
+      "product_url": "https://www.motedis.com/en/Driving-belt-HTD-8M-936mm",
+      "models": [
+        "motedis-drivbel936-d113c591"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_DRIVBEL936.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_DRIVBEL936-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Hexagonal joint plastic 40",
+      "product_url": "https://www.motedis.com/en/Hexagonal-joint-plastic-40",
+      "models": [
+        "motedis-hex-joint-15377275"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/HEX-JOINT.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/HEX-JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Hexagonal joint with bearing 40x40",
+      "product_url": "https://www.motedis.com/en/Hexagonal-joint-with-bearing-40x40",
+      "models": [
+        "motedis-40x40-hex-bearing-joint-81329de3"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_hex_bearing_joint.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/40x40%20HEX%20BEARING%20JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Toothed joint",
+      "product_url": "https://www.motedis.com/en/Toothed-joint",
+      "models": [
+        "motedis-tooth-joint-09d923ec"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/TOOTH-JOINT.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/TOOTH-JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Plastic U joint",
+      "product_url": "https://www.motedis.com/en/Plastic-U-joint",
+      "models": [
+        "motedis-u-joint-44c647ac"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/U%20JOINT_4.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/U%20JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Hexagonal joint with bearing 40x80",
+      "product_url": "https://www.motedis.com/en/Hexagonal-joint-with-bearing-40x80",
+      "models": [
+        "motedis-40x80-hex-bearing-joint-76859065"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/40x80%20HEX%20BEARING%20JOINT.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/40x80%20Hex-bearing%20joint.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Hexagonal-Spacer",
+      "product_url": "https://www.motedis.com/en/Hexagonal-Spacer",
+      "models": [
+        "motedis-hex-spacer-13670c56"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/HEX-SPACER.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/HEX-SPACER.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Aluminium hexagon SW19 length 77mm M8 all the way through",
+      "product_url": "https://www.motedis.com/en/Aluminium-hexagon-SW19-length-77mm-M8-all-the-way-through",
+      "models": [
+        "motedis-ahsw19-77-9b220dfd"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/SW19%2C%20L77.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/MOTEDIS%20AHSW19-77.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Aluminium hexagon SW19 length 80mm M8 all the way through",
+      "product_url": "https://www.motedis.com/en/Aluminium-hexagon-SW19-length-80mm-M8-all-the-way-through",
+      "models": [
+        "motedis-ahsw19-80-f8e3e26d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/SW19%2C%20L80.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/MOTEDIS%20AHSW19-80.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Aluminium hexagon SW19 length 250mm",
+      "product_url": "https://www.motedis.com/en/Aluminium-hexagon-SW19-length-250mm",
+      "models": [
+        "motedis-ahsw19-250-5c80c5f0"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_AHSW19-250.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_AHSW19-250-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Aluminium hexagon SW19 length 1000 mm",
+      "product_url": "https://www.motedis.com/en/Aluminium-hexagon-SW19-length-1000-mm",
+      "models": [
+        "motedis-ahsw19-1000-a82b01c0"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_AHSW19-1000.zip",
+          "kind": "zip"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_AHSW19-1000-Drawing.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Plastic swivel joint kit 40I- Slot mounting",
+      "product_url": "https://www.motedis.com/en/Plastic-swivel-joint-kit-40I-Slot-mounting",
+      "models": [
+        "motedis-angle-joint-b1cfff38"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/ANGLE-JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Fixing kit for slot mounting Plastic swivel joint 40I",
+      "product_url": "https://www.motedis.com/en/Fixing-kit-for-slot-mounting-Plastic-swivel-joint-40I",
+      "models": [
+        "motedis-angle-joint-93fda6bc"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/ANGLE-JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Plastic swivel joint kit 40B- Slot mounting",
+      "product_url": "https://www.motedis.com/en/Plastic-swivel-joint-kit-40B-Slot-mounting",
+      "models": [
+        "motedis-angle-joint-1d4b7980"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/ANGLE-JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Fixing kit for slot mounting Plastic swivel joint 40B",
+      "product_url": "https://www.motedis.com/en/Fixing-kit-for-slot-mounting-Plastic-swivel-joint-40B",
+      "models": [
+        "motedis-angle-joint-8edb5f50"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/ANGLE-JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "T- Block slot 10 B-Type",
+      "product_url": "https://www.motedis.com/en/T-Block-slot-10-B-Type",
+      "models": [
+        "motedis-t-block-slot-10-b-type-6be246fe"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/T%20BLOCK%20SLOT%2010%20B-TYPE.pdf",
+          "kind": "pdf"
+        },
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_T-BLOCK%20SLOT%2010%20B-TYPE.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Plastic Swivel Joint Kit 40I - Core Mounted",
+      "product_url": "https://www.motedis.com/en/Plastic-Swivel-Joint-Kit-40I-Core-Mounted",
+      "models": [
+        "motedis-angle-joint-26342954"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/ANGLE-JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Fixing kit for core mounting Plastic swivel joint 40I",
+      "product_url": "https://www.motedis.com/en/Fixing-kit-for-core-mounting-Plastic-swivel-joint-40I",
+      "models": [
+        "motedis-angle-joint-853d8d42"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/ANGLE-JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Plastic Swivel Joint Kit 40B - Core Mounting",
+      "product_url": "https://www.motedis.com/en/Plastic-Swivel-Joint-Kit-40B-Core-Mounting",
+      "models": [
+        "motedis-angle-joint-801afa03"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/ANGLE-JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Fixing kit for core mounting Plastic swivel joint 40B",
+      "product_url": "https://www.motedis.com/en/Fixing-kit-for-core-mounting-Plastic-swivel-joint-40B",
+      "models": [
+        "motedis-angle-joint-f646e9e1"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/ANGLE-JOINT.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "Fixing kit for slot mounting Plastic U-joint 40I",
+      "product_url": "https://www.motedis.com/en/Fixing-kit-for-slot-mounting-Plastic-U-joint-40I",
+      "models": [
+        "motedis-source-ebe0021499a7"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/U%20JOINT.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Fixing kit for groove mounting Plastic U-joint 40B",
+      "product_url": "https://www.motedis.com/en/Fixing-kit-for-groove-mounting-Plastic-U-joint-40B",
+      "models": [
+        "motedis-source-74d2316e59c6"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/PDF%20U%20JOINT%20%281%29.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Plastic U-joint kit 40I - groove mounting",
+      "product_url": "https://www.motedis.com/en/Plastic-U-joint-kit-40I-groove-mounting",
+      "models": [
+        "motedis-source-c30bd49a47e8"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/U%20JOINT_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Plastic U-joint kit 40I - Core mounting",
+      "product_url": "https://www.motedis.com/en/Plastic-U-joint-kit-40I-Core-mounting",
+      "models": [
+        "motedis-source-95ce19bca305"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/U%20JOINT_2.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Plastic U-joint kit 40B - Core mounting",
+      "product_url": "https://www.motedis.com/en/Plastic-U-joint-kit-40B-Core-mounting",
+      "models": [
+        "motedis-source-0c5921de2433"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/U%20JOINT_3.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Plastic U-joint kit 40B - groove mounting",
+      "product_url": "https://www.motedis.com/en/Plastic-U-joint-kit-40B-groove-mounting",
+      "models": [
+        "motedis-source-9fd0d1af62c3"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/U%20JOINT_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Hexagon joint plastic 40I Groove mounting",
+      "product_url": "https://www.motedis.com/en/Hexagon-joint-plastic-40I-Groove-mounting",
+      "models": [
+        "motedis-source-1b2a34f8349b"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/HEX-JOINT_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Hexagonal joint plastic 40B Groove mounting",
+      "product_url": "https://www.motedis.com/en/Hexagonal-joint-plastic-40B-Groove-mounting",
+      "models": [
+        "motedis-source-b506bdeb6e3b"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/HEX-JOINT_2.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Hexagonal joint plastic 40I Core mounting",
+      "product_url": "https://www.motedis.com/en/Hexagonal-joint-plastic-40I-Core-mounting",
+      "models": [
+        "motedis-source-c7e6a320ad3a"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/HEX-JOINT_1.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Hexagonal joint plastic 40B Core mounting",
+      "product_url": "https://www.motedis.com/en/Hexagonal-joint-plastic-40B-Core-mounting",
+      "models": [
+        "motedis-source-85b448cf681f"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/HEX-JOINT_2.pdf",
+          "kind": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "42 mm planetary gearbox and permanent magnet DC motor - 9 rpm",
+      "product_url": "https://www.motedis.com/en/42-mm-planetary-gearbox-and-permanent-magnet-DC-motor-10-rpm",
+      "models": [
+        "motedis-pmm-24v-9rpm-4dffe441"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PMM-24V-9RPM.zip",
+          "kind": "zip"
+        }
+      ]
+    },
+    {
+      "name": "62 mm planetary gearbox and permanent magnet DC motor - 140 rpm",
+      "product_url": "https://www.motedis.com/en/62-mm-planetary-gearbox-and-permanent-magnet-DC-motor-140-rpm",
+      "models": [
+        "motedis-pmm-24v-143rpm-47224a0d"
+      ],
+      "resources": [
+        {
+          "url": "https://www.motedis.com/shop/products_files/Motedis_PMM-24V-143RPM.zip",
+          "kind": "zip"
+        }
+      ]
+    }
+  ]
+}

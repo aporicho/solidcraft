@@ -2,7 +2,7 @@
 use serde_json::{Map, Value, json};
 use solidcraft_engine::stock_connectors::{self, Connector};
 
-use crate::ui_kit::{choice_row, expr_row};
+use crate::ui_kit::{choice_row, expr_row, text_row};
 use crate::{SolveApp, dialogs::Kind, i18n, selection::SelInput};
 
 #[derive(Clone, Debug)]
@@ -11,6 +11,12 @@ pub struct StockConnector {
     models: Vec<Connector>,
     selected: usize,
     category: usize,
+    search: String,
+    series_filter: usize,
+    slot_filter: usize,
+    type_filter: usize,
+    availability_filter: usize,
+    visible: bool,
     origin: [String; 3],
     rotation: [String; 3],
 }
@@ -25,6 +31,12 @@ pub fn start(_: &SolveApp, id: &str) -> Option<(Kind, Vec<SelInput>)> {
             models: stock_connectors::catalogue().ok()?,
             selected: 0,
             category: 0,
+            search: String::new(),
+            series_filter: 0,
+            slot_filter: 0,
+            type_filter: 0,
+            availability_filter: 0,
+            visible: true,
             origin: ["0".into(), "0".into(), "0".into()],
             rotation: ["0 deg".into(), "0 deg".into(), "0 deg".into()],
         }),
@@ -46,13 +58,85 @@ pub fn rows(ui: &mut egui::Ui, state: &mut StockConnector) -> bool {
     let keys: Vec<_> = categories.iter().map(|c| format!("connector.category.{c}")).collect();
     let labels: Vec<_> = keys.iter().map(|key| i18n::tr(key)).collect();
     choice_row(ui, i18n::tr("connector.category"), "connector_category", &mut state.category, &labels);
-    let filtered: Vec<_> =
-        state.models.iter().enumerate().filter(|(_, m)| state.category == 0 || m.category == categories[state.category]).map(|(i, _)| i).collect();
+    let _ = text_row(ui, i18n::tr("catalog.search"), &mut state.search, i18n::tr("catalog.search_hint"));
+    let mut series = vec![0];
+    let mut slots = vec![0];
+    for m in &state.models {
+        for s in &m.compatible_series {
+            if !series.contains(s) {
+                series.push(*s);
+            }
+        }
+        for s in &m.compatible_slots {
+            if !slots.contains(s) {
+                slots.push(*s);
+            }
+        }
+    }
+    series.sort_unstable();
+    slots.sort_unstable();
+    let series_labels: Vec<_> = series.iter().map(|s| if *s == 0 { i18n::tr("catalog.any").to_owned() } else { s.to_string() }).collect();
+    let series_labels: Vec<_> = series_labels.iter().map(String::as_str).collect();
+    let slot_labels: Vec<_> = slots.iter().map(|s| if *s == 0 { i18n::tr("catalog.any").to_owned() } else { s.to_string() }).collect();
+    let slot_labels: Vec<_> = slot_labels.iter().map(String::as_str).collect();
+    let filters = ui.collapsing(i18n::tr("catalog.filters"), |ui| {
+        choice_row(ui, i18n::tr("catalog.series"), "connector_series", &mut state.series_filter, &series_labels);
+        choice_row(ui, i18n::tr("catalog.slot"), "connector_slot", &mut state.slot_filter, &slot_labels);
+        choice_row(ui, i18n::tr("catalog.profile_type"), "connector_profile_type", &mut state.type_filter, &[i18n::tr("catalog.any"), "I", "B", "O"]);
+        choice_row(
+            ui,
+            i18n::tr("catalog.resources"),
+            "connector_resources",
+            &mut state.availability_filter,
+            &[i18n::tr("catalog.any"), i18n::tr("catalog.models"), i18n::tr("catalog.documents")],
+        );
+    });
+    crate::scenario::publish_handle("connector:filters", filters.header_response.rect.center());
+    let selected_series = series.get(state.series_filter).copied().unwrap_or(0);
+    let selected_slot = slots.get(state.slot_filter).copied().unwrap_or(0);
+    let selected_type = ["", "I", "B", "O"].get(state.type_filter).copied().unwrap_or("");
+    let filtered: Vec<_> = state
+        .models
+        .iter()
+        .enumerate()
+        .filter(|(_, m)| {
+            (state.category == 0 || m.category == categories[state.category])
+                && state.search.split_whitespace().all(|word| {
+                    m.matches_query(word) || i18n::tr(&format!("connector.category.{}", m.category)).to_lowercase().contains(&word.to_lowercase())
+                })
+                && (selected_series == 0 || m.compatible_series.contains(&selected_series))
+                && (selected_slot == 0 || m.compatible_slots.contains(&selected_slot))
+                && (selected_type.is_empty() || m.profile_type.split('/').any(|t| t == selected_type))
+                && match state.availability_filter {
+                    1 => m.insertable(),
+                    2 => !m.insertable(),
+                    _ => true,
+                }
+        })
+        .map(|(i, _)| i)
+        .collect();
+    state.visible = !filtered.is_empty();
+    let count = ui.label(i18n::format("catalog.count", &[("count", &filtered.len().to_string()), ("total", &state.models.len().to_string())]));
+    crate::scenario::publish_handle(&format!("connector:results:{}", filtered.len()), count.rect.center());
+    if !state.visible {
+        ui.label(i18n::tr("catalog.no_matches"));
+        return false;
+    }
     let mut selected = filtered.iter().position(|i| *i == state.selected).unwrap_or(0);
     let names: Vec<_> = filtered
         .iter()
         .filter_map(|i| state.models.get(*i))
-        .map(|m| format!("{} · {}", m.compatible_series.iter().map(u32::to_string).collect::<Vec<_>>().join("/"), m.part_number))
+        .map(|m| {
+            format!(
+                "{} · {}",
+                if m.compatible_series.is_empty() {
+                    i18n::tr("catalog.unspecified").into()
+                } else {
+                    m.compatible_series.iter().map(u32::to_string).collect::<Vec<_>>().join("/")
+                },
+                m.part_number
+            )
+        })
         .collect();
     let names: Vec<_> = names.iter().map(String::as_str).collect();
     choice_row(ui, i18n::tr("connector.model"), "aluminium_connector_model", &mut selected, &names);
@@ -61,9 +145,34 @@ pub fn rows(ui: &mut egui::Ui, state: &mut StockConnector) -> bool {
     }
     if let Some(model) = state.models.get(state.selected) {
         ui.label(&model.label);
-        preview(ui, model);
-        ui.label(i18n::format("connector.slot", &[("slot", &model.slot.to_string())]));
+        if matches!(model.geometry.as_str(), "surface" | "mixed") {
+            ui.add(egui::Label::new(i18n::tr("catalog.surface_model")).wrap());
+        }
+        if model.insertable() {
+            preview(ui, model);
+        } else {
+            ui.add(egui::Label::new(i18n::tr(if model.has_model() { "catalog.import_failed" } else { "catalog.documents_only" })).wrap());
+        }
+        if !model.compatible_slots.is_empty() {
+            ui.label(i18n::format("connector.slot", &[("slot", &model.compatible_slots.iter().map(u32::to_string).collect::<Vec<_>>().join("/"))]));
+        }
+        if !model.profile_type.is_empty() {
+            ui.label(format!("{}: {}", i18n::tr("catalog.profile_type"), model.profile_type));
+        }
         ui.hyperlink_to(i18n::tr("connector.source"), &model.product_url);
+        egui::CollapsingHeader::new(i18n::tr("catalog.source_file")).default_open(!model.insertable()).show(ui, |ui| {
+            for (index, resource) in model.resources.iter().enumerate() {
+                let response =
+                    ui.hyperlink_to(format!("{} {} · {}", i18n::tr("catalog.source_file"), index + 1, resource.kind.to_uppercase()), &resource.url);
+                crate::scenario::publish_handle(&format!("connector:resource:{index}"), response.rect.center());
+            }
+        });
+        if !model.insertable() {
+            return false;
+        }
+        if state.mount.is_some() && model.placement == "manual" {
+            ui.add(egui::Label::new(i18n::tr("catalog.manual_mount")).wrap());
+        }
     }
     if let Some(mount) = &mut state.mount {
         ui.label(i18n::format("aluminium.attached_to", &[("body", &mount.body)]));
@@ -86,7 +195,13 @@ pub fn rows(ui: &mut egui::Ui, state: &mut StockConnector) -> bool {
 }
 
 pub fn commands(app: &SolveApp, state: &StockConnector, extra: &Map<String, Value>) -> Result<Vec<(String, Value)>, String> {
+    if !state.visible {
+        return Err(i18n::tr("catalog.no_matches").into());
+    }
     let model = state.models.get(state.selected).ok_or("choose a connector model")?;
+    if !model.insertable() {
+        return Err(i18n::tr(if model.has_model() { "catalog.import_failed" } else { "catalog.documents_only" }).into());
+    }
     let mut params = json!({"model":model.id,"origin":state.origin,"rotation":state.rotation});
     if let Some(mount) = &state.mount {
         params["mount"] =
@@ -191,6 +306,12 @@ fn preview(ui: &mut egui::Ui, model: &Connector) {
         });
         if let Some(reply) = reply {
             let texture = reply.map(|image| ui.ctx().load_texture(format!("connector_preview:{key}"), image, egui::TextureOptions::LINEAR));
+            if cache.images.len() >= 48 {
+                let discard = cache.images.keys().find(|k| *k != key).cloned();
+                if let Some(discard) = discard {
+                    cache.images.remove(&discard);
+                }
+            }
             cache.images.insert(key.clone(), texture);
             cache.pending = None;
         }

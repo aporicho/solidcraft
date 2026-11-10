@@ -7,7 +7,25 @@ use serde_json::{Value, json};
 use crate::{Result, Session, params::bad};
 
 #[derive(Clone, Debug, Deserialize, Serialize, schemars::JsonSchema)]
+pub struct Resource {
+    pub url: String,
+    pub kind: String,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize, schemars::JsonSchema)]
 pub struct Connector {
+    #[serde(default)]
+    pub resources: Vec<Resource>,
+    #[serde(default)]
+    pub compatible_slots: Vec<u32>,
+    #[serde(default)]
+    pub profile_type: String,
+    #[serde(default)]
+    pub availability: String,
+    #[serde(default)]
+    pub import_error: String,
+    #[serde(default)]
+    pub geometry: String,
     pub category: String,
     pub interface: String,
     pub placement: String,
@@ -32,15 +50,50 @@ pub struct Connector {
 }
 
 impl Connector {
+    pub fn has_model(&self) -> bool {
+        !self.filename.is_empty() && !self.step_sha256.is_empty()
+    }
+
+    pub fn insertable(&self) -> bool {
+        self.has_model() && self.availability != "import_failed"
+    }
+
+    pub fn matches_query(&self, query: &str) -> bool {
+        let text = format!(
+            "{} {} {} {} {} {}",
+            self.label,
+            self.part_number,
+            self.id,
+            self.profile_type,
+            self.compatible_series.iter().map(u32::to_string).collect::<Vec<_>>().join(" "),
+            self.compatible_slots.iter().map(u32::to_string).collect::<Vec<_>>().join(" ")
+        )
+        .to_lowercase();
+        query.split_whitespace().all(|word| text.contains(&word.to_lowercase()))
+    }
+
     pub fn compatible(&self, series: f64, interface: &str) -> bool {
-        self.compatible_series.iter().any(|s| f64::from(*s) == series)
-            && match interface {
-                "surface" => self.interface == "surface",
-                "slot" => self.interface == "slot" || self.interface == "surface",
-                "end" => self.interface == "end" || self.placement == "angle",
-                "bore" => matches!(self.category.as_str(), "joint" | "cube"),
-                _ => false,
-            }
+        if !self.insertable() {
+            return false;
+        }
+        let slot = if series == 20.0 { 6 } else { 8 };
+        let profile_type = if series == 40.0 { "I" } else { "B" };
+        let known_series = self.compatible_series.iter().any(|s| f64::from(*s) == series);
+        let known_slot = self.compatible_slots.contains(&slot);
+        if (!self.compatible_series.is_empty() && !known_series)
+            || (self.compatible_series.is_empty() && !known_slot)
+            || (!self.compatible_slots.is_empty() && !known_slot)
+            || (!self.profile_type.is_empty() && !self.profile_type.split('/').any(|t| t == profile_type))
+        {
+            return false;
+        }
+        match interface {
+            "surface" => self.interface == "surface",
+            "slot" => self.interface == "slot" || self.interface == "surface",
+            "end" => self.interface == "end" || self.placement == "angle",
+            "bore" => matches!(self.category.as_str(), "joint" | "cube"),
+            _ => false,
+        }
     }
 }
 
@@ -77,6 +130,16 @@ pub fn import_params(session: &Session, params: &Value) -> Result<Value> {
     }
     let id = params.get("model").and_then(Value::as_str).unwrap_or("motedis-s6bbr20");
     let model = catalogue()?.into_iter().find(|entry| entry.id == id).ok_or_else(|| bad(cmd, "unknown fixed connector model"))?;
+    if !model.insertable() {
+        return Err(bad(
+            cmd,
+            if model.has_model() {
+                "the manufacturer model could not be read; see its source resources"
+            } else {
+                "this catalogue item has reference documents only; no supported 3D model is supplied"
+            },
+        ));
+    }
     let path = cache_dir().join(&model.filename);
     let path = path.to_str().ok_or_else(|| bad(cmd, "invalid connector cache path"))?;
     if !solidcraft_io::vfs::exists(path) {
@@ -192,8 +255,9 @@ pub fn annotate(session: &mut Session, output: &mut Value, id: &str) -> Result<(
         component.properties.insert("supplier".into(), model.supplier.clone());
         component.properties.insert("stock_connector".into(), model.id.clone());
         component.properties.insert("source_url".into(), model.product_url.clone());
+        component.properties.insert("profile_type".into(), model.profile_type.clone());
         component.properties.insert("profile_series".into(), model.compatible_series.iter().map(u32::to_string).collect::<Vec<_>>().join("/"));
-        component.properties.insert("slot".into(), model.slot.to_string());
+        component.properties.insert("slot".into(), model.compatible_slots.iter().map(u32::to_string).collect::<Vec<_>>().join("/"));
     }
     output["part_number"] = json!(model.part_number);
     output["supplier"] = json!(model.supplier);

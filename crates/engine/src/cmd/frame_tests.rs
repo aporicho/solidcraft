@@ -754,3 +754,26 @@ fn aluminium_attachment_reads_the_parent_occurrence_placement() {
     let child = measured.iter().find(|b| b.0 == "Root child").unwrap();
     assert!(near3(child.2, [140.0, 190.0, 400.0]) && near3(child.3, [160.0, 210.0, 450.0]), "{child:?}");
 }
+
+#[test]
+fn stock_catalogue_keeps_reference_documents_out_of_model_insertion() {
+    let catalogue = crate::stock_connectors::catalogue().unwrap();
+    let ids: std::collections::HashSet<_> = catalogue.iter().map(|m| &m.id).collect();
+    assert_eq!(ids.len(), catalogue.len());
+    assert!(catalogue.len() >= 260);
+    let mut session = Session::default();
+    let references: Vec<_> = catalogue.iter().filter(|m| !m.has_model()).collect();
+    assert!(!references.is_empty());
+    for item in references {
+        assert!(!item.insertable());
+        assert!(!item.resources.is_empty());
+        assert!(session.execute("aluminium.connector", &json!({"model":item.id})).is_err());
+    }
+    assert!(session.world_state().bodies.is_empty());
+    let legacy = catalogue.iter().find(|m| m.id == "motedis-s6bbr20").unwrap();
+    assert!(legacy.insertable());
+    assert!(legacy.matches_query("S6BBR20 motedis"));
+    assert!(!legacy.matches_query("nonexistent catalogue item"));
+    assert!(legacy.compatible(20.0, "surface"));
+    assert!(!legacy.compatible(40.0, "surface"));
+}
