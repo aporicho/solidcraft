@@ -777,3 +777,17 @@ fn stock_catalogue_keeps_reference_documents_out_of_model_insertion() {
     assert!(legacy.compatible(20.0, "surface"));
     assert!(!legacy.compatible(40.0, "surface"));
 }
+
+#[test]
+fn preset_hammer_nuts_use_the_locked_cross_slot_orientation() {
+    let models = crate::stock_connectors::catalogue().unwrap();
+    for id in ["motedis-s6bhasnm4", "motedis-s6bhasnm5", "motedis-s8bhasnm5", "motedis-s8bhasnm6", "motedis-s8ihasnm5", "motedis-s8ihasnm6"] {
+        let model = models.iter().find(|m| m.id == id).unwrap();
+        assert_eq!(model.normal, [0.0, 0.0, 1.0]);
+        assert_eq!(
+            model.along,
+            [0.0, 1.0, 0.0],
+            "{id}: the narrow CAD Y direction runs along the slot, leaving the long X direction across its lips"
+        );
+    }
+}

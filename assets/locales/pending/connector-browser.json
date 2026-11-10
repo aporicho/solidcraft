@@ -1,0 +1,67 @@
+{
+  "en": {
+    "browser.all_scope": "Complete catalogue",
+    "browser.back": "Back",
+    "browser.choose_hint": "Choose a part in the browser first.",
+    "browser.datum_preset": "Mounting datum preset; assembly fit still needs checking.",
+    "browser.datum_unset": "Mounting datum not calibrated; reference placement only.",
+    "browser.instructions": "Click to preview. Double-click or use the selected part to continue to placement.",
+    "browser.matched_scope": "Parts matching the selected installation interface",
+    "browser.open": "Browse parts…",
+    "browser.reset": "Clear filters",
+    "browser.title": "Parts Browser",
+    "browser.use": "Use this part"
+  },
+  "zh": {
+    "browser.all_scope": "全部零件目录",
+    "browser.back": "返回",
+    "browser.choose_hint": "请先在零件浏览器选择零件。",
+    "browser.datum_preset": "已有安装参考系，实际配合待复核。",
+    "browser.datum_unset": "安装基准未标定，仅支持参考定位。",
+    "browser.instructions": "单击查看预览；双击或点击“使用此零件”，再进入放置面板。",
+    "browser.matched_scope": "仅显示所选安装位置适用的零件",
+    "browser.open": "浏览零件库…",
+    "browser.reset": "清除筛选",
+    "browser.title": "零件浏览器",
+    "browser.use": "使用此零件"
+  },
+  "ja": {
+    "browser.all_scope": "全パーツカタログ",
+    "browser.back": "戻る",
+    "browser.choose_hint": "先にブラウザーで部品を選択してください。",
+    "browser.datum_preset": "取付基準は設定済みです。組立の適合確認が必要です。",
+    "browser.datum_unset": "取付基準は未校正です。参考位置のみです。",
+    "browser.instructions": "クリックでプレビュー。ダブルクリックまたは部品使用で配置へ進みます。",
+    "browser.matched_scope": "選択した取付位置に対応する部品",
+    "browser.open": "部品を参照…",
+    "browser.reset": "絞り込みを解除",
+    "browser.title": "パーツブラウザー",
+    "browser.use": "この部品を使用"
+  },
+  "de": {
+    "browser.all_scope": "Gesamter Teilekatalog",
+    "browser.back": "Zurück",
+    "browser.choose_hint": "Zuerst ein Teil im Browser wählen.",
+    "browser.datum_preset": "Montagebezug voreingestellt; Passung noch prüfen.",
+    "browser.datum_unset": "Montagebezug nicht kalibriert; nur Referenzposition.",
+    "browser.instructions": "Klicken zeigt die Vorschau. Doppelklick oder Teil verwenden öffnet die Platzierung.",
+    "browser.matched_scope": "Passende Teile für die gewählte Montageschnittstelle",
+    "browser.open": "Teile durchsuchen…",
+    "browser.reset": "Filter löschen",
+    "browser.title": "Teilebrowser",
+    "browser.use": "Dieses Teil verwenden"
+  },
+  "ko": {
+    "browser.all_scope": "전체 부품 카탈로그",
+    "browser.back": "뒤로",
+    "browser.choose_hint": "먼저 브라우저에서 부품을 선택하세요.",
+    "browser.datum_preset": "장착 기준이 설정되었습니다. 실제 조립 적합성을 확인하세요.",
+    "browser.datum_unset": "장착 기준이 보정되지 않았습니다. 참고 위치만 사용합니다.",
+    "browser.instructions": "클릭하면 미리 봅니다. 두 번 클릭하거나 부품 사용을 눌러 배치로 진행하세요.",
+    "browser.matched_scope": "선택한 장착 위치에 맞는 부품",
+    "browser.open": "부품 찾아보기…",
+    "browser.reset": "필터 지우기",
+    "browser.title": "부품 브라우저",
+    "browser.use": "이 부품 사용"
+  }
+}

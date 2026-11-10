@@ -1070,6 +1070,12 @@ impl<'a> Window<'a> {
         self.fields().actions("", "", None).show(ctx, true, body).0
     }
 
+    /// A wide picker that blocks input to its underlying placement form.
+    pub(crate) fn show_modal_body(self, ctx: &egui::Context, body: impl FnOnce(&mut Ui)) -> bool {
+        let window = self.fields().actions("", "", None);
+        window.surface(ctx, true, |ui| window.content(ui, true, body, |_| {})).0
+    }
+
     /// Draw shared header, content and optional footer, retaining the caller's IDs.
     pub(crate) fn show(self, ctx: &egui::Context, valid: bool, body: impl FnOnce(&mut Ui)) -> (bool, super::Action) {
         self.surface(ctx, false, |ui| self.content(ui, valid, body, |_| {}))
