@@ -11,6 +11,7 @@ use crate::{SolveApp, dialogs::Kind, i18n, selection::SelInput};
 #[derive(Clone, Debug)]
 pub struct StockConnector {
     mount: Option<EndMount>,
+    edit: Option<EditMount>,
     models: Vec<Connector>,
     selected: usize,
     filter: Filter,
@@ -37,6 +38,7 @@ pub fn start(_: &SolveApp, id: &str) -> Option<(Kind, Vec<SelInput>)> {
     Some((
         Kind::AluminiumConnector(StockConnector {
             mount: None,
+            edit: None,
             models: stock_connectors::catalogue().ok()?,
             selected: 0,
             filter: Filter::default(),
@@ -146,16 +148,18 @@ fn filtered(state: &StockConnector) -> Vec<usize> {
 
 pub fn rows(ui: &mut egui::Ui, state: &mut StockConnector) -> bool {
     let mut enter = false;
-    let open = crate::ui_kit::button(ui, i18n::tr("browser.open"), crate::ui_kit::Button::Normal);
-    crate::scenario::publish_handle("connector:browser", open.rect.center());
-    if open.clicked() {
-        browser::open(state);
+    if state.edit.is_none() {
+        let open = crate::ui_kit::button(ui, i18n::tr("browser.open"), crate::ui_kit::Button::Normal);
+        crate::scenario::publish_handle("connector:browser", open.rect.center());
+        if open.clicked() {
+            browser::open(state);
+        }
+        if state.browser.open {
+            browser::show(ui.ctx(), state);
+            return false;
+        }
+        filter_controls(ui, state, true);
     }
-    if state.browser.open {
-        browser::show(ui.ctx(), state);
-        return false;
-    }
-    filter_controls(ui, state, true);
     let filtered = filtered(state);
     state.visible = !filtered.is_empty();
     let count = ui.label(i18n::format("catalog.count", &[("count", &filtered.len().to_string()), ("total", &state.models.len().to_string())]));
@@ -164,26 +168,32 @@ pub fn rows(ui: &mut egui::Ui, state: &mut StockConnector) -> bool {
         ui.label(i18n::tr("catalog.no_matches"));
         return false;
     }
-    let mut selected = filtered.iter().position(|i| *i == state.selected).unwrap_or(0);
-    let names: Vec<_> = filtered
-        .iter()
-        .filter_map(|i| state.models.get(*i))
-        .map(|m| {
-            format!(
-                "{} · {}",
-                if m.compatible_series.is_empty() {
-                    i18n::tr("catalog.unspecified").into()
-                } else {
-                    m.compatible_series.iter().map(u32::to_string).collect::<Vec<_>>().join("/")
-                },
-                m.part_number
-            )
-        })
-        .collect();
-    let names: Vec<_> = names.iter().map(String::as_str).collect();
-    choice_row(ui, i18n::tr("connector.model"), "aluminium_connector_model", &mut selected, &names);
-    if let Some(index) = filtered.get(selected) {
-        state.selected = *index;
+    if state.edit.is_some() {
+        if let Some(model) = state.models.get(state.selected) {
+            ui.strong(&model.part_number);
+        }
+    } else {
+        let mut selected = filtered.iter().position(|i| *i == state.selected).unwrap_or(0);
+        let names: Vec<_> = filtered
+            .iter()
+            .filter_map(|i| state.models.get(*i))
+            .map(|m| {
+                format!(
+                    "{} · {}",
+                    if m.compatible_series.is_empty() {
+                        i18n::tr("catalog.unspecified").into()
+                    } else {
+                        m.compatible_series.iter().map(u32::to_string).collect::<Vec<_>>().join("/")
+                    },
+                    m.part_number
+                )
+            })
+            .collect();
+        let names: Vec<_> = names.iter().map(String::as_str).collect();
+        choice_row(ui, i18n::tr("connector.model"), "aluminium_connector_model", &mut selected, &names);
+        if let Some(index) = filtered.get(selected) {
+            state.selected = *index;
+        }
     }
     if let Some(model) = state.models.get(state.selected) {
         ui.label(&model.label);
@@ -228,13 +238,15 @@ pub fn rows(ui: &mut egui::Ui, state: &mut StockConnector) -> bool {
         enter |= expr_row(ui, i18n::tr("aluminium.connector_offset"), &mut mount.gap);
         ui.add(egui::Label::new(i18n::tr("interface.placement_note")).wrap());
     }
-    ui.label(i18n::tr("connector.position"));
-    for (label, value) in ["X", "Y", "Z"].into_iter().zip(&mut state.origin) {
-        enter |= expr_row(ui, label, value);
-    }
-    ui.label(i18n::tr("connector.rotation"));
-    for (label, value) in ["X", "Y", "Z"].into_iter().zip(&mut state.rotation) {
-        enter |= expr_row(ui, label, value);
+    if state.edit.is_none() {
+        ui.label(i18n::tr("connector.position"));
+        for (label, value) in ["X", "Y", "Z"].into_iter().zip(&mut state.origin) {
+            enter |= expr_row(ui, label, value);
+        }
+        ui.label(i18n::tr("connector.rotation"));
+        for (label, value) in ["X", "Y", "Z"].into_iter().zip(&mut state.rotation) {
+            enter |= expr_row(ui, label, value);
+        }
     }
     ui.label(egui::RichText::new(i18n::tr("connector.fixed_note")).small().color(crate::theme::Tokens::get().form_dim));
     enter
@@ -263,6 +275,23 @@ pub fn commands(app: &SolveApp, state: &StockConnector, extra: &Map<String, Valu
             });
         }
     }
+    if let Some(edit) = &state.edit {
+        let imported = stock_connectors::import_params(&app.session, &params).map_err(|error| error.to_string())?;
+        let mut desired = solidcraft_engine::doc::IDENTITY;
+        for col in 0..4 {
+            for row in 0..4 {
+                desired[col][row] = imported["matrix"][row][col].as_f64().ok_or("connector placement matrix is invalid")?;
+            }
+        }
+        let inverse = solidcraft_engine::doc::mat_inverse(&edit.current).ok_or("current connector placement is invalid")?;
+        let delta = solidcraft_engine::doc::mat_mul(&desired, &inverse);
+        let rows = (0..4).map(|row| (0..4).map(|col| delta[col][row]).collect::<Vec<_>>()).collect::<Vec<_>>();
+        let occurrence = edit.path.last().copied().ok_or("connector occurrence is unavailable")?;
+        return Ok(vec![(
+            "occurrence.move".into(),
+            json!({"occurrence":occurrence,"path":edit.path,"space":"world","matrix":rows,"move_grounded":true}),
+        )]);
+    }
     if let Some(name) = extra.get("name") {
         params["name"] = name.clone();
     }
@@ -270,15 +299,54 @@ pub fn commands(app: &SolveApp, state: &StockConnector, extra: &Map<String, Valu
     Ok(vec![("file.insert_step".into(), params)])
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, serde::Deserialize)]
 struct EndMount {
     body: String,
+    #[serde(rename = "port")]
     end: solidcraft_engine::doc::aluminium::Port,
     side: usize,
     gap: String,
     interface: String,
     position: f64,
+    #[serde(default = "default_connector_arm", deserialize_with = "deserialize_connector_arm")]
     arm: usize,
+}
+
+fn default_connector_arm() -> usize {
+    2
+}
+
+fn deserialize_connector_arm<'de, D>(deserializer: D) -> Result<usize, D::Error>
+where
+    D: serde::Deserializer<'de>,
+{
+    let arm = <String as serde::Deserialize>::deserialize(deserializer)?;
+    match arm.as_str() {
+        "x_positive" => Ok(0),
+        "y_positive" => Ok(1),
+        "z_positive" => Ok(2),
+        _ => Err(serde::de::Error::custom("unknown connector arm")),
+    }
+}
+
+#[derive(Clone, Debug)]
+struct EditMount {
+    path: Vec<u64>,
+    current: solidcraft_engine::doc::Mat,
+}
+
+pub(crate) fn edit_selected(app: &mut SolveApp, body: &str) {
+    let Ok(instance) = solidcraft_engine::connector_ports::instance(&app.session, body) else { return };
+    let Some(mount) = instance.mount.as_ref() else { return };
+    let Ok(mount) = serde_json::from_value::<EndMount>(mount.clone()) else { return };
+    app.start("aluminium.connector");
+    let Some(Kind::AluminiumConnector(state)) = app.dialog.as_mut().map(|dialog| &mut dialog.kind) else { return };
+    let Some(index) = state.models.iter().position(|model| model.id == instance.model) else { return };
+    state.selected = index;
+    state.mount = Some(mount);
+    state.edit = Some(EditMount { path: instance.path, current: instance.root_matrix });
+    state.browser.open = false;
+    state.visible = true;
 }
 
 pub(crate) fn at_interface(app: &mut SolveApp, interface: &crate::aluminium_handles::Interface) {

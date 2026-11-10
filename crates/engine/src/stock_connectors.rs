@@ -220,6 +220,7 @@ pub fn import_params(session: &Session, params: &Value) -> Result<Value> {
     let mut output = json!({"path":path,"name":params.get("name").and_then(Value::as_str).unwrap_or(&model.label),
         "matrix":rows,"stock_connector":model.id});
     if let Some(mount) = params.get("mount") {
+        output["stock_mount"] = mount.clone();
         let body = mount.get("body").and_then(Value::as_str).ok_or_else(|| bad(cmd, "select a stock member for the connector"))?;
         let port: solidcraft_doc::aluminium::Port =
             serde_json::from_value(mount.get("port").or_else(|| mount.get("end")).cloned().unwrap_or(Value::Null))
@@ -328,6 +329,10 @@ pub fn annotate(session: &mut Session, output: &mut Value, id: &str) -> Result<(
         component.properties.insert("profile_type".into(), model.profile_type.clone());
         component.properties.insert("profile_series".into(), model.compatible_series.iter().map(u32::to_string).collect::<Vec<_>>().join("/"));
         component.properties.insert("slot".into(), model.compatible_slots.iter().map(u32::to_string).collect::<Vec<_>>().join("/"));
+        if let Some(mount) = output.get("stock_mount") {
+            let serialized = serde_json::to_string(mount).map_err(|error| bad("aluminium.connector", error.to_string()))?;
+            component.properties.insert("stock_mount".into(), serialized);
+        }
     }
     output["part_number"] = json!(model.part_number);
     output["supplier"] = json!(model.supplier);

@@ -1,8 +1,8 @@
 //! Named CAD installation ports. Missing neighbours leave ports open; they never block insertion.
-use crate::{params::bad, Result, Session};
+use crate::{Result, Session, params::bad};
 use serde::{Deserialize, Serialize};
-use serde_json::{json, Value};
-use solidcraft_doc::{aluminium::ConnectorDatum, FeatureKind};
+use serde_json::{Value, json};
+use solidcraft_doc::{FeatureKind, aluminium::ConnectorDatum};
 use solidcraft_geom::Vec3;
 
 #[derive(Clone, Debug, Deserialize, Serialize, schemars::JsonSchema)]
@@ -86,9 +86,11 @@ pub struct Instance {
     pub body: String,
     pub source: String,
     pub path: Vec<u64>,
+    pub occurrence: u64,
     pub root_matrix: solidcraft_doc::Mat,
     pub body_matrix: solidcraft_doc::Mat,
     pub cad_sha256: String,
+    pub mount: Option<Value>,
 }
 
 pub fn instance(session: &Session, name: &str) -> Result<Instance> {
@@ -106,12 +108,25 @@ pub fn instance(session: &Session, name: &str) -> Result<Instance> {
         .filter(|(_, p, _)| path.starts_with(p))
         .filter_map(|(id, p, m)| {
             let component = session.doc.components.iter().find(|c| c.id == id)?;
-            Some((p.len(), component.properties.get("stock_connector")?.clone(), m))
+            let model = component.properties.get("stock_connector")?.clone();
+            let mount = component.properties.get("stock_mount").and_then(|value| serde_json::from_str(value).ok());
+            Some((p.len(), model, m, p, id, mount))
         })
         .max_by_key(|(depth, ..)| *depth)
         .ok_or_else(|| bad("aluminium.connector.ports", "select a library connector"))?;
     let model = crate::stock_connectors::model(&candidate.1)?;
-    Ok(Instance { model: model.id, body: name.into(), source, path, root_matrix: candidate.2, body_matrix, cad_sha256: model.step_sha256 })
+    let occurrence = candidate.3.last().copied().ok_or_else(|| bad("aluminium.connector.ports", "connector placement is unavailable"))?;
+    Ok(Instance {
+        model: model.id,
+        body: name.into(),
+        source,
+        path: candidate.3,
+        occurrence,
+        root_matrix: candidate.2,
+        body_matrix,
+        cad_sha256: model.step_sha256,
+        mount: candidate.5,
+    })
 }
 
 fn vector(v: [f64; 3]) -> Vec3 {

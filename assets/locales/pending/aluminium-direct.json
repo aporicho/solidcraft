@@ -15,7 +15,8 @@
     "aluminium.detach": "Detach from parent",
     "aluminium.selection_help": "Select a whole member, then click an outer face, slot, end face or centre bore to choose its installation action.",
     "aluminium.edit_profile": "Edit profile",
-    "aluminium.connector_arm": "Arm inserted into member"
+    "aluminium.connector_arm": "Arm inserted into member",
+    "aluminium.edit_connector_mount": "Edit connector orientation"
   },
   "zh": {
     "aluminium.attached_to": "母型材：{body}",
@@ -33,7 +34,8 @@
     "aluminium.detach": "解除接续关联",
     "aluminium.selection_help": "先选中整根型材，再点击外侧面、槽、端面或中心孔，选择该位置的安装操作。",
     "aluminium.edit_profile": "编辑型材",
-    "aluminium.connector_arm": "插入母材的连接臂"
+    "aluminium.connector_arm": "插入母材的连接臂",
+    "aluminium.edit_connector_mount": "编辑连接件方向"
   },
   "ja": {
     "aluminium.attached_to": "親形材：{body}",
@@ -51,7 +53,8 @@
     "aluminium.detach": "親から切り離す",
     "aluminium.selection_help": "形材全体を選択し、外側面・溝・端面・中心穴をクリックして取付操作を選びます。",
     "aluminium.edit_profile": "形材を編集",
-    "aluminium.connector_arm": "親形材に差し込む腕"
+    "aluminium.connector_arm": "親形材に差し込む腕",
+    "aluminium.edit_connector_mount": "接続部品の向きを編集"
   },
   "de": {
     "aluminium.attached_to": "Ausgehend von: {body}",
@@ -69,7 +72,8 @@
     "aluminium.detach": "Verknüpfung lösen",
     "aluminium.selection_help": "Ganzes Profil auswählen, dann Außenfläche, Nut, Stirnfläche oder Mittelbohrung für eine Montageaktion anklicken.",
     "aluminium.edit_profile": "Profil bearbeiten",
-    "aluminium.connector_arm": "In das Profil eingesetzter Arm"
+    "aluminium.connector_arm": "In das Profil eingesetzter Arm",
+    "aluminium.edit_connector_mount": "Ausrichtung des Verbinders bearbeiten"
   },
   "ko": {
     "aluminium.attached_to": "기준 프로파일: {body}",
@@ -87,6 +91,7 @@
     "aluminium.detach": "기준 연결 해제",
     "aluminium.selection_help": "프로파일 전체를 선택한 후 바깥 면, 슬롯, 끝 면 또는 중심 구멍을 눌러 설치 작업을 선택하세요。",
     "aluminium.edit_profile": "프로파일 편집",
-    "aluminium.connector_arm": "기준 프로파일에 삽입할 암"
+    "aluminium.connector_arm": "기준 프로파일에 삽입할 암",
+    "aluminium.edit_connector_mount": "연결 부품 방향 편집"
   }
 }

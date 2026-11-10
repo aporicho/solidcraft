@@ -28,9 +28,24 @@ fn point(port: &WorldPort, proj: &Proj) -> Option<Pos2> {
     proj.to_screen(v).filter(|p| proj.rect.shrink(14.0).contains(*p))
 }
 
+fn edit_rect(app: &SolveApp, body: &str, ports: &[WorldPort], proj: &Proj) -> Option<Rect> {
+    let instance = connector_ports::instance(&app.session, body).ok()?;
+    instance.mount.as_ref()?;
+    let anchor = ports.iter().find_map(|port| point(port, proj))?;
+    let size = egui::vec2(142.0, 25.0);
+    let x = if anchor.x + 24.0 + size.x < proj.rect.right() { anchor.x + 24.0 } else { anchor.x - 24.0 - size.x };
+    let min = Pos2::new(
+        x.clamp(proj.rect.left(), (proj.rect.right() - size.x).max(proj.rect.left())),
+        (anchor.y + 22.0).clamp(proj.rect.top(), proj.rect.bottom() - size.y),
+    );
+    Some(Rect::from_min_size(min, size))
+}
+
 pub(super) fn owns_pointer(app: &SolveApp, proj: &Proj, p: Pos2) -> bool {
-    selected(app)
-        .is_some_and(|(_, ports)| ports.iter().any(|port| point(port, proj).is_some_and(|q| p.distance(q) <= 14.0 && !crate::shell::covered(app, p))))
+    selected(app).is_some_and(|(body, ports)| {
+        ports.iter().any(|port| point(port, proj).is_some_and(|q| p.distance(q) <= 14.0 && !crate::shell::covered(app, p)))
+            || edit_rect(app, &body, &ports, proj).is_some_and(|rect| rect.contains(p) && !crate::shell::covered(app, p))
+    })
 }
 
 pub(super) fn show(app: &mut SolveApp, ui: &mut egui::Ui, proj: &Proj) {
@@ -55,6 +70,13 @@ pub(super) fn show(app: &mut SolveApp, ui: &mut egui::Ui, proj: &Proj) {
         if response.on_hover_text(hint).clicked() && free {
             crate::dialogs_aluminium::attach_connector(app, &body, id);
             break;
+        }
+    }
+    if let Some(rect) = edit_rect(app, &body, &ports, proj) {
+        let response = ui.put(rect, egui::Button::new(crate::i18n::tr("aluminium.edit_connector_mount")));
+        crate::scenario::publish_handle("connector:edit_mount", response.rect.center());
+        if response.clicked() {
+            crate::dialogs_connectors::edit_selected(app, &body);
         }
     }
 }

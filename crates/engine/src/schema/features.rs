@@ -520,6 +520,7 @@ pub struct AluminiumConnectorMountParams {
     pub interface: Option<String>,
     pub position: Option<f64>,
     pub side: Option<u32>,
+    pub arm: Option<String>,
     pub gap: Option<LengthExpr>,
 }
 
