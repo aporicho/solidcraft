@@ -8282,8 +8282,8 @@
     "filename": "motedis-cad-b683705ccb001e94aabbf481.step",
     "step_sha256": "b683705ccb001e94aabbf48193eb363a52db2a384579568fd922d94a5cdd4dc0",
     "category": "cube",
-    "interface": "slot",
-    "placement": "manual",
+    "interface": "end",
+    "placement": "interface",
     "anchor": [
       7.6499999999999995,
       10.599999999999996,
@@ -8321,16 +8321,16 @@
     "geometry": "solid",
     "installation": {
       "revision": 1,
-      "state": "manual_only",
+      "state": "datum_checked",
       "role": "corner_node",
       "target": "profile",
       "interfaces": [
-        "slot"
+        "end"
       ],
-      "reason": "three_axis_slot_tongues",
+      "reason": "verified_three_axis_end_mount",
       "requirements": [
-        "three_slots",
-        "set_screws"
+        "select_insertion_arm",
+        "select_roll"
       ],
       "source_sha256": "cdefe5ac69d62f64b1cd96d86603d2825796aa18fe3965eedb7e5ea84dc52775",
       "cad_sha256": "b683705ccb001e94aabbf48193eb363a52db2a384579568fd922d94a5cdd4dc0",

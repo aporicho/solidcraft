@@ -6357,12 +6357,14 @@ fn points_2d(app: &SolveApp, painter: &egui::Painter, proj: &Proj) {
     }
     for x in app.highlighted() {
         if let Sel::Vertex { point, .. } = x
+            && !matches!(x, Sel::Vertex { body, .. } if crate::aluminium_handles::whole_selection(app, &body).is_some())
             && let Some(p) = proj.to_screen(point)
         {
             painter.circle(p, 4.0, t.sel_vertex, Stroke::new(1.5, t.sel_edge));
         }
     }
-    if let Some(Hit::Vertex { point, .. }) = &app.viewport.hover
+    if let Some(hit @ Hit::Vertex { point, .. }) = &app.viewport.hover
+        && crate::aluminium_handles::whole_hit(app, hit).is_none()
         && let Some(p) = proj.to_screen(*point)
     {
         painter.circle(p, 4.5, t.hover_edge_halo, Stroke::new(1.5, t.hover_edge));

@@ -245,8 +245,8 @@ pub fn import_params(session: &Session, params: &Value) -> Result<Value> {
             .ok_or_else(|| bad(cmd, "interface position must be between 0 and 1"))?;
         let (mut at, normal, _) = frame.port(port, position, gap);
         if model.installation.seat == "under_slot_lip" {
-            let lip = solidcraft_doc::aluminium::slot_lip_depth(&frame.model)
-                .map_err(|_| bad(cmd, "the profile's slot lip dimensions are unavailable"))?;
+            let lip =
+                solidcraft_doc::aluminium::slot_lip_depth(&frame.model).map_err(|_| bad(cmd, "the profile's slot lip dimensions are unavailable"))?;
             at = at - normal * lip;
         }
         let radial = match side {
@@ -255,7 +255,13 @@ pub fn import_params(session: &Session, params: &Value) -> Result<Value> {
             2 => -frame.x,
             _ => -frame.y,
         };
-        if let Some(base) = crate::connector_ports::definitions(&model.id).first().filter(|_| port.is_end()) {
+        let arm = mount.get("arm").and_then(Value::as_str);
+        let ports = crate::connector_ports::definitions(&model.id);
+        if arm.is_some_and(|arm| !ports.iter().any(|definition| definition.id == arm)) {
+            return Err(bad(cmd, "choose a valid connector mounting arm"));
+        }
+        let base = arm.and_then(|arm| ports.iter().find(|definition| definition.id == arm)).or_else(|| ports.first());
+        if let Some(base) = base.filter(|_| port.is_end()) {
             use solidcraft_geom::Vec3;
             let vector = |p: [f64; 3]| Vec3::new(p[0], p[1], p[2]);
             let local_n = vector(base.normal);

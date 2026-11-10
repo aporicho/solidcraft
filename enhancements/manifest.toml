@@ -1,8 +1,8 @@
 name = "solidcraft-enhancements"
-version = "0.12.0"
+version = "0.13.0"
 fork = "https://github.com/aporicho/solidcraft"
 branch = "enhancements"
 upstream = "https://github.com/tangency-labs/solidcraft"
 base_tag = "v0.30.1"
 base_commit = "8e2b0cd60d14b4152b12b8f1fdb2bcfdcd8c52f4"
-features = ["fixed-sketch-grid", "configurable-snap-range", "circle-drag-grid", "on-curve-grid", "select-loop", "select-outer-edges", "feature-node-view", "aluminium-workbench", "stock-aluminium-profile", "motedis-2020-b6-section", "motedis-3030-b8-section", "fixed-manufacturer-connectors", "connector-model-previews", "aluminium-skeleton", "associative-stock-members", "direct-member-interfaces", "end-connector-placement", "aluminium-part-selection", "picked-installation-interfaces", "expanded-connector-catalogue", "solid-part-hover", "full-motedis-catalogue", "catalogue-search-and-filters", "visual-parts-browser", "locked-t-nut-orientation", "interactive-connector-ports", "independent-origin-visibility", "audited-connector-installation", "fit-proof-required-for-auto-mount", "motedis-cc3d20-three-axis-ports"]
+features = ["fixed-sketch-grid", "configurable-snap-range", "circle-drag-grid", "on-curve-grid", "select-loop", "select-outer-edges", "feature-node-view", "aluminium-workbench", "stock-aluminium-profile", "motedis-2020-b6-section", "motedis-3030-b8-section", "fixed-manufacturer-connectors", "connector-model-previews", "aluminium-skeleton", "associative-stock-members", "direct-member-interfaces", "end-connector-placement", "aluminium-part-selection", "picked-installation-interfaces", "expanded-connector-catalogue", "solid-part-hover", "full-motedis-catalogue", "catalogue-search-and-filters", "visual-parts-browser", "locked-t-nut-orientation", "interactive-connector-ports", "independent-origin-visibility", "audited-connector-installation", "fit-proof-required-for-auto-mount", "motedis-cc3d20-three-axis-ports", "aluminium-semantic-hover", "editable-stock-profile", "selectable-cc3d-mount-arm"]

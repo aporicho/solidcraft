@@ -221,6 +221,9 @@ pub fn rows(ui: &mut egui::Ui, state: &mut StockConnector) -> bool {
         ui.label(i18n::format("aluminium.attached_to", &[("body", &mount.body)]));
         if mount.end.is_end() {
             choice_row(ui, i18n::tr("aluminium.connector_side"), "aluminium_connector_side", &mut mount.side, &["1", "2", "3", "4"]);
+            if state.models.get(state.selected).is_some_and(|model| model.id == "motedis-cc3d20x20m4x5-6c2938c7") {
+                choice_row(ui, i18n::tr("aluminium.connector_arm"), "aluminium_connector_arm", &mut mount.arm, &["X", "Y", "Z"]);
+            }
         }
         enter |= expr_row(ui, i18n::tr("aluminium.connector_offset"), &mut mount.gap);
         ui.add(egui::Label::new(i18n::tr("interface.placement_note")).wrap());
@@ -252,6 +255,13 @@ pub fn commands(app: &SolveApp, state: &StockConnector, extra: &Map<String, Valu
     if let Some(mount) = &state.mount {
         params["mount"] =
             json!({"body":mount.body,"port":mount.end,"side":mount.side,"gap":mount.gap,"interface":mount.interface,"position":mount.position});
+        if model.id == "motedis-cc3d20x20m4x5-6c2938c7" {
+            params["mount"]["arm"] = json!(match mount.arm {
+                0 => "x_positive",
+                1 => "y_positive",
+                _ => "z_positive",
+            });
+        }
     }
     if let Some(name) = extra.get("name") {
         params["name"] = name.clone();
@@ -268,6 +278,7 @@ struct EndMount {
     gap: String,
     interface: String,
     position: f64,
+    arm: usize,
 }
 
 pub(crate) fn at_interface(app: &mut SolveApp, interface: &crate::aluminium_handles::Interface) {
@@ -295,6 +306,7 @@ pub(crate) fn at_interface(app: &mut SolveApp, interface: &crate::aluminium_hand
             gap: "0 mm".into(),
             interface: interface.kind.into(),
             position: interface.position,
+            arm: 2,
         });
     }
 }

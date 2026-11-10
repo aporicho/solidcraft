@@ -38,7 +38,7 @@ fn action_rect(interface: &Interface, info: &aluminium_ports::MemberInfo, proj: 
     if !proj.rect.shrink(20.0).contains(anchor) {
         return None;
     }
-    let size = vec2(158.0, 80.0);
+    let size = vec2(158.0, 106.0);
     // Keep the action card outside the selected member, so it cannot intercept the
     // next click on another strip or slot of that same member.
     let mut left = anchor.x;
@@ -63,6 +63,42 @@ fn action_rect(interface: &Interface, info: &aluminium_ports::MemberInfo, proj: 
     Some(Rect::from_min_size(min, size))
 }
 
+fn paint_interface(ui: &egui::Ui, proj: &Proj, interface: &Interface, info: &aluminium_ports::MemberInfo, color: egui::Color32) {
+    let (at, _, _) = info.frame.port(interface.port, interface.position, 0.0);
+    if !interface.port.is_end() {
+        let across = if matches!(interface.port, Port::XPositive | Port::XNegative) { info.frame.y } else { info.frame.x };
+        let half = info.frame.size / 2.0;
+        let opening =
+            solidcraft_engine::doc::aluminium::MODELS.iter().find(|m| m.0 == info.frame.model).map_or(info.frame.size * 0.15, |m| m.2 / 2.0);
+        let (lo, hi) = if interface.kind == "slot" {
+            (-opening, opening)
+        } else if interface.strip < 0.0 {
+            (-half, -opening)
+        } else {
+            (opening, half)
+        };
+        let base = at - info.frame.axis * (info.frame.length * interface.position);
+        let corners = [
+            base + across * lo,
+            base + across * hi,
+            base + across * hi + info.frame.axis * info.frame.length,
+            base + across * lo + info.frame.axis * info.frame.length,
+        ];
+        let points = corners.iter().filter_map(|point| proj.to_screen(*point)).collect::<Vec<_>>();
+        if points.len() == 4 {
+            let fill = egui::Color32::from_rgba_unmultiplied(color.r(), color.g(), color.b(), 28);
+            ui.painter().add(egui::Shape::convex_polygon(points.clone(), fill, Stroke::new(2.0, color)));
+        }
+    } else if let Some(p) = proj.to_screen(at) {
+        ui.painter().circle_filled(
+            p,
+            if interface.kind == "bore" { 7.0 } else { 12.0 },
+            egui::Color32::from_rgba_unmultiplied(color.r(), color.g(), color.b(), 35),
+        );
+        ui.painter().circle_stroke(p, if interface.kind == "bore" { 7.0 } else { 12.0 }, Stroke::new(2.0, color));
+    }
+}
+
 pub(crate) fn owns_pointer(app: &SolveApp, proj: &Proj, point: Pos2) -> bool {
     if connectors::owns_pointer(app, proj, point) {
         return true;
@@ -79,38 +115,16 @@ pub(crate) fn owns_pointer(app: &SolveApp, proj: &Proj, point: Pos2) -> bool {
 }
 
 pub(crate) fn show(app: &mut SolveApp, ui: &mut egui::Ui, proj: &Proj) {
+    if let Some(cursor) = ui.input(|input| input.pointer.hover_pos())
+        && let Some(interface) = interface_under_pointer(app, proj, cursor)
+        && let Ok(info) = aluminium_ports::member(&app.session, &interface.body)
+    {
+        paint_interface(ui, proj, &interface, &info, Tokens::get().hover_profile_edge);
+    }
     if let Some((interface, info)) = selected(app) {
         let tk = Tokens::get();
-        let (at, _, _) = info.frame.port(interface.port, interface.position, 0.0);
         let color = tk.accent;
-        // Highlight one semantic interface; the eight outer strips remain independent of B-rep IDs.
-        if !interface.port.is_end() {
-            let across = if matches!(interface.port, Port::XPositive | Port::XNegative) { info.frame.y } else { info.frame.x };
-            let half = info.frame.size / 2.0;
-            let opening =
-                solidcraft_engine::doc::aluminium::MODELS.iter().find(|m| m.0 == info.frame.model).map_or(info.frame.size * 0.15, |m| m.2 / 2.0);
-            let (lo, hi) = if interface.kind == "slot" {
-                (-opening, opening)
-            } else if interface.strip < 0.0 {
-                (-half, -opening)
-            } else {
-                (opening, half)
-            };
-            let base = at - info.frame.axis * (info.frame.length * interface.position);
-            let corners = [
-                base + across * lo,
-                base + across * hi,
-                base + across * hi + info.frame.axis * info.frame.length,
-                base + across * lo + info.frame.axis * info.frame.length,
-            ];
-            for i in 0..4 {
-                if let (Some(a), Some(b)) = (proj.to_screen(corners[i]), proj.to_screen(corners[(i + 1) % 4])) {
-                    ui.painter().line_segment([a, b], Stroke::new(2.0, color));
-                }
-            }
-        } else if let Some(p) = proj.to_screen(at) {
-            ui.painter().circle_stroke(p, if interface.kind == "bore" { 7.0 } else { 12.0 }, Stroke::new(2.0, color));
-        }
+        paint_interface(ui, proj, &interface, &info, tk.accent);
         if let Some(rect) = action_rect(&interface, &info, proj) {
             let label_rect = Rect::from_min_size(rect.min, vec2(rect.width(), 22.0));
             if let Some(anchor) = proj.to_screen(interface.point) {
@@ -126,8 +140,16 @@ pub(crate) fn show(app: &mut SolveApp, ui: &mut egui::Ui, proj: &Proj) {
                 FontId::proportional(tk.font_caption),
                 tk.text,
             );
-            let extend = Rect::from_min_size(rect.min + vec2(3.0, 24.0), vec2(rect.width() - 6.0, 24.0));
-            let parts = Rect::from_min_size(rect.min + vec2(3.0, 51.0), vec2(rect.width() - 6.0, 24.0));
+            let edit = Rect::from_min_size(rect.min + vec2(3.0, 24.0), vec2(rect.width() - 6.0, 24.0));
+            let extend = Rect::from_min_size(rect.min + vec2(3.0, 51.0), vec2(rect.width() - 6.0, 24.0));
+            let parts = Rect::from_min_size(rect.min + vec2(3.0, 78.0), vec2(rect.width() - 6.0, 24.0));
+            let edit_response = ui.put(edit, egui::Button::new(crate::i18n::tr("aluminium.edit_profile")));
+            crate::scenario::publish_handle("aluminium:edit_profile", edit_response.rect.center());
+            if edit_response.clicked()
+                && let Some(body) = app.session.world_state().body(&interface.body)
+            {
+                app.edit_feature(body.feature);
+            }
             if matches!(interface.kind, "surface" | "end") {
                 let response = ui.put(extend, egui::Button::new(crate::i18n::tr("interface.add_member")));
                 crate::scenario::publish_handle(&format!("aluminium:extend:{}", interface.port.key()), response.rect.center());
@@ -296,23 +318,23 @@ pub(crate) fn normalize_pick(app: &SolveApp, item: Sel) -> Sel {
     body.and_then(|name| whole_selection(app, name)).unwrap_or(item)
 }
 
-/// Intersect the selected member's nominal envelope so empty slots and the bore are pickable.
-pub(crate) fn pick_interface(app: &mut SolveApp, proj: &Proj, point: Pos2) -> bool {
+/// Find the selected member's semantic interface under the pointer. The nominal envelope keeps
+/// slots and bores interactive even where the B-rep has no face to hit.
+fn interface_under_pointer(app: &SolveApp, proj: &Proj, point: Pos2) -> Option<Interface> {
     if !part_selection_mode(app) || app.dialog.is_some() {
-        return false;
+        return None;
     }
     let [Sel::Body { name }] = app.session.selection.as_slice() else {
-        return false;
+        return None;
     };
-    let name = name.clone();
     if let Some(crate::viewport::Hit::Face { body, .. } | crate::viewport::Hit::Edge { body, .. } | crate::viewport::Hit::Vertex { body, .. }) =
         app.viewport.hover.as_ref()
-        && body != &name
+        && body != name
     {
-        return false;
+        return None;
     }
     let Ok(info) = aluminium_ports::member(&app.session, &name) else {
-        return false;
+        return None;
     };
     let (origin, direction) = proj.ray(point);
     let delta = origin - info.frame.origin;
@@ -324,7 +346,7 @@ pub(crate) fn pick_interface(app: &mut SolveApp, proj: &Proj, point: Pos2) -> bo
         let d = direction.dot(axis);
         if d.abs() < 1e-9 {
             if o < lo || o > hi {
-                return false;
+                return None;
             }
             continue;
         }
@@ -333,13 +355,19 @@ pub(crate) fn pick_interface(app: &mut SolveApp, proj: &Proj, point: Pos2) -> bo
         enter = enter.max(a.min(b));
         exit = exit.min(a.max(b));
         if enter > exit {
-            return false;
+            return None;
         }
     }
     if !enter.is_finite() {
-        return false;
+        return None;
     }
-    remember_position(app, &name, origin + direction * enter);
+    interface_from_point(app, name, origin + direction * enter)
+}
+
+/// Intersect the selected member's nominal envelope so empty slots and the bore are pickable.
+pub(crate) fn pick_interface(app: &mut SolveApp, proj: &Proj, point: Pos2) -> bool {
+    let Some(interface) = interface_under_pointer(app, proj, point) else { return false };
+    remember_position(app, &interface.body, interface.point);
     true
 }
 
@@ -361,9 +389,15 @@ pub(crate) fn remember_hit(app: &mut SolveApp, hit: &crate::viewport::Hit) {
 }
 
 fn remember_position(app: &mut SolveApp, name: &str, point: solidcraft_engine::geom::Vec3) {
+    if let Some(interface) = interface_from_point(app, name, point) {
+        app.viewport.aluminium_station = Some((name.into(), interface.position));
+        app.viewport.aluminium_interface = Some(interface);
+    }
+}
+
+fn interface_from_point(app: &SolveApp, name: &str, point: solidcraft_engine::geom::Vec3) -> Option<Interface> {
     if let Ok(info) = aluminium_ports::member(&app.session, name) {
         let position = ((point - info.frame.origin).dot(info.frame.axis) / info.frame.length).clamp(0.0, 1.0);
-        app.viewport.aluminium_station = Some((name.into(), position));
         let delta = point - info.frame.origin;
         let x = delta.dot(info.frame.x);
         let y = delta.dot(info.frame.y);
@@ -382,8 +416,9 @@ fn remember_position(app: &mut SolveApp, name: &str, point: solidcraft_engine::g
             };
             (port, if across.abs() < opening { "slot" } else { "surface" }, across)
         };
-        app.viewport.aluminium_interface = Some(Interface { body: name.into(), port, kind, position, point, strip });
+        return Some(Interface { body: name.into(), port, kind, position, point, strip });
     }
+    None
 }
 
 pub(crate) fn sync_selection(app: &mut SolveApp) {
