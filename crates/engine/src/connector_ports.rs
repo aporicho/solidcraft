@@ -1,8 +1,8 @@
 //! Named CAD installation ports. Missing neighbours leave ports open; they never block insertion.
-use crate::{Result, Session, params::bad};
+use crate::{params::bad, Result, Session};
 use serde::{Deserialize, Serialize};
-use serde_json::{Value, json};
-use solidcraft_doc::{FeatureKind, aluminium::ConnectorDatum};
+use serde_json::{json, Value};
+use solidcraft_doc::{aluminium::ConnectorDatum, FeatureKind};
 use solidcraft_geom::Vec3;
 
 #[derive(Clone, Debug, Deserialize, Serialize, schemars::JsonSchema)]
@@ -17,6 +17,19 @@ pub struct Port {
 
 /// Verified cube mounting planes, independent of triangulation and face numbering.
 pub fn definitions(id: &str) -> Vec<Port> {
+    // Motedis CC3D20x20M4x5 has three slot tongues on different datum planes.
+    // These frames follow the pinned STEP body (CAD hash in connector-catalog.json)
+    // and supplier drawing; they are not a symmetric 20 mm cube's outside faces.
+    if id == "motedis-cc3d20x20m4x5-6c2938c7" {
+        return [
+            ("x_positive", [10.0, 10.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, 1.0]),
+            ("y_positive", [0.0, 16.0, 0.0], [0.0, 1.0, 0.0], [1.0, 0.0, 0.0]),
+            ("z_positive", [0.0, 10.0, 10.0], [0.0, 0.0, 1.0], [1.0, 0.0, 0.0]),
+        ]
+        .into_iter()
+        .map(|(id, origin, normal, reference)| Port { id: id.into(), origin, normal, reference, size: 20.0, slot: 6 })
+        .collect();
+    }
     let (size, slot, axes): (f64, u32, &[&str]) = match id {
         "motedis-s8bcc3d30" => (30.0, 8, &["z_negative", "x_positive", "y_positive"]),
         "motedis-s8bcc2d30" => (30.0, 8, &["z_negative", "y_positive"]),

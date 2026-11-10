@@ -123,6 +123,11 @@ for index,m in enumerate(models):
  elif index in [15,16,17,18,116,117,118,119]:
   sizes={15:30,16:30,17:40,18:40,116:20,117:20,118:45,119:45};size=sizes[index];m['series']=size;m['compatible_series']=[size]
   ready(m,['end','bore'],'named_cube_ports',section=[size,size]);a['reason']='cube_planes';a['requirements']=['threading','countersunk_screws','second_member']
+ elif index==113:
+  # This molded corner node has three measured orthogonal slot tongues, not cube faces.
+  # Interactive ports are usable after free placement; automatic parent mounting stays disabled.
+  m['series']=20;m['compatible_series']=[20]
+  a.update(reason='three_axis_slot_tongues',method='named_three_axis_ports',section=[20,20])
  elif index in [19,22,23]:ready(m,['end'],'cad_cap_seating_plane',section=[m['series'],m['series']]);a['reason']='cap_plane'
  elif role=='end_cap':
   # Review every rectangular cap; none can fit a square stock just because the first dimension matches.

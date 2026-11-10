@@ -38,10 +38,10 @@
       "pivot_plate": 1,
       "slot_splice": 2
     },
-    "changed_entries": 136,
-    "physical_fit_cases": 69,
+    "changed_entries": 137,
+    "physical_fit_cases": 70,
     "physical_fit_results": {
-      "clear": 45,
+      "clear": 46,
       "unchecked": 22,
       "overlap": 2
     },
@@ -5307,7 +5307,7 @@
       "state": "manual_only",
       "role": "corner_node",
       "target": "profile",
-      "reason": "corner_node",
+      "reason": "three_axis_slot_tongues",
       "requirements": [
         "three_slots",
         "set_screws"
@@ -5316,6 +5316,14 @@
         "interface": {
           "before": "end",
           "after": "slot"
+        },
+        "three_axis_ports": {
+          "before": "unsupported",
+          "after": [
+            "x_positive",
+            "y_positive",
+            "z_positive"
+          ]
         }
       },
       "installation": {
@@ -5326,7 +5334,7 @@
         "interfaces": [
           "slot"
         ],
-        "reason": "corner_node",
+        "reason": "three_axis_slot_tongues",
         "requirements": [
           "three_slots",
           "set_screws"
@@ -5334,8 +5342,35 @@
         "source_sha256": "cdefe5ac69d62f64b1cd96d86603d2825796aa18fe3965eedb7e5ea84dc52775",
         "cad_sha256": "b683705ccb001e94aabbf48193eb363a52db2a384579568fd922d94a5cdd4dc0",
         "excluded_stock": [],
-        "fit_results": [],
-        "cleared_stock": []
+        "fit_results": [
+          {
+            "profile": "2020",
+            "state": "clear",
+            "pairs": [
+              {
+                "a": "CC3D x_positive",
+                "b": "2020 B6 profile"
+              },
+              {
+                "a": "CC3D y_positive",
+                "b": "2020 B6 profile"
+              },
+              {
+                "a": "CC3D z_positive",
+                "b": "2020 B6 profile"
+              }
+            ],
+            "unchecked": []
+          }
+        ],
+        "cleared_stock": [
+          "2020"
+        ],
+        "method": "named_three_axis_ports",
+        "section": [
+          20,
+          20
+        ]
       }
     },
     {
