@@ -23,10 +23,9 @@ pub fn definitions(id: &str) -> Vec<Port> {
     if id == "motedis-cc3d20x20m4x5-6c2938c7" {
         return [
             ("x_positive", [10.0, 10.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, 1.0]),
-            // The profile's end face seats against the arm's shoulder at y=10.
-            // y=16 is the set-screw station, 6 mm along the tongue; using that
-            // as the attachment datum leaves this arm visibly under-inserted.
-            ("y_positive", [0.0, 10.0, 0.0], [0.0, 1.0, 0.0], [1.0, 0.0, 0.0]),
+            // The actual profile stop is at y=4. The y=10 reference still leaves
+            // the tongue 6 mm proud of the stop; the screw station is at y=16.
+            ("y_positive", [0.0, 4.0, 0.0], [0.0, 1.0, 0.0], [1.0, 0.0, 0.0]),
             ("z_positive", [0.0, 10.0, 10.0], [0.0, 0.0, 1.0], [1.0, 0.0, 0.0]),
         ]
         .into_iter()
